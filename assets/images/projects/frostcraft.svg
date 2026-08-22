@@ -1,0 +1,7 @@
+<svg width="600" height="340" viewBox="0 0 600 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="340" fill="#0A1118"/>
+  <circle cx="300" cy="170" r="90" stroke="#00F0FF" stroke-width="2" stroke-dasharray="6 6"/>
+  <circle cx="300" cy="170" r="30" fill="#00F0FF" fill-opacity="0.4"/>
+  <text x="300" y="175" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="28" fill="#F0F2F8" text-anchor="middle">Frostcraft</text>
+  <text x="300" y="210" font-family="'Inter', sans-serif" font-size="14" fill="#00F0FF" text-anchor="middle">Frostpunk Sub-Zero Wasteland</text>
+</svg>

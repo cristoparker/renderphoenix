@@ -1,0 +1,217 @@
+---
+layout: default
+title: "RenderPhoenix — Independent Interactive Creative Studio"
+description: "RenderPhoenix is an independent interactive creative studio building games, 3D worlds, game assets, and digital experiences."
+---
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">WE BUILD <span class="brand-accent">WORLDS.</span></h1>
+        <p class="hero-desc">
+          Interactive games, 3D environments, real-time assets, and digital experiences. Engineered from imagination, built with precision.
+        </p>
+        <div class="hero-ctas">
+          <a href="{{ '/work/' | relative_url }}" class="btn btn-primary">
+            <span>Explore Our Work</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="{{ '/about/' | relative_url }}" class="btn btn-secondary">
+            <span>Read Our Story</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <svg class="hero-emblem" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="200" r="160" stroke="url(#hero-ring-1)" stroke-width="2" stroke-dasharray="8 8"/>
+          <circle cx="200" cy="200" r="120" stroke="url(#hero-ring-2)" stroke-width="1.5"/>
+          <path d="M200 40L240 140L340 170L255 240L285 345L200 285L115 345L145 240L60 170L160 140L200 40Z" fill="url(#hero-star)" />
+          <path d="M200 90L225 150L290 170L240 215L255 280L200 245L145 280L160 215L110 170L175 150L200 90Z" fill="#FF8C00" fill-opacity="0.8"/>
+          <defs>
+            <linearGradient id="hero-ring-1" x1="40" y1="40" x2="360" y2="360" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF4E00"/>
+              <stop offset="1" stop-color="#00F0FF"/>
+            </linearGradient>
+            <linearGradient id="hero-ring-2" x1="80" y1="80" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00F0FF"/>
+              <stop offset="1" stop-color="#FF4E00"/>
+            </linearGradient>
+            <linearGradient id="hero-star" x1="60" y1="40" x2="340" y2="345" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF4E00"/>
+              <stop offset="0.6" stop-color="#FF0055"/>
+              <stop offset="1" stop-color="#00F0FF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Studio Introduction -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Studio Identity</span>
+      <h2 class="section-title">An Independent Creative Powerhouse</h2>
+      <p class="section-desc">
+        Originating in Bangladesh, RenderPhoenix combines deep technical expertise with artistic imagination to build standalone games, 3D asset pipelines, and interactive digital worlds.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Selected Work Showcase -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Portfolio</span>
+      <h2 class="section-title">Selected Work & Achievements</h2>
+      <p class="section-desc">Highlights from our history of virtual environments, simulations, and real-time add-ons.</p>
+    </div>
+
+    <div class="cards-grid">
+      {% assign featured_projects = site.projects | where: "featured", true | sort: "year" | reverse %}
+      {% for proj in featured_projects limit:3 %}
+        {% include project-card.html project=proj %}
+      {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: var(--space-2xl);">
+      <a href="{{ '/work/' | relative_url }}" class="btn btn-secondary">View Full Work Portfolio &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- NASA Achievement Feature Banner -->
+<section class="section container">
+  <div class="nasa-banner">
+    <div class="nasa-badge-wrap">
+      <svg width="140" height="140" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="76" fill="#0D0F17" stroke="#FF9F00" stroke-width="3"/>
+        <path d="M80 20L95 55L135 60L105 88L115 128L80 108L45 128L55 88L25 60L65 55L80 20Z" fill="#FF9F00"/>
+        <text x="80" y="150" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="12" fill="#00F0FF" text-anchor="middle">SPACE APPS 2025</text>
+      </svg>
+    </div>
+    <div class="nasa-content">
+      <span class="badge cat-badge" style="margin-bottom: 0.5rem;">Major Achievement</span>
+      <h2 class="nasa-title">NASA Space Apps Challenge 2025</h2>
+      <div class="nasa-award">Regional 2nd Runner-Up</div>
+      <p class="nasa-desc" style="color: var(--color-text-secondary); margin-bottom: 1.2rem;">
+        RenderPhoenix competed in the NASA Space Apps Challenge 2025, engineering an interactive 3D Moon settlement simulator addressing real lunar physics, solar radiation protection, and life support systems.
+      </p>
+      <a href="{{ '/work/nasa-space-apps-2025/' | relative_url }}" class="btn btn-secondary">Read Project Case Study</a>
+    </div>
+  </div>
+</section>
+
+<!-- What We Build / Current Capabilities -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Capabilities</span>
+      <h2 class="section-title">What We Build</h2>
+      <p class="section-desc">Our current production focus spans real-time game engines, 3D asset modeling, technical art, and digital tools.</p>
+    </div>
+
+    <div class="services-grid">
+      {% for service in site.data.services limit:3 %}
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+          </div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-secondary);">{{ service.short_description }}</p>
+          <ul class="service-caps">
+            {% for cap in service.capabilities %}
+              <li>{{ cap }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: var(--space-2xl);">
+      <a href="{{ '/services/' | relative_url }}" class="btn btn-secondary">Explore All Services & Capabilities &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- Studio Story & Timeline -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Studio Origin</span>
+      <h2 class="section-title">Resilience & Evolution</h2>
+      <p class="section-desc">A journey marked by creative curiosity, overcoming major security challenges, and rising into a new era.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">2019</div>
+        <h3 class="timeline-title">Minehutt Begins</h3>
+        <p class="timeline-desc">Founded by Tasrif Ibn Mizan, focusing on virtual city maps and community creations.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">22 Feb 2022</div>
+        <h3 class="timeline-title">RenderPhoenix Identity</h3>
+        <p class="timeline-desc">Officially re-branded as RenderPhoenix to represent transformation and high-quality 3D assets.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">Aug 2022</div>
+        <h3 class="timeline-title">Security Incident & Resilience</h3>
+        <p class="timeline-desc">Faced a major account compromise; the team persevered and continued releases through 2024.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">2025</div>
+        <h3 class="timeline-title">NASA Space Apps Recognition</h3>
+        <p class="timeline-desc">Achieved Regional 2nd Runner-Up at NASA Space Apps Challenge 2025 with lunar habitat simulator.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">22 Aug 2026</div>
+        <h3 class="timeline-title">Official Studio Revival</h3>
+        <p class="timeline-desc">Rebuilt by Sabit Hasan, expanding into Unreal Engine, Unity, Blender, and original IP development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Editorial / Devlogs -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Editorial</span>
+      <h2 class="section-title">Latest From The Studio</h2>
+      <p class="section-desc">Articles, devlogs, behind-the-scenes insights, and technical updates.</p>
+    </div>
+
+    <div class="cards-grid">
+      {% for post in site.posts limit:2 %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="section container">
+  <div style="background: linear-gradient(135deg, var(--color-surface), var(--color-surface-elevated)); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-3xl) var(--space-xl); text-align: center;">
+    <h2 style="font-size: 2.2rem; margin-bottom: var(--space-md);">Ready to Build Worlds Together?</h2>
+    <p style="max-width: 500px; margin: 0 auto var(--space-xl); color: var(--color-text-secondary);">
+      Whether you are looking for custom game assets, 3D environments, or collaborative interactive development, get in touch with RenderPhoenix.
+    </p>
+    <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary">Start a Project Inquiry</a>
+  </div>
+</section>

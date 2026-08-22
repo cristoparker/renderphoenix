@@ -1,0 +1,85 @@
+- title: "Game Development"
+  slug: "game-development"
+  icon: "gamepad"
+  order: 1
+  featured: true
+  short_description: "Designing and engineering original gameplay experiences across indie titles and interactive simulations."
+  description: "From gameplay mechanics and systems architecture to character control and physics tuning, RenderPhoenix crafts immersive games using industry-standard game engines."
+  technologies:
+    - "Unreal Engine"
+    - "Unity"
+    - "C#"
+    - "C++"
+  capabilities:
+    - "Gameplay Systems Programming"
+    - "Level Architecture & Mechanics"
+    - "Cross-platform Optimization"
+    - "Physics & Player Controllers"
+
+- title: "3D Environments & World Building"
+  slug: "3d-environments"
+  icon: "globe"
+  order: 2
+  featured: true
+  short_description: "Building detailed, high-performance 3D environments, cities, and digital landscapes."
+  description: "Creating game-ready environments, architectural layouts, post-apocalyptic zones, and fantasy terrain with a focus on lighting, spatial storytelling, and memory efficiency."
+  technologies:
+    - "Blender"
+    - "Unreal Engine 5"
+    - "Substance Painter"
+  capabilities:
+    - "Environment Art & Layout"
+    - "Modular City Systems"
+    - "Lighting & Atmospheric FX"
+    - "Low/High-poly Modeling & Texturing"
+
+- title: "Game & Production Assets"
+  slug: "game-assets"
+  icon: "box"
+  order: 3
+  featured: true
+  short_description: "High-quality 3D models, textures, vehicle add-ons, and UI packs designed for real-time engines."
+  description: "Creating asset packs, vehicles, props, customized UI themes, and modular components optimized for integration into games and interactive simulations."
+  technologies:
+    - "Blender"
+    - "Blockbench"
+    - "Photoshop / Figma"
+  capabilities:
+    - "3D Asset Production & Rigging"
+    - "Real-Time Vehicle Add-Ons"
+    - "Custom Game UI & HUD Design"
+    - "Texture & Material Authoring"
+
+- title: "Technical Art & Shaders"
+  slug: "technical-art"
+  icon: "code"
+  order: 4
+  featured: false
+  short_description: "Bridging creative vision and engine performance through shaders, rendering pipelines, and technical optimization."
+  description: "Optimizing real-time visuals, writing custom HLSL/GLSL shaders, establishing production art pipelines, and balancing aesthetic beauty with high framerates."
+  technologies:
+    - "HLSL / GLSL"
+    - "Node Shaders"
+    - "Unreal Material Editor"
+  capabilities:
+    - "Custom Shaders & FX"
+    - "LOD & Mesh Optimization"
+    - "VFX & Particle Systems"
+    - "Technical Art Pipeline Design"
+
+- title: "Digital Experiences & Creative Tech"
+  slug: "creative-technology"
+  icon: "cpu"
+  order: 5
+  featured: false
+  short_description: "Interactive experimental projects, space applications, and custom creative technology prototypes."
+  description: "Exploring the intersection of science, interactivity, and creative code—such as lunar exploration simulations and custom digital tools."
+  technologies:
+    - "Web3D / Three.js"
+    - "Game Engines"
+    - "Interactive Tooling"
+  capabilities:
+    - "Rapid Prototyping"
+    - "Scientific & Simulation Projects"
+    - "Interactive Web & UI"
+    - "Hackathon & Challenge Builds"

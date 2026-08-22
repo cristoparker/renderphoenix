@@ -1,0 +1,112 @@
+---
+layout: page
+title: "About RenderPhoenix"
+description: "Discover the history, philosophy, team, and future direction of RenderPhoenix."
+---
+
+<!-- Studio Overview -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+      <h2>Our Story</h2>
+      <p>
+        RenderPhoenix was originally established in <strong>2019</strong> under the name <strong>Minehutt</strong> by <strong>Tasrif Ibn Mizan</strong>. What began as an independent creative experiment crafting virtual worlds quickly expanded into a recognized community presence through projects such as <em>Banglamine City</em>, <em>Zombiepolis</em>, vehicle add-ons, and customized UI packs.
+      </p>
+
+      <p>
+        On <strong>22 February 2022</strong>, the studio officially adopted the name <strong>RenderPhoenix</strong> to reflect its evolving visual identity, technical ambition, and focus on high-quality 3D asset creation.
+      </p>
+
+      <h3>Resilience Through Challenges</h3>
+      <p>
+        On <strong>1 August 2022</strong>, RenderPhoenix faced a major setback when several of its core digital accounts and communication channels were compromised. Despite this disruption, the studio continued operating and publishing content until 2024, when the original team gradually dispersed into university and software development careers.
+      </p>
+
+      <div style="background: var(--color-surface); border-left: 3px solid var(--color-ember); padding: var(--space-lg); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: var(--space-xl) 0;">
+        <h4 style="margin-bottom: 0.5rem; color: var(--color-ember);">The 2026 Revival</h4>
+        <p style="margin-bottom: 0; color: var(--color-text-secondary);">
+          On <strong>22 August 2026</strong>, <strong>Sabit Hasan</strong> officially initiated the revival of RenderPhoenix. Rebuilding the studio's digital infrastructure and reassembling team capabilities, RenderPhoenix is now expanding beyond its historical roots into full-scale game development with Unreal Engine 5, Unity, Blender, and original IP creation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">History</span>
+      <h2 class="section-title">Studio Timeline</h2>
+      <p class="section-desc">Key milestones in the evolution of RenderPhoenix.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">2019</div>
+        <h3 class="timeline-title">Minehutt Founded</h3>
+        <p class="timeline-desc">Tasrif Ibn Mizan establishes Minehutt, publishing early community maps and city builds on MCPEDL.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">22 February 2022</div>
+        <h3 class="timeline-title">Renamed to RenderPhoenix</h3>
+        <p class="timeline-desc">Adopts the RenderPhoenix identity to signal a commitment to 3D world creation and technical design.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">1 August 2022</div>
+        <h3 class="timeline-title">Account Compromise & Resilience</h3>
+        <p class="timeline-desc">Overcomes major security breaches across core social channels, continuing project releases through 2024.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">2024</div>
+        <h3 class="timeline-title">Period of Inactivity</h3>
+        <p class="timeline-desc">The original team gradually disperses; studio operations pause while members pursue higher education.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">2025</div>
+        <h3 class="timeline-title">NASA Space Apps Challenge 2025</h3>
+        <p class="timeline-desc">RenderPhoenix achieves Regional 2nd Runner-Up with a Moon settlement interactive simulator.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-year">22 August 2026</div>
+        <h3 class="timeline-title">Official Revival Initiated</h3>
+        <p class="timeline-desc">Sabit Hasan initiates the official revival, transitioning RenderPhoenix into games, 3D worlds, and Unreal/Unity production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Studio Team -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Team</span>
+      <h2 class="section-title">The People Behind RenderPhoenix</h2>
+      <p class="section-desc">Developers, founders, and creators driving the studio forward.</p>
+    </div>
+
+    <div class="team-grid">
+      {% for member in site.data.team %}
+        <div class="team-card">
+          <div class="team-avatar">
+            {{ member.name | slice: 0, 1 }}
+          </div>
+          <h3 class="team-name">{{ member.name }}</h3>
+          <div class="team-role">{{ member.role }}</div>
+          <p class="team-bio">{{ member.bio }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

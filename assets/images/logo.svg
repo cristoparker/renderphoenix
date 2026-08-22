@@ -1,0 +1,12 @@
+<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 5L24.375 14.375L35 17.5L26.25 25.625L29.375 36.25L20 30.625L10.625 36.25L13.75 25.625L5 17.5L15.625 14.375L20 5Z" fill="url(#logo-grad)"/>
+  <path d="M20 11.25L22.5 17.5L28.75 19.375L23.75 24.375L25.625 30.625L20 26.875L14.375 30.625L16.25 24.375L11.25 19.375L17.5 17.5L20 11.25Z" fill="#E019F5"/>
+  <text x="45" y="27" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="20" fill="#190933">Render<tspan fill="url(#logo-grad)">Phoenix</tspan></text>
+  <defs>
+    <linearGradient id="logo-grad" x1="5" y1="5" x2="35" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7B26F8"/>
+      <stop offset="0.5" stop-color="#8C52E7"/>
+      <stop offset="1" stop-color="#E019F5"/>
+    </linearGradient>
+  </defs>
+</svg>

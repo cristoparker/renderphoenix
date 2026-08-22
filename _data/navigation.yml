@@ -1,0 +1,36 @@
+header:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about/"
+  - title: "Services"
+    url: "/services/"
+  - title: "Work"
+    url: "/work/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Contact"
+    url: "/contact/"
+
+footer:
+  navigation:
+    - title: "Home"
+      url: "/"
+    - title: "About Studio"
+      url: "/about/"
+    - title: "Services & Capabilities"
+      url: "/services/"
+    - title: "Selected Work"
+      url: "/work/"
+    - title: "Blog & Editorial"
+      url: "/blog/"
+    - title: "Get in Touch"
+      url: "/contact/"
+
+  resources:
+    - title: "MCPEDL Profile"
+      url: "https://mcpedl.com/user/renderphoenix/"
+    - title: "LLM Context (llms.txt)"
+      url: "/llms.txt"
+    - title: "XML Sitemap"
+      url: "/sitemap.xml"

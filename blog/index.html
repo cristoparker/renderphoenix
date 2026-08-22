@@ -1,0 +1,52 @@
+---
+layout: page
+title: "Studio Editorial & Devlogs"
+description: "Insights, development logs, technical art, and news from RenderPhoenix."
+---
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <!-- Live Search Input Bar -->
+    <div style="max-width: 600px; margin: 0 auto var(--space-2xl); position: relative;">
+      <div style="position: relative;">
+        <input type="search" id="search-input" class="form-input" placeholder="Search devlogs, tutorials, studio news..." aria-label="Search blog posts" style="padding-left: 2.8rem;">
+        <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--color-text-muted);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      <div id="search-results" class="search-results-dropdown" style="display: none; position: absolute; top: 105%; left: 0; right: 0; background: var(--color-surface-elevated); border: 1px solid var(--color-border); border-radius: var(--radius-md); max-height: 400px; overflow-y: auto; z-index: 100; box-shadow: var(--shadow-md); padding: var(--space-md);"></div>
+    </div>
+
+    <!-- Featured Post Hero -->
+    {% assign featured_post = site.posts | where: "featured", true | first %}
+    {% if featured_post == nil %}
+      {% assign featured_post = site.posts.first %}
+    {% endif %}
+
+    {% if featured_post %}
+      <div style="margin-bottom: var(--space-3xl);">
+        <span class="section-tag" style="margin-bottom: 0.5rem; display: block;">Featured Story</span>
+        {% include post-card.html post=featured_post featured=true %}
+      </div>
+    {% endif %}
+
+    <!-- Article Categories -->
+    <div class="filter-tabs" style="margin-bottom: var(--space-xl);">
+      <button class="filter-tab active" data-filter="all">All Articles</button>
+      <button class="filter-tab" data-filter="studio">Studio</button>
+      <button class="filter-tab" data-filter="technical">Technical</button>
+      <button class="filter-tab" data-filter="development">Development</button>
+    </div>
+
+    <!-- Latest Articles Grid -->
+    <h2 style="font-size: 1.5rem; margin-bottom: var(--space-lg);">Recent Publications</h2>
+    <div class="cards-grid">
+      {% for post in site.posts %}
+        {% unless post.id == featured_post.id %}
+          {% include post-card.html post=post %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/filter.js' | relative_url }}"></script>

@@ -1,0 +1,56 @@
+---
+layout: page
+title: "Services & Capabilities"
+description: "Explore RenderPhoenix's technical capabilities across game development, 3D world creation, asset production, and creative tech."
+---
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="services-grid">
+      {% for service in site.data.services %}
+        <div class="service-card" id="{{ service.slug }}">
+          <div class="service-icon">
+            {% if service.icon == 'gamepad' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="12" x2="10" y2="12"></line><line x1="8" y1="10" x2="8" y2="14"></line><circle cx="15" cy="13" r="1"></circle><circle cx="18" cy="11" r="1"></circle><rect x="2" y="6" width="20" height="12" rx="6"></rect></svg>
+            {% elsif service.icon == 'globe' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            {% elsif service.icon == 'box' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            {% elsif service.icon == 'code' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            {% else %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>
+            {% endif %}
+          </div>
+
+          <h2 class="service-title">{{ service.title }}</h2>
+          <p style="color: var(--color-text-secondary); margin-bottom: var(--space-md);">{{ service.description }}</p>
+
+          <h4 style="font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--color-cyan);">Key Capabilities:</h4>
+          <ul class="service-caps">
+            {% for cap in service.capabilities %}
+              <li>{{ cap }}</li>
+            {% endfor %}
+          </ul>
+
+          <div style="margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--color-border);">
+            <span style="font-size: 0.8rem; color: var(--color-text-muted); display: block; margin-bottom: 0.4rem;">Primary Tech Stack:</span>
+            <div class="tech-tags">
+              {% for tech in service.technologies %}
+                <span class="tech-tag">{{ tech }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top: var(--space-3xl); text-align: center; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-2xl);">
+      <h3>Need a Customized Technical Solution?</h3>
+      <p style="max-width: 550px; margin: 0.5rem auto 1.5rem; color: var(--color-text-secondary);">
+        RenderPhoenix develops custom pipelines, level environments, shaders, and interactive simulations. Contact us to discuss your requirements.
+      </p>
+      <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary">Inquire About Services</a>
+    </div>
+  </div>
+</section>

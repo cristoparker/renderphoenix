@@ -1,0 +1,97 @@
+{% assign page_title = page.title %}
+{% if page_title %}
+  {% assign full_title = page_title | append: " — " | append: site.title %}
+{% else %}
+  {% assign full_title = site.title | append: " — Interactive Creative Studio | Games & 3D Worlds" %}
+{% endif %}
+
+{% assign page_desc = page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 %}
+{% if page_desc == "" or page_desc == nil %}
+  {% assign page_desc = site.description %}
+{% endif %}
+
+{% assign canonical_url = page.url | replace: 'index.html', '' | absolute_url %}
+{% assign og_image = page.image | default: page.cover_image | default: "/assets/images/og-default.jpg" | absolute_url %}
+
+<!-- Primary Meta Tags -->
+<title>{{ full_title }}</title>
+<meta name="title" content="{{ full_title }}">
+<meta name="description" content="{{ page_desc }}">
+<link rel="canonical" href="{{ canonical_url }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090A0F">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ full_title }}">
+<meta property="og:description" content="{{ page_desc }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:site_name" content="{{ site.title }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ canonical_url }}">
+<meta property="twitter:title" content="{{ full_title }}">
+<meta property="twitter:description" content="{{ page_desc }}">
+<meta property="twitter:image" content="{{ og_image }}">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "RenderPhoenix",
+      "url": "{{ site.url }}/",
+      "logo": "{{ '/assets/images/logo.svg' | absolute_url }}",
+      "sameAs": [
+        "https://mcpedl.com/user/renderphoenix/"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Tasrif Ibn Mizan"
+      },
+      "description": "{{ site.description }}"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "RenderPhoenix",
+      "description": "{{ site.description }}",
+      "publisher": {
+        "@id": "{{ site.url }}/#organization"
+      }
+    }
+    {% if page.layout == 'post' %}
+    ,{
+      "@type": "BlogPosting",
+      "@id": "{{ canonical_url }}#article",
+      "isPartOf": {
+        "@id": "{{ site.url }}/#website"
+      },
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page_desc | jsonify }},
+      "image": "{{ og_image }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{% if page.updated %}{{ page.updated | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
+      "author": {
+        "@type": "Person",
+        "name": {{ page.author | default: site.author.name | jsonify }}
+      },
+      "publisher": {
+        "@id": "{{ site.url }}/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ canonical_url }}"
+      }
+    }
+    {% endif %}
+  ]
+}
+</script>

@@ -1,0 +1,17 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F6ECFC"/>
+  <circle cx="950" cy="150" r="300" fill="#E019F5" fill-opacity="0.12"/>
+  <circle cx="200" cy="500" r="350" fill="#7B26F8" fill-opacity="0.1"/>
+  <g transform="translate(100, 220)">
+    <path d="M40 10L48.75 28.75L70 35L52.5 51.25L58.75 72.5L40 61.25L21.25 72.5L27.5 51.25L10 35L31.25 28.75L40 10Z" fill="url(#og-grad)"/>
+    <text x="90" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="54" fill="#190933">Render<tspan fill="#7B26F8">Phoenix</tspan></text>
+    <text x="90" y="110" font-family="'Inter', sans-serif" font-weight="400" font-size="28" fill="#4A3568">Independent Interactive Creative Studio</text>
+    <text x="90" y="160" font-family="'JetBrains Mono', monospace" font-size="20" fill="#8C52E7">Games • 3D Worlds • Game Assets • Digital Experiences</text>
+  </g>
+  <defs>
+    <linearGradient id="og-grad" x1="10" y1="10" x2="70" y2="72.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7B26F8"/>
+      <stop offset="1" stop-color="#E019F5"/>
+    </linearGradient>
+  </defs>
+</svg>

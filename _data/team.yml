@@ -1,0 +1,28 @@
+- name: "Tasrif Ibn Mizan"
+  role: "Founder"
+  username: "tasrif"
+  bio: "Founded Minehutt in 2019 and established RenderPhoenix in 2022. Paved the early creative vision of the studio across community maps, add-ons, and visual packs."
+  active: true
+  social_links:
+    mcpedl: "https://mcpedl.com/user/renderphoenix/"
+
+- name: "Sabit Hasan"
+  role: "Manager & Revival Initiator"
+  username: "sabithasan"
+  bio: "Initiated the official studio revival on 22 August 2026. Oversees studio operations, digital infrastructure rebuild, and direction into broader game development and asset production."
+  active: true
+  social_links: {}
+
+- name: "Uthowaipru Chowdhury"
+  role: "Indie Game Developer"
+  username: "uthowaipru"
+  bio: "Focuses on game mechanics, system architecture, and gameplay logic across indie titles and real-time interactive projects."
+  active: true
+  social_links: {}
+
+- name: "Faizul726"
+  role: "App Developer"
+  username: "faizul726"
+  bio: "Specializes in software application development, client interfaces, and creative technology tooling for RenderPhoenix projects."
+  active: true
+  social_links: {}

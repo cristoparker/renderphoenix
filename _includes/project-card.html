@@ -1,0 +1,49 @@
+{% assign proj = include.project %}
+<article class="project-card" data-category="{{ proj.category | slugify }}">
+  <div class="card-media">
+    <div class="media-aspect">
+      {% if proj.cover_image %}
+        <img src="{{ proj.cover_image | relative_url }}" alt="{{ proj.title }} preview" loading="lazy" width="600" height="340" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      {% endif %}
+      <div class="media-placeholder" {% if proj.cover_image %}style="display:none;"{% endif %}>
+        <div class="ph-pattern"></div>
+        <span class="ph-category">{{ proj.category }}</span>
+        <span class="ph-title">{{ proj.title }}</span>
+      </div>
+    </div>
+    {% if proj.award %}
+      <div class="card-badge award-badge" title="{{ proj.award }}">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        <span>Award Winner</span>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="card-body">
+    <div class="card-meta">
+      <span class="badge cat-badge">{{ proj.category }}</span>
+      <span class="meta-year">{{ proj.year }}</span>
+    </div>
+
+    <h3 class="card-title">
+      <a href="{{ proj.url | relative_url }}">{{ proj.title }}</a>
+    </h3>
+
+    <p class="card-desc">{{ proj.description }}</p>
+
+    {% if proj.technologies %}
+      <div class="tech-tags">
+        {% for tech in proj.technologies limit:3 %}
+          <span class="tech-tag">{{ tech }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="card-footer">
+    <a href="{{ proj.url | relative_url }}" class="card-link" aria-label="View {{ proj.title }} project details">
+      <span>View Project</span>
+      <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+  </div>
+</article>

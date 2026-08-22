@@ -1,0 +1,68 @@
+:root {
+  /* Swatch Palette */
+  --c-1-electric-violet: #7B26F8;
+  --c-2-pale-lavender: #F6ECFC;
+  --c-3-soft-lavender: #A783E1;
+  --c-4-vivid-magenta: #E019F5;
+  --c-5-light-lilac: #D5C0F3;
+  --c-6-iris-purple: #8C52E7;
+  --c-7-pastel-orchid: #EAA3FB;
+  --c-8-purple-orchid: #B530F4;
+
+  /* Theme Mapping for Minimal SaaS Aesthetic */
+  --color-bg: #F6ECFC;
+  --color-bg-alt: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #FAF4FD;
+  --color-surface-elevated: #FFFFFF;
+  
+  --color-border: #D5C0F3;
+  --color-border-hover: #A783E1;
+  
+  --color-text: #190933;
+  --color-text-secondary: #4A3568;
+  --color-text-muted: #8068A0;
+  
+  /* Brand Accents */
+  --color-ember: #7B26F8;
+  --color-ember-glow: rgba(123, 38, 248, 0.22);
+  --color-gold: #E019F5;
+  --color-cyan: #8C52E7;
+  --color-cyan-glow: rgba(140, 82, 231, 0.2);
+
+  --grad-primary: linear-gradient(135deg, #7B26F8 0%, #E019F5 100%);
+  --grad-surface: linear-gradient(180deg, #FFFFFF 0%, #F6ECFC 100%);
+  --grad-subtle: linear-gradient(135deg, rgba(234, 163, 251, 0.2) 0%, rgba(246, 236, 252, 0.6) 100%);
+
+  /* Typography Fonts */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --header-height: 76px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Minimal SaaS Shadows */
+  --shadow-sm: 0 2px 10px rgba(123, 38, 248, 0.05);
+  --shadow-md: 0 12px 32px rgba(123, 38, 248, 0.09);
+  --shadow-glow: 0 0 32px rgba(224, 25, 245, 0.25);
+}

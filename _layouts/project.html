@@ -1,0 +1,77 @@
+---
+layout: default
+---
+<article class="project-detail">
+  <header class="project-header container">
+    {% include breadcrumbs.html %}
+    
+    <div class="project-header-meta">
+      <span class="badge cat-badge">{{ page.category }}</span>
+      <span class="project-year">{{ page.year }}</span>
+    </div>
+
+    <h1 class="project-title">{{ page.title }}</h1>
+    
+    {% if page.description %}
+      <p class="project-lead">{{ page.description }}</p>
+    {% endif %}
+
+    {% if page.award %}
+      <div class="project-award-banner">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        <span>{{ page.award }}</span>
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="project-main container">
+    <div class="project-grid">
+      <div class="project-content">
+        {% if page.cover_image %}
+          <div class="project-cover">
+            <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }} cover" loading="eager" width="1200" height="675" onerror="this.parentElement.style.display='none';">
+          </div>
+        {% endif %}
+
+        <div class="project-body">
+          {{ content }}
+        </div>
+      </div>
+
+      <aside class="project-sidebar">
+        <div class="sidebar-box">
+          <h3 class="sidebar-title">Project Details</h3>
+          
+          <dl class="project-specs">
+            <dt>Category</dt>
+            <dd>{{ page.category }}</dd>
+
+            <dt>Year</dt>
+            <dd>{{ page.year }}</dd>
+
+
+            {% if page.technologies %}
+              <dt>Technologies & Tools</dt>
+              <dd>
+                <div class="tech-tags">
+                  {% for tech in page.technologies %}
+                    <span class="tech-tag">{{ tech }}</span>
+                  {% endfor %}
+                </div>
+              </dd>
+            {% endif %}
+          </dl>
+
+          {% if page.mcpedl_url %}
+            <div class="sidebar-actions">
+              <a href="{{ page.mcpedl_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+                <span>View on MCPEDL</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>

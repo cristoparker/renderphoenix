@@ -1,0 +1,57 @@
+title: "RenderPhoenix"
+email: "contact@renderphoenix.com"
+description: "RenderPhoenix is an independent interactive creative studio from Bangladesh building games, game assets, 3D worlds, and digital experiences."
+url: "https://renderphoenix.com"
+baseurl: ""
+
+# Author & Studio Info
+author:
+  name: "RenderPhoenix"
+  twitter: "renderphoenix"
+  founder: "Tasrif Ibn Mizan"
+  revival_initiator: "Sabit Hasan"
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /work/:path/
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Plugins supported by GitHub Pages
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Exclude from build
+exclude:
+  - README.md
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - Vendor/
+  - RenderPhoenix Official Website — Master Development Prompt for Antigravity.md

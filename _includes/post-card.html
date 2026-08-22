@@ -1,0 +1,41 @@
+{% assign post = include.post %}
+{% assign words = post.content | strip_html | number_of_words %}
+{% assign read_time = words | divided_by: 200 %}
+{% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
+
+<article class="post-card {% if include.featured %}post-card-featured{% endif %}">
+  {% if post.image %}
+    <div class="post-card-media">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" width="600" height="340" onerror="this.parentElement.style.display='none';">
+    </div>
+  {% endif %}
+
+  <div class="post-card-content">
+    <div class="post-card-meta">
+      {% if post.categories.first %}
+        <span class="badge cat-badge">{{ post.categories.first | capitalize }}</span>
+      {% endif %}
+      <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+        {{ post.date | date: "%B %d, %Y" }}
+      </time>
+      <span class="meta-dot">&bull;</span>
+      <span class="read-time">{{ read_time }} min read</span>
+    </div>
+
+    <h3 class="post-card-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h3>
+
+    <p class="post-card-desc">
+      {{ post.description | default: post.excerpt | strip_html | truncate: 150 }}
+    </p>
+
+    <div class="post-card-footer">
+      <span class="post-author">By {{ post.author | default: site.author.name }}</span>
+      <a href="{{ post.url | relative_url }}" class="read-more-link" aria-label="Read article {{ post.title }}">
+        Read Article
+        <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </div>
+</article>
