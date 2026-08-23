@@ -15,28 +15,11 @@ description: "Insights, development logs, technical art, and news from RenderPho
       <div id="search-results" class="search-results-dropdown" style="display: none; position: absolute; top: 105%; left: 0; right: 0; background: var(--color-surface-elevated); border: 1px solid var(--color-border); border-radius: var(--radius-md); max-height: 400px; overflow-y: auto; z-index: 100; box-shadow: var(--shadow-md); padding: var(--space-md);"></div>
     </div>
 
-    <!-- Featured Post Hero -->
-    {% assign featured_post = site.posts | where: "featured", true | first %}
-    {% if featured_post == nil %}
-      {% assign featured_post = site.posts.first %}
-    {% endif %}
-
-    {% if featured_post %}
-      <div style="margin-bottom: var(--space-3xl);">
-        <span class="section-tag" style="margin-bottom: 0.5rem; display: block;">Featured Story</span>
-        {% include post-card.html post=featured_post featured=true %}
-      </div>
-    {% endif %}
-
-
-
-    <!-- Latest Articles Grid -->
-    <h2 style="font-size: 1.5rem; margin-bottom: var(--space-lg);">Recent Publications</h2>
+    <!-- All Publications Grid -->
+    <h2 style="font-size: 1.5rem; margin-bottom: var(--space-lg);">All Publications</h2>
     <div class="cards-grid">
       {% for post in site.posts %}
-        {% unless post.id == featured_post.id %}
-          {% include post-card.html post=post %}
-        {% endunless %}
+        {% include post-card.html post=post %}
       {% endfor %}
     </div>
   </div>
