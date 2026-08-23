@@ -21,7 +21,9 @@
 
   <div class="card-body">
     <div class="card-meta">
-      <span class="badge cat-badge">{{ proj.category }}</span>
+      {% if proj.category != "Interactive" and proj.category != "Environment" %}
+        <span class="badge cat-badge">{{ proj.category }}</span>
+      {% endif %}
       <span class="meta-year">{{ proj.year }}</span>
     </div>
 

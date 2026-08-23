@@ -30,13 +30,13 @@
   --color-cyan: #8C52E7;
   --color-cyan-glow: rgba(140, 82, 231, 0.2);
 
-  --grad-primary: linear-gradient(135deg, #7B26F8 0%, #E019F5 100%);
-  --grad-surface: linear-gradient(180deg, #FFFFFF 0%, #F6ECFC 100%);
-  --grad-subtle: linear-gradient(135deg, rgba(234, 163, 251, 0.2) 0%, rgba(246, 236, 252, 0.6) 100%);
+  --grad-primary: #7B26F8;
+  --grad-surface: #FFFFFF;
+  --grad-subtle: #F6ECFC;
 
   /* Typography Fonts */
-  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Inter', 'Google Sans', 'Google Sans Text', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', 'Google Sans', 'Google Sans Text', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Spacing */

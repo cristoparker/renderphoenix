@@ -3,8 +3,6 @@ layout: default
 ---
 <article class="project-detail">
   <header class="project-header container">
-    {% include breadcrumbs.html %}
-    
     <div class="project-header-meta">
       <span class="badge cat-badge">{{ page.category }}</span>
       <span class="project-year">{{ page.year }}</span>
@@ -43,23 +41,13 @@ layout: default
           <h3 class="sidebar-title">Project Details</h3>
           
           <dl class="project-specs">
-            <dt>Category</dt>
-            <dd>{{ page.category }}</dd>
-
-            <dt>Year</dt>
-            <dd>{{ page.year }}</dd>
-
-
-            {% if page.technologies %}
-              <dt>Technologies & Tools</dt>
-              <dd>
-                <div class="tech-tags">
-                  {% for tech in page.technologies %}
-                    <span class="tech-tag">{{ tech }}</span>
-                  {% endfor %}
-                </div>
-              </dd>
+            {% if page.category != "Interactive" and page.category != "Environment" %}
+              <dt>Category</dt>
+              <dd>{{ page.category }}</dd>
             {% endif %}
+
+            <dt>Release Date</dt>
+            <dd>{{ page.year }}</dd>
           </dl>
 
           {% if page.mcpedl_url %}

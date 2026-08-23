@@ -5,18 +5,18 @@
 ## Studio Overview
 - **Official Name**: RenderPhoenix
 - **Founder**: Tasrif Ibn Mizan (2019)
-- **Studio Revival Initiator**: Sabit Hasan (22 August 2026)
+- **Studio Revival**: Cristo Parker (22 August 2026)
 - **Primary Website**: https://renderphoenix.com/
 - **Verified MCPEDL Profile**: https://mcpedl.com/user/renderphoenix/
 - **Key Capabilities**: Game Development (Unreal Engine, Unity), 3D World Design (Blender), Real-Time Asset Production, Technical Art, Interactive Experiences.
 
 ## Key Timeline & History
 - **2019**: Established under the original name Minehutt by Tasrif Ibn Mizan. Focus on community maps and virtual city environments.
-- **22 February 2022**: Renamed to RenderPhoenix to mark expansion into 3D art and asset pipelines.
+- **22 February 2021**: Renamed to RenderPhoenix to mark expansion into 3D art and asset pipelines.
 - **1 August 2022**: Overcame a major security incident compromising primary digital accounts, continuing active releases through 2024.
 - **2024**: Studio entered a period of inactivity as original team members pursued software engineering and higher education.
 - **2025**: Awarded **Regional 2nd Runner-Up** in the NASA Space Apps Challenge 2025 for an interactive lunar habitat simulator.
-- **22 August 2026**: Rebuilt and officially revived by Sabit Hasan into a full-scale game and 3D creative studio.
+- **22 August 2026**: Rebuilt and officially revived by Cristo Parker into a full-scale game and 3D creative studio.
 
 ## Selected Projects
 - **Lunar Habitat Simulator (NASA Space Apps 2025)**: Regional 2nd Runner-Up project featuring 3D lunar city planning and environmental life support simulation.

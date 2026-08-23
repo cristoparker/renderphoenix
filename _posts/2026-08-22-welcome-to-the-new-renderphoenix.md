@@ -14,7 +14,7 @@ tags:
   - unreal-engine
   - unity
   - blender
-author: "Sabit Hasan"
+author: "Cristo Parker"
 image: "/assets/images/blog/welcome-revival.svg"
 featured: true
 ---
@@ -25,13 +25,13 @@ On **22 August 2026**, we officially initiated the rebuilding of RenderPhoenix. 
 
 ## Where We Came From
 
-Founded in 2019 under the name *Minehutt* by **Tasrif Ibn Mizan**, our studio grew by crafting expansive virtual worlds, city maps like *Banglamine City* and *Zombiepolis*, vehicle add-ons, and customized UI packs. In February 2022, we evolved into **RenderPhoenix**, adopting the phoenix symbol to reflect continuous transformation and creation.
+Founded in 2019 under the name *Minehutt* by **Tasrif Ibn Mizan**, our studio grew by crafting expansive virtual worlds, city maps like *Banglamine City* and *Zombiepolis*, vehicle add-ons, and customized UI packs. In February 2021, we evolved into **RenderPhoenix**, adopting the phoenix symbol to reflect continuous transformation and creation.
 
 Despite a severe security incident in August 2022 that compromised core digital accounts, our team persevered for years. Though the team gradually dispersed by 2024, the identity, craft, and vision of RenderPhoenix remained intact.
 
 ```text
 2019: Minehutt founded
-2022: Renamed to RenderPhoenix
+2021: Renamed to RenderPhoenix
 2022: Security compromise & resilience
 2024: Period of inactivity
 2025: NASA Space Apps Regional 2nd Runner-Up
@@ -40,7 +40,7 @@ Despite a severe security incident in August 2022 that compromised core digital 
 
 ## The New Direction
 
-Under the management of **Sabit Hasan**, alongside indie game developer **Uthowaipru Chowdhury** and app developer **Faizul726**, RenderPhoenix is expanding into a full-scale interactive creative studio.
+Under the management of **Cristo Parker**, alongside indie game developer **Uthowaipru Chowdhury** and app developer **Faizul726**, RenderPhoenix is expanding into a full-scale interactive creative studio.
 
 Our focus now encompasses:
 

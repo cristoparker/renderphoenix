@@ -7,12 +7,7 @@ layout: default
 
 <article class="blog-article">
   <header class="article-header container">
-    {% include breadcrumbs.html %}
-    
     <div class="article-meta">
-      {% if page.categories.first %}
-        <span class="badge cat-badge">{{ page.categories.first | capitalize }}</span>
-      {% endif %}
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
       <span class="meta-dot">&bull;</span>
       <span>{{ read_time }} min read</span>

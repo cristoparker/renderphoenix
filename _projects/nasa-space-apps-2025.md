@@ -6,10 +6,6 @@ category: "Interactive"
 year: 2025
 status: "completed"
 cover_image: "/assets/images/projects/nasa-space-apps.svg"
-technologies:
-  - "Interactive Simulation"
-  - "3D Visualization"
-  - "Space Science Data"
 featured: true
 award: "Regional 2nd Runner-Up — NASA Space Apps Challenge 2025"
 tags:

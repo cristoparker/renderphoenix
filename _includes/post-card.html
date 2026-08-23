@@ -12,9 +12,6 @@
 
   <div class="post-card-content">
     <div class="post-card-meta">
-      {% if post.categories.first %}
-        <span class="badge cat-badge">{{ post.categories.first | capitalize }}</span>
-      {% endif %}
       <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
         {{ post.date | date: "%B %d, %Y" }}
       </time>

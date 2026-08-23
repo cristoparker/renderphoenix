@@ -22,7 +22,7 @@ Every creative studio has an origin story driven by curiosity and experimentatio
 
 Operating under the name *Minehutt*, we published our earliest maps and add-ons on MCPEDL. Projects like **Banglamine City** set out to showcase Bangladeshi architectural motifs inside open-world environments, while **Zombiepolis** explored atmospheric post-apocalyptic level design.
 
-As our capabilities grew, so did our ambition. On **22 February 2022**, we officially transitioned from Minehutt to **RenderPhoenix**, marking our commitment to creative technology and real-time art.
+As our capabilities grew, so did our ambition. On **22 February 2021**, we officially transitioned from Minehutt to **RenderPhoenix**, marking our commitment to creative technology and real-time art.
 
 ## Resilience Through Setbacks
 
@@ -30,4 +30,4 @@ On 1 August 2022, RenderPhoenix suffered a severe security breach that compromis
 
 Though team members eventually dispersed into higher education and independent software careers, the studio's foundation remained strong.
 
-Now in 2026, with **Sabit Hasan** taking the helm for our revival, RenderPhoenix rises once again—rebuilt from the ground up to craft the next generation of games and 3D experiences.
+Now in 2026, with **Cristo Parker** taking the helm for our revival, RenderPhoenix rises once again—rebuilt from the ground up to craft the next generation of games and 3D experiences.

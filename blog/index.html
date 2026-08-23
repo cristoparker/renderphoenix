@@ -28,13 +28,7 @@ description: "Insights, development logs, technical art, and news from RenderPho
       </div>
     {% endif %}
 
-    <!-- Article Categories -->
-    <div class="filter-tabs" style="margin-bottom: var(--space-xl);">
-      <button class="filter-tab active" data-filter="all">All Articles</button>
-      <button class="filter-tab" data-filter="studio">Studio</button>
-      <button class="filter-tab" data-filter="technical">Technical</button>
-      <button class="filter-tab" data-filter="development">Development</button>
-    </div>
+
 
     <!-- Latest Articles Grid -->
     <h2 style="font-size: 1.5rem; margin-bottom: var(--space-lg);">Recent Publications</h2>
@@ -48,5 +42,6 @@ description: "Insights, development logs, technical art, and news from RenderPho
   </div>
 </section>
 
+<script src="{{ '/assets/js/search-data.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/filter.js' | relative_url }}"></script>

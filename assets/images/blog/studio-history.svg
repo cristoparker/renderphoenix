@@ -5,8 +5,8 @@
   <circle cx="500" cy="315" r="16" fill="#FF4E00"/>
   <circle cx="700" cy="315" r="16" fill="#00F0FF"/>
   <circle cx="900" cy="315" r="16" fill="#FF9F00"/>
-  <text x="300" y="270" font-family="'Space Grotesk', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">2019: Minehutt</text>
-  <text x="500" y="370" font-family="'Space Grotesk', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">2022: RenderPhoenix</text>
-  <text x="700" y="270" font-family="'Space Grotesk', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">2025: NASA Award</text>
-  <text x="900" y="370" font-family="'Space Grotesk', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">2026: Revival</text>
+  <text x="300" y="270" font-family="'Inter', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">2019: Minehutt</text>
+  <text x="500" y="370" font-family="'Inter', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">2021: RenderPhoenix</text>
+  <text x="700" y="270" font-family="'Inter', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">2025: NASA Award</text>
+  <text x="900" y="370" font-family="'Inter', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">2026: Revival</text>
 </svg>

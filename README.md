@@ -76,7 +76,7 @@ categories:
   - development
 tags:
   - devlog
-author: "Sabit Hasan"
+author: "Cristo Parker"
 image: "/assets/images/blog/example.jpg"
 featured: false
 ---

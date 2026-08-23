@@ -1,0 +1,30 @@
+---
+layout: null
+---
+window.SEARCH_INDEX = [
+  {% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "description": {{ post.description | default: post.excerpt | strip_html | strip_newlines | jsonify }},
+    "content": {{ post.content | strip_html | truncatewords: 100 | strip_newlines | jsonify }},
+    "type": "Article",
+    "category": {{ post.categories.first | default: "blog" | jsonify }},
+    "date": {{ post.date | date: "%B %d, %Y" | jsonify }},
+    "tags": [ {% for tag in post.tags %}{{ tag | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %} ]
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  {% if site.posts.size > 0 and site.projects.size > 0 %},{% endif %}
+  {% for proj in site.projects %}
+  {
+    "title": {{ proj.title | jsonify }},
+    "url": {{ proj.url | relative_url | jsonify }},
+    "description": {{ proj.description | strip_html | strip_newlines | jsonify }},
+    "content": {{ proj.content | strip_html | truncatewords: 100 | strip_newlines | jsonify }},
+    "type": "Project",
+    "category": {{ proj.category | jsonify }},
+    "date": {{ proj.year | jsonify }},
+    "tags": [ {% for tag in proj.tags %}{{ tag | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %} ]
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
