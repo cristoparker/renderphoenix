@@ -146,16 +146,16 @@ def clean_liquid_tags(text, meta=None):
 
     return text
 
-def render_project_card(proj):
+def render_project_card(proj, card_class=""):
     cat = proj.get('category', '')
-    cat_badge_html = f'<span class="badge cat-badge">{cat}</span>' if cat not in ['Interactive', 'Environment'] else ''
+    cat_badge_html = f'<span class="badge cat-badge">{cat}</span>' if cat not in ['Interactive', 'Environment'] else '<span class="badge cat-badge">Project</span>'
     award_html = f'<div class="card-badge award-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg><span>Award Winner</span></div>' if proj.get('award') else ''
     img_html = f'<img src="{proj.get("cover_image")}" alt="{proj.get("title")} preview" loading="lazy" width="600" height="340">' if proj.get('cover_image') else ''
     slug = proj.get('slug', '')
     url = f'/work/{slug}/'
 
     return f"""
-    <article class="project-card" data-category="{cat.lower()}">
+    <article class="project-card {card_class}" data-category="{cat.lower()}">
       <div class="card-media">
         <div class="media-aspect">
           {img_html}
@@ -185,8 +185,8 @@ def render_project_card(proj):
     </article>
     """
 
-def render_post_card(post, featured=False):
-    feat_class = 'post-card-featured' if featured else ''
+def render_post_card(post, featured=False, card_class=""):
+    feat_class = 'post-card-featured' if featured else card_class
     img_html = f'<div class="post-card-media"><img src="{post.get("image")}" alt="{post.get("title")}" loading="lazy" width="600" height="340"></div>' if post.get('image') else ''
     slug = post.get('slug', '')
     url = f'/blog/{slug}/'
@@ -198,9 +198,8 @@ def render_post_card(post, featured=False):
       {img_html}
       <div class="post-card-content">
         <div class="post-card-meta">
+          <span class="badge cat-badge">Devlog</span>
           <time class="post-date">{date_str}</time>
-          <span class="meta-dot">&bull;</span>
-          <span class="read-time">3 min read</span>
         </div>
 
         <h3 class="post-card-title">
@@ -214,10 +213,33 @@ def render_post_card(post, featured=False):
         <div class="post-card-footer">
           <span class="post-author">By {author}</span>
           <a href="{url}" class="read-more-link" aria-label="Read article {post.get('title', '')}">
-            Read Article
+            Read Story
             <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
         </div>
+      </div>
+    </article>
+    """
+
+def render_sidebar_item(proj):
+    cat = proj.get('category', 'Project')
+    if cat in ['Interactive', 'Environment']:
+        cat = 'Project'
+    url = f"/work/{proj['slug']}/"
+    img = proj.get('cover_image', '')
+    img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden;"><img src="{img}" alt="{proj.get("title")}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;"></div>' if img else ''
+
+    return f"""
+    <article class="magazine-sidebar-item" style="display: flex; gap: 0.85rem; align-items: center;">
+      {img_html}
+      <div style="flex: 1; min-width: 0;">
+        <div class="magazine-sidebar-meta">
+          <span class="badge cat-badge">{cat}</span>
+          <span class="sidebar-date">{proj.get('year', '')}</span>
+        </div>
+        <h4 class="magazine-sidebar-title">
+          <a href="{url}">{proj.get('title', '')}</a>
+        </h4>
       </div>
     </article>
     """
@@ -379,6 +401,14 @@ def build():
     latest_posts_cards = ''.join([render_post_card(p) for p in posts[:2]])
     all_posts_cards = ''.join([render_post_card(p) for p in posts])
 
+    sidebar_items_cards = ''.join([render_sidebar_item(p) for p in projects[:4]])
+    merged_publications_cards = (
+        (render_post_card(posts[1], card_class="card-horizontal") if len(posts) > 1 else '') +
+        (render_project_card(projects[0], card_class="card-wide") if len(projects) > 0 else '') +
+        ''.join([render_post_card(p) for p in posts[2:]]) +
+        ''.join([render_project_card(p) for p in projects[1:]])
+    )
+
     for p in pages:
         src_path = os.path.join(ROOT_DIR, p)
         if not os.path.exists(src_path):
@@ -394,6 +424,9 @@ def build():
         # Replace post card loops
         body = re.sub(r'\{%\s*assign\s+featured_post\s*=[\s\S]*?\{%\s*include\s+post-card\.html[\s\S]*?\{%\s*endif\s*%\}', featured_post_card, body)
         body = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s+limit:2\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', latest_posts_cards, body)
+        body = re.sub(r'\{%\s*assign\s+top_post\s*=[\s\S]*?\{%\s*endif\s*%\}', featured_post_card, body)
+        body = re.sub(r'\{%\s*for\s+proj\s+in\s+site\.projects\s+limit:4\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', sidebar_items_cards, body)
+        body = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s*%\}[\s\S]*?\{%\s*endfor\s*%\}[\s\S]*?\{%\s*for\s+proj\s+in\s+site\.projects\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', merged_publications_cards, body)
         body = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_posts_cards, body)
         
         # Replace services and team loops

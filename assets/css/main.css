@@ -84,7 +84,7 @@
 .hero-emblem {
   width: 100%;
   max-width: 420px;
-  filter: drop-shadow(0 10px 30px rgba(123, 38, 248, 0.25));
+  filter: drop-shadow(0 10px 30px rgba(28, 27, 24, 0.08));
   animation: float 6s ease-in-out infinite;
 }
 
@@ -208,7 +208,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--c-1-electric-violet);
+  background: var(--color-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,7 +217,7 @@
   font-weight: 700;
   color: #FFFFFF;
   margin: 0 auto var(--space-md);
-  box-shadow: 0 4px 14px rgba(123, 38, 248, 0.3);
+  box-shadow: 0 4px 14px rgba(28, 27, 24, 0.1);
 }
 
 .team-name {
@@ -301,8 +301,8 @@
 .form-input:focus, .form-textarea:focus, .form-select:focus {
   outline: none;
   background: #FFFFFF;
-  border-color: var(--c-1-electric-violet);
-  box-shadow: 0 0 0 3px rgba(123, 38, 248, 0.15);
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 3px rgba(28, 27, 24, 0.1);
 }
 
 .form-textarea {

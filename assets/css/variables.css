@@ -1,38 +1,42 @@
 :root {
-  /* Swatch Palette */
-  --c-1-electric-violet: #7B26F8;
-  --c-2-pale-lavender: #F6ECFC;
-  --c-3-soft-lavender: #A783E1;
-  --c-4-vivid-magenta: #E019F5;
-  --c-5-light-lilac: #D5C0F3;
-  --c-6-iris-purple: #8C52E7;
-  --c-7-pastel-orchid: #EAA3FB;
-  --c-8-purple-orchid: #B530F4;
-
-  /* Theme Mapping for Minimal SaaS Aesthetic */
-  --color-bg: #F6ECFC;
-  --color-bg-alt: #FFFFFF;
-  --color-surface: #FFFFFF;
-  --color-surface-hover: #FAF4FD;
+  /* Minimal Monochrome Cream Palette */
+  --color-bg: #FAF8F5;          /* Warm Cream Background */
+  --color-bg-alt: #F3EFE6;      /* Alt Soft Cream/Gray */
+  --color-surface: #FFFFFF;     /* Crisp Pure White */
+  --color-surface-hover: #F6F3EC;
   --color-surface-elevated: #FFFFFF;
   
-  --color-border: #D5C0F3;
-  --color-border-hover: #A783E1;
+  --color-border: #E2DDD3;      /* Soft Muted Gray Border */
+  --color-border-hover: #1C1B18; /* Dark Charcoal Border Hover */
   
-  --color-text: #190933;
-  --color-text-secondary: #4A3568;
-  --color-text-muted: #8068A0;
-  
-  /* Brand Accents */
-  --color-ember: #7B26F8;
-  --color-ember-glow: rgba(123, 38, 248, 0.22);
-  --color-gold: #E019F5;
-  --color-cyan: #8C52E7;
-  --color-cyan-glow: rgba(140, 82, 231, 0.2);
+  --color-text: #1C1B18;        /* Pure Deep Charcoal/Black */
+  --color-text-secondary: #4E4B43; /* Medium Warm Gray */
+  --color-text-muted: #847F75;  /* Soft Muted Gray */
 
-  --grad-primary: #7B26F8;
+  --color-brand-black: #1C1B18;
+  --color-brand-gray: #58544B;
+  --color-brand-light-gray: #E2DDD3;
+  --color-brand-cream: #FAF8F5;
+  
+  /* Brand Accents - Clean Minimal Monochrome */
+  --color-ember: #1C1B18;
+  --color-ember-glow: rgba(28, 27, 24, 0.1);
+  --color-gold: #1C1B18;
+  --color-cyan: #1C1B18;
+  --color-cyan-glow: rgba(28, 27, 24, 0.08);
+
+  --c-1-electric-violet: #1C1B18;
+  --c-2-pale-lavender: #FAF8F5;
+  --c-3-soft-lavender: #847F75;
+  --c-4-vivid-magenta: #1C1B18;
+  --c-5-light-lilac: #E2DDD3;
+  --c-6-iris-purple: #1C1B18;
+  --c-7-pastel-orchid: #F3EFE6;
+  --c-8-purple-orchid: #1C1B18;
+
+  --grad-primary: #1C1B18;
   --grad-surface: #FFFFFF;
-  --grad-subtle: #F6ECFC;
+  --grad-subtle: #FAF8F5;
 
   /* Typography Fonts */
   --font-display: 'Inter', 'Google Sans', 'Google Sans Text', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -61,8 +65,8 @@
   --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Minimal SaaS Shadows */
-  --shadow-sm: 0 2px 10px rgba(123, 38, 248, 0.05);
-  --shadow-md: 0 12px 32px rgba(123, 38, 248, 0.09);
-  --shadow-glow: 0 0 32px rgba(224, 25, 245, 0.25);
+  /* Minimal Shadows */
+  --shadow-sm: 0 2px 8px rgba(28, 27, 24, 0.04);
+  --shadow-md: 0 8px 24px rgba(28, 27, 24, 0.06);
+  --shadow-glow: 0 4px 12px rgba(28, 27, 24, 0.08);
 }
