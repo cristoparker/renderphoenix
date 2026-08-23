@@ -66,6 +66,8 @@ def simple_markdown_to_html(md_text):
     return '\n'.join(html_lines)
 
 def inline_format(text):
+    # Images
+    text = re.sub(r'!\[(.*?)\]\((.*?)\)', r'<img src="\2" alt="\1" class="content-img" loading="lazy" />', text)
     # Bold & Italic
     text = re.sub(r'\*\*\*(.*?)\*\*\*', r'<strong><em>\1</em></strong>', text)
     text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', text)
@@ -314,8 +316,15 @@ def build():
         p_content = p_content.replace('{{ page.category }}', proj.get('category', ''))
         p_content = p_content.replace('{{ page.year }}', str(proj.get('year', '')))
         
-        if proj.get('cover_image'):
-            p_content = p_content.replace('{% if page.cover_image %}', '').replace('{% endif %}', '').replace('{{ page.cover_image | relative_url }}', proj['cover_image'])
+        cover_img = proj.get('cover_image', '/assets/images/image-not-found.svg')
+        p_content = re.sub(r'\{%\s*assign\s+cover_img\s*=[\s\S]*?%\}', '', p_content)
+        p_content = p_content.replace('{{ cover_img | relative_url }}', cover_img)
+        p_content = p_content.replace('{{ page.cover_image | relative_url }}', cover_img)
+        
+        if proj.get('mcpedl_url'):
+            p_content = p_content.replace('{% if page.mcpedl_url %}', '').replace('{% endif %}', '').replace('{{ page.mcpedl_url }}', proj['mcpedl_url'])
+        else:
+            p_content = re.sub(r'\{% if page\.mcpedl_url %\}[\s\S]*?\{% endif %\}', '', p_content)
         
         if proj.get('award'):
             p_content = p_content.replace('{% if page.award %}', '').replace('{% endif %}', '').replace('{{ page.award }}', proj['award'])
@@ -451,7 +460,17 @@ def build():
         if layout_type == 'page':
             p_title = meta.get('title', '')
             p_desc = meta.get('description', '')
-            content_html = page_layout_body.replace('{{ page.title }}', p_title)
+            header_img = meta.get('header_image', '')
+
+            content_html = page_layout_body
+            if header_img:
+                content_html = content_html.replace('{% if page.header_image %}page-header-hero{% endif %}', 'page-header-hero')
+                content_html = re.sub(r'\{%\s*if\s+page\.header_image\s*%\}style="background-image:\s*url\(\'\{\{\s*page\.header_image\s*\}\}\'\);"\s*\{%\s*endif\s*%\}', f'style="background-image: url(\'{header_img}\');"', content_html)
+            else:
+                content_html = content_html.replace('{% if page.header_image %}page-header-hero{% endif %}', '')
+                content_html = re.sub(r'\{%\s*if\s+page\.header_image\s*%\}[\s\S]*?\{%\s*endif\s*%\}', '', content_html)
+
+            content_html = content_html.replace('{{ page.title }}', p_title)
             if p_desc:
                 content_html = content_html.replace('{% if page.description %}', '').replace('{% endif %}', '').replace('{{ page.description }}', p_desc)
             else:

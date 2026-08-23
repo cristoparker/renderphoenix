@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<header class="page-header">
+<header class="page-header {% if page.header_image %}page-header-hero{% endif %}" {% if page.header_image %}style="background-image: url('{{ page.header_image }}');"{% endif %}>
   <div class="container">
     <h1 class="page-title">{{ page.title }}</h1>
     {% if page.description %}

@@ -179,6 +179,64 @@ body {
   border-bottom: 1px solid var(--c-5-light-lilac);
 }
 
+.page-header-hero {
+  position: relative;
+  min-height: calc(75vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--space-3xl) * 1.2) 0;
+  margin-bottom: var(--space-2xl);
+  background-color: #0D0F17;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.page-header-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 23, 0.45);
+  z-index: 1;
+}
+
+.page-header-hero .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-header-hero .page-title {
+  color: #FFFFFF;
+  font-size: clamp(2.6rem, 6.2vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.page-header-hero .page-lead {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0 auto;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
 /* Minimal Footer */
 .site-footer {
   background: #FFFFFF;

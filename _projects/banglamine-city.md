@@ -5,7 +5,7 @@ description: "A large-scale urban city environment project inspired by Banglades
 category: "Environment"
 year: 2021
 status: "completed"
-cover_image: "/assets/images/projects/banglamine-city.svg"
+cover_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.png"
 technologies:
   - "Minecraft Bedrock"
   - "World Design"
@@ -20,6 +20,8 @@ tags:
 ---
 
 Banglamine City is one of RenderPhoenix's flagship early urban creation maps, combining metropolitan city layouts, Bangladeshi architectural elements, high-density residential blocks, and detailed road infrastructure.
+
+![Banglamine City Atmospheric Streets](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.png)
 
 ### Project Highlights
 - **Urban Scale**: Sprawling metropolis with commercial districts, flyovers, residential zones, and public transit nodes.
