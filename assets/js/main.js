@@ -22,9 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!backdrop) {
       backdrop = document.createElement('div');
       backdrop.className = 'nav-backdrop';
-      backdrop.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background:rgba(28,27,24,0.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity 0.25s ease;z-index:1040;';
       document.body.appendChild(backdrop);
     }
+
+    const navClose = document.getElementById('nav-close');
 
     const toggleNav = (open) => {
       const isOpen = typeof open === 'boolean' ? open : !primaryNav.classList.contains('is-open');
@@ -32,15 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isOpen) {
         primaryNav.classList.add('is-open');
         navToggle.classList.add('is-active');
-        backdrop.style.opacity = '1';
-        backdrop.style.pointerEvents = 'auto';
+        backdrop.classList.add('is-visible');
+        document.body.classList.add('nav-open');
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
       } else {
         primaryNav.classList.remove('is-open');
         navToggle.classList.remove('is-active');
-        backdrop.style.opacity = '0';
-        backdrop.style.pointerEvents = 'none';
+        backdrop.classList.remove('is-visible');
+        document.body.classList.remove('nav-open');
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
@@ -50,6 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       toggleNav();
     });
+
+    if (navClose) {
+      navClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleNav(false);
+      });
+    }
 
     backdrop.addEventListener('click', () => {
       toggleNav(false);

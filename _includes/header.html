@@ -13,6 +13,16 @@
     </button>
 
     <nav class="primary-nav" id="primary-nav" aria-label="Main Navigation">
+      <div class="nav-drawer-header">
+        <span class="nav-drawer-title">RenderPhoenix</span>
+        <button class="nav-close-btn" id="nav-close" type="button" aria-label="Close navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
       <ul class="nav-list">
         {% for item in site.data.navigation.header %}
           {% assign is_active = false %}
@@ -28,6 +38,10 @@
           </li>
         {% endfor %}
       </ul>
+
+      <div class="nav-drawer-footer">
+        <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary btn-sm nav-drawer-cta">Get in Touch</a>
+      </div>
     </nav>
   </div>
 </header>

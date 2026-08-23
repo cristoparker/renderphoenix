@@ -53,13 +53,43 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1050;
   height: var(--header-height);
   background: rgba(250, 248, 245, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
   transition: all var(--transition-normal);
+}
+
+.nav-drawer-header,
+.nav-drawer-footer {
+  display: none;
+}
+
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(28, 27, 24, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 1040;
+}
+
+.nav-backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .header-container {

@@ -3,6 +3,7 @@
   username: "tasrif"
   bio: "Founded Minehutt in 2019 and established RenderPhoenix in 2021. Paved the early creative vision of the studio across community maps, add-ons, and visual packs."
   active: true
+  avatar: "https://avatars.githubusercontent.com/u/97918670"
   social_links:
     mcpedl: "https://mcpedl.com/user/renderphoenix/"
 
@@ -11,6 +12,7 @@
   username: "cristoparker"
   bio: "Oversees studio operations, digital infrastructure rebuild, and direction into broader game development and asset production."
   active: true
+  avatar: "https://avatars.githubusercontent.com/u/119607021"
   social_links: {}
 
 - name: "Uthowaipru Chowdhury"
@@ -18,6 +20,7 @@
   username: "uthowaipru"
   bio: "Focuses on game mechanics, system architecture, and gameplay logic across indie titles and real-time interactive projects."
   active: true
+  avatar: "https://avatars.githubusercontent.com/u/93986459"
   social_links: {}
 
 - name: "Faizul726"
@@ -25,4 +28,5 @@
   username: "faizul726"
   bio: "Specializes in software application development, client interfaces, and creative technology tooling for RenderPhoenix projects."
   active: true
+  avatar: "https://avatars.githubusercontent.com/u/162413089"
   social_links: {}

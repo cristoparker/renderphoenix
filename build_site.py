@@ -383,11 +383,17 @@ def build():
         """
 
     def render_team_card(mem):
-        avatar = mem.get('name', 'R')[0]
+        avatar_url = mem.get('avatar', '')
+        name = mem.get('name', '')
+        if avatar_url:
+            avatar_html = f'<img src="{avatar_url}" alt="{name}" class="team-avatar-img" width="80" height="80" loading="lazy" />'
+        else:
+            initial = name[0] if name else 'R'
+            avatar_html = initial
         return f"""
         <div class="team-card">
-          <div class="team-avatar">{avatar}</div>
-          <h3 class="team-name">{mem.get('name', '')}</h3>
+          <div class="team-avatar">{avatar_html}</div>
+          <h3 class="team-name">{name}</h3>
           <div class="team-role">{mem.get('role', '')}</div>
           <p class="team-bio">{mem.get('bio', '')}</p>
         </div>

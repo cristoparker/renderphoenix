@@ -94,7 +94,11 @@ description: "Discover the history, philosophy, team, and future direction of Re
       {% for member in site.data.team %}
         <div class="team-card">
           <div class="team-avatar">
-            {{ member.name | slice: 0, 1 }}
+            {% if member.avatar %}
+              <img src="{{ member.avatar }}" alt="{{ member.name }}" class="team-avatar-img" width="80" height="80" loading="lazy" />
+            {% else %}
+              {{ member.name | slice: 0, 1 }}
+            {% endif %}
           </div>
           <h3 class="team-name">{{ member.name }}</h3>
           <div class="team-role">{{ member.role }}</div>
