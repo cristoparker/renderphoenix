@@ -4,11 +4,10 @@
 {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
 
 <article class="post-card {% if include.featured %}post-card-featured{% endif %}">
-  {% if post.image %}
-    <div class="post-card-media">
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" width="600" height="340" onerror="this.parentElement.style.display='none';">
-    </div>
-  {% endif %}
+  {% assign post_img = post.image | default: '/assets/images/image-not-found.svg' %}
+  <div class="post-card-media">
+    <img src="{{ post_img | relative_url }}" alt="{{ post.title }}" loading="lazy" width="600" height="340" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
+  </div>
 
   <div class="post-card-content">
     <div class="post-card-meta">

@@ -150,7 +150,8 @@ def render_project_card(proj, card_class=""):
     cat = proj.get('category', '')
     cat_badge_html = f'<span class="badge cat-badge">{cat}</span>' if cat not in ['Interactive', 'Environment'] else '<span class="badge cat-badge">Project</span>'
     award_html = f'<div class="card-badge award-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg><span>Award Winner</span></div>' if proj.get('award') else ''
-    img_html = f'<img src="{proj.get("cover_image")}" alt="{proj.get("title")} preview" loading="lazy" width="600" height="340">' if proj.get('cover_image') else ''
+    img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
+    img_html = f'<img src="{img}" alt="{proj.get("title")} preview" loading="lazy" width="600" height="340" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';">'
     slug = proj.get('slug', '')
     url = f'/work/{slug}/'
 
@@ -187,7 +188,8 @@ def render_project_card(proj, card_class=""):
 
 def render_post_card(post, featured=False, card_class=""):
     feat_class = 'post-card-featured' if featured else card_class
-    img_html = f'<div class="post-card-media"><img src="{post.get("image")}" alt="{post.get("title")}" loading="lazy" width="600" height="340"></div>' if post.get('image') else ''
+    img = post.get('image') or '/assets/images/image-not-found.svg'
+    img_html = f'<div class="post-card-media"><img src="{img}" alt="{post.get("title")}" loading="lazy" width="600" height="340" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
     slug = post.get('slug', '')
     url = f'/blog/{slug}/'
     author = post.get('author', 'RenderPhoenix')
@@ -226,8 +228,8 @@ def render_sidebar_item(proj):
     if cat in ['Interactive', 'Environment']:
         cat = 'Project'
     url = f"/work/{proj['slug']}/"
-    img = proj.get('cover_image', '')
-    img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);"><img src="{img}" alt="{proj.get("title")}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);"></div>' if img else ''
+    img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
+    img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);"><img src="{img}" alt="{proj.get("title")}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
 
     return f"""
     <article class="magazine-sidebar-item" style="display: flex; gap: 0.85rem; align-items: center;">
@@ -245,6 +247,11 @@ def render_sidebar_item(proj):
     """
 
 def build():
+    # 0. Clean previous build directory completely
+    if os.path.exists(SITE_DIR):
+        shutil.rmtree(SITE_DIR, ignore_errors=True)
+        print("Cleaned old _site directory")
+
     # 1. Copy assets
     os.makedirs(SITE_DIR, exist_ok=True)
     if os.path.exists(os.path.join(ROOT_DIR, 'assets')):

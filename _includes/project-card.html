@@ -2,9 +2,8 @@
 <article class="project-card" data-category="{{ proj.category | slugify }}">
   <div class="card-media">
     <div class="media-aspect">
-      {% if proj.cover_image %}
-        <img src="{{ proj.cover_image | relative_url }}" alt="{{ proj.title }} preview" loading="lazy" width="600" height="340" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      {% endif %}
+      {% assign proj_img = proj.cover_image | default: '/assets/images/image-not-found.svg' %}
+      <img src="{{ proj_img | relative_url }}" alt="{{ proj.title }} preview" loading="lazy" width="600" height="340" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
       <div class="media-placeholder" {% if proj.cover_image %}style="display:none;"{% endif %}>
         <div class="ph-pattern"></div>
         <span class="ph-category">{{ proj.category }}</span>

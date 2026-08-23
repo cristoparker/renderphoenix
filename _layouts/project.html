@@ -25,11 +25,10 @@ layout: default
   <div class="project-main container">
     <div class="project-grid">
       <div class="project-content">
-        {% if page.cover_image %}
-          <div class="project-cover">
-            <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }} cover" loading="eager" width="1200" height="675" onerror="this.parentElement.style.display='none';">
-          </div>
-        {% endif %}
+        {% assign cover_img = page.cover_image | default: '/assets/images/image-not-found.svg' %}
+        <div class="project-cover">
+          <img src="{{ cover_img | relative_url }}" alt="{{ page.title }} cover" loading="eager" width="1200" height="675" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
+        </div>
 
         <div class="project-body">
           {{ content }}
