@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!backdrop) {
       backdrop = document.createElement('div');
       backdrop.className = 'nav-backdrop';
-      backdrop.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(28,27,24,0.4);opacity:0;pointer-events:none;transition:opacity 0.25s ease;z-index:1000;';
+      backdrop.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background:rgba(28,27,24,0.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity 0.25s ease;z-index:1040;';
       document.body.appendChild(backdrop);
     }
 
@@ -34,12 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
         navToggle.classList.add('is-active');
         backdrop.style.opacity = '1';
         backdrop.style.pointerEvents = 'auto';
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
       } else {
         primaryNav.classList.remove('is-open');
         navToggle.classList.remove('is-active');
         backdrop.style.opacity = '0';
         backdrop.style.pointerEvents = 'none';
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
     };
@@ -57,6 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && primaryNav.classList.contains('is-open')) {
         toggleNav(false);
       }
+    });
+
+    const navLinks = primaryNav.querySelectorAll('.nav-link');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          toggleNav(false);
+        }
+      });
     });
   }
 

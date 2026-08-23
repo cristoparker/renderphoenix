@@ -1,7 +1,4 @@
 {% assign post = include.post %}
-{% assign words = post.content | strip_html | number_of_words %}
-{% assign read_time = words | divided_by: 200 %}
-{% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
 
 <article class="post-card {% if include.featured %}post-card-featured{% endif %}">
   {% assign post_img = post.image | default: '/assets/images/image-not-found.svg' %}
@@ -14,8 +11,6 @@
       <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
         {{ post.date | date: "%B %d, %Y" }}
       </time>
-      <span class="meta-dot">&bull;</span>
-      <span class="read-time">{{ read_time }} min read</span>
     </div>
 
     <h3 class="post-card-title">

@@ -1,16 +1,11 @@
 ---
 layout: default
 ---
-{% assign words = content | strip_html | number_of_words %}
-{% assign read_time = words | divided_by: 200 %}
-{% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
 
 <article class="blog-article">
   <header class="article-header container">
     <div class="article-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-      <span class="meta-dot">&bull;</span>
-      <span>{{ read_time }} min read</span>
     </div>
 
     <h1 class="article-title">{{ page.title }}</h1>
