@@ -56,7 +56,7 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
 }
 
 .cat-badge {
@@ -77,7 +77,7 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   background: var(--c-2-pale-lavender);
   color: var(--color-text-secondary);
   padding: 0.2rem 0.5rem;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--c-5-light-lilac);
 }
 
@@ -252,18 +252,25 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
+  align-items: stretch;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
 }
 
 .post-card-media {
-  aspect-ratio: 16/9;
+  position: relative;
   overflow: hidden;
-  background: var(--c-2-pale-lavender);
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
 }
 
 .post-card-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
 }
 
 .post-card-content {
@@ -524,7 +531,10 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 .magazine-sidebar {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
 .magazine-sidebar-heading {
@@ -604,21 +614,44 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   grid-column: span 2;
 }
 
+.card-horizontal,
+.project-card.card-horizontal,
+.post-card.card-horizontal,
 .magazine-grid .project-card.card-horizontal,
 .magazine-grid .post-card.card-horizontal {
-  grid-column: span 2;
+  grid-column: 1 / -1;
+  width: 100%;
   display: flex;
   flex-direction: row;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
 }
 
+.card-horizontal:hover,
+.project-card.card-horizontal:hover,
+.post-card.card-horizontal:hover,
+.magazine-grid .project-card.card-horizontal:hover,
+.magazine-grid .post-card.card-horizontal:hover {
+  border-color: var(--c-3-soft-lavender);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-horizontal .card-media,
+.card-horizontal .post-card-media,
 .magazine-grid .card-horizontal .card-media,
 .magazine-grid .card-horizontal .post-card-media {
   width: 45%;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
+.card-horizontal .card-body,
+.card-horizontal .post-card-content,
 .magazine-grid .card-horizontal .card-body,
 .magazine-grid .card-horizontal .post-card-content {
   width: 55%;
@@ -631,25 +664,34 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 @media (max-width: 768px) {
   .magazine-grid .project-card.card-wide,
   .magazine-grid .post-card.card-wide,
+  .card-horizontal,
+  .project-card.card-horizontal,
+  .post-card.card-horizontal,
   .magazine-grid .project-card.card-horizontal,
   .magazine-grid .post-card.card-horizontal {
     grid-column: span 1;
     flex-direction: column;
   }
+  .card-horizontal .card-media,
+  .card-horizontal .post-card-media,
   .magazine-grid .card-horizontal .card-media,
   .magazine-grid .card-horizontal .post-card-media,
+  .card-horizontal .card-body,
+  .card-horizontal .post-card-content,
   .magazine-grid .card-horizontal .card-body,
   .magazine-grid .card-horizontal .post-card-content {
     width: 100%;
   }
 }
 
-/* Strict Global Image Fitting & Ratio Containment */
+/* Strict Edge-to-Edge Image Zoom & Crop Fit */
 img {
   max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
 }
 
 .card-media,
@@ -658,7 +700,9 @@ img {
 .project-cover {
   position: relative;
   overflow: hidden;
-  background: var(--color-bg-alt);
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
 }
 
 .card-media img,
@@ -668,19 +712,10 @@ img {
 .post-card-featured img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* SVG Vector Graphics Fit - Never crop or cut off bottom/top */
-img[src$=".svg"],
-.card-media img[src$=".svg"],
-.post-card-media img[src$=".svg"],
-.magazine-sidebar-thumb img[src$=".svg"],
-.project-cover img[src$=".svg"],
-.post-card-featured img[src$=".svg"] {
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center !important;
-  padding: 0.5rem;
+  display: block;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
 }

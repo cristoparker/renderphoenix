@@ -227,7 +227,7 @@ def render_sidebar_item(proj):
         cat = 'Project'
     url = f"/work/{proj['slug']}/"
     img = proj.get('cover_image', '')
-    img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden;"><img src="{img}" alt="{proj.get("title")}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;"></div>' if img else ''
+    img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);"><img src="{img}" alt="{proj.get("title")}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);"></div>' if img else ''
 
     return f"""
     <article class="magazine-sidebar-item" style="display: flex; gap: 0.85rem; align-items: center;">

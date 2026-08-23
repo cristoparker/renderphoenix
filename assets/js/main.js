@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Global Image Error Fallback Handler
+  document.addEventListener('error', (e) => {
+    if (e.target && e.target.tagName === 'IMG') {
+      if (!e.target.dataset.fallbackTried) {
+        e.target.dataset.fallbackTried = 'true';
+        e.target.src = '/assets/images/image-not-found.png';
+      }
+    }
+  }, true);
+
   // Mobile Navigation Toggle
   const navToggle = document.getElementById('nav-toggle');
   const primaryNav = document.getElementById('primary-nav');
