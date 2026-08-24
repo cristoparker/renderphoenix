@@ -3,6 +3,7 @@ title: "A Horror Map If You Need"
 slug: "a-horror-map-if-you-need"
 description: "An atmospheric psychological horror adventure map featuring custom puzzles, eerie audio, and dark labyrinth exploration."
 category: "Interactive"
+developer: ""
 date: 2021-07-19
 downloads: "42.2K+"
 status: "completed"

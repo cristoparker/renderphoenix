@@ -3,6 +3,7 @@ title: "Phoenix Bicycle Add-on V2.0"
 slug: "phoenix-bicycle"
 description: "Interactive bicycle vehicle addon featuring smooth riding dynamics, gear sounds, and customizable frame colors."
 category: "Add-On"
+developer: ""
 date: 2021-03-21
 downloads: "13.3K+"
 status: "completed"
