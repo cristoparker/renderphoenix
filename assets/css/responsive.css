@@ -299,6 +299,59 @@
   .contact-form {
     padding: 1.25rem;
   }
+
+  /* Mobile Image & Media Resiliency */
+  .article-hero-wrap {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xl);
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .article-hero-media {
+    border-radius: var(--radius-md);
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .article-hero-media img {
+    border-radius: var(--radius-md);
+    max-height: 300px;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .blog-article .article-body img,
+  .blog-article .article-content-wrapper img,
+  .article-body img,
+  .post-body img,
+  .article-container img,
+  .content-img,
+  .project-body img {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    border-radius: var(--radius-md);
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .article-body p:has(> img),
+  .article-content-wrapper p:has(> img),
+  .blog-article p:has(> img),
+  .article-body figure,
+  .blog-article figure {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 !important;
+  }
+
+  .project-detail .project-cover {
+    min-height: 200px;
+    max-height: 320px;
+    margin-bottom: var(--space-xl);
+    border-radius: var(--radius-md);
+    padding: 0 !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

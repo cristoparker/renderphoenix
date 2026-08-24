@@ -24,8 +24,10 @@ layout: default
   </header>
 
   {% if page.image %}
-    <div class="article-hero-media container">
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="eager" width="1200" height="630">
+    <div class="article-hero-wrap container">
+      <div class="article-hero-media">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="eager" width="1200" height="630">
+      </div>
     </div>
   {% endif %}
 
