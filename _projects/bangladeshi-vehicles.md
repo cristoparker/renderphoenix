@@ -1,5 +1,5 @@
 ---
-title: "Bangladeshi Vehicles Addon - Pre Release 1.0.0"
+title: "Bangladeshi Vehicles Addon"
 slug: "bangladeshi-vehicles"
 description: "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics."
 category: "Add-On"
