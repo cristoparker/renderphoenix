@@ -24,7 +24,7 @@
     </h3>
 
     <div class="card-meta">
-      {% if proj.category != "Interactive" and proj.category != "Environment" %}
+      {% if proj.category %}
         <span class="badge cat-badge">{{ proj.category }}</span>
       {% endif %}
       <time class="meta-date">{{ proj.date | date: "%d %b %Y" }}</time>

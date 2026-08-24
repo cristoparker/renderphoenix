@@ -28,3 +28,5 @@ Banglamine City is one of RenderPhoenix's flagship early urban creation maps, co
 - **Urban Scale**: Sprawling metropolis with commercial districts, flyovers, residential zones, and public transit nodes.
 - **Cultural Detailing**: Custom building designs drawing inspiration from Bangladeshi cityscapes, landmarks, and streetscapes.
 - **Exploration**: Built with intricate interiors and hidden spots designed for multiplayer exploration and roleplay.
+
+![Banglamine Land Field & Development](/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.png)

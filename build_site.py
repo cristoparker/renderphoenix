@@ -166,7 +166,7 @@ def format_full_date(date_val):
 
 def render_project_card(proj, card_class=""):
     cat = proj.get('category', '')
-    cat_badge_html = f'<span class="badge cat-badge">{cat}</span>' if cat not in ['Interactive', 'Environment'] else '<span class="badge cat-badge">Project</span>'
+    cat_badge_html = f'<span class="badge cat-badge">{cat}</span>' if cat else ''
     award_html = f'<div class="card-badge award-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg><span>Award Winner</span></div>' if proj.get('award') else ''
     img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
     img_html = f'<img src="{img}" alt="{proj.get("title")} preview" loading="lazy" width="600" height="340" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';">'
