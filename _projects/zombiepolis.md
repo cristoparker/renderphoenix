@@ -1,10 +1,10 @@
 ---
-title: "Zombiepolis"
+title: "Zombiepolis - A Post Apocalyptic City"
 slug: "zombiepolis"
 description: "A post-apocalyptic urban city environment designed for survival, exploration, and atmospheric gameplay."
 category: "Environment"
-date: 2021-11-20
-downloads: "150K+"
+date: 2021-03-16
+downloads: "285.1K+"
 status: "completed"
 cover_image: "/assets/images/projects/zombiepolis.svg"
 technologies:

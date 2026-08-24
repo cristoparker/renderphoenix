@@ -1,10 +1,10 @@
 ---
-title: "Killer vs Survivors"
+title: "Killer vs Survivors Minigame"
 slug: "killer-vs-survivors"
 description: "Asymmetrical multiplayer minigame featuring hide-and-seek survival and generator repair mechanics."
 category: "Interactive"
-date: 2021-10-31
-downloads: "45K+"
+date: 2021-05-21
+downloads: "16.7K+"
 status: "completed"
 cover_image: "/assets/images/projects/killer-vs-survivors.svg"
 technologies:

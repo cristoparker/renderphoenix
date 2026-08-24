@@ -1,10 +1,10 @@
 ---
-title: "Frostcraft"
+title: "FROSTCRAFT (Map Inspired from Frostpunk Game)"
 slug: "frostcraft"
 description: "A frozen wasteland survival map inspired by Frostpunk, featuring sub-zero mechanics and generator settlement hubs."
 category: "Environment"
-date: 2022-01-25
-downloads: "85K+"
+date: 2021-07-26
+downloads: "33.6K+"
 status: "completed"
 cover_image: "/assets/images/projects/frostcraft.svg"
 technologies:

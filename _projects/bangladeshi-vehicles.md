@@ -1,10 +1,10 @@
 ---
-title: "Bangladeshi Vehicles Addon"
+title: "Bangladeshi Vehicles Addon - Pre Release 1.0.0"
 slug: "bangladeshi-vehicles"
 description: "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics."
 category: "Add-On"
-date: 2022-04-12
-downloads: "65K+"
+date: 2021-04-14
+downloads: "35.3K+"
 status: "completed"
 cover_image: "/assets/images/projects/bd-vehicles.svg"
 technologies:

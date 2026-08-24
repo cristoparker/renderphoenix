@@ -1,10 +1,10 @@
 ---
-title: "DHK Rickshaw Addon"
+title: "DHK Rickshaw V2"
 slug: "dhk-rickshaw"
 description: "Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics."
 category: "Add-On"
-date: 2022-05-18
-downloads: "35K+"
+date: 2021-11-12
+downloads: "12.2K+"
 status: "completed"
 cover_image: "/assets/images/projects/dhk-rickshaw.svg"
 technologies:

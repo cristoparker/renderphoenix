@@ -3,8 +3,8 @@ title: "Fantasy Woods & Dark Underland"
 slug: "fantasy-woods"
 description: "A fantasy realm featuring custom biomes, bioluminescent flora, and subterranean cavern exploration."
 category: "Environment"
-date: 2021-08-14
-downloads: "30K+"
+date: 2021-02-18
+downloads: "15.7K+"
 status: "completed"
 cover_image: "/assets/images/projects/fantasy-woods.svg"
 technologies:
