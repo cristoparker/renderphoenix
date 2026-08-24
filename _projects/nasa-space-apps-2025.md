@@ -3,10 +3,18 @@ title: "Lunar Habitat Simulator — NASA Space Apps 2025"
 slug: "nasa-space-apps-2025"
 description: "Regional Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation."
 category: "Interactive"
-developer: ""
+developer: "RenderPhoenix Team"
 date: 2025-10-05
 status: "completed"
+version: "Prototype"
+platform: "Web & 3D Simulation"
+github_url: "https://github.com/renderphoenix"
 cover_image: "/assets/images/projects/nasa-space-apps.svg"
+technologies:
+  - "Three.js / WebGL"
+  - "Simulation Physics"
+  - "Interactive 3D"
+  - "UI Design"
 featured: true
 award: "Regional Runner-Up — NASA Space Apps Challenge 2025"
 tags:

@@ -7,13 +7,17 @@ developer: "Tasrif Ibn Mizan"
 date: 2021-03-13
 downloads: "33.2K+"
 status: "completed"
+version: "1.0.0"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_1%20thumbnail.png"
 technologies:
   - "Minecraft Bedrock"
   - "PvP Mechanics"
   - "Command Blocks"
   - "Level Design"
-mcpedl_url: "https://mcpedl.com/funmoba-pvp-moba-style-pvp/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/funmoba-pvp-moba-style-pvp/"
 featured: false
 tags:
   - "moba"

@@ -10,10 +10,16 @@ status: "completed"
 cover_image: "/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20Frostcraft%20Frostpunk%20Thumbnail.png"
 technologies:
   - "Minecraft Bedrock"
+  - "Minecraft Java"
   - "Terrain Art"
   - "Steampunk Architecture"
   - "Level Design"
-mcpedl_url: "https://mcpedl.com/frostcraft-map-1/"
+platform: "Bedrock & Java"
+download_links:
+  - label: "Download for Bedrock"
+    url: "https://mcpedl.com/frostcraft-map-1/"
+  - label: "Download for Java Edition"
+    url: "https://mcpedl.com/frostcraft-map-1/"
 featured: true
 tags:
   - "frostpunk"

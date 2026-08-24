@@ -7,12 +7,15 @@ developer: "Tasrif Ibn Mizan"
 date: 2021-07-19
 downloads: "42.2K+"
 status: "completed"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20a-horror-map-if-you-need.png"
 technologies:
   - "Minecraft Bedrock"
   - "Horror Mechanics"
   - "Level Design"
-mcpedl_url: "https://mcpedl.com/a-horror-map-if-you-need/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/a-horror-map-if-you-need/"
 featured: false
 tags:
   - "horror"

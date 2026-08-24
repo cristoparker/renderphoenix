@@ -7,13 +7,17 @@ developer: "Tasrif Ibn Mizan"
 date: 2021-02-26
 downloads: "13.2K+"
 status: "completed"
+version: "1.0.0"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp-solo-competitive-battle%20thumbnail.png"
 technologies:
   - "Minecraft Bedrock"
   - "PvP Mechanics"
   - "Command Blocks"
   - "Level Design"
-mcpedl_url: "https://mcpedl.com/holo-pvp-solo-competitive-battle/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/holo-pvp-solo-competitive-battle/"
 featured: false
 tags:
   - "pvp"

@@ -7,12 +7,16 @@ developer: "Cristo Parker"
 date: 2021-11-12
 downloads: "12.2K+"
 status: "completed"
+version: "2.0.0"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.png"
 technologies:
   - "3D Modeling"
   - "Custom Textures"
   - "Entity Physics"
-mcpedl_url: "https://mcpedl.com/dhk-rickshaw-addon-1/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/dhk-rickshaw-addon-1/"
 featured: false
 tags:
   - "rickshaw"

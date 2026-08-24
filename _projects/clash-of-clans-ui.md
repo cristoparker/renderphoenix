@@ -7,12 +7,16 @@ developer: "Uthowaipru Chowdhury"
 date: 2023-01-18
 downloads: "4.5K+"
 status: "completed"
+version: "1.0.0"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.png"
 technologies:
   - "UI Design"
   - "Texture Art"
   - "Custom Fonts"
-mcpedl_url: "https://mcpedl.com/clash-of-clans-theme-ui/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/clash-of-clans-theme-ui/"
 featured: false
 tags:
   - "ui"

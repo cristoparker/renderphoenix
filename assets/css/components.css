@@ -44,7 +44,45 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   color: var(--c-1-electric-violet);
 }
 
+.btn-github {
+  background: #181717;
+  color: #FFFFFF;
+  border-color: #181717;
+  box-shadow: 0 2px 8px rgba(24, 23, 23, 0.12);
+}
+
+.btn-github:hover {
+  background: #24292e;
+  border-color: #24292e;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(24, 23, 23, 0.2);
+}
+
+.btn-github svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 .btn-block {
+  width: 100%;
+}
+
+.sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: var(--space-md);
+}
+
+.sidebar-actions .btn {
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   width: 100%;
 }
 

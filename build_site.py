@@ -339,6 +339,126 @@ def clean_conditional(text, condition_name, is_truthy, replace_dict=None):
     else:
         return pattern.sub('', text)
 
+def render_project_specs(proj):
+    items = []
+    
+    # Developer
+    dev = proj.get('developer')
+    if dev:
+        items.append(f'<dt>Developer</dt>\n<dd>{dev}</dd>')
+        
+    # Category
+    cat = proj.get('category')
+    if cat:
+        items.append(f'<dt>Category</dt>\n<dd>{cat}</dd>')
+        
+    # Version
+    ver = proj.get('version')
+    if ver:
+        items.append(f'<dt>Version</dt>\n<dd>{ver}</dd>')
+        
+    # Platform / Platforms
+    platform = proj.get('platform')
+    platforms = proj.get('platforms')
+    if platform:
+        items.append(f'<dt>Platform</dt>\n<dd>{platform}</dd>')
+    elif platforms:
+        plat_str = ', '.join(platforms) if isinstance(platforms, list) else str(platforms)
+        items.append(f'<dt>Platform</dt>\n<dd>{plat_str}</dd>')
+        
+    # Release Date
+    date_val = proj.get('date')
+    if date_val:
+        date_formatted = format_full_date(date_val)
+        items.append(f'<dt>Release Date</dt>\n<dd>{date_formatted}</dd>')
+        
+    # License
+    license_val = proj.get('license')
+    if license_val:
+        items.append(f'<dt>License</dt>\n<dd>{license_val}</dd>')
+        
+    # Downloads count
+    dl_count = proj.get('downloads')
+    if dl_count:
+        dl_html = f'''<dt>Downloads</dt>
+<dd class="spec-downloads">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+  <span>{dl_count}</span>
+</dd>'''
+        items.append(dl_html)
+        
+    return '\n'.join(items)
+
+def render_project_sidebar_actions(proj):
+    buttons = []
+    
+    # 1. Live Demo link
+    demo_url = proj.get('demo_url') or proj.get('live_demo_url')
+    if demo_url:
+        demo_label = proj.get('demo_label', 'Launch Live Demo')
+        buttons.append(f'''<a href="{demo_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+  <span>{demo_label}</span>
+</a>''')
+
+    # 2. Modular Download Links
+    dl_links = proj.get('download_links')
+    if dl_links and isinstance(dl_links, list):
+        for idx, dl in enumerate(dl_links):
+            if isinstance(dl, dict):
+                url = dl.get('url', '')
+                label = dl.get('label') or f'Download #{idx+1}'
+                is_primary = dl.get('primary', idx == 0 and not demo_url)
+            else:
+                url = str(dl)
+                label = f'Download #{idx+1}'
+                is_primary = idx == 0 and not demo_url
+            
+            btn_class = 'btn btn-primary btn-block' if is_primary else 'btn btn-secondary btn-block'
+            buttons.append(f'''<a href="{url}" target="_blank" rel="noopener noreferrer" class="{btn_class}">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+  <span>{label}</span>
+</a>''')
+    elif proj.get('download_url'):
+        dl_url = proj.get('download_url')
+        dl_label = proj.get('download_label', 'Download Project')
+        btn_class = 'btn btn-primary btn-block' if not demo_url else 'btn btn-secondary btn-block'
+        buttons.append(f'''<a href="{dl_url}" target="_blank" rel="noopener noreferrer" class="{btn_class}">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+  <span>{dl_label}</span>
+</a>''')
+    elif proj.get('mcpedl_url'):
+        # Fallback for mcpedl_url if no other download links specified
+        mc_url = proj.get('mcpedl_url')
+        btn_class = 'btn btn-primary btn-block' if not demo_url else 'btn btn-secondary btn-block'
+        buttons.append(f'''<a href="{mc_url}" target="_blank" rel="noopener noreferrer" class="{btn_class}">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+  <span>View on MCPEDL</span>
+</a>''')
+
+    # 3. GitHub repository link
+    gh_url = proj.get('github_url') or proj.get('github') or proj.get('repo_url')
+    if gh_url:
+        gh_label = proj.get('github_label', 'View on GitHub')
+        buttons.append(f'''<a href="{gh_url}" target="_blank" rel="noopener noreferrer" class="btn btn-github btn-block">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+  <span>{gh_label}</span>
+</a>''')
+
+    # 4. Docs link
+    docs_url = proj.get('docs_url')
+    if docs_url:
+        docs_label = proj.get('docs_label', 'Documentation')
+        buttons.append(f'''<a href="{docs_url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+  <span>{docs_label}</span>
+</a>''')
+
+    if not buttons:
+        return ''
+        
+    return f'<div class="sidebar-actions">\n' + '\n'.join(buttons) + '\n</div>'
+
 def build():
     # 0. Clean previous build directory completely
     if os.path.exists(SITE_DIR):
@@ -413,8 +533,13 @@ def build():
         p_content = clean_conditional(p_content, 'page.downloads', bool(proj.get('downloads')), {'{{ page.downloads }}': str(proj.get('downloads', ''))})
         p_content = clean_conditional(p_content, 'page.description', bool(proj.get('description')), {'{{ page.description }}': proj.get('description', '')})
         p_content = clean_conditional(p_content, 'page.award', bool(proj.get('award')), {'{{ page.award }}': proj.get('award', '')})
-        p_content = clean_conditional(p_content, 'page.mcpedl_url', bool(proj.get('mcpedl_url')), {'{{ page.mcpedl_url }}': proj.get('mcpedl_url', '')})
         p_content = clean_conditional(p_content, 'page.developer', bool(proj.get('developer')), {'{{ page.developer }}': proj.get('developer', '')})
+        
+        # Render dynamic specs and sidebar action buttons
+        specs_html = render_project_specs(proj)
+        actions_html = render_project_sidebar_actions(proj)
+        p_content = p_content.replace('{{ project_specs }}', specs_html)
+        p_content = p_content.replace('{{ project_sidebar_actions }}', actions_html)
         
         yt_url = proj.get('youtube_url', '')
         yt_embed = get_youtube_embed_url(yt_url)

@@ -46,36 +46,10 @@ layout: default
           <h3 class="sidebar-title">Project Details</h3>
           
           <dl class="project-specs">
-            {% if page.developer %}
-              <dt>Developer</dt>
-              <dd>{{ page.developer }}</dd>
-            {% endif %}
-
-            {% if page.category != "Interactive" and page.category != "Environment" %}
-              <dt>Category</dt>
-              <dd>{{ page.category }}</dd>
-            {% endif %}
-
-            <dt>Release Date</dt>
-            <dd>{{ page.date | date: "%d %b %Y" }}</dd>
-
-            {% if page.downloads %}
-              <dt>Downloads</dt>
-              <dd class="spec-downloads">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>{{ page.downloads }}</span>
-              </dd>
-            {% endif %}
+            {{ project_specs }}
           </dl>
 
-          {% if page.mcpedl_url %}
-            <div class="sidebar-actions">
-              <a href="{{ page.mcpedl_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
-                <span>View on MCPEDL</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
-            </div>
-          {% endif %}
+          {{ project_sidebar_actions }}
         </div>
       </aside>
     </div>

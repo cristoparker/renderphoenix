@@ -7,13 +7,17 @@ developer: "Tasrif Ibn Mizan"
 date: 2021-03-16
 downloads: "285.1K+"
 status: "completed"
+version: "1.0.0"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis-a-post-apocalyptic-city%20thumbnail.png"
 technologies:
   - "Minecraft Bedrock"
   - "Environment Art"
   - "Post-Apocalyptic Level Design"
   - "Survival Scavenging Systems"
-mcpedl_url: "https://mcpedl.com/zombiepolis-a-post-apocalyptic-city/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/zombiepolis-a-post-apocalyptic-city/"
 featured: true
 tags:
   - "post-apocalyptic"

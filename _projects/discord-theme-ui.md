@@ -7,13 +7,17 @@ developer: "Tasrif Ibn Mizan"
 date: 2021-04-16
 downloads: "34.8K+"
 status: "completed"
+version: "Beta"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-ui-beta%20thumbnail.png"
 technologies:
   - "UI Design"
   - "JSON Interface Schemas"
   - "Texture Art"
   - "Custom Fonts"
-mcpedl_url: "https://mcpedl.com/discord-theme-pack/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/discord-theme-pack/"
 featured: false
 tags:
   - "ui"

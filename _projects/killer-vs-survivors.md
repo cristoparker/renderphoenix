@@ -7,6 +7,8 @@ developer: "Tasrif Ibn Mizan"
 date: 2021-05-21
 downloads: "16.7K+"
 status: "completed"
+version: "1.0.0"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame.png"
 technologies:
   - "Minecraft Bedrock"
@@ -14,7 +16,9 @@ technologies:
   - "Scoreboard Systems"
   - "Asymmetrical Multiplayer"
   - "Level Design"
-mcpedl_url: "https://mcpedl.com/killer-vs-survivors-minigame-map/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/killer-vs-survivors-minigame-map/"
 featured: false
 tags:
   - "minigame"

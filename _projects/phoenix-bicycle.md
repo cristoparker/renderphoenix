@@ -7,13 +7,17 @@ developer: "Uthowaipru Chowdhury"
 date: 2021-03-21
 downloads: "13.3K+"
 status: "completed"
+version: "2.0.0"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%20addon%20thumbnail2021063018550.png"
 technologies:
   - "Minecraft Bedrock"
   - "3D Modeling"
   - "Entity Animations"
   - "Custom Behaviors"
-mcpedl_url: "https://mcpedl.com/phoenix-bicycle-add-on/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/phoenix-bicycle-add-on/"
 featured: false
 tags:
   - "bicycle"

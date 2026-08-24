@@ -7,12 +7,15 @@ developer: "Tasrif Ibn Mizan"
 date: 2021-02-18
 downloads: "15.7K+"
 status: "completed"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods-dark-underland%20thumbnail.png"
 technologies:
   - "Minecraft Bedrock"
   - "Custom Biomes"
   - "Terrain Art"
-mcpedl_url: "https://mcpedl.com/fantasy-woods-dark-underland-map/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/fantasy-woods-dark-underland-map/"
 featured: false
 tags:
   - "fantasy"

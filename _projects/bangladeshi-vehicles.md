@@ -7,12 +7,16 @@ developer: "Cristo Parker"
 date: 2021-04-14
 downloads: "35.3K+"
 status: "completed"
+version: "1.0.0"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png"
 technologies:
   - "Blockbench"
   - "3D Modeling"
   - "Entity Animations"
-mcpedl_url: "https://mcpedl.com/bangladeshi-vehicles-addon/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/bangladeshi-vehicles-addon/"
 featured: false
 tags:
   - "addon"

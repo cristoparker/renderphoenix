@@ -7,12 +7,15 @@ developer: "Tasrif Ibn Mizan"
 date: 2021-03-29
 downloads: "198.2K+"
 status: "completed"
+platform: "Minecraft Bedrock"
 cover_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.png"
 technologies:
   - "Minecraft Bedrock"
   - "World Design"
   - "Architecture"
-mcpedl_url: "https://mcpedl.com/banglamine-city-map/"
+download_links:
+  - label: "Download on MCPEDL"
+    url: "https://mcpedl.com/banglamine-city-map/"
 featured: true
 tags:
   - "city"
