@@ -30,7 +30,7 @@ footer:
   resources:
     - title: "MCPEDL Profile"
       url: "https://mcpedl.com/user/renderphoenix/"
-    - title: "LLM Context (llms.txt)"
-      url: "/llms.txt"
+    - title: "LLM Context (llm.txt)"
+      url: "/llm.txt"
     - title: "XML Sitemap"
       url: "/sitemap.xml"

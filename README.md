@@ -14,7 +14,7 @@ Official website for **RenderPhoenix**, an independent interactive creative stud
 - **Styling**: Vanilla CSS with custom design tokens (`variables.css`)
 - **Scripts**: Vanilla JavaScript (Mobile menu, fast static search, category filters)
 - **Typography**: Space Grotesk (Headings), Inter (Body), JetBrains Mono (Code)
-- **SEO & AI**: Full Open Graph, JSON-LD Schema, `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt`
+- **SEO & AI**: Full Open Graph, JSON-LD Schema, `sitemap.xml`, `robots.txt`, `llm.txt`
 
 ---
 

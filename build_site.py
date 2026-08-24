@@ -181,7 +181,7 @@ def clean_liquid_tags(text, meta=None):
 
     footer_res_html = """
       <li><a href="https://mcpedl.com/user/renderphoenix/" target="_blank" rel="noopener noreferrer">MCPEDL Official Profile</a></li>
-      <li><a href="/llms.txt">llms.txt (AI Metadata)</a></li>
+      <li><a href="/llm.txt">llm.txt (AI Metadata)</a></li>
       <li><a href="/sitemap.xml">Sitemap XML</a></li>
     """
     text = re.sub(r'\{%\s*for\s+link\s+in\s+site\.data\.navigation\.footer\.resources\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', footer_res_html, text)
@@ -753,6 +753,70 @@ def build():
     with open(os.path.join(search_js_dir, 'search-data.js'), 'w', encoding='utf-8') as f:
         f.write("window.SEARCH_INDEX = " + json.dumps(search_data, indent=2) + ";\n")
     print("Built search-data.js -> _site/assets/js/search-data.js")
+
+    # Build sitemap.xml
+    site_url = 'https://renderphoenix.com'
+    sitemap_entries = [
+        f"""  <url>
+    <loc>{site_url}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>""",
+        f"""  <url>
+    <loc>{site_url}/about/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        f"""  <url>
+    <loc>{site_url}/services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        f"""  <url>
+    <loc>{site_url}/work/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>""",
+        f"""  <url>
+    <loc>{site_url}/blog/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>""",
+        f"""  <url>
+    <loc>{site_url}/contact/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>"""
+    ]
+
+    for post in posts:
+        post_slug = post['slug']
+        sitemap_entries.append(f"""  <url>
+    <loc>{site_url}/blog/{post_slug}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>""")
+
+    for proj in projects:
+        proj_slug = proj['slug']
+        sitemap_entries.append(f"""  <url>
+    <loc>{site_url}/work/{proj_slug}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(sitemap_entries) + '\n</urlset>\n'
+    with open(os.path.join(SITE_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+        f.write(sitemap_xml)
+    print("Built sitemap.xml -> _site/sitemap.xml")
+
+    # Copy root static files (robots.txt, llm.txt, CNAME, site.webmanifest, etc.)
+    static_root_files = ['robots.txt', 'llm.txt', 'CNAME', 'site.webmanifest']
+    for s_file in static_root_files:
+        s_src = os.path.join(ROOT_DIR, s_file)
+        if os.path.exists(s_src):
+            shutil.copy2(s_src, os.path.join(SITE_DIR, s_file))
+            print(f"Copied {s_file} -> _site/{s_file}")
 
 if __name__ == '__main__':
     build()
