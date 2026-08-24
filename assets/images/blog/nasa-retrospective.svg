@@ -2,5 +2,5 @@
   <rect width="1200" height="630" fill="#070913"/>
   <circle cx="600" cy="450" r="300" fill="#131622" stroke="#00F0FF" stroke-width="2"/>
   <text x="600" y="280" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="44" fill="#FFFFFF" text-anchor="middle">NASA Space Apps 2025</text>
-  <text x="600" y="340" font-family="'Inter', sans-serif" font-size="24" fill="#FF9F00" text-anchor="middle">Regional 2nd Runner-Up — Retrospective</text>
+  <text x="600" y="340" font-family="'Inter', sans-serif" font-size="24" fill="#FF9F00" text-anchor="middle">Regional Runner-Up — Retrospective</text>
 </svg>

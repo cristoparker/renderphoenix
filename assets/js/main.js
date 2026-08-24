@@ -140,4 +140,59 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // Smooth Count-Up Animation for Stats
+  const countUpElements = document.querySelectorAll('.stat-count-up, [data-target]');
+  if (countUpElements.length > 0) {
+    const animateCountUp = (el) => {
+      const target = parseFloat(el.getAttribute('data-target'));
+      if (isNaN(target)) return;
+
+      const suffix = el.getAttribute('data-suffix') || '';
+      const prefix = el.getAttribute('data-prefix') || '';
+      const duration = 1800; // 1.8 seconds animation
+      let startTime = null;
+
+      const updateNumber = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Cubic ease-out
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentVal = Math.round(easeOut * target);
+
+        el.textContent = `${prefix}${currentVal}${suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateNumber);
+        } else {
+          el.textContent = `${prefix}${target}${suffix}`;
+        }
+      };
+
+      requestAnimationFrame(updateNumber);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const countObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCountUp(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      countUpElements.forEach((el) => {
+        // Initialize to 0 with suffix before animation triggers
+        const suffix = el.getAttribute('data-suffix') || '';
+        const prefix = el.getAttribute('data-prefix') || '';
+        el.textContent = `${prefix}0${suffix}`;
+        countObserver.observe(el);
+      });
+    } else {
+      countUpElements.forEach((el) => animateCountUp(el));
+    }
+  }
 });

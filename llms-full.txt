@@ -17,7 +17,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - 22 February 2021: Official re-branding to RenderPhoenix to establish a broader visual identity in real-time art and 3D modeling.
 - 1 August 2022: Experienced a severe security incident where core social accounts and communication channels were compromised. Despite this, the studio demonstrated resilience by continuing operations and publishing content through 2024.
 - 2024: Operations paused as the original team members dispersed into university studies and software careers.
-- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Regional 2nd Runner-Up.
+- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Regional Runner-Up.
 - 22 August 2026: Official studio revival initiated by Cristo Parker to rebuild digital infrastructure, reassemble team capabilities, and expand into original games and 3D asset production.
 
 ## 3. Team Roster
@@ -27,7 +27,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - Faizul726: App Developer. Specializes in application software and client tooling.
 
 ## 4. Notable Works & Project Index
-- Lunar Habitat Simulator (2025): Regional 2nd Runner-Up at NASA Space Apps 2025. Interactive 3D moon city simulation.
+- Lunar Habitat Simulator (2025): Regional Runner-Up at NASA Space Apps 2025. Interactive 3D moon city simulation.
 - Banglamine City (2021): Flagship urban metropolis map inspired by Bangladeshi architectural design.
 - Zombiepolis (2021): Post-apocalyptic overgrown city survival environment.
 - Frostcraft (2022): Frostpunk-inspired sub-zero wasteland map with thermal generator mechanics.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NASA Space Apps Challenge 2025: Engineering a Lunar Settlement"
-description: "A retrospective on how RenderPhoenix earned Regional 2nd Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation."
+description: "A retrospective on how RenderPhoenix earned Regional Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation."
 date: 2026-08-15 00:00:00 +0600
 categories:
   - technical
@@ -17,7 +17,7 @@ image: "/assets/images/blog/nasa-retrospective.svg"
 featured: false
 ---
 
-In 2025, members of RenderPhoenix participated in the **NASA Space Apps Challenge 2025**, tackling the challenge of designing functional, sustainable lunar habitats. Our submission achieved **Regional 2nd Runner-Up**.
+In 2025, members of RenderPhoenix participated in the **NASA Space Apps Challenge 2025**, tackling the challenge of designing functional, sustainable lunar habitats. Our submission achieved **Regional Runner-Up**.
 
 ## The Challenge: Lunar Settlement Simulation
 

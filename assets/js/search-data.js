@@ -20,8 +20,8 @@ window.SEARCH_INDEX = [
   {
     "title": "NASA Space Apps Challenge 2025: Engineering a Lunar Settlement",
     "url": "/blog/nasa-space-apps-2025-retrospective/",
-    "description": "A retrospective on how RenderPhoenix earned Regional 2nd Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation.",
-    "content": "\n\nIn 2025, members of RenderPhoenix participated in the **NASA Space Apps Challenge 2025**, tackling the challenge of designing functional, sustainable lunar habitats. Our submission achieved **Regional 2nd Runner-Up**.\n\n## The Challenge: Lunar Settlement Simulation\n\nHumanity's return to the Moon re",
+    "description": "A retrospective on how RenderPhoenix earned Regional Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation.",
+    "content": "\n\nIn 2025, members of RenderPhoenix participated in the **NASA Space Apps Challenge 2025**, tackling the challenge of designing functional, sustainable lunar habitats. Our submission achieved **Regional Runner-Up**.\n\n## The Challenge: Lunar Settlement Simulation\n\nHumanity's return to the Moon requir",
     "type": "Article",
     "category": "Blog",
     "date": "15 Aug 2026",
@@ -51,8 +51,8 @@ window.SEARCH_INDEX = [
   {
     "title": "Lunar Habitat Simulator \u2014 NASA Space Apps 2025",
     "url": "/work/nasa-space-apps-2025/",
-    "description": "Regional 2nd Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.",
-    "content": "\n\nRenderPhoenix participated in the **NASA Space Apps Challenge 2025**, developing an interactive Moon settlement and lunar city-building project designed around real lunar environmental conditions and resource allocation.\n\n### Achievement\n**Regional 2nd Runner-Up \u2014 NASA Space Apps Challenge 2025**\n",
+    "description": "Regional Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.",
+    "content": "\n\nRenderPhoenix participated in the **NASA Space Apps Challenge 2025**, developing an interactive Moon settlement and lunar city-building project designed around real lunar environmental conditions and resource allocation.\n\n### Achievement\n**Regional Runner-Up \u2014 NASA Space Apps Challenge 2025**\n\n###",
     "type": "Project",
     "category": "Interactive",
     "date": "05 Oct 2025",
