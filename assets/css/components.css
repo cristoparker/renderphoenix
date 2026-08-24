@@ -113,7 +113,7 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 
 .media-aspect {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 520 / 245;
   background: var(--c-2-pale-lavender);
   overflow: hidden;
   position: relative;
