@@ -1,5 +1,5 @@
 ---
-title: "Clash of Clans Theme UI V1.0"
+title: "Clash of Clans Theme UI"
 slug: "clash-of-clans-ui"
 description: "Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements."
 category: "UI"

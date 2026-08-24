@@ -7,6 +7,37 @@ from datetime import datetime
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 SITE_DIR = os.path.join(ROOT_DIR, '_site')
 
+def extract_youtube_id(url_or_id):
+    if not url_or_id:
+        return ''
+    url_or_id = url_or_id.strip()
+    if re.match(r'^[a-zA-Z0-9_-]{11}$', url_or_id):
+        return url_or_id
+    match = re.search(r'(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})', url_or_id)
+    if match:
+        return match.group(1)
+    return ''
+
+def render_youtube_player(url_or_id, caption=""):
+    yt_id = extract_youtube_id(url_or_id)
+    if not yt_id:
+        return ''
+    embed_url = f"https://www.youtube-nocookie.com/embed/{yt_id}"
+    caption_html = f'<figcaption class="video-caption">{caption}</figcaption>' if caption else ''
+    title_attr = caption if caption else 'YouTube video player'
+    return f"""<figure class="video-figure">
+  <div class="video-responsive-wrapper">
+    <iframe src="{embed_url}" title="{title_attr}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+  </div>
+  {caption_html}
+</figure>"""
+
+def get_youtube_embed_url(url):
+    yt_id = extract_youtube_id(url)
+    if yt_id:
+        return f"https://www.youtube-nocookie.com/embed/{yt_id}"
+    return url
+
 def simple_markdown_to_html(md_text):
     lines = md_text.split('\n')
     html_lines = []
@@ -41,6 +72,28 @@ def simple_markdown_to_html(md_text):
         if not stripped:
             continue
 
+        # Check for YouTube embeds:
+        # Format 1: ![youtube](url) or ![youtube:Caption](url) or ![video](url)
+        yt_md_match = re.match(r'^!\[(?:youtube|video)(?::\s*(.*?))?\]\((.*?)\)$', stripped, re.IGNORECASE)
+        if yt_md_match:
+            caption = (yt_md_match.group(1) or '').strip()
+            url = yt_md_match.group(2).strip()
+            html_lines.append(render_youtube_player(url, caption))
+            continue
+
+        # Format 2: {% youtube URL_OR_ID [optional caption] %}
+        yt_tag_match = re.match(r'^\{%\s*youtube\s+([^\s%]+)(?:\s+(.*?))?\s*%\}$', stripped, re.IGNORECASE)
+        if yt_tag_match:
+            url_or_id = yt_tag_match.group(1).strip()
+            caption = (yt_tag_match.group(2) or '').strip().strip('"\'')
+            html_lines.append(render_youtube_player(url_or_id, caption))
+            continue
+
+        # Format 3: Standalone YouTube URL on its own line: https://www.youtube.com/watch?v=... or https://youtu.be/...
+        if re.match(r'^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)[a-zA-Z0-9_-]{11}(?:[^\s]*)?$', stripped):
+            html_lines.append(render_youtube_player(stripped))
+            continue
+
         # Headings
         if stripped.startswith('### '):
             html_lines.append(f'<h3>{inline_format(stripped[4:])}</h3>')
@@ -55,6 +108,8 @@ def simple_markdown_to_html(md_text):
                 html_lines.append('<ul>')
                 in_list = True
             html_lines.append(f'<li>{inline_format(stripped[2:])}</li>')
+        elif stripped.startswith('<div') or stripped.startswith('</div') or stripped.startswith('<iframe') or stripped.startswith('<section') or stripped.startswith('</section'):
+            html_lines.append(stripped)
         else:
             html_lines.append(f'<p>{inline_format(stripped)}</p>')
 
@@ -359,6 +414,18 @@ def build():
         p_content = clean_conditional(p_content, 'page.description', bool(proj.get('description')), {'{{ page.description }}': proj.get('description', '')})
         p_content = clean_conditional(p_content, 'page.award', bool(proj.get('award')), {'{{ page.award }}': proj.get('award', '')})
         p_content = clean_conditional(p_content, 'page.mcpedl_url', bool(proj.get('mcpedl_url')), {'{{ page.mcpedl_url }}': proj.get('mcpedl_url', '')})
+        p_content = clean_conditional(p_content, 'page.developer', bool(proj.get('developer')), {'{{ page.developer }}': proj.get('developer', '')})
+        
+        yt_url = proj.get('youtube_url', '')
+        yt_embed = get_youtube_embed_url(yt_url)
+        yt_author = proj.get('youtube_author', '')
+        
+        p_content = p_content.replace('{{ page.youtube_url }}', yt_url)
+        p_content = p_content.replace('{{ page.youtube_embed_url }}', yt_embed)
+        p_content = p_content.replace('{{ page.youtube_author }}', yt_author)
+        
+        p_content = clean_conditional(p_content, 'page.youtube_author', bool(yt_author))
+        p_content = clean_conditional(p_content, 'page.youtube_url', bool(yt_url))
         
         cover_img = proj.get('cover_image', '/assets/images/image-not-found.svg')
         p_content = re.sub(r'\{%\s*assign\s+cover_img\s*=[\s\S]*?%\}', '', p_content)

@@ -1,9 +1,0 @@
-<svg width="600" height="340" viewBox="0 0 600 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="340" fill="#0D0F17"/>
-  <path d="M50 340L100 120L150 340" fill="#1A1E2E"/>
-  <path d="M200 340L280 80L360 340" fill="#21263B"/>
-  <path d="M400 340L480 140L560 340" fill="#1A1E2E"/>
-  <circle cx="300" cy="120" r="40" fill="#FF4E00" fill-opacity="0.3"/>
-  <text x="300" y="180" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="28" fill="#F0F2F8" text-anchor="middle">Zombiepolis</text>
-  <text x="300" y="210" font-family="'Inter', sans-serif" font-size="14" fill="#FF4E00" text-anchor="middle">Post-Apocalyptic Survival Environment</text>
-</svg>

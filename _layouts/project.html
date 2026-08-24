@@ -46,6 +46,11 @@ layout: default
           <h3 class="sidebar-title">Project Details</h3>
           
           <dl class="project-specs">
+            {% if page.developer %}
+              <dt>Developer</dt>
+              <dd>{{ page.developer }}</dd>
+            {% endif %}
+
             {% if page.category != "Interactive" and page.category != "Environment" %}
               <dt>Category</dt>
               <dd>{{ page.category }}</dd>
