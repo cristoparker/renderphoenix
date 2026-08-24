@@ -3,7 +3,8 @@ title: "HOLO PvP"
 slug: "holo-pvp"
 description: "A fast-paced solo competitive arena designed for 1v1 combat and reflexes."
 category: "Interactive"
-year: 2021
+date: 2021-05-19
+downloads: "15K+"
 status: "completed"
 cover_image: "/assets/images/projects/holo-pvp.svg"
 technologies:

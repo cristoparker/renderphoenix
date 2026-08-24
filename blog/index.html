@@ -36,17 +36,17 @@ title: "Publications & Projects"
                 </div>
               {% endif %}
               <div style="flex: 1; min-width: 0;">
+                <h4 class="magazine-sidebar-title">
+                  <a href="{{ proj.url | relative_url }}">{{ proj.title }}</a>
+                </h4>
                 <div class="magazine-sidebar-meta">
                   {% if proj.category != 'Interactive' and proj.category != 'Environment' %}
                     <span class="badge cat-badge">{{ proj.category }}</span>
                   {% else %}
                     <span class="badge cat-badge">Project</span>
                   {% endif %}
-                  <span class="sidebar-date">{{ proj.year }}</span>
+                  <time class="sidebar-date">{{ proj.date | date: "%d %b %Y" }}</time>
                 </div>
-                <h4 class="magazine-sidebar-title">
-                  <a href="{{ proj.url | relative_url }}">{{ proj.title }}</a>
-                </h4>
               </div>
             </article>
           {% endfor %}

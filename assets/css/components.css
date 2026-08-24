@@ -98,6 +98,7 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   flex-direction: column;
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -177,18 +178,10 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   flex: 1 0 auto;
 }
 
-.card-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-}
-
 .card-title {
   font-size: 1.25rem;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
 }
 
 .card-title a {
@@ -197,6 +190,35 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 
 .card-title a:hover {
   color: var(--c-1-electric-violet);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: var(--space-md);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.meta-date {
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.meta-downloads {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.meta-downloads svg {
+  color: var(--c-1-electric-violet);
+  flex-shrink: 0;
 }
 
 .card-desc {
@@ -240,6 +262,7 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   flex-direction: column;
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
 }
 
 .post-card:hover {
@@ -280,18 +303,10 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   justify-content: center;
 }
 
-.post-card-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-sm);
-}
-
 .post-card-title {
   font-size: 1.4rem;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
 }
 
 .post-card-title a {
@@ -300,6 +315,16 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 
 .post-card-title a:hover {
   color: var(--c-1-electric-violet);
+}
+
+.post-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
 }
 
 .post-card-desc {
@@ -557,6 +582,12 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 .magazine-sidebar-item {
   padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.magazine-sidebar-item:hover {
+  transform: translateX(2px);
 }
 
 .magazine-sidebar-item:last-child {
@@ -564,20 +595,11 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   padding-bottom: 0;
 }
 
-.magazine-sidebar-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.25rem;
-}
-
 .magazine-sidebar-title {
   font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.35;
-  margin: 0;
+  margin: 0 0 0.3rem 0;
 }
 
 .magazine-sidebar-title a {
@@ -588,6 +610,15 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 
 .magazine-sidebar-title a:hover {
   color: var(--color-ember);
+}
+
+.magazine-sidebar-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
 }
 
 /* Asymmetric Newspaper / Magazine Grid Layout */
@@ -718,4 +749,56 @@ img {
   padding: 0 !important;
   margin: 0 !important;
   border: none !important;
+}
+
+/* Project Detail Specs */
+.project-specs {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-sm) var(--space-lg);
+  margin: 0 0 var(--space-lg);
+  align-items: center;
+}
+
+.project-specs dt {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.project-specs dd {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.spec-downloads {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.spec-downloads svg {
+  color: var(--c-1-electric-violet);
+  flex-shrink: 0;
+}
+
+/* Detail Header Meta (Under Title) */
+.project-header-meta,
+.article-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+  margin-bottom: var(--space-lg);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.project-header-meta .project-date,
+.article-meta time {
+  font-weight: 500;
+  color: var(--color-text-secondary);
 }

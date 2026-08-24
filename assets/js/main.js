@@ -116,4 +116,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Clickable Cards Navigation (Project cards, Post cards, Sidebar highlights)
+  document.addEventListener('click', (e) => {
+    // If clicked on an interactive element, allow default behavior
+    if (e.target.closest('a, button, input, textarea, select, label')) {
+      return;
+    }
+    // If user is selecting text, do not navigate
+    const selection = window.getSelection();
+    if (selection && selection.toString().length > 0) {
+      return;
+    }
+    const card = e.target.closest('.project-card, .post-card, .magazine-sidebar-item');
+    if (card) {
+      const targetLink = card.querySelector('a.card-link, a.read-more-link, .card-title a, .post-card-title a, .magazine-sidebar-title a, h3 a, h4 a');
+      if (targetLink && targetLink.href) {
+        if (e.metaKey || e.ctrlKey) {
+          window.open(targetLink.href, '_blank');
+        } else {
+          window.location.href = targetLink.href;
+        }
+      }
+    }
+  });
 });

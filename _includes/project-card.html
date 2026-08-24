@@ -19,16 +19,22 @@
   </div>
 
   <div class="card-body">
+    <h3 class="card-title">
+      <a href="{{ proj.url | relative_url }}">{{ proj.title }}</a>
+    </h3>
+
     <div class="card-meta">
       {% if proj.category != "Interactive" and proj.category != "Environment" %}
         <span class="badge cat-badge">{{ proj.category }}</span>
       {% endif %}
-      <span class="meta-year">{{ proj.year }}</span>
+      <time class="meta-date">{{ proj.date | date: "%d %b %Y" }}</time>
+      {% if proj.downloads %}
+        <span class="meta-downloads" title="{{ proj.downloads }} downloads">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>{{ proj.downloads }}</span>
+        </span>
+      {% endif %}
     </div>
-
-    <h3 class="card-title">
-      <a href="{{ proj.url | relative_url }}">{{ proj.title }}</a>
-    </h3>
 
     <p class="card-desc">{{ proj.description }}</p>
 

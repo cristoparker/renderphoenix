@@ -148,6 +148,22 @@ def clean_liquid_tags(text, meta=None):
 
     return text
 
+def format_full_date(date_val):
+    if not date_val:
+        return ''
+    if isinstance(date_val, datetime):
+        return date_val.strftime('%d %b %Y')
+    if hasattr(date_val, 'strftime'):
+        return date_val.strftime('%d %b %Y')
+    date_str = str(date_val).strip()
+    for fmt in ['%Y-%m-%d', '%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M:%S %z']:
+        try:
+            dt = datetime.strptime(date_str[:10], '%Y-%m-%d')
+            return dt.strftime('%d %b %Y')
+        except Exception:
+            pass
+    return date_str
+
 def render_project_card(proj, card_class=""):
     cat = proj.get('category', '')
     cat_badge_html = f'<span class="badge cat-badge">{cat}</span>' if cat not in ['Interactive', 'Environment'] else '<span class="badge cat-badge">Project</span>'
@@ -156,6 +172,9 @@ def render_project_card(proj, card_class=""):
     img_html = f'<img src="{img}" alt="{proj.get("title")} preview" loading="lazy" width="600" height="340" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';">'
     slug = proj.get('slug', '')
     url = f'/work/{slug}/'
+    date_formatted = format_full_date(proj.get('date'))
+    downloads_count = proj.get('downloads')
+    downloads_html = f'<span class="meta-downloads" title="{downloads_count} downloads"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg><span>{downloads_count}</span></span>' if downloads_count else ''
 
     return f"""
     <article class="project-card {card_class}" data-category="{cat.lower()}">
@@ -167,14 +186,15 @@ def render_project_card(proj, card_class=""):
       </div>
 
       <div class="card-body">
-        <div class="card-meta">
-          {cat_badge_html}
-          <span class="meta-year">{proj.get('year', '')}</span>
-        </div>
-
         <h3 class="card-title">
           <a href="{url}">{proj.get('title', '')}</a>
         </h3>
+
+        <div class="card-meta">
+          {cat_badge_html}
+          <time class="meta-date">{date_formatted}</time>
+          {downloads_html}
+        </div>
 
         <p class="card-desc">{proj.get('description', '')}</p>
       </div>
@@ -195,20 +215,22 @@ def render_post_card(post, featured=False, card_class=""):
     slug = post.get('slug', '')
     url = f'/blog/{slug}/'
     author = post.get('author', 'RenderPhoenix')
-    date_str = str(post.get('date', ''))[:10]
+    date_formatted = format_full_date(post.get('date'))
+    cats = post.get('categories', [])
+    cat_name = cats[0].capitalize() if cats else 'Devlog'
 
     return f"""
     <article class="post-card {feat_class}">
       {img_html}
       <div class="post-card-content">
-        <div class="post-card-meta">
-          <span class="badge cat-badge">Devlog</span>
-          <time class="post-date">{date_str}</time>
-        </div>
-
         <h3 class="post-card-title">
           <a href="{url}">{post.get('title', '')}</a>
         </h3>
+
+        <div class="post-card-meta">
+          <span class="badge cat-badge">{cat_name}</span>
+          <time class="post-date">{date_formatted}</time>
+        </div>
 
         <p class="post-card-desc">
           {post.get('description', '')}
@@ -216,7 +238,7 @@ def render_post_card(post, featured=False, card_class=""):
 
         <div class="post-card-footer">
           <span class="post-author">By {author}</span>
-          <a href="{url}" class="read-more-link" aria-label="Read article {post.get('title', '')}">
+          <a href="{url}" class="read-more-link" aria-label="Read story {post.get('title', '')}">
             Read Story
             <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
@@ -232,21 +254,35 @@ def render_sidebar_item(proj):
     url = f"/work/{proj['slug']}/"
     img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
     img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);"><img src="{img}" alt="{proj.get("title")}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
+    date_formatted = format_full_date(proj.get('date'))
 
     return f"""
     <article class="magazine-sidebar-item" style="display: flex; gap: 0.85rem; align-items: center;">
       {img_html}
       <div style="flex: 1; min-width: 0;">
-        <div class="magazine-sidebar-meta">
-          <span class="badge cat-badge">{cat}</span>
-          <span class="sidebar-date">{proj.get('year', '')}</span>
-        </div>
         <h4 class="magazine-sidebar-title">
           <a href="{url}">{proj.get('title', '')}</a>
         </h4>
+        <div class="magazine-sidebar-meta">
+          <span class="badge cat-badge">{cat}</span>
+          <time class="sidebar-date">{date_formatted}</time>
+        </div>
       </div>
     </article>
     """
+
+def clean_conditional(text, condition_name, is_truthy, replace_dict=None):
+    pattern = re.compile(rf'\{{%\s*if\s+{re.escape(condition_name)}\s*%\}}([\s\S]*?)\{{%\s*endif\s*%\}}')
+    if is_truthy:
+        def keep_content(m):
+            content = m.group(1)
+            if replace_dict:
+                for k, v in replace_dict.items():
+                    content = content.replace(k, str(v))
+            return content
+        return pattern.sub(keep_content, text)
+    else:
+        return pattern.sub('', text)
 
 def build():
     # 0. Clean previous build directory completely
@@ -288,7 +324,7 @@ def build():
                 meta['slug'] = slug
                 meta['body'] = body
                 projects.append(meta)
-    projects.sort(key=lambda x: str(x.get('year', 0)), reverse=True)
+    projects.sort(key=lambda x: str(x.get('date', '')), reverse=True)
 
     # 3. Load Posts
     posts = []
@@ -314,22 +350,20 @@ def build():
         p_content = p_content.replace('{{ page.title }}', proj.get('title', ''))
         p_content = p_content.replace('{{ page.description }}', proj.get('description', ''))
         p_content = p_content.replace('{{ page.category }}', proj.get('category', ''))
-        p_content = p_content.replace('{{ page.year }}', str(proj.get('year', '')))
+        proj_date_formatted = format_full_date(proj.get('date'))
+        p_content = p_content.replace('{{ page.date | date: "%d %b %Y" }}', proj_date_formatted)
+        p_content = p_content.replace('{{ page.date }}', proj_date_formatted)
+        p_content = p_content.replace('{{ page.year }}', proj_date_formatted)
+        
+        p_content = clean_conditional(p_content, 'page.downloads', bool(proj.get('downloads')), {'{{ page.downloads }}': str(proj.get('downloads', ''))})
+        p_content = clean_conditional(p_content, 'page.description', bool(proj.get('description')), {'{{ page.description }}': proj.get('description', '')})
+        p_content = clean_conditional(p_content, 'page.award', bool(proj.get('award')), {'{{ page.award }}': proj.get('award', '')})
+        p_content = clean_conditional(p_content, 'page.mcpedl_url', bool(proj.get('mcpedl_url')), {'{{ page.mcpedl_url }}': proj.get('mcpedl_url', '')})
         
         cover_img = proj.get('cover_image', '/assets/images/image-not-found.svg')
         p_content = re.sub(r'\{%\s*assign\s+cover_img\s*=[\s\S]*?%\}', '', p_content)
         p_content = p_content.replace('{{ cover_img | relative_url }}', cover_img)
         p_content = p_content.replace('{{ page.cover_image | relative_url }}', cover_img)
-        
-        if proj.get('mcpedl_url'):
-            p_content = p_content.replace('{% if page.mcpedl_url %}', '').replace('{% endif %}', '').replace('{{ page.mcpedl_url }}', proj['mcpedl_url'])
-        else:
-            p_content = re.sub(r'\{% if page\.mcpedl_url %\}[\s\S]*?\{% endif %\}', '', p_content)
-        
-        if proj.get('award'):
-            p_content = p_content.replace('{% if page.award %}', '').replace('{% endif %}', '').replace('{{ page.award }}', proj['award'])
-        else:
-            p_content = re.sub(r'\{% if page\.award %\}[\s\S]*?\{% endif %\}', '', p_content)
 
         full_html = def_layout_html.replace('{{ content }}', p_content)
         full_html = clean_liquid_tags(full_html, proj)
@@ -349,7 +383,11 @@ def build():
         p_content = p_content.replace('{{ page.title }}', post.get('title', ''))
         p_content = p_content.replace('{{ page.description }}', post.get('description', ''))
         p_content = p_content.replace('{{ page.author | default: site.author.name }}', post.get('author', 'RenderPhoenix'))
-        p_content = p_content.replace('{{ page.date | date: "%B %d, %Y" }}', str(post.get('date', ''))[:10])
+        post_date_formatted = format_full_date(post.get('date'))
+        p_content = p_content.replace('{{ page.date | date: "%d %b %Y" }}', post_date_formatted)
+        p_content = p_content.replace('{{ page.date | date: "%B %d, %Y" }}', post_date_formatted)
+        p_content = p_content.replace('{{ page.date }}', post_date_formatted)
+        p_content = re.sub(r'\{%\s*if\s+page\.categories\s*%\}.*?\{%\s*endif\s*%\}', 'Devlog', p_content)
 
         if post.get('image'):
             p_content = p_content.replace('{% if page.image %}', '').replace('{% endif %}', '').replace('{{ page.image | relative_url }}', post['image'])
@@ -499,7 +537,7 @@ def build():
             "content": re.sub(r'<[^>]+>', '', post.get('body', ''))[:300],
             "type": "Article",
             "category": "Blog",
-            "date": str(post.get('date', ''))[:10],
+            "date": format_full_date(post.get('date')),
             "tags": post.get('tags', [])
         })
     for proj in projects:
@@ -510,7 +548,7 @@ def build():
             "content": re.sub(r'<[^>]+>', '', proj.get('body', ''))[:300],
             "type": "Project",
             "category": proj.get('category', ''),
-            "date": str(proj.get('year', '')),
+            "date": format_full_date(proj.get('date')),
             "tags": proj.get('tags', [])
         })
 

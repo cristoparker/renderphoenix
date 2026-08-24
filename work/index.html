@@ -15,7 +15,7 @@ description: "A showcase of historical, current, and experimental projects by Re
 
     <!-- Portfolio Cards Grid -->
     <div class="cards-grid">
-      {% assign sorted_projects = site.projects | sort: "year" | reverse %}
+      {% assign sorted_projects = site.projects | sort: "date" | reverse %}
       {% for proj in sorted_projects %}
         {% include project-card.html project=proj %}
       {% endfor %}

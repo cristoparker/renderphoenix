@@ -3,7 +3,8 @@ title: "Banglamine City"
 slug: "banglamine-city"
 description: "A large-scale urban city environment project inspired by Bangladeshi architecture and metropolitan infrastructure."
 category: "Environment"
-year: 2021
+date: 2021-10-05
+downloads: "120K+"
 status: "completed"
 cover_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.png"
 technologies:

@@ -3,7 +3,8 @@ title: "Discord Theme UI Pack"
 slug: "discord-theme-ui"
 description: "A dark-mode interface overhaul for Minecraft inspired by Discord's visual style and navigation layout."
 category: "UI"
-year: 2022
+date: 2022-06-20
+downloads: "50K+"
 status: "completed"
 cover_image: "/assets/images/projects/discord-ui.svg"
 technologies:

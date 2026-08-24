@@ -3,7 +3,8 @@ title: "Bangladeshi Vehicles Addon"
 slug: "bangladeshi-vehicles"
 description: "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics."
 category: "Add-On"
-year: 2022
+date: 2022-04-12
+downloads: "65K+"
 status: "completed"
 cover_image: "/assets/images/projects/bd-vehicles.svg"
 technologies:

@@ -3,7 +3,8 @@ title: "FunMOBA PVP"
 slug: "funmoba-pvp"
 description: "A lane-based MOBA PvP battleground featuring class abilities and objective control mechanics."
 category: "Interactive"
-year: 2021
+date: 2021-09-08
+downloads: "20K+"
 status: "completed"
 cover_image: "/assets/images/projects/funmoba-pvp.svg"
 technologies:

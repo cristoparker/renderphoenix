@@ -7,15 +7,16 @@
   </div>
 
   <div class="post-card-content">
-    <div class="post-card-meta">
-      <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-        {{ post.date | date: "%B %d, %Y" }}
-      </time>
-    </div>
-
     <h3 class="post-card-title">
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </h3>
+
+    <div class="post-card-meta">
+      <span class="badge cat-badge">{% if post.categories %}{{ post.categories.first | capitalize }}{% else %}Devlog{% endif %}</span>
+      <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+        {{ post.date | date: "%d %b %Y" }}
+      </time>
+    </div>
 
     <p class="post-card-desc">
       {{ post.description | default: post.excerpt | strip_html | truncate: 150 }}
@@ -23,8 +24,8 @@
 
     <div class="post-card-footer">
       <span class="post-author">By {{ post.author | default: site.author.name }}</span>
-      <a href="{{ post.url | relative_url }}" class="read-more-link" aria-label="Read article {{ post.title }}">
-        Read Article
+      <a href="{{ post.url | relative_url }}" class="read-more-link" aria-label="Read story {{ post.title }}">
+        Read Story
         <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
     </div>

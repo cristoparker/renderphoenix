@@ -3,7 +3,8 @@ title: "Clash of Clans Theme UI"
 slug: "clash-of-clans-ui"
 description: "Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements."
 category: "UI"
-year: 2022
+date: 2022-03-10
+downloads: "40K+"
 status: "completed"
 cover_image: "/assets/images/projects/coc-ui.svg"
 technologies:

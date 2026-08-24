@@ -3,7 +3,7 @@ title: "Lunar Habitat Simulator — NASA Space Apps 2025"
 slug: "nasa-space-apps-2025"
 description: "Regional 2nd Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation."
 category: "Interactive"
-year: 2025
+date: 2025-10-05
 status: "completed"
 cover_image: "/assets/images/projects/nasa-space-apps.svg"
 featured: true

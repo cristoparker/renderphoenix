@@ -50,7 +50,7 @@ description: "RenderPhoenix is an independent interactive creative studio buildi
     </div>
 
     <div class="cards-grid">
-      {% assign featured_projects = site.projects | where: "featured", true | sort: "year" | reverse %}
+      {% assign featured_projects = site.projects | where: "featured", true | sort: "date" | reverse %}
       {% for proj in featured_projects limit:3 %}
         {% include project-card.html project=proj %}
       {% endfor %}
