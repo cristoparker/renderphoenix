@@ -3,7 +3,7 @@ title: "Discord Theme UI (Beta)"
 slug: "discord-theme-ui"
 description: "A dark-mode interface overhaul for Minecraft inspired by Discord's visual style and navigation layout."
 category: "UI"
-developer: ""
+developer: "Tasrif Ibn Mizan"
 date: 2021-04-16
 downloads: "34.8K+"
 status: "completed"
