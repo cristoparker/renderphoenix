@@ -23,6 +23,8 @@ tags:
 
 The **Clash of Clans Theme UI** is a full interface visual overhaul designed to give Minecraft Bedrock the tactical fantasy look and feel of Supercell's *Clash of Clans*. It redesigns default menus, buttons, font typography, and inventory interfaces with themed textures and authentic sound effects.
 
+![youtube:Clash of Clans Theme UI Showcase](https://youtu.be/Ck3AMjndTlY)
+
 ### Interface Highlights
 
 **Custom Title & Start Screen**
