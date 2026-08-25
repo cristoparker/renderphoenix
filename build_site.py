@@ -259,9 +259,10 @@ def render_project_card(proj, card_class=""):
     date_formatted = format_full_date(proj.get('date'))
     downloads_count = proj.get('downloads')
     downloads_html = f'<span class="meta-downloads" title="{downloads_count} downloads"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg><span>{downloads_count}</span></span>' if downloads_count else ''
+    class_attr = f"project-card {card_class}".strip()
 
     return f"""
-    <article class="project-card {card_class}" data-category="{cat.lower()}">
+    <article class="{class_attr}" data-category="{cat.lower()}">
       <div class="card-media">
         <div class="media-aspect">
           {img_html}
@@ -733,7 +734,7 @@ def build():
     sidebar_items_cards = ''.join([render_sidebar_item(p) for p in projects[:4]])
     merged_publications_cards = (
         (render_post_card(posts[1], card_class="card-horizontal") if len(posts) > 1 else '') +
-        (render_project_card(projects[0], card_class="card-wide") if len(projects) > 0 else '') +
+        (render_project_card(projects[0]) if len(projects) > 0 else '') +
         ''.join([render_post_card(p) for p in posts[2:]]) +
         ''.join([render_project_card(p) for p in projects[1:]])
     )
@@ -809,7 +810,12 @@ def build():
                 content_html = content_html.replace('{% if page.description %}', '').replace('{% endif %}', '').replace('{{ page.description }}', p_desc)
             else:
                 content_html = re.sub(r'\{% if page\.description %\}[\s\S]*?\{% endif %\}', '', content_html)
-            content_html = content_html.replace('{{ content }}', body_html)
+            
+            if pcfg.get('type') == 'legal':
+                body_wrapped = f'<div class="page-body container">\n{body_html}\n</div>'
+            else:
+                body_wrapped = body_html
+            content_html = content_html.replace('{{ content }}', body_wrapped)
         else:
             content_html = body_html
 

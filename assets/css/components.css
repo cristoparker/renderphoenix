@@ -122,8 +122,22 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 /* Cards Grid */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
+}
+
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
 }
 
 /* Project Card Minimal SaaS */
@@ -137,6 +151,11 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
   cursor: pointer;
+  text-decoration: none !important;
+}
+
+.project-card a {
+  text-decoration: none !important;
 }
 
 .project-card:hover {
@@ -222,12 +241,16 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   line-height: 1.3;
 }
 
-.card-title a {
+.card-title a,
+.project-card .card-title a {
   color: var(--color-text);
+  text-decoration: none !important;
 }
 
-.card-title a:hover {
+.card-title a:hover,
+.project-card .card-title a:hover {
   color: var(--c-1-electric-violet);
+  text-decoration: none !important;
 }
 
 .card-meta {
@@ -273,16 +296,24 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   padding: 0 var(--space-lg) var(--space-lg);
 }
 
-.card-link {
+.card-link,
+.project-card .card-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--c-1-electric-violet);
+  text-decoration: none !important;
 }
 
-.card-link:hover .arrow-icon {
+.card-link:hover,
+.project-card .card-link:hover {
+  text-decoration: none !important;
+}
+
+.card-link:hover .arrow-icon,
+.project-card .card-link:hover .arrow-icon {
   transform: translateX(4px);
 }
 
@@ -347,12 +378,16 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   line-height: 1.3;
 }
 
-.post-card-title a {
+.post-card-title a,
+.post-card .post-card-title a {
   color: var(--color-text);
+  text-decoration: none !important;
 }
 
-.post-card-title a:hover {
+.post-card-title a:hover,
+.post-card .post-card-title a:hover {
   color: var(--c-1-electric-violet);
+  text-decoration: none !important;
 }
 
 .post-card-meta {
@@ -382,12 +417,19 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   color: var(--color-text-muted);
 }
 
-.read-more-link {
+.read-more-link,
+.post-card .read-more-link {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   font-weight: 600;
   color: var(--c-1-electric-violet);
+  text-decoration: none !important;
+}
+
+.read-more-link:hover,
+.post-card .read-more-link:hover {
+  text-decoration: none !important;
 }
 
 /* Timeline Component (Clean Grid - No Bullets) */
