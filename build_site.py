@@ -175,28 +175,12 @@ def render_includes(html_str):
         return ''
     return re.sub(r'\{%\s*include\s+([\w\.\-]+)\s*%\}', replace_include, html_str)
 
-# Curated pool of high-resolution showcase PNG/JPG images for social share previews
-SHOWCASE_FALLBACK_IMAGES = [
-    "/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.png",
-    "/assets/images/projects/Minecraft%20Post%20Apo%20Build%20RenderPhoenix%20Optimized%20.png",
-    "/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.png",
-    "/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.png",
-    "/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20Frostcraft%20Frostpunk%20Thumbnail.png",
-    "/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis-a-post-apocalyptic-city%20thumbnail.png",
-    "/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_1%20thumbnail.png",
-    "/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp-solo-competitive-battle%20thumbnail.png",
-    "/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png",
-    "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.png",
-    "/assets/images/og-default.png"
-]
-
-def resolve_meta_image(img_candidate, seed=""):
+def resolve_meta_image(img_candidate):
     """
-    Resolves an image candidate to a valid raster image path (.png, .jpg).
-    If missing, empty, or SVG, deterministically selects a showcase fallback image.
+    Resolves an image candidate to a valid raster image path (.png, .jpg, .webp).
+    If missing, empty, not found on disk, or SVG, returns /assets/images/og-default.png.
     """
     import urllib.parse
-    import hashlib
 
     if img_candidate and not str(img_candidate).lower().endswith('.svg'):
         raw_path = str(img_candidate).strip()
@@ -207,9 +191,6 @@ def resolve_meta_image(img_candidate, seed=""):
             parts = [urllib.parse.quote(seg) for seg in rel_path.split('/')]
             return '/' + '/'.join(parts)
 
-    if seed:
-        idx = int(hashlib.md5(seed.encode('utf-8')).hexdigest(), 16) % len(SHOWCASE_FALLBACK_IMAGES)
-        return SHOWCASE_FALLBACK_IMAGES[idx]
     return "/assets/images/og-default.png"
 
 def generate_seo_meta_tags(meta, page_type="website", slug=""):
@@ -249,8 +230,7 @@ def generate_seo_meta_tags(meta, page_type="website", slug=""):
     canonical_url = f"{SITE_URL}{page_url}" if slug != '404' else ''
 
     img_candidate = meta.get('image') or meta.get('cover_image') or meta.get('header_image') or meta.get('og_image')
-    seed = slug or title_raw
-    meta_img_path = resolve_meta_image(img_candidate, seed=seed)
+    meta_img_path = resolve_meta_image(img_candidate)
     absolute_img_url = f"{SITE_URL}{meta_img_path}"
 
     og_type = "article" if page_type in ('post', 'project') else "website"
@@ -457,7 +437,7 @@ def clean_liquid_tags(text, meta=None, page_type="website", slug=""):
     text = text.replace('{{ full_title }}', full_title)
     text = text.replace('{{ page_desc }}', meta.get('description', 'RenderPhoenix is an independent interactive creative studio.'))
     text = text.replace('{{ canonical_url }}', f"https://renderphoenix.com/{slug}/" if slug else "https://renderphoenix.com/")
-    text = text.replace('{{ og_image }}', resolve_meta_image(meta.get('cover_image') or meta.get('image') or meta.get('header_image'), seed=slug or full_title))
+    text = text.replace('{{ og_image }}', resolve_meta_image(meta.get('cover_image') or meta.get('image') or meta.get('header_image')))
     text = text.replace('{{ site.title }}', 'RenderPhoenix')
     text = text.replace('{{ site.description }}', 'RenderPhoenix is an independent interactive creative studio.')
     text = text.replace('{{ site.url }}', 'https://renderphoenix.com')
