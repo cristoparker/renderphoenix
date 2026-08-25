@@ -1,17 +1,14 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#F6ECFC"/>
-  <circle cx="950" cy="150" r="300" fill="#E019F5" fill-opacity="0.12"/>
-  <circle cx="200" cy="500" r="350" fill="#7B26F8" fill-opacity="0.1"/>
-  <g transform="translate(100, 220)">
-    <path d="M40 10L48.75 28.75L70 35L52.5 51.25L58.75 72.5L40 61.25L21.25 72.5L27.5 51.25L10 35L31.25 28.75L40 10Z" fill="url(#og-grad)"/>
-    <text x="90" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="54" fill="#190933">Render<tspan fill="#7B26F8">Phoenix</tspan></text>
-    <text x="90" y="110" font-family="'Inter', sans-serif" font-weight="400" font-size="28" fill="#4A3568">Independent Interactive Creative Studio</text>
-    <text x="90" y="160" font-family="'JetBrains Mono', monospace" font-size="20" fill="#8C52E7">Games • 3D Worlds • Game Assets • Digital Experiences</text>
+  <rect width="1200" height="630" fill="#FAF8F5"/>
+  <rect x="50" y="36" width="1100" height="558" rx="24" fill="#FFFFFF" stroke="#E2DDD3" stroke-width="2"/>
+  <g transform="translate(600, 240)">
+    <!-- Brand Mark Center -->
+    <path d="M-20 -90 L-5 -55 L35 -50 L5 -20 L15 20 L-20 0 L-55 20 L-45 -20 L-75 -50 L-35 -55 Z" fill="#1C1B18"/>
+    <text x="0" y="80" text-anchor="middle" font-family="'Inter', sans-serif" font-weight="800" font-size="52" fill="#1C1B18" letter-spacing="-0.02em">RenderPhoenix</text>
+    <text x="0" y="140" text-anchor="middle" font-family="'Inter', sans-serif" font-weight="600" font-size="20" fill="#4E4B43" letter-spacing="0.1em">GAMES • 3D WORLDS • GAME ASSETS • SIMULATIONS</text>
+    <!-- Domain Pill -->
+    <rect x="-110" y="180" width="220" height="42" rx="21" fill="#FAF8F5" stroke="#E2DDD3" stroke-width="1.5"/>
+    <text x="0" y="207" text-anchor="middle" font-family="'Inter', sans-serif" font-weight="600" font-size="16" fill="#1C1B18">renderphoenix.com</text>
   </g>
-  <defs>
-    <linearGradient id="og-grad" x1="10" y1="10" x2="70" y2="72.5" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7B26F8"/>
-      <stop offset="1" stop-color="#E019F5"/>
-    </linearGradient>
-  </defs>
 </svg>
+

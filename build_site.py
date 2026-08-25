@@ -175,7 +175,248 @@ def render_includes(html_str):
         return ''
     return re.sub(r'\{%\s*include\s+([\w\.\-]+)\s*%\}', replace_include, html_str)
 
-def clean_liquid_tags(text, meta=None):
+# Curated pool of high-resolution showcase PNG/JPG images for social share previews
+SHOWCASE_FALLBACK_IMAGES = [
+    "/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.png",
+    "/assets/images/projects/Minecraft%20Post%20Apo%20Build%20RenderPhoenix%20Optimized%20.png",
+    "/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.png",
+    "/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.png",
+    "/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20Frostcraft%20Frostpunk%20Thumbnail.png",
+    "/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis-a-post-apocalyptic-city%20thumbnail.png",
+    "/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_1%20thumbnail.png",
+    "/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp-solo-competitive-battle%20thumbnail.png",
+    "/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png",
+    "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.png",
+    "/assets/images/og-default.png"
+]
+
+def resolve_meta_image(img_candidate, seed=""):
+    """
+    Resolves an image candidate to a valid raster image path (.png, .jpg).
+    If missing, empty, or SVG, deterministically selects a showcase fallback image.
+    """
+    import urllib.parse
+    import hashlib
+
+    if img_candidate and not str(img_candidate).lower().endswith('.svg'):
+        raw_path = str(img_candidate).strip()
+        unquoted = urllib.parse.unquote(raw_path)
+        rel_path = unquoted.lstrip('/')
+        disk_path = os.path.join(ROOT_DIR, rel_path)
+        if os.path.isfile(disk_path):
+            parts = [urllib.parse.quote(seg) for seg in rel_path.split('/')]
+            return '/' + '/'.join(parts)
+
+    if seed:
+        idx = int(hashlib.md5(seed.encode('utf-8')).hexdigest(), 16) % len(SHOWCASE_FALLBACK_IMAGES)
+        return SHOWCASE_FALLBACK_IMAGES[idx]
+    return "/assets/images/og-default.png"
+
+def generate_seo_meta_tags(meta, page_type="website", slug=""):
+    SITE_URL = "https://renderphoenix.com"
+    SITE_NAME = "RenderPhoenix"
+    DEFAULT_DESC = "RenderPhoenix is an independent interactive creative studio building games, 3D worlds, game assets, and digital experiences."
+
+    title_raw = str(meta.get('title', '')).strip()
+    if not title_raw or slug == '':
+        full_title = f"{SITE_NAME} — Independent Interactive Creative Studio | Games & 3D Worlds"
+    elif SITE_NAME.lower() in title_raw.lower():
+        full_title = title_raw
+    else:
+        full_title = f"{title_raw} — {SITE_NAME}"
+
+    desc_raw = meta.get('description') or meta.get('excerpt') or DEFAULT_DESC
+    clean_desc = re.sub(r'<[^>]+>', '', str(desc_raw)).replace('\n', ' ').strip()
+    clean_desc = re.sub(r'\s+', ' ', clean_desc)
+    if len(clean_desc) > 160:
+        clean_desc = clean_desc[:157] + "..."
+
+    if slug == '':
+        page_url = "/"
+    elif slug == '404':
+        page_url = "/404.html"
+    elif page_type == 'project' or (slug and not slug.startswith('work/') and page_type == 'project'):
+        clean_slug = slug.replace('work/', '')
+        page_url = f"/work/{clean_slug}/"
+    elif page_type == 'post' or (slug and not slug.startswith('blog/') and page_type == 'post'):
+        clean_slug = slug.replace('blog/', '')
+        page_url = f"/blog/{clean_slug}/"
+    else:
+        page_url = f"/{slug}/" if not slug.startswith('/') else slug
+        if not page_url.endswith('/') and not page_url.endswith('.html'):
+            page_url += '/'
+
+    canonical_url = f"{SITE_URL}{page_url}" if slug != '404' else ''
+
+    img_candidate = meta.get('image') or meta.get('cover_image') or meta.get('header_image') or meta.get('og_image')
+    seed = slug or title_raw
+    meta_img_path = resolve_meta_image(img_candidate, seed=seed)
+    absolute_img_url = f"{SITE_URL}{meta_img_path}"
+
+    og_type = "article" if page_type in ('post', 'project') else "website"
+    author = meta.get('author') or meta.get('developer') or SITE_NAME
+
+    published_time = ""
+    if meta.get('date'):
+        d = meta.get('date')
+        if hasattr(d, 'isoformat'):
+            published_time = d.isoformat()
+        else:
+            published_time = str(d)[:10]
+
+    tags = meta.get('tags', [])
+    techs = meta.get('technologies', [])
+    cats = meta.get('categories', [])
+    if isinstance(tags, str):
+        tags = [tags]
+    if isinstance(techs, str):
+        techs = [techs]
+    if isinstance(cats, str):
+        cats = [cats]
+    all_keywords = list(dict.fromkeys(["RenderPhoenix", "indie gamedev", "3D assets"] + tags + techs + cats))
+    keywords_str = ", ".join(all_keywords)
+
+    markdown_url = meta.get('markdown_url', '')
+    md_link_tag = f'\n  <link rel="alternate" type="text/markdown" href="{markdown_url}" title="{full_title} Markdown">' if markdown_url else ''
+
+    article_og_tags = ""
+    if og_type == "article" and published_time:
+        article_og_tags = f"""
+  <meta property="article:published_time" content="{published_time}">
+  <meta property="article:author" content="{author}">
+  <meta property="article:section" content="{meta.get('category', 'Creative Work')}">"""
+
+    import json
+    schema_graph = [
+        {
+            "@type": "Organization",
+            "@id": "https://renderphoenix.com/#organization",
+            "name": "RenderPhoenix",
+            "url": "https://renderphoenix.com/",
+            "logo": "https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.png",
+            "sameAs": [
+                "https://mcpedl.com/user/renderphoenix/"
+            ],
+            "founder": {
+                "@type": "Person",
+                "name": "Tasrif Ibn Mizan"
+            },
+            "description": DEFAULT_DESC
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://renderphoenix.com/#website",
+            "url": "https://renderphoenix.com/",
+            "name": "RenderPhoenix",
+            "description": DEFAULT_DESC,
+            "publisher": {
+                "@id": "https://renderphoenix.com/#organization"
+            }
+        }
+    ]
+
+    if canonical_url:
+        if page_type == 'post':
+            schema_graph.append({
+                "@type": "BlogPosting",
+                "@id": f"{canonical_url}#article",
+                "isPartOf": {
+                    "@id": "https://renderphoenix.com/#website"
+                },
+                "headline": title_raw or full_title,
+                "description": clean_desc,
+                "image": absolute_img_url,
+                "datePublished": published_time,
+                "author": {
+                    "@type": "Person",
+                    "name": author
+                },
+                "publisher": {
+                    "@id": "https://renderphoenix.com/#organization"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": canonical_url
+                }
+            })
+        elif page_type == 'project':
+            schema_graph.append({
+                "@type": "CreativeWork",
+                "@id": f"{canonical_url}#project",
+                "isPartOf": {
+                    "@id": "https://renderphoenix.com/#website"
+                },
+                "headline": title_raw or full_title,
+                "description": clean_desc,
+                "image": absolute_img_url,
+                "datePublished": published_time,
+                "author": {
+                    "@type": "Person",
+                    "name": author
+                },
+                "publisher": {
+                    "@id": "https://renderphoenix.com/#organization"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": canonical_url
+                }
+            })
+        else:
+            schema_graph.append({
+                "@type": "WebPage",
+                "@id": canonical_url,
+                "url": canonical_url,
+                "name": full_title,
+                "description": clean_desc,
+                "image": absolute_img_url,
+                "isPartOf": {
+                    "@id": "https://renderphoenix.com/#website"
+                }
+            })
+
+    schema_json = json.dumps({"@context": "https://schema.org", "@graph": schema_graph}, indent=2)
+
+    return f"""<!-- Primary Meta Tags -->
+  <title>{full_title}</title>
+  <meta name="title" content="{full_title}">
+  <meta name="description" content="{clean_desc}">
+  <link rel="canonical" href="{canonical_url}">{md_link_tag}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FAF8F5">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="{author}">
+  <meta name="keywords" content="{keywords_str}">
+
+  <!-- Open Graph / Facebook / WhatsApp / Instagram / LinkedIn -->
+  <meta property="og:type" content="{og_type}">
+  <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:url" content="{canonical_url}">
+  <meta property="og:title" content="{full_title}">
+  <meta property="og:description" content="{clean_desc}">
+  <meta property="og:image" content="{absolute_img_url}">
+  <meta property="og:image:secure_url" content="{absolute_img_url}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{title_raw or full_title}">
+  <meta property="og:locale" content="en_US">{article_og_tags}
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@renderphoenix">
+  <meta name="twitter:creator" content="@renderphoenix">
+  <meta name="twitter:url" content="{canonical_url}">
+  <meta name="twitter:title" content="{full_title}">
+  <meta name="twitter:description" content="{clean_desc}">
+  <meta name="twitter:image" content="{absolute_img_url}">
+  <meta name="twitter:image:alt" content="{title_raw or full_title}">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{schema_json}
+  </script>"""
+
+def clean_liquid_tags(text, meta=None, page_type="website", slug=""):
     if meta is None:
         meta = {}
     
@@ -209,14 +450,17 @@ def clean_liquid_tags(text, meta=None):
     """
     text = re.sub(r'\{%\s*for\s+link\s+in\s+site\.data\.navigation\.footer\.resources\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', footer_res_html, text)
 
+    seo_meta_html = generate_seo_meta_tags(meta, page_type=page_type, slug=slug)
+    text = text.replace('{{ seo_meta_tags }}', seo_meta_html)
+
     full_title = meta.get('title', 'RenderPhoenix — Independent Interactive Creative Studio')
     text = text.replace('{{ full_title }}', full_title)
     text = text.replace('{{ page_desc }}', meta.get('description', 'RenderPhoenix is an independent interactive creative studio.'))
-    text = text.replace('{{ canonical_url }}', '')
-    text = text.replace('{{ og_image }}', '/assets/images/og-default.svg')
+    text = text.replace('{{ canonical_url }}', f"https://renderphoenix.com/{slug}/" if slug else "https://renderphoenix.com/")
+    text = text.replace('{{ og_image }}', resolve_meta_image(meta.get('cover_image') or meta.get('image') or meta.get('header_image'), seed=slug or full_title))
     text = text.replace('{{ site.title }}', 'RenderPhoenix')
     text = text.replace('{{ site.description }}', 'RenderPhoenix is an independent interactive creative studio.')
-    text = text.replace('{{ site.url }}', '')
+    text = text.replace('{{ site.url }}', 'https://renderphoenix.com')
 
     markdown_url = meta.get('markdown_url', '')
     if markdown_url:
@@ -599,7 +843,7 @@ def build():
         p_content = p_content.replace('{{ page.cover_image | relative_url }}', cover_img)
 
         full_html = def_layout_html.replace('{{ content }}', p_content)
-        full_html = clean_liquid_tags(full_html, proj)
+        full_html = clean_liquid_tags(full_html, proj, page_type='project', slug=slug)
 
         out_dir = os.path.join(SITE_DIR, 'work', slug)
         os.makedirs(out_dir, exist_ok=True)
@@ -637,7 +881,7 @@ def build():
             p_content = p_content.replace('{% if page.image %}', '').replace('{% endif %}', '').replace('{{ page.image | relative_url }}', post['image'])
 
         full_html = def_layout_html.replace('{{ content }}', p_content)
-        full_html = clean_liquid_tags(full_html, post)
+        full_html = clean_liquid_tags(full_html, post, page_type='post', slug=slug)
 
         out_dir = os.path.join(SITE_DIR, 'blog', slug)
         os.makedirs(out_dir, exist_ok=True)
@@ -823,12 +1067,13 @@ def build():
         page_meta = {
             'title': page_title_meta,
             'description': p_desc or 'RenderPhoenix is an independent interactive creative studio.',
+            'header_image': header_img,
             'markdown_url': f"/{slug}.md" if slug and slug != '404' else '',
             'canonical_url': f"https://renderphoenix.com/{slug}/" if slug and slug != '404' else 'https://renderphoenix.com/'
         }
 
         final_html = def_layout_html.replace('{{ content }}', content_html)
-        final_html = clean_liquid_tags(final_html, page_meta)
+        final_html = clean_liquid_tags(final_html, page_meta, page_type='website', slug=slug)
 
         # Write Output HTML
         if slug == '':
