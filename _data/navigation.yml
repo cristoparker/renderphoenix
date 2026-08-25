@@ -22,12 +22,16 @@ footer:
       url: "/services/"
     - title: "Selected Work"
       url: "/work/"
-    - title: "Blog & Editorial"
+    - title: "Blog"
       url: "/blog/"
     - title: "Get in Touch"
       url: "/contact/"
 
   resources:
+    - title: "Privacy Policy"
+      url: "/privacy-policy/"
+    - title: "DMCA Policy"
+      url: "/dmca/"
     - title: "MCPEDL Profile"
       url: "https://mcpedl.com/user/renderphoenix/"
     - title: "LLM Context (llm.txt)"

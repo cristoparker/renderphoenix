@@ -26,7 +26,14 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - Uthowaipru Chowdhury: Indie Game Developer. Specializes in gameplay systems and mechanics.
 - Faizul726: App Developer. Specializes in application software and client tooling.
 
-## 4. Notable Works & Project Index (Raw Markdown)
+## 4. Main Pages & Canonical Markdown Endpoints
+- [About RenderPhoenix](https://renderphoenix.com/about.md): Comprehensive studio history, founders, timeline, resilience milestones, and 2026 revival details.
+- [Services & Capabilities](https://renderphoenix.com/services.md): Technical overview of studio capabilities (Unreal Engine 5, Unity, Blender, C#, C++, shaders, asset production, and simulation prototypes).
+- [Work Portfolio](https://renderphoenix.com/work.md): Complete index of all interactive works, games, 3D worlds, and addons.
+- [Blog](https://renderphoenix.com/blog.md): Index of studio announcements, retrospectives, and engineering devlogs.
+- [Get in Touch](https://renderphoenix.com/contact.md): Studio contact information, inquiry categories, and collaboration details.
+
+## 5. Notable Works & Project Index (Raw Markdown)
 - [Lunar Habitat Simulator — NASA Space Apps 2025](https://renderphoenix.com/work/nasa-space-apps-2025.md) (2025) [Interactive]: Regional Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.
 - [Clash of Clans Theme UI](https://renderphoenix.com/work/clash-of-clans-ui.md) (2023) [UI]: Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements.
 - [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (2021) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
@@ -42,12 +49,16 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [HOLO PvP - Solo Competitive Battle](https://renderphoenix.com/work/holo-pvp.md) (2021) [Interactive]: A solo competitive PvP battle royale and hide-and-seek arena for 5-10 players featuring custom sectors, ability effects, and teleportation conduits.
 - [Fantasy Woods & Dark Underland](https://renderphoenix.com/work/fantasy-woods.md) (2021) [Environment]: A fantasy realm featuring custom biomes, bioluminescent flora, and subterranean cavern exploration.
 
-## 5. Editorial & Studio Devlogs (Raw Markdown)
+## 6. Editorial & Studio Devlogs (Raw Markdown)
 - [Welcome to the New RenderPhoenix: Expanding Beyond Boundaries](https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix.md) (22 Aug 2026): On 22 August 2026, RenderPhoenix begins its official revival. We are rebuilding our digital presence and expanding into original game development, Unreal Engine, Unity, Blender 3D, and interactive experiences. (Author: Cristo Parker)
 - [NASA Space Apps Challenge 2025: Engineering a Lunar Settlement](https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective.md) (15 Aug 2026): A retrospective on how RenderPhoenix earned Regional Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation. (Author: RenderPhoenix)
 - [Building Worlds: From Minehutt to RenderPhoenix](https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix.md) (01 Aug 2026): Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future. (Author: Tasrif Ibn Mizan)
 
-## 6. Official Brand Identity & Logos
+## 7. Legal, Privacy & Compliance (Raw Markdown)
+- [Privacy Policy](https://renderphoenix.com/privacy-policy.md): Official Privacy Policy detailing our strict no-tracking architecture, zero-account database model, and third-party service interactions.
+- [DMCA & Copyright Policy](https://renderphoenix.com/dmca.md): Official Digital Millennium Copyright Act compliance notice, designated copyright agent contact, takedown request checklist, and counter-notification procedures.
+
+## 8. Official Brand Identity & Logos
 - [Media Kit & Brand Assets Web Directory](https://renderphoenix.com/images/brand/): Interactive web portal with live previews, direct image URLs, and 1-click downloads for all official SVG and PNG assets.
 - [Official Colored Logo (SVG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.svg): Primary studio vector mark in phoenix violet & flame pink.
 - [Official Colored Logo (PNG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.png): High-resolution raster mark.
@@ -56,9 +67,9 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [Official White Logo (PNG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20White%20Logo.png): Monochrome white raster mark.
 - [Official Black Logo (SVG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Black%20Logo.svg): Monochrome black vector mark for light backgrounds.
 
-## 7. Technical Architecture of Official Website
+## 9. Technical Architecture of Official Website
 - Static-First Engine: Statically generated site hosted on GitHub Pages with custom domain renderphoenix.com.
-- Modular Markdown Endpoints: Every project and blog post is directly available as clean raw Markdown at `/work/<slug>.md` and `/blog/<slug>.md`.
+- Modular Markdown Endpoints: Every project, blog post, and legal policy is directly available as clean raw Markdown at `/work/<slug>.md`, `/blog/<slug>.md`, `/about.md`, `/services.md`, `/contact.md`, `/privacy-policy.md`, and `/dmca.md`.
 - Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
 - Client-side Static Search: Powers search through search.json and search-data.js index.
 - Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llm.txt, llms.txt, and llms-full.txt.

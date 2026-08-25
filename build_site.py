@@ -101,8 +101,20 @@ def simple_markdown_to_html(md_text):
             html_lines.append(render_youtube_player(stripped))
             continue
 
+        # Horizontal rules
+        if stripped in ('---', '***', '___'):
+            if in_list:
+                html_lines.append('</ul>')
+                in_list = False
+            html_lines.append('<hr>')
+            continue
+
         # Headings
-        if stripped.startswith('### '):
+        if stripped.startswith('##### '):
+            html_lines.append(f'<h5>{inline_format(stripped[6:])}</h5>')
+        elif stripped.startswith('#### '):
+            html_lines.append(f'<h4>{inline_format(stripped[5:])}</h4>')
+        elif stripped.startswith('### '):
             html_lines.append(f'<h3>{inline_format(stripped[4:])}</h3>')
         elif stripped.startswith('## '):
             html_lines.append(f'<h2>{inline_format(stripped[3:])}</h2>')
@@ -115,7 +127,7 @@ def simple_markdown_to_html(md_text):
                 html_lines.append('<ul>')
                 in_list = True
             html_lines.append(f'<li>{inline_format(stripped[2:])}</li>')
-        elif stripped.startswith('<div') or stripped.startswith('</div') or stripped.startswith('<iframe') or stripped.startswith('<section') or stripped.startswith('</section'):
+        elif stripped.startswith('<div') or stripped.startswith('</div') or stripped.startswith('<iframe') or stripped.startswith('<section') or stripped.startswith('</section') or stripped.startswith('<hr'):
             html_lines.append(stripped)
         else:
             html_lines.append(f'<p>{inline_format(stripped)}</p>')
@@ -182,12 +194,14 @@ def clean_liquid_tags(text, meta=None):
       <li><a href="/about/">About</a></li>
       <li><a href="/services/">Services</a></li>
       <li><a href="/work/">Work Portfolio</a></li>
-      <li><a href="/blog/">Editorial & Devlogs</a></li>
+      <li><a href="/blog/">Blog</a></li>
       <li><a href="/contact/">Contact Us</a></li>
     """
     text = re.sub(r'\{%\s*for\s+link\s+in\s+site\.data\.navigation\.footer\.navigation\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', footer_nav_html, text)
 
     footer_res_html = """
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/dmca/">DMCA Policy</a></li>
       <li><a href="https://mcpedl.com/user/renderphoenix/" target="_blank" rel="noopener noreferrer">MCPEDL Official Profile</a></li>
       <li><a href="/llm.txt">llm.txt (AI Metadata)</a></li>
       <li><a href="/llms-full.txt">llms-full.txt (Full AI Corpus)</a></li>
@@ -689,8 +703,24 @@ def build():
     all_services_cards = ''.join([render_service_card(s) for s in services])
     all_team_cards = ''.join([render_team_card(m) for m in team])
 
-    # Build static pages with rendered card grids
-    pages = ['index.html', 'about/index.html', 'services/index.html', 'work/index.html', 'blog/index.html', 'contact/index.html', '404.html']
+    # ----------------------------------------------------
+    # Unified Page Compilation Pipeline
+    # ----------------------------------------------------
+    PAGES_CONFIG = [
+        {'dir': '', 'file': 'index.html', 'slug': '', 'type': 'home', 'priority': 1.0, 'freq': 'weekly'},
+        {'dir': 'about', 'slug': 'about', 'title': 'About RenderPhoenix', 'type': 'page', 'priority': 0.8, 'freq': 'monthly'},
+        {'dir': 'services', 'slug': 'services', 'title': 'Services & Capabilities', 'type': 'page', 'priority': 0.8, 'freq': 'monthly'},
+        {'dir': 'work', 'slug': 'work', 'title': 'Work Portfolio', 'type': 'page', 'priority': 0.9, 'freq': 'weekly'},
+        {'dir': 'blog', 'slug': 'blog', 'title': 'Blog', 'type': 'page', 'priority': 0.9, 'freq': 'daily'},
+        {'dir': 'contact', 'slug': 'contact', 'title': 'Get in Touch', 'type': 'page', 'priority': 0.7, 'freq': 'monthly'},
+        {'dir': 'privacy-policy', 'slug': 'privacy-policy', 'title': 'Privacy Policy', 'type': 'legal', 'priority': 0.6, 'freq': 'monthly'},
+        {'dir': 'dmca', 'slug': 'dmca', 'title': 'DMCA & Copyright Policy', 'type': 'legal', 'priority': 0.6, 'freq': 'monthly'},
+        {'dir': '', 'file': '404.html', 'slug': '404', 'title': 'Page Not Found', 'type': 'error'}
+    ]
+
+    import json
+    search_data = []
+    compiled_pages_info = []
 
     featured_projects_cards = ''.join([render_project_card(p) for p in projects[:3]])
     all_projects_cards = ''.join([render_project_card(p) for p in projects])
@@ -708,37 +738,64 @@ def build():
         ''.join([render_project_card(p) for p in projects[1:]])
     )
 
-    for p in pages:
-        src_path = os.path.join(ROOT_DIR, p)
-        if not os.path.exists(src_path):
+    for pcfg in PAGES_CONFIG:
+        slug = pcfg['slug']
+        src_dir = pcfg.get('dir', '')
+        src_file = pcfg.get('file', '')
+        
+        # Locate source file
+        src_path = None
+        is_markdown = False
+        
+        if src_file:
+            cand = os.path.join(ROOT_DIR, src_file)
+            if os.path.exists(cand):
+                src_path = cand
+                is_markdown = cand.endswith('.md')
+        elif src_dir:
+            cand_html = os.path.join(ROOT_DIR, src_dir, 'index.html')
+            cand_md = os.path.join(ROOT_DIR, src_dir, 'index.md')
+            if os.path.exists(cand_html):
+                src_path = cand_html
+                is_markdown = False
+            elif os.path.exists(cand_md):
+                src_path = cand_md
+                is_markdown = True
+        
+        if not src_path or not os.path.exists(src_path):
             continue
-        
-        meta, body = load_frontmatter_and_content(src_path)
-        body = render_includes(body)
 
-        # Replace project card loops
-        body = re.sub(r'\{%\s*assign\s+featured_projects\s*=[\s\S]*?\{%\s*endfor\s*%\}', featured_projects_cards, body)
-        body = re.sub(r'\{%\s*assign\s+sorted_projects\s*=[\s\S]*?\{%\s*endfor\s*%\}', all_projects_cards, body)
-
-        # Replace post card loops
-        body = re.sub(r'\{%\s*assign\s+featured_post\s*=[\s\S]*?\{%\s*include\s+post-card\.html[\s\S]*?\{%\s*endif\s*%\}', featured_post_card, body)
-        body = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s+limit:2\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', latest_posts_cards, body)
-        body = re.sub(r'\{%\s*assign\s+top_post\s*=[\s\S]*?\{%\s*endif\s*%\}', featured_post_card, body)
-        body = re.sub(r'\{%\s*for\s+proj\s+in\s+site\.projects\s+limit:4\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', sidebar_items_cards, body)
-        body = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s*%\}[\s\S]*?\{%\s*endfor\s*%\}[\s\S]*?\{%\s*for\s+proj\s+in\s+site\.projects\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', merged_publications_cards, body)
-        body = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_posts_cards, body)
-        
-        # Replace services and team loops
-        body = re.sub(r'\{%\s*for\s+service\s+in\s+site\.data\.services\s+limit:3\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', featured_services_cards, body)
-        body = re.sub(r'\{%\s*for\s+service\s+in\s+site\.data\.services\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_services_cards, body)
-        body = re.sub(r'\{%\s*for\s+member\s+in\s+site\.data\.team\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_team_cards, body)
-        
+        meta, raw_body = load_frontmatter_and_content(src_path)
+        p_title = meta.get('title', pcfg.get('title', ''))
+        p_desc = meta.get('description', '')
+        header_img = meta.get('header_image', '')
         layout_type = meta.get('layout', 'default')
-        if layout_type == 'page':
-            p_title = meta.get('title', '')
-            p_desc = meta.get('description', '')
-            header_img = meta.get('header_image', '')
 
+        # Convert / Process Body
+        if is_markdown:
+            body_html = simple_markdown_to_html(raw_body)
+        else:
+            body_html = raw_body
+
+        body_html = render_includes(body_html)
+
+        # Replace dynamic project & post loops
+        body_html = re.sub(r'\{%\s*assign\s+featured_projects\s*=[\s\S]*?\{%\s*endfor\s*%\}', featured_projects_cards, body_html)
+        body_html = re.sub(r'\{%\s*assign\s+sorted_projects\s*=[\s\S]*?\{%\s*endfor\s*%\}', all_projects_cards, body_html)
+        body_html = re.sub(r'\{%\s*assign\s+featured_post\s*=[\s\S]*?\{%\s*include\s+post-card\.html[\s\S]*?\{%\s*endif\s*%\}', featured_post_card, body_html)
+        body_html = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s+limit:2\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', latest_posts_cards, body_html)
+        body_html = re.sub(r'\{%\s*assign\s+top_post\s*=[\s\S]*?\{%\s*endif\s*%\}', featured_post_card, body_html)
+        body_html = re.sub(r'\{%\s*for\s+proj\s+in\s+site\.projects\s+limit:4\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', sidebar_items_cards, body_html)
+        body_html = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s*%\}[\s\S]*?\{%\s*endfor\s*%\}[\s\S]*?\{%\s*for\s+proj\s+in\s+site\.projects\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', merged_publications_cards, body_html)
+        body_html = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_posts_cards, body_html)
+        
+        # Replace dynamic service & team loops
+        body_html = re.sub(r'\{%\s*for\s+service\s+in\s+site\.data\.services\s+limit:3\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', featured_services_cards, body_html)
+        body_html = re.sub(r'\{%\s*for\s+service\s+in\s+site\.data\.services\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_services_cards, body_html)
+        body_html = re.sub(r'\{%\s*for\s+member\s+in\s+site\.data\.team\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_team_cards, body_html)
+
+        # Apply Layout
+        if layout_type == 'page':
             content_html = page_layout_body
             if header_img:
                 content_html = content_html.replace('{% if page.header_image %}page-header-hero{% endif %}', 'page-header-hero')
@@ -752,22 +809,85 @@ def build():
                 content_html = content_html.replace('{% if page.description %}', '').replace('{% endif %}', '').replace('{{ page.description }}', p_desc)
             else:
                 content_html = re.sub(r'\{% if page\.description %\}[\s\S]*?\{% endif %\}', '', content_html)
-            content_html = content_html.replace('{{ content }}', body)
+            content_html = content_html.replace('{{ content }}', body_html)
         else:
-            content_html = body
+            content_html = body_html
+
+        page_title_meta = f"{p_title} — RenderPhoenix" if p_title and slug != '' else (p_title or 'RenderPhoenix — Independent Interactive Creative Studio')
+        page_meta = {
+            'title': page_title_meta,
+            'description': p_desc or 'RenderPhoenix is an independent interactive creative studio.',
+            'markdown_url': f"/{slug}.md" if slug and slug != '404' else '',
+            'canonical_url': f"https://renderphoenix.com/{slug}/" if slug and slug != '404' else 'https://renderphoenix.com/'
+        }
 
         final_html = def_layout_html.replace('{{ content }}', content_html)
-        final_html = clean_liquid_tags(final_html, meta)
+        final_html = clean_liquid_tags(final_html, page_meta)
 
-        out_path = os.path.join(SITE_DIR, p)
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        with open(out_path, 'w', encoding='utf-8') as f:
-            f.write(final_html)
-        print(f"Built main page -> _site/{p}")
+        # Write Output HTML
+        if slug == '':
+            out_file = os.path.join(SITE_DIR, 'index.html')
+            with open(out_file, 'w', encoding='utf-8') as f:
+                f.write(final_html)
+            print("Built root page -> _site/index.html")
+        elif slug == '404':
+            out_file = os.path.join(SITE_DIR, '404.html')
+            with open(out_file, 'w', encoding='utf-8') as f:
+                f.write(final_html)
+            print("Built error page -> _site/404.html")
+        else:
+            out_dir = os.path.join(SITE_DIR, slug)
+            os.makedirs(out_dir, exist_ok=True)
+            with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
+                f.write(final_html)
+            with open(os.path.join(SITE_DIR, f"{slug}.html"), 'w', encoding='utf-8') as f:
+                f.write(final_html)
+            print(f"Built page -> _site/{slug}/index.html & _site/{slug}.html")
+
+        # Write Raw Markdown Endpoints
+        if slug and slug != '404':
+            md_cand = os.path.join(ROOT_DIR, src_dir, 'index.md') if src_dir else ''
+            if md_cand and os.path.exists(md_cand):
+                with open(md_cand, 'r', encoding='utf-8') as mf:
+                    raw_md = mf.read()
+            elif is_markdown:
+                with open(src_path, 'r', encoding='utf-8') as mf:
+                    raw_md = mf.read()
+            else:
+                # Generate clean markdown representation
+                clean_text = re.sub(r'<[^>]+>', '', raw_body).strip()
+                raw_md = f"---\ntitle: \"{p_title}\"\ndescription: \"{p_desc}\"\n---\n\n# {p_title}\n\n{p_desc}\n\n{clean_text}\n"
+
+            out_dir = os.path.join(SITE_DIR, slug)
+            os.makedirs(out_dir, exist_ok=True)
+            with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
+                f.write(raw_md)
+            with open(os.path.join(SITE_DIR, f"{slug}.md"), 'w', encoding='utf-8') as f:
+                f.write(raw_md)
+
+            # Store for search index
+            if p_title:
+                search_data.append({
+                    "title": p_title,
+                    "url": f"/{slug}/",
+                    "description": p_desc,
+                    "content": re.sub(r'<[^>]+>', '', body_html)[:300],
+                    "type": "Legal" if pcfg.get('type') == 'legal' else "Page",
+                    "category": "Legal & Policies" if pcfg.get('type') == 'legal' else "Overview",
+                    "date": "25 Aug 2026",
+                    "tags": [slug]
+                })
+
+            compiled_pages_info.append({
+                'slug': slug,
+                'title': p_title,
+                'desc': p_desc,
+                'type': pcfg.get('type', 'page'),
+                'priority': pcfg.get('priority', 0.8),
+                'freq': pcfg.get('freq', 'monthly')
+            })
 
     # Build search.json
-    import json
-    search_data = []
     for post in posts:
         search_data.append({
             "title": post.get('title', ''),
@@ -831,43 +951,32 @@ def build():
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
 {brand_images_xml}
-  </url>""",
-        f"""  <url>
-    <loc>{site_url}/about/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+  </url>"""
+    ]
+
+    for pinfo in compiled_pages_info:
+        slug = pinfo['slug']
+        if slug == '404':
+            continue
+        img_xml = ""
+        if slug == 'about':
+            img_xml = f"""
     <image:image>
       <image:loc>{site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.png</image:loc>
       <image:title>RenderPhoenix Studio Logo</image:title>
-    </image:image>
-  </url>""",
-        f"""  <url>
-    <loc>{site_url}/services/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>""",
-        f"""  <url>
-    <loc>{site_url}/work/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>""",
-        f"""  <url>
-    <loc>{site_url}/blog/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>""",
-        f"""  <url>
-    <loc>{site_url}/contact/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>""",
-        f"""  <url>
+    </image:image>"""
+        sitemap_entries.append(f"""  <url>
+    <loc>{site_url}/{slug}/</loc>
+    <changefreq>{pinfo['freq']}</changefreq>
+    <priority>{pinfo['priority']}</priority>{img_xml}
+  </url>""")
+
+    sitemap_entries.append(f"""  <url>
     <loc>{site_url}/images/brand/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 {brand_images_xml}
-  </url>"""
-    ]
+  </url>""")
 
     for post in posts:
         post_slug = post['slug']
@@ -915,7 +1024,7 @@ def build():
     print("Built sitemap.xml -> _site/sitemap.xml & workspace root")
 
     # Build automated AI context files (llm.txt, llms.txt, and llms-full.txt)
-    build_llm_indexes(projects, posts)
+    build_llm_indexes(projects, posts, compiled_pages_info)
 
     # Copy root static files (robots.txt, CNAME, site.webmanifest, etc.)
     static_root_files = ['robots.txt', 'CNAME', 'site.webmanifest']
@@ -925,7 +1034,9 @@ def build():
             shutil.copy2(s_src, os.path.join(SITE_DIR, s_file))
             print(f"Copied {s_file} -> _site/{s_file}")
 
-def build_llm_indexes(projects, posts):
+def build_llm_indexes(projects, posts, compiled_pages=None):
+    if compiled_pages is None:
+        compiled_pages = []
     site_url = 'https://renderphoenix.com'
     
     # 1. Standard llm.txt & llms.txt index
@@ -957,7 +1068,14 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - Uthowaipru Chowdhury: Indie Game Developer. Specializes in gameplay systems and mechanics.
 - Faizul726: App Developer. Specializes in application software and client tooling.
 
-## 4. Notable Works & Project Index (Raw Markdown)
+## 4. Main Pages & Canonical Markdown Endpoints
+- [About RenderPhoenix]({site_url}/about.md): Comprehensive studio history, founders, timeline, resilience milestones, and 2026 revival details.
+- [Services & Capabilities]({site_url}/services.md): Technical overview of studio capabilities (Unreal Engine 5, Unity, Blender, C#, C++, shaders, asset production, and simulation prototypes).
+- [Work Portfolio]({site_url}/work.md): Complete index of all interactive works, games, 3D worlds, and addons.
+- [Blog]({site_url}/blog.md): Index of studio announcements, retrospectives, and engineering devlogs.
+- [Get in Touch]({site_url}/contact.md): Studio contact information, inquiry categories, and collaboration details.
+
+## 5. Notable Works & Project Index (Raw Markdown)
 """
     for proj in projects:
         title = proj.get('title', '')
@@ -970,7 +1088,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
         cat_str = f" [{cat}]" if cat else ''
         llm_content += f"- [{title}]({site_url}/work/{slug}.md){year_str}{cat_str}: {desc}\n"
 
-    llm_content += "\n## 5. Editorial & Studio Devlogs (Raw Markdown)\n"
+    llm_content += "\n## 6. Editorial & Studio Devlogs (Raw Markdown)\n"
     for post in posts:
         title = post.get('title', '')
         slug = post.get('slug', '')
@@ -981,7 +1099,11 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
         llm_content += f"- [{title}]({site_url}/blog/{slug}.md){date_badge}: {desc} (Author: {author})\n"
 
     llm_content += f"""
-## 6. Official Brand Identity & Logos
+## 7. Legal, Privacy & Compliance (Raw Markdown)
+- [Privacy Policy]({site_url}/privacy-policy.md): Official Privacy Policy detailing our strict no-tracking architecture, zero-account database model, and third-party service interactions.
+- [DMCA & Copyright Policy]({site_url}/dmca.md): Official Digital Millennium Copyright Act compliance notice, designated copyright agent contact, takedown request checklist, and counter-notification procedures.
+
+## 8. Official Brand Identity & Logos
 - [Media Kit & Brand Assets Web Directory]({site_url}/images/brand/): Interactive web portal with live previews, direct image URLs, and 1-click downloads for all official SVG and PNG assets.
 - [Official Colored Logo (SVG)]({site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.svg): Primary studio vector mark in phoenix violet & flame pink.
 - [Official Colored Logo (PNG)]({site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.png): High-resolution raster mark.
@@ -990,9 +1112,9 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [Official White Logo (PNG)]({site_url}/assets/images/brand/Renderphoenix%20White%20Logo.png): Monochrome white raster mark.
 - [Official Black Logo (SVG)]({site_url}/assets/images/brand/Renderphoenix%20Black%20Logo.svg): Monochrome black vector mark for light backgrounds.
 
-## 7. Technical Architecture of Official Website
+## 9. Technical Architecture of Official Website
 - Static-First Engine: Statically generated site hosted on GitHub Pages with custom domain renderphoenix.com.
-- Modular Markdown Endpoints: Every project and blog post is directly available as clean raw Markdown at `/work/<slug>.md` and `/blog/<slug>.md`.
+- Modular Markdown Endpoints: Every project, blog post, and legal policy is directly available as clean raw Markdown at `/work/<slug>.md`, `/blog/<slug>.md`, `/about.md`, `/services.md`, `/contact.md`, `/privacy-policy.md`, and `/dmca.md`.
 - Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
 - Client-side Static Search: Powers search through search.json and search-data.js index.
 - Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llm.txt, llms.txt, and llms-full.txt.
@@ -1008,6 +1130,19 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
     # 2. Build llms-full.txt containing the entire text corpus
     full_corpus = llm_content + "\n\n" + "=" * 80 + "\n# FULL DOCUMENTATION & PROJECT DETAILS\n" + "=" * 80 + "\n\n"
     
+    # Core studio pages (about, services, contact)
+    full_corpus += "# --- SECTION: STUDIO CORE PAGES ---\n\n"
+    for pcfg in compiled_pages:
+        slug = pcfg['slug']
+        if slug in ('about', 'services', 'contact'):
+            md_path = os.path.join(ROOT_DIR, slug, 'index.md')
+            if os.path.exists(md_path):
+                with open(md_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                full_corpus += f"## Page: {pcfg['title']} (/{slug}.md)\n\n"
+                full_corpus += content + "\n\n"
+                full_corpus += "-" * 40 + "\n\n"
+
     full_corpus += "# --- SECTION: PROJECTS ---\n\n"
     for proj in projects:
         title = proj.get('title', '')
@@ -1023,6 +1158,18 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
         full_corpus += f"## Article: {title} (/blog/{slug}.md)\n\n"
         full_corpus += post.get('raw_content', '') + "\n\n"
         full_corpus += "-" * 40 + "\n\n"
+
+    full_corpus += "# --- SECTION: LEGAL, PRIVACY & COMPLIANCE ---\n\n"
+    for pcfg in compiled_pages:
+        slug = pcfg['slug']
+        if pcfg.get('type') == 'legal':
+            md_path = os.path.join(ROOT_DIR, slug, 'index.md')
+            if os.path.exists(md_path):
+                with open(md_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                full_corpus += f"## Legal Document: {pcfg['title']} (/{slug}.md)\n\n"
+                full_corpus += content + "\n\n"
+                full_corpus += "-" * 40 + "\n\n"
 
     for dest in [os.path.join(SITE_DIR, 'llms-full.txt'), os.path.join(ROOT_DIR, 'llms-full.txt')]:
         with open(dest, 'w', encoding='utf-8') as f:
