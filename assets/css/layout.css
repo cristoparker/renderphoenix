@@ -123,12 +123,12 @@ body {
 img.brand-mark,
 .brand-logo .brand-mark,
 .brand-logo img {
-  width: 32px !important;
   height: 32px !important;
-  max-width: 32px !important;
+  width: auto !important;
+  aspect-ratio: 490 / 433;
   max-height: 32px !important;
-  min-width: 32px !important;
-  min-height: 32px !important;
+  max-width: none !important;
+  min-width: 0 !important;
   object-fit: contain !important;
   display: inline-block !important;
   vertical-align: middle !important;
@@ -150,12 +150,11 @@ img.brand-mark,
 
 .footer-logo .brand-mark,
 .footer-logo img {
-  width: 28px !important;
   height: 28px !important;
-  max-width: 28px !important;
+  width: auto !important;
+  aspect-ratio: 490 / 433;
   max-height: 28px !important;
-  min-width: 28px !important;
-  min-height: 28px !important;
+  max-width: none !important;
 }
 
 .nav-list {
