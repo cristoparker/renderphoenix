@@ -24,7 +24,7 @@ Operating under the name *Minehutt*, we published our earliest maps and add-ons 
 
 ![Banglamine City Early World Design](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.png)
 
-As our capabilities grew, so did our ambition. On **22 February 2021**, we officially transitioned from Minehutt to **RenderPhoenix**, marking our commitment to creative technology and real-time art.
+As our capabilities grew, so did our ambition. On **January 30, 2021**, we officially transitioned from Minehutt to **RenderPhoenix**, marking our commitment to creative technology and real-time art.
 
 ## Resilience Through Setbacks
 

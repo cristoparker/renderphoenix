@@ -142,8 +142,9 @@ def load_frontmatter_and_content(filepath):
         if len(parts) >= 3:
             meta = yaml.safe_load(parts[1]) or {}
             body = parts[2]
+            meta['raw_content'] = content
             return meta, body
-    return {}, content
+    return {'raw_content': content}, content
 
 def render_includes(html_str):
     def replace_include(match):
@@ -182,6 +183,7 @@ def clean_liquid_tags(text, meta=None):
     footer_res_html = """
       <li><a href="https://mcpedl.com/user/renderphoenix/" target="_blank" rel="noopener noreferrer">MCPEDL Official Profile</a></li>
       <li><a href="/llm.txt">llm.txt (AI Metadata)</a></li>
+      <li><a href="/llms-full.txt">llms-full.txt (Full AI Corpus)</a></li>
       <li><a href="/sitemap.xml">Sitemap XML</a></li>
     """
     text = re.sub(r'\{%\s*for\s+link\s+in\s+site\.data\.navigation\.footer\.resources\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', footer_res_html, text)
@@ -194,6 +196,12 @@ def clean_liquid_tags(text, meta=None):
     text = text.replace('{{ site.title }}', 'RenderPhoenix')
     text = text.replace('{{ site.description }}', 'RenderPhoenix is an independent interactive creative studio.')
     text = text.replace('{{ site.url }}', '')
+
+    markdown_url = meta.get('markdown_url', '')
+    if markdown_url:
+        text = text.replace('{{ markdown_alternate_link }}', f'<link rel="alternate" type="text/markdown" href="{markdown_url}" title="{full_title} Markdown">')
+    else:
+        text = text.replace('{{ markdown_alternate_link }}', '')
 
     text = re.sub(r"\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}", r"\1", text)
     text = re.sub(r'\{\{\s*"([^"]+)"\s*\|\s*relative_url\s*\}\}', r"\1", text)
@@ -515,9 +523,10 @@ def build():
                 posts.append(meta)
     posts.sort(key=lambda x: str(x.get('date', '')), reverse=True)
 
-    # Build Project detail pages
+    # Build Project detail pages & raw Markdown endpoints
     for proj in projects:
         slug = proj['slug']
+        proj['markdown_url'] = f"/work/{slug}.md"
         p_html_body = simple_markdown_to_html(proj['body'])
         
         # Build layout
@@ -560,15 +569,26 @@ def build():
         full_html = def_layout_html.replace('{{ content }}', p_content)
         full_html = clean_liquid_tags(full_html, proj)
 
-        out_path = os.path.join(SITE_DIR, 'work', slug, 'index.html')
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        with open(out_path, 'w', encoding='utf-8') as f:
+        out_dir = os.path.join(SITE_DIR, 'work', slug)
+        os.makedirs(out_dir, exist_ok=True)
+        
+        # 1. Output HTML
+        with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(full_html)
-        print(f"Built project page -> _site/work/{slug}/index.html")
+            
+        # 2. Output raw Markdown in same directory and at /work/<slug>.md
+        raw_md = proj.get('raw_content', '')
+        with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
+            f.write(raw_md)
+        with open(os.path.join(SITE_DIR, 'work', f"{slug}.md"), 'w', encoding='utf-8') as f:
+            f.write(raw_md)
+            
+        print(f"Built project page -> _site/work/{slug}/ (index.html, index.md, {slug}.md)")
 
-    # Build Blog detail pages
+    # Build Blog detail pages & raw Markdown endpoints
     for post in posts:
         slug = post['slug']
+        post['markdown_url'] = f"/blog/{slug}.md"
         p_html_body = simple_markdown_to_html(post['body'])
         
         p_content = post_layout_body.replace('{{ content }}', p_html_body)
@@ -587,11 +607,21 @@ def build():
         full_html = def_layout_html.replace('{{ content }}', p_content)
         full_html = clean_liquid_tags(full_html, post)
 
-        out_path = os.path.join(SITE_DIR, 'blog', slug, 'index.html')
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        with open(out_path, 'w', encoding='utf-8') as f:
+        out_dir = os.path.join(SITE_DIR, 'blog', slug)
+        os.makedirs(out_dir, exist_ok=True)
+        
+        # 1. Output HTML
+        with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(full_html)
-        print(f"Built post page -> _site/blog/{slug}/index.html")
+            
+        # 2. Output raw Markdown in same directory and at /blog/<slug>.md
+        raw_md = post.get('raw_content', '')
+        with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
+            f.write(raw_md)
+        with open(os.path.join(SITE_DIR, 'blog', f"{slug}.md"), 'w', encoding='utf-8') as f:
+            f.write(raw_md)
+            
+        print(f"Built post page -> _site/blog/{slug}/ (index.html, index.md, {slug}.md)")
 
     # 4. Load Services
     services = []
@@ -810,13 +840,111 @@ def build():
         f.write(sitemap_xml)
     print("Built sitemap.xml -> _site/sitemap.xml")
 
-    # Copy root static files (robots.txt, llm.txt, CNAME, site.webmanifest, etc.)
-    static_root_files = ['robots.txt', 'llm.txt', 'CNAME', 'site.webmanifest']
+    # Build automated AI context files (llm.txt, llms.txt, and llms-full.txt)
+    build_llm_indexes(projects, posts)
+
+    # Copy root static files (robots.txt, CNAME, site.webmanifest, etc.)
+    static_root_files = ['robots.txt', 'CNAME', 'site.webmanifest']
     for s_file in static_root_files:
         s_src = os.path.join(ROOT_DIR, s_file)
         if os.path.exists(s_src):
             shutil.copy2(s_src, os.path.join(SITE_DIR, s_file))
             print(f"Copied {s_file} -> _site/{s_file}")
+
+def build_llm_indexes(projects, posts):
+    site_url = 'https://renderphoenix.com'
+    
+    # 1. Standard llm.txt & llms.txt index
+    llm_content = f"""# RenderPhoenix — Comprehensive Studio Context & Documentation
+
+This document provides a complete, machine-readable overview of RenderPhoenix for large language models (LLMs), AI assistants, search crawlers, and automated indexers.
+
+## 1. Studio Identity & Core Philosophy
+RenderPhoenix is an independent interactive creative studio based in Bangladesh. The studio works across:
+- Standalone Game Development (Unreal Engine 5, Unity, C#, C++)
+- 3D World Design & Level Architecture (Blender, Substance Painter)
+- Real-Time Game Assets & Vehicle Add-Ons
+- Technical Art, Shaders (HLSL/GLSL), and VFX
+- Digital Experiences & Scientific Interactive Simulations
+
+Studio Tagline: "We are not just a company that makes digital things. We build worlds."
+
+## 2. Detailed History & Milestones
+- 2019: Founded by Tasrif Ibn Mizan under the initial studio name Minehutt. Focused on community creation, custom maps, and level design.
+- January 30, 2021: Official re-branding to RenderPhoenix to establish a broader visual identity in real-time art and 3D modeling.
+- 1 August 2022: Experienced a severe security incident where core social accounts and communication channels were compromised. Despite this, the studio demonstrated resilience by continuing operations and publishing content through 2024.
+- 2024: Operations paused as the original team members dispersed into university studies and software careers.
+- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Regional Runner-Up.
+- 22 August 2026: Official studio revival initiated by Cristo Parker to rebuild digital infrastructure, reassemble team capabilities, and expand into original games and 3D asset production.
+
+## 3. Team Roster
+- Tasrif Ibn Mizan: Founder. Established Minehutt in 2019 and RenderPhoenix in 2021.
+- Cristo Parker: Manager. Spearheaded the 22 August 2026 revival and digital infrastructure rebuild.
+- Uthowaipru Chowdhury: Indie Game Developer. Specializes in gameplay systems and mechanics.
+- Faizul726: App Developer. Specializes in application software and client tooling.
+
+## 4. Notable Works & Project Index (Raw Markdown)
+"""
+    for proj in projects:
+        title = proj.get('title', '')
+        slug = proj.get('slug', '')
+        desc = proj.get('description', '')
+        date = proj.get('date', '')
+        year = str(date)[:4] if date else ''
+        year_str = f" ({year})" if year else ''
+        cat = proj.get('category', '')
+        cat_str = f" [{cat}]" if cat else ''
+        llm_content += f"- [{title}]({site_url}/work/{slug}.md){year_str}{cat_str}: {desc}\n"
+
+    llm_content += "\n## 5. Editorial & Studio Devlogs (Raw Markdown)\n"
+    for post in posts:
+        title = post.get('title', '')
+        slug = post.get('slug', '')
+        desc = post.get('description', '')
+        date_str = format_full_date(post.get('date'))
+        date_badge = f" ({date_str})" if date_str else ''
+        author = post.get('author', 'RenderPhoenix')
+        llm_content += f"- [{title}]({site_url}/blog/{slug}.md){date_badge}: {desc} (Author: {author})\n"
+
+    llm_content += f"""
+## 6. Technical Architecture of Official Website
+- Static-First Engine: Statically generated site hosted on GitHub Pages with custom domain renderphoenix.com.
+- Modular Markdown Endpoints: Every project and blog post is directly available as clean raw Markdown at `/work/<slug>.md` and `/blog/<slug>.md`.
+- Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
+- Client-side Static Search: Powers search through search.json and search-data.js index.
+- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml, robots.txt, llm.txt, llms.txt, and llms-full.txt.
+- Full LLM Corpus: Available at `{site_url}/llms-full.txt`.
+"""
+
+    # Write to _site/llm.txt, _site/llms.txt, and root llm.txt, root llms.txt
+    for dest in [os.path.join(SITE_DIR, 'llm.txt'), os.path.join(SITE_DIR, 'llms.txt'), os.path.join(ROOT_DIR, 'llm.txt'), os.path.join(ROOT_DIR, 'llms.txt')]:
+        with open(dest, 'w', encoding='utf-8') as f:
+            f.write(llm_content)
+    print("Built llm.txt & llms.txt -> _site/llm.txt, _site/llms.txt & workspace root")
+
+    # 2. Build llms-full.txt containing the entire text corpus
+    full_corpus = llm_content + "\n\n" + "=" * 80 + "\n# FULL DOCUMENTATION & PROJECT DETAILS\n" + "=" * 80 + "\n\n"
+    
+    full_corpus += "# --- SECTION: PROJECTS ---\n\n"
+    for proj in projects:
+        title = proj.get('title', '')
+        slug = proj.get('slug', '')
+        full_corpus += f"## Project: {title} (/work/{slug}.md)\n\n"
+        full_corpus += proj.get('raw_content', '') + "\n\n"
+        full_corpus += "-" * 40 + "\n\n"
+
+    full_corpus += "# --- SECTION: DEVLOGS & ARTICLES ---\n\n"
+    for post in posts:
+        title = post.get('title', '')
+        slug = post.get('slug', '')
+        full_corpus += f"## Article: {title} (/blog/{slug}.md)\n\n"
+        full_corpus += post.get('raw_content', '') + "\n\n"
+        full_corpus += "-" * 40 + "\n\n"
+
+    for dest in [os.path.join(SITE_DIR, 'llms-full.txt'), os.path.join(ROOT_DIR, 'llms-full.txt')]:
+        with open(dest, 'w', encoding='utf-8') as f:
+            f.write(full_corpus)
+    print("Built llms-full.txt -> _site/llms-full.txt & workspace root")
 
 if __name__ == '__main__':
     build()

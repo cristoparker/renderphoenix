@@ -65,10 +65,10 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "Clash of Clans Theme UI V1.0",
+    "title": "Clash of Clans Theme UI",
     "url": "/work/clash-of-clans-ui/",
     "description": "Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements.",
-    "content": "\n\nA complete interface redesign featuring stone-cut borders, wooden banners, elixir-styled health bars, and fantasy button styling inspired by Clash of Clans.\n",
+    "content": "\n\nThe **Clash of Clans Theme UI** is a full interface visual overhaul designed to give Minecraft Bedrock the tactical fantasy look and feel of Supercell's *Clash of Clans*. It redesigns default menus, buttons, font typography, and inventory interfaces with themed textures and authentic sound effects",
     "type": "Project",
     "category": "UI",
     "date": "18 Jan 2023",
@@ -83,7 +83,7 @@ window.SEARCH_INDEX = [
     "title": "DHK Rickshaw V2",
     "url": "/work/dhk-rickshaw/",
     "description": "Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.",
-    "content": "\n\nA high-detail 3D model of the iconic Dhaka cycle rickshaw featuring vibrant traditional hood artwork, realistic pedaling animations, and multi-rider seating.\n",
+    "content": "\n\nThe **DHK Rickshaw V2 Add-on** brings the iconic cycle rickshaws of Dhaka into Minecraft Bedrock. Designed with authentic 3D geometry, traditional hood art, multi-passenger capacity, and built-in mobile storage.\n\n### Features & Variants\n\n- **3 Traditional Colorways**: Available in classic Red, Gre",
     "type": "Project",
     "category": "Add-On",
     "date": "12 Nov 2021",
@@ -95,16 +95,17 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "FROSTCRAFT (Map Inspired from Frostpunk Game)",
+    "title": "Frostcraft (Frostpunk Inspired Survival Map)",
     "url": "/work/frostcraft/",
-    "description": "A frozen wasteland survival map inspired by Frostpunk, featuring sub-zero mechanics and generator settlement hubs.",
-    "content": "\n\nFrostcraft was built with inspiration from frostpunk survival aesthetics. Players must manage warmth, navigate severe blizzard environments, and shelter inside a central thermal generator outpost.\n\n### Highlights\n- **Sub-zero Settlement**: Concentric circular city layout surrounding a massive cent",
+    "description": "A frozen wasteland steampunk survival colony map inspired by Frostpunk, featuring central generator settlement infrastructure.",
+    "content": "\n\n**Frostcraft** is a frozen steampunk survival colony map inspired by the acclaimed society survival game *Frostpunk*. Set in a brutal sub-zero wasteland crater, the settlement is built around a massive central coal-powered generator designed to keep the last remnants of civilization warm against a",
     "type": "Project",
     "category": "Environment",
     "date": "26 Jul 2021",
     "tags": [
       "frostpunk",
       "survival",
+      "steampunk",
       "snow",
       "generator"
     ]
@@ -113,7 +114,7 @@ window.SEARCH_INDEX = [
     "title": "A Horror Map If You Need",
     "url": "/work/a-horror-map-if-you-need/",
     "description": "An atmospheric psychological horror adventure map featuring custom puzzles, eerie audio, and dark labyrinth exploration.",
-    "content": "\n\nAn atmospheric psychological horror exploration map designed for suspense, jump scares, and intricate environmental puzzles in a dark haunted labyrinth.\n\n### Highlights\n- **Atmospheric Tension**: Immersive lighting and eerie custom audio triggers.\n- **Puzzle-Driven Story**: Navigate hidden rooms, ",
+    "content": "\n\nThis is a compact horror project I was working on, but I eventually lost interest in completing it. Rather than leaving it on a hard drive, I decided to release it so the community can play, repurpose, or build upon it for their own mini-games and custom scenarios.\n\n### The Environment & Mansion\n\n",
     "type": "Project",
     "category": "Interactive",
     "date": "19 Jul 2021",
@@ -127,8 +128,8 @@ window.SEARCH_INDEX = [
   {
     "title": "Killer vs Survivors Minigame",
     "url": "/work/killer-vs-survivors/",
-    "description": "Asymmetrical multiplayer minigame featuring hide-and-seek survival and generator repair mechanics.",
-    "content": "\n\nAn asymmetrical horror survival minigame where one player controls the empowered Killer while four Survivors navigate dark maps to complete escape objectives.\n",
+    "description": "A 4v1 asymmetrical horror survival minigame where survivors collect coins and evade a psychopath killer in a dark mansion.",
+    "content": "\n\n**Killer vs Survivors** is an asymmetrical 4v1 survival horror minigame built for Minecraft Bedrock Edition. Inspired by intense hide-and-seek and survival games, players are pitted against each other in a deadly game of cat and mouse inside the gloomy estate of a psychopath killer.\n\nThe map is en",
     "type": "Project",
     "category": "Interactive",
     "date": "21 May 2021",
@@ -136,14 +137,16 @@ window.SEARCH_INDEX = [
       "minigame",
       "asymmetrical",
       "horror",
-      "survival"
+      "survival",
+      "multiplayer",
+      "pvp"
     ]
   },
   {
-    "title": "Discord Theme UI (Beta)",
+    "title": "Discord Theme UI",
     "url": "/work/discord-theme-ui/",
     "description": "A dark-mode interface overhaul for Minecraft inspired by Discord's visual style and navigation layout.",
-    "content": "\n\nA complete interface redesign replacing standard inventory and menu layouts with a sleek, dark-slate UI inspired by Discord's modern layout.\n",
+    "content": "\n\nThe **Discord Theme UI** is a sleek, dark-mode interface overhaul designed to bring the modern aesthetic of Discord into Minecraft Bedrock Edition. Built from the ground up to replace vanilla menu layouts with clean slate containers, minimal blurple action buttons, and refined typography.\n\n![youtu",
     "type": "Project",
     "category": "UI",
     "date": "16 Apr 2021",
@@ -151,14 +154,15 @@ window.SEARCH_INDEX = [
       "ui",
       "discord",
       "theme",
-      "interface"
+      "interface",
+      "dark-mode"
     ]
   },
   {
-    "title": "Bangladeshi Vehicles Addon - Pre Release 1.0.0",
+    "title": "Bangladeshi Vehicles Addon",
     "url": "/work/bangladeshi-vehicles/",
     "description": "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.",
-    "content": "\n\nA detailed vehicle add-on featuring authentic street transport models, custom audio effects, passenger seats, and driving mechanics modeled after Bangladeshi vehicles.\n",
+    "content": "\n\nThe **Bangladeshi Vehicles Add-on** brings authentic regional transport from Bangladesh and South Asia into Minecraft Bedrock. Featuring iconic everyday vehicles designed with custom 3D boxy geometry, passenger seating, and driving physics.\n\n### Included Vehicles\n\n**1. Leguna (Human Hauler)**\nThe ",
     "type": "Project",
     "category": "Add-On",
     "date": "14 Apr 2021",
@@ -185,24 +189,26 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "Phoenix Bicycle Add-on V2.0",
+    "title": "Phoenix Bicycle Addon",
     "url": "/work/phoenix-bicycle/",
-    "description": "Interactive bicycle vehicle addon featuring smooth riding dynamics, gear sounds, and customizable frame colors.",
-    "content": "\n\nInteractive bicycle entity featuring smooth wheel rotation animations, gear audio feedback, and multiple frame color variants.\n",
+    "description": "A rideable bicycle vehicle add-on for Minecraft Bedrock featuring 6 vibrant color variants, passenger mob riding, and usable inventory storage.",
+    "content": "\n\nBored with the classic transportation systems in Minecraft? The **Phoenix Bicycle Add-on V2.0** brings fully functional, rideable two-wheeled pedal bicycles into Minecraft Bedrock Edition. Designed with authentic 3D geometry, custom riding animations, luggage storage, and passenger seating, it off",
     "type": "Project",
     "category": "Add-On",
     "date": "21 Mar 2021",
     "tags": [
       "bicycle",
       "addon",
-      "vehicle"
+      "vehicle",
+      "transport",
+      "bedrock"
     ]
   },
   {
     "title": "Zombiepolis - A Post Apocalyptic City",
     "url": "/work/zombiepolis/",
     "description": "A post-apocalyptic urban city environment designed for survival, exploration, and atmospheric gameplay.",
-    "content": "\n\nZombiepolis is a detailed post-apocalyptic city map designed for survival gameplay and atmospheric storytelling. Features overgrown skyscrapers, abandoned highways, ruined storefronts, and barricaded safehouses.\n\n### Key Features\n- **Atmospheric Worldbuilding**: Environmental storytelling with col",
+    "content": "\n\n**Zombiepolis** is a detailed post-apocalyptic coastal city map created for Minecraft Bedrock Edition. Designed specifically as an optimized, lag-free survival environment for mobile (PE), console, and PC players, it pushes the boundaries of atmospheric environmental storytelling in Bedrock.\n\nThe ",
     "type": "Project",
     "category": "Environment",
     "date": "16 Mar 2021",
@@ -210,42 +216,48 @@ window.SEARCH_INDEX = [
       "post-apocalyptic",
       "survival",
       "environment",
-      "zombie"
+      "zombie",
+      "city",
+      "pvp"
     ]
   },
   {
     "title": "FunMOBA PVP (Moba Style Team PvP)",
     "url": "/work/funmoba-pvp/",
-    "description": "A lane-based MOBA PvP battleground featuring class abilities and objective control mechanics.",
-    "content": "\n\nFunMOBA PvP brought multiplayer MOBA lane battle mechanics into real-time action gameplay, complete with tower objectives, role selection, and class kits.\n\n### Features\n- Dual lane arena layout with central jungle objectives and defensive towers.\n- Custom hero roles with specialized combat abiliti",
+    "description": "A lane-based MOBA PvP battleground featuring class roles, jungle control, and team nexus defense.",
+    "content": "\n\n**FunMOBA PVP** is a fast-paced 3v3 and 4v4 team-based base defense PvP battleground inspired by classic MOBA titles. Built completely in vanilla Minecraft Bedrock using optimized command blocks, it offers a lag-free, tactical objective-driven alternative to traditional Bedwars and Skywars.\n\n### A",
     "type": "Project",
     "category": "Interactive",
     "date": "13 Mar 2021",
     "tags": [
       "moba",
       "pvp",
-      "minigame"
+      "minigame",
+      "team-battle"
     ]
   },
   {
     "title": "HOLO PvP - Solo Competitive Battle",
     "url": "/work/holo-pvp/",
-    "description": "A fast-paced solo competitive arena designed for 1v1 combat and reflexes.",
-    "content": "\n\nHOLO PvP is a compact, high-intensity competitive combat arena built for fast-paced 1v1 duels with clean sightlines and anti-camping layout design.\n",
+    "description": "A solo competitive PvP battle royale and hide-and-seek arena for 5-10 players featuring custom sectors, ability effects, and teleportation conduits.",
+    "content": "\n\n**HOLO PvP** is a competitive solo \"Hide, Seek, and Kill\" battle royale minigame designed for 5 to 10 players in Minecraft Bedrock Edition. Engineered for high-intensity free-for-all combat, it challenges players to track opponents, utilize tactical stealth, and outmaneuver rivals across a multi-t",
     "type": "Project",
     "category": "Interactive",
     "date": "26 Feb 2021",
     "tags": [
       "pvp",
       "arena",
-      "competitive"
+      "battle-royale",
+      "minigame",
+      "competitive",
+      "multiplayer"
     ]
   },
   {
     "title": "Fantasy Woods & Dark Underland",
     "url": "/work/fantasy-woods/",
     "description": "A fantasy realm featuring custom biomes, bioluminescent flora, and subterranean cavern exploration.",
-    "content": "\n\nAn immersive fantasy environment featuring custom overgrown biomes, bioluminescent flora, ancient ruins, and an expansive dark subterranean underworld.\n\n### Features\n- Custom fantasy vegetation, giant mushroom structures, and ambient lighting.\n- Multi-layered subterranean cave systems designed for",
+    "content": "\n\nA new custom terrain and prebuilt map to explore. Massive dark caves lie beneath the terrain, offering a cave exploration experience with a fresh level of difficulty. This custom terrain features different types of large trees and biome variants.\n\nPresenting our first submission on MCPEDL.\n\n![Fant",
     "type": "Project",
     "category": "Environment",
     "date": "18 Feb 2021",
