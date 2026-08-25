@@ -1,53 +1,235 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>{{ site.url }}/</loc>
+    <loc>https://renderphoenix.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.svg</image:loc>
+      <image:title>RenderPhoenix Official Colored Logo Mark (SVG)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.png</image:loc>
+      <image:title>RenderPhoenix Official Colored Logo Mark (PNG)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Text%20Colored%20Horizontal.svg</image:loc>
+      <image:title>RenderPhoenix Official Horizontal Colored Wordmark</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20White%20Logo.svg</image:loc>
+      <image:title>RenderPhoenix Official White Logo Mark</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20White%20Logo.png</image:loc>
+      <image:title>RenderPhoenix Official White Logo PNG</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>{{ site.url }}/about/</loc>
+    <loc>https://renderphoenix.com/about/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.png</image:loc>
+      <image:title>RenderPhoenix Studio Logo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/services/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>{{ site.url }}/services/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>{{ site.url }}/work/</loc>
+    <loc>https://renderphoenix.com/work/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>{{ site.url }}/blog/</loc>
+    <loc>https://renderphoenix.com/blog/</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>{{ site.url }}/contact/</loc>
+    <loc>https://renderphoenix.com/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  {% for post in site.posts %}
   <url>
-    <loc>{{ post.url | absolute_url }}</loc>
-    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <loc>https://renderphoenix.com/images/brand/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.svg</image:loc>
+      <image:title>RenderPhoenix Official Colored Logo Mark (SVG)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.png</image:loc>
+      <image:title>RenderPhoenix Official Colored Logo Mark (PNG)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Text%20Colored%20Horizontal.svg</image:loc>
+      <image:title>RenderPhoenix Official Horizontal Colored Wordmark</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20White%20Logo.svg</image:loc>
+      <image:title>RenderPhoenix Official White Logo Mark</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20White%20Logo.png</image:loc>
+      <image:title>RenderPhoenix Official White Logo PNG</image:title>
+    </image:image>
   </url>
-  {% endfor %}
-
-  {% for proj in site.projects %}
   <url>
-    <loc>{{ proj.url | absolute_url }}</loc>
+    <loc>https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/blog/welcome-revival.svg</image:loc>
+      <image:title>Welcome to the New RenderPhoenix: Expanding Beyond Boundaries</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/blog/nasa-retrospective.svg</image:loc>
+      <image:title>NASA Space Apps Challenge 2025: Engineering a Lunar Settlement</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/blog/studio-history.svg</image:loc>
+      <image:title>Building Worlds: From Minehutt to RenderPhoenix</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/nasa-space-apps-2025/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/nasa-space-apps.svg</image:loc>
+      <image:title>Lunar Habitat Simulator — NASA Space Apps 2025</image:title>
+    </image:image>
   </url>
-  {% endfor %}
+  <url>
+    <loc>https://renderphoenix.com/work/clash-of-clans-ui/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.png</image:loc>
+      <image:title>Clash of Clans Theme UI</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/dhk-rickshaw/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.png</image:loc>
+      <image:title>DHK Rickshaw V2</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/frostcraft/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20Frostcraft%20Frostpunk%20Thumbnail.png</image:loc>
+      <image:title>Frostcraft (Frostpunk Inspired Survival Map)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/a-horror-map-if-you-need/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20a-horror-map-if-you-need.png</image:loc>
+      <image:title>A Horror Map If You Need</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/killer-vs-survivors/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame.png</image:loc>
+      <image:title>Killer vs Survivors Minigame</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/discord-theme-ui/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-ui-beta%20thumbnail.png</image:loc>
+      <image:title>Discord Theme UI</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/bangladeshi-vehicles/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png</image:loc>
+      <image:title>Bangladeshi Vehicles Addon</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/banglamine-city/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.png</image:loc>
+      <image:title>Banglamine City</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/phoenix-bicycle/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%20addon%20thumbnail2021063018550.png</image:loc>
+      <image:title>Phoenix Bicycle Addon</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/zombiepolis/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis-a-post-apocalyptic-city%20thumbnail.png</image:loc>
+      <image:title>Zombiepolis - A Post Apocalyptic City</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/funmoba-pvp/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_1%20thumbnail.png</image:loc>
+      <image:title>FunMOBA PVP (Moba Style Team PvP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/holo-pvp/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp-solo-competitive-battle%20thumbnail.png</image:loc>
+      <image:title>HOLO PvP - Solo Competitive Battle</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/fantasy-woods/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods-dark-underland%20thumbnail.png</image:loc>
+      <image:title>Fantasy Woods & Dark Underland</image:title>
+    </image:image>
+  </url>
 </urlset>

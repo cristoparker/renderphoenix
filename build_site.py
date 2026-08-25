@@ -482,6 +482,16 @@ def build():
         shutil.copytree(os.path.join(ROOT_DIR, 'assets'), dest_assets)
         print("Copied assets to _site/assets")
 
+        # Mirror brand directory to _site/images/brand for direct URL access (/images/brand/)
+        brand_src = os.path.join(ROOT_DIR, 'assets', 'images', 'brand')
+        if os.path.exists(brand_src):
+            images_brand_dest = os.path.join(SITE_DIR, 'images', 'brand')
+            os.makedirs(os.path.dirname(images_brand_dest), exist_ok=True)
+            if os.path.exists(images_brand_dest):
+                shutil.rmtree(images_brand_dest)
+            shutil.copytree(brand_src, images_brand_dest)
+            print("Mirrored brand assets -> _site/images/brand/")
+
     # Read layout files
     _, def_layout_body = load_frontmatter_and_content(os.path.join(ROOT_DIR, '_layouts', 'default.html'))
     def_layout_html = render_includes(def_layout_body)
@@ -784,18 +794,45 @@ def build():
         f.write("window.SEARCH_INDEX = " + json.dumps(search_data, indent=2) + ";\n")
     print("Built search-data.js -> _site/assets/js/search-data.js")
 
-    # Build sitemap.xml
+    # Build sitemap.xml with Google Image Extension
     site_url = 'https://renderphoenix.com'
+    
+    brand_images_xml = f"""    <image:image>
+      <image:loc>{site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.svg</image:loc>
+      <image:title>RenderPhoenix Official Colored Logo Mark (SVG)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>{site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.png</image:loc>
+      <image:title>RenderPhoenix Official Colored Logo Mark (PNG)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>{site_url}/assets/images/brand/Renderphoenix%20Text%20Colored%20Horizontal.svg</image:loc>
+      <image:title>RenderPhoenix Official Horizontal Colored Wordmark</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>{site_url}/assets/images/brand/Renderphoenix%20White%20Logo.svg</image:loc>
+      <image:title>RenderPhoenix Official White Logo Mark</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>{site_url}/assets/images/brand/Renderphoenix%20White%20Logo.png</image:loc>
+      <image:title>RenderPhoenix Official White Logo PNG</image:title>
+    </image:image>"""
+
     sitemap_entries = [
         f"""  <url>
     <loc>{site_url}/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+{brand_images_xml}
   </url>""",
         f"""  <url>
     <loc>{site_url}/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>{site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.png</image:loc>
+      <image:title>RenderPhoenix Studio Logo</image:title>
+    </image:image>
   </url>""",
         f"""  <url>
     <loc>{site_url}/services/</loc>
@@ -816,29 +853,53 @@ def build():
     <loc>{site_url}/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>""",
+        f"""  <url>
+    <loc>{site_url}/images/brand/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+{brand_images_xml}
   </url>"""
     ]
 
     for post in posts:
         post_slug = post['slug']
+        post_img = post.get('image', '')
+        img_xml = ""
+        if post_img:
+            img_xml = f"""
+    <image:image>
+      <image:loc>{site_url}{post_img}</image:loc>
+      <image:title>{post.get('title', '')}</image:title>
+    </image:image>"""
         sitemap_entries.append(f"""  <url>
     <loc>{site_url}/blog/{post_slug}/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.7</priority>{img_xml}
   </url>""")
 
     for proj in projects:
         proj_slug = proj['slug']
+        proj_img = proj.get('cover_image', '')
+        img_xml = ""
+        if proj_img and not proj_img.endswith('image-not-found.svg'):
+            img_xml = f"""
+    <image:image>
+      <image:loc>{site_url}{proj_img}</image:loc>
+      <image:title>{proj.get('title', '')}</image:title>
+    </image:image>"""
         sitemap_entries.append(f"""  <url>
     <loc>{site_url}/work/{proj_slug}/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.8</priority>{img_xml}
   </url>""")
 
-    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(sitemap_entries) + '\n</urlset>\n'
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' + '\n'.join(sitemap_entries) + '\n</urlset>\n'
     with open(os.path.join(SITE_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write(sitemap_xml)
-    print("Built sitemap.xml -> _site/sitemap.xml")
+    with open(os.path.join(ROOT_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+        f.write(sitemap_xml)
+    print("Built sitemap.xml -> _site/sitemap.xml & workspace root")
 
     # Build automated AI context files (llm.txt, llms.txt, and llms-full.txt)
     build_llm_indexes(projects, posts)
@@ -907,12 +968,21 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
         llm_content += f"- [{title}]({site_url}/blog/{slug}.md){date_badge}: {desc} (Author: {author})\n"
 
     llm_content += f"""
-## 6. Technical Architecture of Official Website
+## 6. Official Brand Identity & Logos
+- [Media Kit & Brand Assets Web Directory]({site_url}/images/brand/): Interactive web portal with live previews, direct image URLs, and 1-click downloads for all official SVG and PNG assets.
+- [Official Colored Logo (SVG)]({site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.svg): Primary studio vector mark in phoenix violet & flame pink.
+- [Official Colored Logo (PNG)]({site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.png): High-resolution raster mark.
+- [Official Text Colored Horizontal (SVG)]({site_url}/assets/images/brand/Renderphoenix%20Text%20Colored%20Horizontal.svg): Full horizontal colored brand wordmark.
+- [Official White Logo (SVG)]({site_url}/assets/images/brand/Renderphoenix%20White%20Logo.svg): Monochrome white vector mark for dark overlays.
+- [Official White Logo (PNG)]({site_url}/assets/images/brand/Renderphoenix%20White%20Logo.png): Monochrome white raster mark.
+- [Official Black Logo (SVG)]({site_url}/assets/images/brand/Renderphoenix%20Black%20Logo.svg): Monochrome black vector mark for light backgrounds.
+
+## 7. Technical Architecture of Official Website
 - Static-First Engine: Statically generated site hosted on GitHub Pages with custom domain renderphoenix.com.
 - Modular Markdown Endpoints: Every project and blog post is directly available as clean raw Markdown at `/work/<slug>.md` and `/blog/<slug>.md`.
 - Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
 - Client-side Static Search: Powers search through search.json and search-data.js index.
-- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml, robots.txt, llm.txt, llms.txt, and llms-full.txt.
+- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llm.txt, llms.txt, and llms-full.txt.
 - Full LLM Corpus: Available at `{site_url}/llms-full.txt`.
 """
 

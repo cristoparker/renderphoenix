@@ -8,8 +8,14 @@
   "icons": [
     {
       "src": "/assets/images/favicon.svg",
-      "sizes": "32x32",
+      "sizes": "any",
       "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/images/brand/Renderphoenix%20Colored%20Logo.png",
+      "sizes": "490x433",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/assets/images/apple-touch-icon.png",

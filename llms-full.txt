@@ -47,12 +47,21 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [NASA Space Apps Challenge 2025: Engineering a Lunar Settlement](https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective.md) (15 Aug 2026): A retrospective on how RenderPhoenix earned Regional Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation. (Author: RenderPhoenix)
 - [Building Worlds: From Minehutt to RenderPhoenix](https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix.md) (01 Aug 2026): Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future. (Author: Tasrif Ibn Mizan)
 
-## 6. Technical Architecture of Official Website
+## 6. Official Brand Identity & Logos
+- [Media Kit & Brand Assets Web Directory](https://renderphoenix.com/images/brand/): Interactive web portal with live previews, direct image URLs, and 1-click downloads for all official SVG and PNG assets.
+- [Official Colored Logo (SVG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.svg): Primary studio vector mark in phoenix violet & flame pink.
+- [Official Colored Logo (PNG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.png): High-resolution raster mark.
+- [Official Text Colored Horizontal (SVG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Text%20Colored%20Horizontal.svg): Full horizontal colored brand wordmark.
+- [Official White Logo (SVG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20White%20Logo.svg): Monochrome white vector mark for dark overlays.
+- [Official White Logo (PNG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20White%20Logo.png): Monochrome white raster mark.
+- [Official Black Logo (SVG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Black%20Logo.svg): Monochrome black vector mark for light backgrounds.
+
+## 7. Technical Architecture of Official Website
 - Static-First Engine: Statically generated site hosted on GitHub Pages with custom domain renderphoenix.com.
 - Modular Markdown Endpoints: Every project and blog post is directly available as clean raw Markdown at `/work/<slug>.md` and `/blog/<slug>.md`.
 - Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
 - Client-side Static Search: Powers search through search.json and search-data.js index.
-- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml, robots.txt, llm.txt, llms.txt, and llms-full.txt.
+- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llm.txt, llms.txt, and llms-full.txt.
 - Full LLM Corpus: Available at `https://renderphoenix.com/llms-full.txt`.
 
 
