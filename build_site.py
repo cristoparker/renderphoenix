@@ -2,10 +2,17 @@ import os
 import shutil
 import re
 import yaml
+import xml.sax.saxutils
+import xml.etree.ElementTree as ET
 from datetime import datetime
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 SITE_DIR = os.path.join(ROOT_DIR, '_site')
+
+def xml_escape(val):
+    if val is None:
+        return ''
+    return xml.sax.saxutils.escape(str(val), entities={'"': '&quot;', "'": '&apos;'})
 
 def extract_youtube_id(url_or_id):
     if not url_or_id:
@@ -869,11 +876,11 @@ def build():
         if post_img:
             img_xml = f"""
     <image:image>
-      <image:loc>{site_url}{post_img}</image:loc>
-      <image:title>{post.get('title', '')}</image:title>
+      <image:loc>{xml_escape(site_url + post_img)}</image:loc>
+      <image:title>{xml_escape(post.get('title', ''))}</image:title>
     </image:image>"""
         sitemap_entries.append(f"""  <url>
-    <loc>{site_url}/blog/{post_slug}/</loc>
+    <loc>{xml_escape(site_url + '/blog/' + post_slug + '/')}</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>{img_xml}
   </url>""")
@@ -885,16 +892,22 @@ def build():
         if proj_img and not proj_img.endswith('image-not-found.svg'):
             img_xml = f"""
     <image:image>
-      <image:loc>{site_url}{proj_img}</image:loc>
-      <image:title>{proj.get('title', '')}</image:title>
+      <image:loc>{xml_escape(site_url + proj_img)}</image:loc>
+      <image:title>{xml_escape(proj.get('title', ''))}</image:title>
     </image:image>"""
         sitemap_entries.append(f"""  <url>
-    <loc>{site_url}/work/{proj_slug}/</loc>
+    <loc>{xml_escape(site_url + '/work/' + proj_slug + '/')}</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>{img_xml}
   </url>""")
 
     sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' + '\n'.join(sitemap_entries) + '\n</urlset>\n'
+    try:
+        ET.fromstring(sitemap_xml)
+    except Exception as e:
+        print(f"ERROR: Generated sitemap.xml is invalid XML: {e}")
+        raise e
+
     with open(os.path.join(SITE_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write(sitemap_xml)
     with open(os.path.join(ROOT_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
