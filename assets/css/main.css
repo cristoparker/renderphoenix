@@ -1,8 +1,8 @@
-@import "variables.css?v=2.7";
-@import "typography.css?v=2.7";
-@import "layout.css?v=2.7";
-@import "components.css?v=2.7";
-@import "responsive.css?v=2.7";
+@import "variables.css?v=3.5";
+@import "typography.css?v=3.5";
+@import "layout.css?v=3.5";
+@import "components.css?v=3.5";
+@import "responsive.css?v=3.5";
 
 /* Section Utility */
 .section {
@@ -224,19 +224,21 @@
 
 /* Studio Identity Container */
 .studio-identity-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-2xl);
   padding: clamp(2rem, 4.5vw, 3.5rem);
   display: grid;
   grid-template-columns: 1.3fr 0.85fr;
   gap: clamp(2rem, 4vw, 3.5rem);
   align-items: center;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
   position: relative;
   overflow: hidden;
   margin-bottom: var(--space-2xl);
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .studio-identity-card::before {
@@ -247,12 +249,13 @@
   right: 0;
   height: 3px;
   background: var(--grad-accent);
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .studio-identity-card:hover {
-  border-color: var(--color-brand-purple-border);
-  box-shadow: 0 12px 32px rgba(90, 64, 119, 0.08);
+  transform: translateY(-6px);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
 }
 
 .studio-identity-content {
@@ -264,17 +267,17 @@
 
 .studio-identity-title {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.5vw, 2.6rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--color-brand-purple);
   margin-top: var(--space-xs);
   margin-bottom: var(--space-md);
 }
 
 .studio-identity-lead {
-  font-size: clamp(1.05rem, 1.5vw, 1.15rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.18rem);
   font-weight: 600;
   line-height: 1.65;
   color: var(--color-text);
@@ -308,36 +311,38 @@
   width: 100%;
   max-width: 360px;
   aspect-ratio: 1 / 1;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(243, 239, 230, 0.5) 100%);
-  border: 1px solid var(--c-5-light-lilac);
-  border-radius: var(--radius-xl);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(234, 229, 245, 0.45) 100%);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-2xl);
   padding: clamp(1.75rem, 3.5vw, 2.75rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 2px 10px rgba(90, 64, 119, 0.03), 0 8px 24px rgba(28, 27, 24, 0.04);
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.95), inset 0 -2px 6px rgba(90, 64, 119, 0.05), 0 16px 40px rgba(90, 64, 119, 0.10);
   transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .studio-logo-glow {
   position: absolute;
-  width: 75%;
-  height: 75%;
-  background: radial-gradient(circle, rgba(255, 121, 172, 0.18) 0%, rgba(90, 64, 119, 0.12) 50%, transparent 75%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(255, 121, 172, 0.28) 0%, rgba(124, 58, 237, 0.18) 50%, transparent 75%);
   border-radius: 50%;
-  filter: blur(22px);
+  filter: blur(28px);
   pointer-events: none;
   transition: transform var(--transition-smooth), opacity var(--transition-smooth);
 }
 
 .studio-logo-frame:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-brand-purple-border);
-  box-shadow: 0 16px 36px rgba(90, 64, 119, 0.12);
+  transform: translateY(-6px) scale(1.02);
+  border-color: #FFFFFF;
+  box-shadow: inset 0 2px 8px #FFFFFF, 0 24px 50px rgba(124, 58, 237, 0.20);
 }
 
 .studio-logo-frame:hover .studio-logo-glow {
-  transform: scale(1.18);
+  transform: scale(1.22);
   opacity: 1;
 }
 
@@ -349,7 +354,7 @@
   max-height: 220px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(90, 64, 119, 0.15));
+  filter: drop-shadow(0 12px 24px rgba(90, 64, 119, 0.20));
   transition: transform var(--transition-smooth);
 }
 
@@ -418,7 +423,7 @@
   }
 }
 
-/* Studio Impact Stats Grid */
+/* Studio Impact Stats Grid Glassmorphism */
 .studio-stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -427,49 +432,63 @@
 }
 
 .stat-card {
-  background: #FFFFFF;
-  border: 1px solid var(--c-5-light-lilac);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
   padding: var(--space-xl) var(--space-lg);
   text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .stat-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--c-3-soft-lavender);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
 }
 
+/* Reference-Style Circular Embossed Glass Icon Button */
 .stat-icon {
-  width: 44px;
-  height: 44px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  background: var(--c-2-pale-lavender);
-  color: var(--c-1-electric-violet);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.45) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  color: var(--color-brand-purple);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-md);
+  box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.95), 0 6px 16px rgba(90, 64, 119, 0.10);
+  transition: transform var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.1);
+  color: var(--color-brand-purple-light);
+  box-shadow: inset 0 1.5px 3px #FFFFFF, 0 8px 20px rgba(124, 58, 237, 0.25);
 }
 
 .stat-number {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 800;
-  color: var(--color-text);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 900;
+  color: var(--color-brand-purple);
   line-height: 1.1;
   margin-bottom: 0.35rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .stat-label {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 @media (max-width: 768px) {
@@ -479,18 +498,27 @@
   }
 }
 
-/* Feature/Achievement Banner */
+/* Feature/Achievement Banner True Glassmorphism */
 .nasa-banner {
-  background: #FFFFFF;
-  border: 1px solid var(--c-5-light-lilac);
-  border-radius: var(--radius-xl);
+  background: var(--glass-bg-accent);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  border: var(--glass-border);
+  border-radius: var(--radius-2xl);
   padding: var(--space-2xl);
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
   gap: var(--space-xl);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glass-highlight), 0 20px 50px rgba(90, 64, 119, 0.12);
   margin: var(--space-2xl) 0;
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.nasa-banner:hover {
+  transform: translateY(-5px);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-highlight), 0 28px 60px rgba(90, 64, 119, 0.18);
 }
 
 .nasa-badge-wrap {
@@ -499,20 +527,21 @@
 }
 
 .nasa-title {
-  font-size: 1.8rem;
-  color: var(--color-text);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--color-brand-purple);
   margin-bottom: var(--space-xs);
 }
 
 .nasa-award {
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--c-1-electric-violet);
-  font-size: 1.1rem;
+  color: var(--color-brand-pink);
+  font-size: 1.15rem;
   margin-bottom: var(--space-md);
 }
 
-/* Services Grid */
+/* Services Grid True Glassmorphism */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -520,35 +549,50 @@
 }
 
 .service-card {
-  background: #FFFFFF;
-  border: 1px solid var(--c-5-light-lilac);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
   padding: var(--space-xl);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-xl);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--c-3-soft-lavender);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
 }
 
+/* Reference-Style Circular Embossed Service Icon Dock */
 .service-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: var(--color-brand-purple-tint);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.45) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
   color: var(--color-brand-purple);
-  border: 1px solid var(--color-brand-purple-border);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-lg);
+  box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.95), 0 6px 18px rgba(90, 64, 119, 0.10);
+  transition: transform var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+  color: var(--color-brand-purple-light);
+  box-shadow: inset 0 1.5px 3px #FFFFFF, 0 8px 24px rgba(124, 58, 237, 0.25);
 }
 
 .service-title {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-brand-purple);
   margin-bottom: var(--space-sm);
 }
 
@@ -558,15 +602,15 @@
   margin: var(--space-md) 0 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .service-caps li {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .service-caps li::before {
@@ -575,7 +619,7 @@
   font-weight: bold;
 }
 
-/* Team Grid */
+/* Team Grid True Glassmorphism */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -583,37 +627,44 @@
 }
 
 .team-card {
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
   padding: var(--space-xl);
   text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .team-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--color-brand-purple-border);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
 }
 
 .team-avatar {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: var(--color-brand-purple);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: #FFFFFF;
   margin: 0 auto var(--space-md);
-  box-shadow: 0 4px 14px rgba(90, 64, 119, 0.20);
+  box-shadow: 0 10px 28px rgba(90, 64, 119, 0.25);
   overflow: hidden;
-  border: 2px solid var(--color-border);
+  border: 3.5px solid rgba(255, 255, 255, 0.95);
+  transition: transform var(--transition-smooth);
+}
+
+.team-card:hover .team-avatar {
+  transform: scale(1.06);
 }
 
 .team-avatar img,
@@ -626,24 +677,68 @@
 }
 
 .team-name {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-brand-purple);
   margin-bottom: 0.2rem;
 }
 
 .team-role {
   font-size: 0.85rem;
-  color: var(--color-brand-purple);
-  font-weight: 600;
+  color: var(--color-brand-pink-dark);
+  font-weight: 700;
   margin-bottom: var(--space-sm);
 }
 
 .team-bio {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--color-text-secondary);
   margin-bottom: 0;
+  line-height: 1.6;
 }
 
-/* Project Sidebar Layout */
+/* Brand Evolution Era Cards Glassmorphism */
+.brand-evolution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.brand-era-card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+  border-radius: var(--radius-xl) !important;
+  padding: var(--space-xl) !important;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.brand-era-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--glass-border-hover) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover) !important;
+}
+
+.brand-era-media {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(234, 229, 245, 0.45) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.90);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  box-shadow: inset 0 1px 4px rgba(90, 64, 119, 0.04);
+}
+
+/* Project Sidebar Layout Glassmorphism */
 .project-grid {
   display: grid;
   grid-template-columns: 2.2fr 1fr;
@@ -652,31 +747,37 @@
 }
 
 .sidebar-box {
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
   padding: var(--space-xl);
   position: sticky;
   top: calc(var(--header-height) + 1rem);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 .sidebar-title {
-  font-size: 1.1rem;
-  border-bottom: 1px solid var(--color-border);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-brand-purple);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.85);
   padding-bottom: var(--space-sm);
   margin-bottom: var(--space-md);
 }
 
-/* Form Styles */
+/* Form Styles Glassmorphism */
 .contact-form {
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg-elevated);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  border: var(--glass-border);
+  border-radius: var(--radius-2xl);
   padding: var(--space-2xl);
   max-width: 650px;
   margin: 0 auto;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glass-highlight), 0 24px 50px rgba(90, 64, 119, 0.10);
 }
 
 .form-group {
@@ -686,28 +787,31 @@
 .form-label {
   display: block;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: var(--space-xs);
-  color: var(--color-text);
+  color: var(--color-brand-purple);
 }
 
 .form-input, .form-textarea, .form-select {
   width: 100%;
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1.5px solid rgba(255, 255, 255, 0.90);
   border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.15rem;
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 0.95rem;
   transition: all var(--transition-fast);
+  box-shadow: inset 0 1px 3px rgba(90, 64, 119, 0.03);
 }
 
 .form-input:focus, .form-textarea:focus, .form-select:focus {
   outline: none;
-  background: #FFFFFF;
-  border-color: var(--color-brand-purple);
-  box-shadow: 0 0 0 3px rgba(90, 64, 119, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.20), 0 6px 18px rgba(90, 64, 119, 0.10);
 }
 
 .form-textarea {

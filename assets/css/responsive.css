@@ -240,6 +240,15 @@
     gap: 1.25rem;
   }
 
+  .project-card,
+  .post-card,
+  .service-card,
+  .team-card,
+  .stat-card,
+  .brand-era-card {
+    border-radius: var(--radius-lg) !important;
+  }
+
   .post-card-featured {
     grid-template-columns: 1fr !important;
   }
@@ -255,7 +264,6 @@
 
   .service-card {
     padding: 1.25rem !important;
-    border-radius: var(--radius-md);
   }
 
   .team-grid {
