@@ -13,6 +13,12 @@
     overflow-x: hidden !important;
   }
 
+  /* Disable fixed ambient orbs on mobile */
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
   /* Mobile Container & Spacing */
   .container {
     padding-left: 1rem !important;
