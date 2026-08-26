@@ -424,7 +424,7 @@ def clean_liquid_tags(text, meta=None, page_type="website", slug=""):
       <li><a href="/privacy-policy/">Privacy Policy</a></li>
       <li><a href="/dmca/">DMCA Policy</a></li>
       <li><a href="https://mcpedl.com/user/renderphoenix/" target="_blank" rel="noopener noreferrer">MCPEDL Official Profile</a></li>
-      <li><a href="/llm.txt">llm.txt (AI Metadata)</a></li>
+      <li><a href="/llms.txt">llms.txt (AI Metadata)</a></li>
       <li><a href="/llms-full.txt">llms-full.txt (Full AI Corpus)</a></li>
       <li><a href="/sitemap.xml">Sitemap XML</a></li>
     """
@@ -1254,7 +1254,7 @@ def build():
         f.write(sitemap_xml)
     print("Built sitemap.xml -> _site/sitemap.xml & workspace root")
 
-    # Build automated AI context files (llm.txt, llms.txt, and llms-full.txt)
+    # Build automated AI context files (llms.txt and llms-full.txt)
     build_llm_indexes(projects, posts, compiled_pages_info)
 
     # Copy root static files (robots.txt, CNAME, site.webmanifest, etc.)
@@ -1270,7 +1270,7 @@ def build_llm_indexes(projects, posts, compiled_pages=None):
         compiled_pages = []
     site_url = 'https://renderphoenix.com'
     
-    # 1. Standard llm.txt & llms.txt index
+    # 1. Standard llms.txt index
     llm_content = f"""# RenderPhoenix — Comprehensive Studio Context & Documentation
 
 This document provides a complete, machine-readable overview of RenderPhoenix for large language models (LLMs), AI assistants, search crawlers, and automated indexers.
@@ -1348,15 +1348,15 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - Modular Markdown Endpoints: Every project, blog post, and legal policy is directly available as clean raw Markdown at `/work/<slug>.md`, `/blog/<slug>.md`, `/about.md`, `/services.md`, `/contact.md`, `/privacy-policy.md`, and `/dmca.md`.
 - Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
 - Client-side Static Search: Powers search through search.json and search-data.js index.
-- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llm.txt, llms.txt, and llms-full.txt.
+- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llms.txt, and llms-full.txt.
 - Full LLM Corpus: Available at `{site_url}/llms-full.txt`.
 """
 
-    # Write to _site/llm.txt, _site/llms.txt, and root llm.txt, root llms.txt
-    for dest in [os.path.join(SITE_DIR, 'llm.txt'), os.path.join(SITE_DIR, 'llms.txt'), os.path.join(ROOT_DIR, 'llm.txt'), os.path.join(ROOT_DIR, 'llms.txt')]:
+    # Write to _site/llms.txt and root llms.txt
+    for dest in [os.path.join(SITE_DIR, 'llms.txt'), os.path.join(ROOT_DIR, 'llms.txt')]:
         with open(dest, 'w', encoding='utf-8') as f:
             f.write(llm_content)
-    print("Built llm.txt & llms.txt -> _site/llm.txt, _site/llms.txt & workspace root")
+    print("Built llms.txt -> _site/llms.txt & workspace root")
 
     # 2. Build llms-full.txt containing the entire text corpus
     full_corpus = llm_content + "\n\n" + "=" * 80 + "\n# FULL DOCUMENTATION & PROJECT DETAILS\n" + "=" * 80 + "\n\n"

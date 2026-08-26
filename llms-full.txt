@@ -72,7 +72,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - Modular Markdown Endpoints: Every project, blog post, and legal policy is directly available as clean raw Markdown at `/work/<slug>.md`, `/blog/<slug>.md`, `/about.md`, `/services.md`, `/contact.md`, `/privacy-policy.md`, and `/dmca.md`.
 - Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
 - Client-side Static Search: Powers search through search.json and search-data.js index.
-- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llm.txt, llms.txt, and llms-full.txt.
+- Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llms.txt, and llms-full.txt.
 - Full LLM Corpus: Available at `https://renderphoenix.com/llms-full.txt`.
 
 
@@ -2819,7 +2819,6 @@ This may include:
 - JSON-LD
 - `robots.txt`
 - Machine-readable Markdown
-- `llm.txt`
 - `llms.txt`
 - `llms-full.txt`
 - Other publicly accessible metadata

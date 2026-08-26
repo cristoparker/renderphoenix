@@ -1462,7 +1462,6 @@ This may include:
 - JSON-LD
 - `robots.txt`
 - Machine-readable Markdown
-- `llm.txt`
 - `llms.txt`
 - `llms-full.txt`
 - Other publicly accessible metadata
