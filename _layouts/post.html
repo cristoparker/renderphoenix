@@ -38,29 +38,8 @@ layout: default
       </div>
 
       <footer class="article-footer">
-        {% if page.tags %}
-          <div class="article-tags">
-            <span class="tags-label">Tags:</span>
-            {% for tag in page.tags %}
-              <span class="tag-chip">#{{ tag }}</span>
-            {% endfor %}
-          </div>
-        {% endif %}
-
-        <div class="post-navigation">
-          {% if page.previous.url %}
-            <a href="{{ page.previous.url | relative_url }}" class="post-nav-link prev-post">
-              <span class="nav-dir">&larr; Previous</span>
-              <span class="nav-title">{{ page.previous.title }}</span>
-            </a>
-          {% endif %}
-          {% if page.next.url %}
-            <a href="{{ page.next.url | relative_url }}" class="post-nav-link next-post">
-              <span class="nav-dir">Next &rarr;</span>
-              <span class="nav-title">{{ page.next.title }}</span>
-            </a>
-          {% endif %}
-        </div>
+        {{ article_tags }}
+        {{ post_navigation }}
       </footer>
     </div>
   </div>

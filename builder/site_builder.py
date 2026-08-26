@@ -118,15 +118,35 @@ class SiteBuilder:
         def_layout = self.template_engine.get_layout('default')
         post_layout = self.template_engine.get_layout('post')
 
-        for post in posts:
+        for i, post in enumerate(posts):
             slug = post.slug
             post.markdown_url = f"/blog/{slug}.md"
             p_html_body = MarkdownParser.to_html(post.body)
+
+            # Build article tags
+            tags = post.meta.get('tags', [])
+            if tags:
+                tag_chips = ''.join([f'<span class="tag-chip">#{t}</span>' for t in tags])
+                tags_html = f'<div class="article-tags"><span class="tags-label">Tags:</span>{tag_chips}</div>'
+            else:
+                tags_html = ''
+
+            # Build prev/next post navigation
+            prev_post = posts[i + 1] if i + 1 < len(posts) else None
+            next_post = posts[i - 1] if i > 0 else None
+            nav_links = []
+            if prev_post:
+                nav_links.append(f'<a href="/blog/{prev_post.slug}/" class="post-nav-link prev-post"><span class="nav-dir">&larr; Previous</span><span class="nav-title">{prev_post.title}</span></a>')
+            if next_post:
+                nav_links.append(f'<a href="/blog/{next_post.slug}/" class="post-nav-link next-post"><span class="nav-dir">Next &rarr;</span><span class="nav-title">{next_post.title}</span></a>')
+            nav_html = f'<div class="post-navigation">{"".join(nav_links)}</div>' if nav_links else ''
 
             p_content = post_layout.replace('{{ content }}', p_html_body)
             p_content = p_content.replace('{{ page.title }}', post.title)
             p_content = p_content.replace('{{ page.description }}', post.description)
             p_content = p_content.replace('{{ page.author | default: site.author.name }}', post.author or 'RenderPhoenix')
+            p_content = p_content.replace('{{ article_tags }}', tags_html)
+            p_content = p_content.replace('{{ post_navigation }}', nav_html)
             post_date_formatted = format_full_date(post.date)
             p_content = p_content.replace('{{ page.date | date: "%d %b %Y" }}', post_date_formatted)
             p_content = p_content.replace('{{ page.date | date: "%B %d, %Y" }}', post_date_formatted)

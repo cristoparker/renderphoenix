@@ -256,7 +256,7 @@
   }
 
   .post-card-featured {
-    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
   }
 
   .post-card-content, .card-body {

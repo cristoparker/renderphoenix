@@ -1,8 +1,8 @@
-@import "variables.css?v=3.6";
-@import "typography.css?v=3.6";
-@import "layout.css?v=3.6";
-@import "components.css?v=3.6";
-@import "responsive.css?v=3.6";
+@import "variables.css?v=4.2";
+@import "typography.css?v=4.2";
+@import "layout.css?v=4.2";
+@import "components.css?v=4.2";
+@import "responsive.css?v=4.2";
 
 /* Section Utility */
 .section {

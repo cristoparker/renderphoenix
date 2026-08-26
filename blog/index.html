@@ -5,8 +5,15 @@ title: "Publications & Projects"
 
 <section class="section" style="padding-top: var(--space-xl);">
   <div class="container">
+    <!-- Header Title & Lead -->
+    <div class="blog-header" style="text-align: left; margin: 0 0 var(--space-xl) 0; max-width: 850px;">
+      <span class="section-tag" style="margin-bottom: 0.6rem; display: inline-block;">Editorial &amp; Devlogs</span>
+      <h1 class="section-title" style="text-align: left; font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.2; margin: 0 0 0.6rem 0;">Publications &amp; Studio Devlogs</h1>
+      <p class="section-desc" style="text-align: left; margin: 0; max-width: 720px; font-size: 1.05rem; line-height: 1.6; color: var(--color-text-secondary);">Explore technical deep dives, major studio milestones, development devlogs, and interactive project releases.</p>
+    </div>
+
     <!-- Live Search Input Bar -->
-    <div style="max-width: 650px; margin: 0 0 var(--space-2xl); position: relative;">
+    <div style="max-width: 650px; margin: 0 0 var(--space-2xl) 0; position: relative;">
       <div style="position: relative;">
         <input type="search" id="search-input" class="form-input" placeholder="Search devlogs, 3D projects, vehicle add-ons, studio news..." aria-label="Search all publication content" style="padding-left: 2.8rem; background: var(--color-surface); border-color: var(--color-border);">
         <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--color-text-muted);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -18,6 +25,7 @@ title: "Publications & Projects"
     <div class="magazine-hero-grid">
       <!-- Big Featured Story (Left) -->
       <div class="magazine-main-featured">
+        <h3 class="magazine-column-heading">Featured Devlog</h3>
         {% assign top_post = site.posts.first %}
         {% if top_post %}
           {% include post-card.html post=top_post featured=true %}
@@ -25,33 +33,35 @@ title: "Publications & Projects"
       </div>
 
       <!-- Compact Sidebar Items with Small Images (Right) -->
-      <aside class="magazine-sidebar">
-        <h3 class="magazine-sidebar-heading">Featured Highlights</h3>
-        <div class="magazine-sidebar-list">
-          {% for proj in site.projects limit:4 %}
-            <article class="magazine-sidebar-item" style="display: flex; gap: 0.85rem; align-items: center;">
-              {% if proj.cover_image %}
-                <div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);">
-                  <img src="{{ proj.cover_image | relative_url }}" alt="{{ proj.title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);">
+      <div class="magazine-sidebar-col">
+        <h3 class="magazine-column-heading">Featured Highlights</h3>
+        <aside class="magazine-sidebar">
+          <div class="magazine-sidebar-list">
+            {% for proj in site.projects limit:4 %}
+              <article class="magazine-sidebar-item" style="display: flex; gap: 0.85rem; align-items: center;">
+                {% if proj.cover_image %}
+                  <div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);">
+                    <img src="{{ proj.cover_image | relative_url }}" alt="{{ proj.title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);">
+                  </div>
+                {% endif %}
+                <div style="flex: 1; min-width: 0;">
+                  <h4 class="magazine-sidebar-title">
+                    <a href="{{ proj.url | relative_url }}">{{ proj.title }}</a>
+                  </h4>
+                  <div class="magazine-sidebar-meta">
+                    {% if proj.category != 'Interactive' and proj.category != 'Environment' %}
+                      <span class="badge cat-badge">{{ proj.category }}</span>
+                    {% else %}
+                      <span class="badge cat-badge">Project</span>
+                    {% endif %}
+                    <time class="sidebar-date">{{ proj.date | date: "%d %b %Y" }}</time>
+                  </div>
                 </div>
-              {% endif %}
-              <div style="flex: 1; min-width: 0;">
-                <h4 class="magazine-sidebar-title">
-                  <a href="{{ proj.url | relative_url }}">{{ proj.title }}</a>
-                </h4>
-                <div class="magazine-sidebar-meta">
-                  {% if proj.category != 'Interactive' and proj.category != 'Environment' %}
-                    <span class="badge cat-badge">{{ proj.category }}</span>
-                  {% else %}
-                    <span class="badge cat-badge">Project</span>
-                  {% endif %}
-                  <time class="sidebar-date">{{ proj.date | date: "%d %b %Y" }}</time>
-                </div>
-              </div>
-            </article>
-          {% endfor %}
-        </div>
-      </aside>
+              </article>
+            {% endfor %}
+          </div>
+        </aside>
+      </div>
     </div>
 
     <!-- All Combined Publications & Projects Section -->

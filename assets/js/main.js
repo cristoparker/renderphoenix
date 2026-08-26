@@ -79,30 +79,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Code Copy Button
-  const codeBlocks = document.querySelectorAll('pre code');
-  codeBlocks.forEach((codeBlock) => {
-    const pre = codeBlock.parentElement;
-    if (!pre) return;
+  // Remove any stray legacy buttons inside <pre>
+  document.querySelectorAll('pre > button, pre > .code-copy-btn').forEach(el => el.remove());
 
-    const copyBtn = document.createElement('button');
-    copyBtn.className = 'code-copy-btn';
-    copyBtn.type = 'button';
-    copyBtn.innerText = 'Copy';
-    copyBtn.setAttribute('aria-label', 'Copy code to clipboard');
+  // Code Copy Button Interaction
+  const copyIconSvg = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+  const checkIconSvg = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
-    copyBtn.addEventListener('click', async () => {
+  document.querySelectorAll('.code-copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const wrapper = btn.closest('.code-block-wrapper') || btn.parentElement;
+      const codeEl = wrapper ? wrapper.querySelector('pre code') : null;
+      if (!codeEl) return;
+
       try {
-        await navigator.clipboard.writeText(codeBlock.innerText);
-        copyBtn.innerText = 'Copied!';
-        setTimeout(() => { copyBtn.innerText = 'Copy'; }, 2000);
+        await navigator.clipboard.writeText(codeEl.innerText);
+        btn.classList.add('copied');
+        btn.innerHTML = `${checkIconSvg}<span>Copied!</span>`;
+
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = `${copyIconSvg}<span>Copy</span>`;
+        }, 2000);
       } catch (err) {
-        copyBtn.innerText = 'Error';
+        console.error('Failed to copy code: ', err);
       }
     });
-
-    pre.style.position = 'relative';
-    pre.appendChild(copyBtn);
   });
 
   // Scroll Header Effect

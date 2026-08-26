@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hist-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181528"/>
+      <stop offset="50%" stop-color="#281C38"/>
+      <stop offset="100%" stop-color="#0F0D1A"/>
+    </linearGradient>
+    <linearGradient id="trans-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#45305C"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#FF79AC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#hist-bg)"/>
+
+  <!-- Glowing nodes -->
+  <circle cx="200" cy="200" r="100" fill="#7C3AED" fill-opacity="0.12" filter="blur(40px)"/>
+  <circle cx="600" cy="200" r="100" fill="#FF79AC" fill-opacity="0.15" filter="blur(40px)"/>
+
+  <!-- Connecting Timeline Path -->
+  <path d="M 160,200 L 640,200" stroke="url(#trans-grad)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Left: 2019 Minehutt Box / Voxel Identity -->
+  <g transform="translate(180, 200)">
+    <circle cx="0" cy="0" r="45" fill="#1C182B" stroke="#5A4077" stroke-width="3"/>
+    <!-- Isometric Cube / Minecraft Style -->
+    <path d="M 0,-20 L 18,-10 L 18,12 L 0,22 L -18,12 L -18,-10 Z" fill="#5A4077"/>
+    <path d="M 0,-20 L 18,-10 L 0,0 L -18,-10 Z" fill="#7C3AED"/>
+    <path d="M 0,0 L 18,-10 L 18,12 L 0,22 Z" fill="#45305C"/>
+    <!-- Year Tag -->
+    <rect x="-35" y="55" width="70" height="22" rx="11" fill="rgba(255, 255, 255, 0.08)"/>
+    <text x="0" y="70" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#E2E8F0" text-anchor="middle">2019</text>
+    <text x="0" y="94" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#A78BFA" text-anchor="middle">Minehutt</text>
+  </g>
+
+  <!-- Center Arrow / Transition -->
+  <g transform="translate(400, 200)">
+    <circle cx="0" cy="0" r="28" fill="#241B35" stroke="#7C3AED" stroke-width="2"/>
+    <path d="M -8,-6 L 2,0 L -8,6 M 0,-6 L 10,0 L 0,6" fill="none" stroke="#FF79AC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Right: 2026 RenderPhoenix Star / Studio Revival -->
+  <g transform="translate(620, 200)">
+    <circle cx="0" cy="0" r="45" fill="#1C182B" stroke="#FF79AC" stroke-width="3"/>
+    <!-- Phoenix Star -->
+    <path d="M 0,-24 Q 2,-5 20,0 Q 2,5 0,24 Q -2,5 -20,0 Q -2,-5 0,-24 Z" fill="#FF79AC"/>
+    <circle cx="0" cy="0" r="4" fill="#FFFFFF"/>
+    <!-- Year Tag -->
+    <rect x="-35" y="55" width="70" height="22" rx="11" fill="rgba(255, 121, 172, 0.15)"/>
+    <text x="0" y="70" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#FF79AC" text-anchor="middle">2026</text>
+    <text x="0" y="94" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">RenderPhoenix</text>
+  </g>
+
+  <!-- Header & Subtitle -->
+  <text x="400" y="70" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#A78BFA" text-anchor="middle" letter-spacing="2">STUDIO ARCHITECTURE &amp; EVOLUTION</text>
+  <text x="400" y="375" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">Building Worlds: Minehutt to RenderPhoenix</text>
+  <text x="400" y="402" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="rgba(255, 255, 255, 0.65)" text-anchor="middle">7-Year Interactive Devlog &amp; Creative Technology Journey</text>
+</svg>
