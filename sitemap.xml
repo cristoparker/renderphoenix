@@ -26,6 +26,11 @@
     </image:image>
   </url>
   <url>
+    <loc>https://renderphoenix.com//</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://renderphoenix.com/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
