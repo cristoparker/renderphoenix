@@ -40,7 +40,7 @@ Despite a severe security incident in August 2022 that compromised core digital 
 
 ## The New Direction
 
-Under the management of **Cristo Parker**, alongside indie game developer **Uthowaipru Chowdhury** and app developer **Faizul726**, RenderPhoenix is expanding into a full-scale interactive creative studio.
+Bringing together dedicated talent across indie game development, 3D technical art, and digital systems, RenderPhoenix is expanding into a full-scale interactive creative studio.
 
 Our focus now encompasses:
 

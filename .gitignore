@@ -16,6 +16,12 @@ Thumbs.db
 *.swp
 *.swo
 
+# Python build & bytecode caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
 # Node modules / Bundler local
 node_modules/
 vendor/

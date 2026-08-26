@@ -3,26 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RenderPhoenix Brand Assets</title>
+  <title>RenderPhoenix Brand Assets & Media Kit</title>
   <style>
+    :root {
+      --color-brand-purple: #5A4077;
+      --color-brand-purple-dark: #45305C;
+      --color-brand-pink: #FF79AC;
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #ffffff;
-      color: #111827;
-      max-width: 800px;
+      background: #faf8f5;
+      color: #1c1b18;
+      max-width: 880px;
       margin: 40px auto;
       padding: 0 20px;
       line-height: 1.5;
     }
+    header {
+      margin-bottom: 28px;
+    }
     h1 {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
+      color: #111827;
       margin-bottom: 8px;
     }
     p {
       color: #4b5563;
       margin-bottom: 24px;
       font-size: 15px;
+    }
+    .section-heading {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111827;
+      margin: 28px 0 12px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .asset-list {
       display: flex;
@@ -33,25 +53,28 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 16px;
+      gap: 16px;
+      padding: 14px 16px;
       border: 1px solid #e5e7eb;
-      border-radius: 8px;
+      border-radius: 10px;
       background: #ffffff;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
     .asset-row:hover {
-      background: #f9fafb;
-      border-color: #d1d5db;
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
     .asset-left {
       display: flex;
       align-items: center;
       gap: 14px;
       min-width: 0;
+      flex: 1;
     }
     .thumb {
-      width: 58px;
-      height: 44px;
+      width: 64px;
+      height: 50px;
       padding: 4px;
       border: 1px solid #e5e7eb;
       border-radius: 6px;
@@ -60,6 +83,7 @@
       justify-content: center;
       background: #f8fafc;
       flex-shrink: 0;
+      overflow: hidden;
     }
     .thumb.dark {
       background: #0f172a;
@@ -78,55 +102,137 @@
       font-weight: 600;
       color: #111827;
       margin-bottom: 2px;
+      word-break: break-word;
     }
     .asset-format {
       font-size: 12px;
       color: #6b7280;
     }
+    .asset-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 11px;
+      background: #f9fafb;
+      color: #374151;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-action:hover {
+      background: #f3f4f6;
+      color: #111827;
+      border-color: #9ca3af;
+    }
     .btn-download {
       display: inline-flex;
       align-items: center;
-      padding: 8px 16px;
-      background: #111827;
+      gap: 4px;
+      padding: 6px 13px;
+      background: var(--color-brand-purple);
       color: #ffffff;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
+      border: 1px solid var(--color-brand-purple);
       border-radius: 6px;
       text-decoration: none;
-      flex-shrink: 0;
-      transition: background 0.15s ease;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+      white-space: nowrap;
     }
     .btn-download:hover {
-      background: #374151;
+      background: var(--color-brand-purple-dark);
+      border-color: var(--color-brand-purple-dark);
     }
     .back-link {
-      display: inline-block;
-      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 36px;
       font-size: 14px;
-      color: #2563eb;
+      font-weight: 500;
+      color: var(--color-brand-purple);
       text-decoration: none;
     }
     .back-link:hover {
       text-decoration: underline;
     }
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #111827;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 680px) {
+      .asset-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .asset-actions {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 4px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h1>RenderPhoenix Brand Assets</h1>
-  <p>Official logos, marks, and vector files for RenderPhoenix.</p>
+  <header>
+    <h1>RenderPhoenix Brand Assets</h1>
+    <p>Official logos, vectors, and typography marks. Click to open, copy, or download files directly.</p>
+  </header>
 
   <div class="asset-list">
+    <!-- Current 2026 Identity -->
+    <div class="section-heading">Current Studio Identity (2026 &ndash; Present)</div>
+
     <!-- 1 -->
     <div class="asset-row">
       <div class="asset-left">
-        <div class="thumb"><img src="Renderphoenix%20Colored%20Logo.svg" alt="Colored Logo"></div>
+        <div class="thumb"><img src="Renderphoenix%20Colored%20Logo.svg" alt="Colored Logo SVG"></div>
         <div class="asset-info">
           <div class="asset-name">Renderphoenix Colored Logo</div>
-          <div class="asset-format">SVG Vector &bull; Scalable</div>
+          <div class="asset-format">SVG Vector &bull; Scalable &bull; 2026 Mark</div>
         </div>
       </div>
-      <a href="Renderphoenix%20Colored%20Logo.svg" download="Renderphoenix-Colored-Logo.svg" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Colored%20Logo.svg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Colored%20Logo.svg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Colored%20Logo.svg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Colored%20Logo.svg" download="Renderphoenix-Colored-Logo.svg" class="btn-download">Download</a>
+      </div>
     </div>
 
     <!-- 2 -->
@@ -135,25 +241,92 @@
         <div class="thumb"><img src="Renderphoenix%20Colored%20Logo.png" alt="Colored Logo PNG"></div>
         <div class="asset-info">
           <div class="asset-name">Renderphoenix Colored Logo</div>
-          <div class="asset-format">PNG Raster &bull; 490 &times; 433</div>
+          <div class="asset-format">PNG Raster &bull; 490 &times; 433 &bull; 2026 Mark</div>
         </div>
       </div>
-      <a href="Renderphoenix%20Colored%20Logo.png" download="Renderphoenix-Colored-Logo.png" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Colored%20Logo.png" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Colored%20Logo.png')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Colored%20Logo.png')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Colored%20Logo.png" download="Renderphoenix-Colored-Logo.png" class="btn-download">Download</a>
+      </div>
     </div>
 
     <!-- 3 -->
     <div class="asset-row">
       <div class="asset-left">
-        <div class="thumb"><img src="Renderphoenix%20Colored%20Logo%20With%20Name.png" alt="Logo with Name"></div>
+        <div class="thumb"><img src="Renderphoenix%20Colored%20Logo%20With%20Name.svg" alt="Logo with Name SVG" onerror="this.onerror=null; this.src='Renderphoenix%20Colored%20Logo%20With%20Name.png';"></div>
         <div class="asset-info">
           <div class="asset-name">Renderphoenix Colored Logo With Name</div>
-          <div class="asset-format">PNG Raster &bull; 525 &times; 547</div>
+          <div class="asset-format">SVG Vector &bull; Scalable &bull; Full Official Wordmark</div>
         </div>
       </div>
-      <a href="Renderphoenix%20Colored%20Logo%20With%20Name.png" download="Renderphoenix-Logo-With-Name.png" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Colored%20Logo%20With%20Name.svg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Colored%20Logo%20With%20Name.svg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Colored%20Logo%20With%20Name.svg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Colored%20Logo%20With%20Name.svg" download="Renderphoenix-Colored-Logo-With-Name.svg" class="btn-download">Download</a>
+      </div>
     </div>
 
     <!-- 4 -->
+    <div class="asset-row">
+      <div class="asset-left">
+        <div class="thumb"><img src="Renderphoenix%20Colored%20Logo%20With%20Name.png" alt="Logo with Name PNG"></div>
+        <div class="asset-info">
+          <div class="asset-name">Renderphoenix Colored Logo With Name</div>
+          <div class="asset-format">PNG Raster &bull; 525 &times; 547 &bull; Full Official Wordmark</div>
+        </div>
+      </div>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Colored%20Logo%20With%20Name.png" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Colored%20Logo%20With%20Name.png')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Colored%20Logo%20With%20Name.png')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Colored%20Logo%20With%20Name.png" download="Renderphoenix-Logo-With-Name.png" class="btn-download">Download</a>
+      </div>
+    </div>
+
+    <!-- Historical Archive -->
+    <div class="section-heading">Historical Archives & Heritage (2019 &ndash; 2024)</div>
+
+    <!-- Historical: RenderPhoenix 2021-2024 -->
+    <div class="asset-row">
+      <div class="asset-left">
+        <div class="thumb"><img src="Renderphoenix%202021-2026.png" alt="RenderPhoenix Logo 2021-2024"></div>
+        <div class="asset-info">
+          <div class="asset-name">Renderphoenix Logo (2021 &ndash; 2024)</div>
+          <div class="asset-format">PNG Raster &bull; Historical First Generation Mark</div>
+        </div>
+      </div>
+      <div class="asset-actions">
+        <a href="Renderphoenix%202021-2026.png" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%202021-2026.png')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%202021-2026.png')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%202021-2026.png" download="Renderphoenix-2021-2024.png" class="btn-download">Download</a>
+      </div>
+    </div>
+
+    <!-- Historical: Minehutt 2019-2021 -->
+    <div class="asset-row">
+      <div class="asset-left">
+        <div class="thumb"><img src="Minehutt%20Logo%202019%20-%202021.jpeg" alt="Minehutt Logo 2019-2021"></div>
+        <div class="asset-info">
+          <div class="asset-name">Minehutt Logo (2019 &ndash; 2021)</div>
+          <div class="asset-format">JPEG &bull; Original Foundational Era Logo</div>
+        </div>
+      </div>
+      <div class="asset-actions">
+        <a href="Minehutt%20Logo%202019%20-%202021.jpeg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Minehutt%20Logo%202019%20-%202021.jpeg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Minehutt%20Logo%202019%20-%202021.jpeg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Minehutt%20Logo%202019%20-%202021.jpeg" download="Minehutt-Logo-2019-2021.jpeg" class="btn-download">Download</a>
+      </div>
+    </div>
+
+    <!-- Additional Monochrome & Typography Marks -->
+    <div class="section-heading">Typography & Monochrome Variations</div>
+
+    <!-- 7 -->
     <div class="asset-row">
       <div class="asset-left">
         <div class="thumb"><img src="Renderphoenix%20Text%20Colored%20Horizontal.svg" alt="Text Colored Horizontal"></div>
@@ -162,10 +335,15 @@
           <div class="asset-format">SVG Vector &bull; 1071 &times; 87</div>
         </div>
       </div>
-      <a href="Renderphoenix%20Text%20Colored%20Horizontal.svg" download="Renderphoenix-Text-Colored-Horizontal.svg" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Text%20Colored%20Horizontal.svg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Text%20Colored%20Horizontal.svg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Text%20Colored%20Horizontal.svg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Text%20Colored%20Horizontal.svg" download="Renderphoenix-Text-Colored-Horizontal.svg" class="btn-download">Download</a>
+      </div>
     </div>
 
-    <!-- 5 -->
+    <!-- 8 -->
     <div class="asset-row">
       <div class="asset-left">
         <div class="thumb"><img src="Renderphoenix%20Text%20Colored.svg" alt="Text Colored"></div>
@@ -174,10 +352,15 @@
           <div class="asset-format">SVG Vector &bull; Scalable</div>
         </div>
       </div>
-      <a href="Renderphoenix%20Text%20Colored.svg" download="Renderphoenix-Text-Colored.svg" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Text%20Colored.svg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Text%20Colored.svg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Text%20Colored.svg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Text%20Colored.svg" download="Renderphoenix-Text-Colored.svg" class="btn-download">Download</a>
+      </div>
     </div>
 
-    <!-- 6 -->
+    <!-- 9 -->
     <div class="asset-row">
       <div class="asset-left">
         <div class="thumb dark"><img src="Renderphoenix%20Text%20White.svg" alt="Text White"></div>
@@ -186,10 +369,15 @@
           <div class="asset-format">SVG Vector &bull; Monochrome</div>
         </div>
       </div>
-      <a href="Renderphoenix%20Text%20White.svg" download="Renderphoenix-Text-White.svg" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Text%20White.svg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Text%20White.svg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Text%20White.svg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Text%20White.svg" download="Renderphoenix-Text-White.svg" class="btn-download">Download</a>
+      </div>
     </div>
 
-    <!-- 7 -->
+    <!-- 10 -->
     <div class="asset-row">
       <div class="asset-left">
         <div class="thumb"><img src="RenderPhoenix%20Text%20Black.svg" alt="Text Black"></div>
@@ -198,10 +386,15 @@
           <div class="asset-format">SVG Vector &bull; Monochrome</div>
         </div>
       </div>
-      <a href="RenderPhoenix%20Text%20Black.svg" download="Renderphoenix-Text-Black.svg" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="RenderPhoenix%20Text%20Black.svg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('RenderPhoenix%20Text%20Black.svg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('RenderPhoenix%20Text%20Black.svg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="RenderPhoenix%20Text%20Black.svg" download="Renderphoenix-Text-Black.svg" class="btn-download">Download</a>
+      </div>
     </div>
 
-    <!-- 8 -->
+    <!-- 11 -->
     <div class="asset-row">
       <div class="asset-left">
         <div class="thumb dark"><img src="Renderphoenix%20White%20Logo.svg" alt="White Logo"></div>
@@ -210,10 +403,15 @@
           <div class="asset-format">SVG Vector &bull; Monochrome</div>
         </div>
       </div>
-      <a href="Renderphoenix%20White%20Logo.svg" download="Renderphoenix-White-Logo.svg" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20White%20Logo.svg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20White%20Logo.svg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20White%20Logo.svg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20White%20Logo.svg" download="Renderphoenix-White-Logo.svg" class="btn-download">Download</a>
+      </div>
     </div>
 
-    <!-- 9 -->
+    <!-- 12 -->
     <div class="asset-row">
       <div class="asset-left">
         <div class="thumb dark"><img src="Renderphoenix%20White%20Logo.png" alt="White Logo PNG"></div>
@@ -222,10 +420,15 @@
           <div class="asset-format">PNG Raster &bull; 490 &times; 418</div>
         </div>
       </div>
-      <a href="Renderphoenix%20White%20Logo.png" download="Renderphoenix-White-Logo.png" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20White%20Logo.png" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20White%20Logo.png')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20White%20Logo.png')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20White%20Logo.png" download="Renderphoenix-White-Logo.png" class="btn-download">Download</a>
+      </div>
     </div>
 
-    <!-- 10 -->
+    <!-- 13 -->
     <div class="asset-row">
       <div class="asset-left">
         <div class="thumb"><img src="Renderphoenix%20Black%20Logo.svg" alt="Black Logo"></div>
@@ -234,10 +437,15 @@
           <div class="asset-format">SVG Vector &bull; Monochrome</div>
         </div>
       </div>
-      <a href="Renderphoenix%20Black%20Logo.svg" download="Renderphoenix-Black-Logo.svg" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Black%20Logo.svg" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Black%20Logo.svg')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Black%20Logo.svg')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Black%20Logo.svg" download="Renderphoenix-Black-Logo.svg" class="btn-download">Download</a>
+      </div>
     </div>
 
-    <!-- 11 -->
+    <!-- 14 -->
     <div class="asset-row">
       <div class="asset-left">
         <div class="thumb"><img src="Renderphoenix%20Black%20Logo.png" alt="Black Logo PNG"></div>
@@ -246,11 +454,122 @@
           <div class="asset-format">PNG Raster &bull; 490 &times; 418</div>
         </div>
       </div>
-      <a href="Renderphoenix%20Black%20Logo.png" download="Renderphoenix-Black-Logo.png" class="btn-download">Download</a>
+      <div class="asset-actions">
+        <a href="Renderphoenix%20Black%20Logo.png" target="_blank" rel="noopener noreferrer" class="btn-action" title="Open image in new tab">Open</a>
+        <button class="btn-action" onclick="copyImageUrl('Renderphoenix%20Black%20Logo.png')" title="Copy image URL">Copy URL</button>
+        <button class="btn-action" onclick="copyImage('Renderphoenix%20Black%20Logo.png')" title="Copy image to clipboard">Copy Image</button>
+        <a href="Renderphoenix%20Black%20Logo.png" download="Renderphoenix-Black-Logo.png" class="btn-download">Download</a>
+      </div>
     </div>
   </div>
 
-  <a href="/" class="back-link">&larr; Return to RenderPhoenix</a>
+  <a href="/" class="back-link">&larr; Return to RenderPhoenix Homepage</a>
+
+  <!-- Toast Container -->
+  <div id="toast" class="toast"></div>
+
+  <script>
+    function showToast(message, isError = false) {
+      let toast = document.getElementById('toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.style.background = isError ? '#ef4444' : '#111827';
+      toast.classList.add('show');
+      clearTimeout(toast.timer);
+      toast.timer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    async function copyImageUrl(url) {
+      try {
+        const fullUrl = new URL(url, window.location.href).href;
+        await navigator.clipboard.writeText(fullUrl);
+        showToast('Image URL copied to clipboard!');
+      } catch (err) {
+        showToast('Failed to copy URL', true);
+      }
+    }
+
+    async function copyImage(url) {
+      try {
+        const fullUrl = new URL(url, window.location.href).href;
+        const isSvg = url.toLowerCase().endsWith('.svg');
+
+        if (isSvg) {
+          const resp = await fetch(fullUrl);
+          const svgText = await resp.text();
+          const img = new Image();
+          const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+          const blobUrl = URL.createObjectURL(svgBlob);
+
+          img.onload = async () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth || 800;
+            canvas.height = img.naturalHeight || 800;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            URL.revokeObjectURL(blobUrl);
+            canvas.toBlob(async (pngBlob) => {
+              if (pngBlob) {
+                try {
+                  await navigator.clipboard.write([
+                    new ClipboardItem({ 'image/png': pngBlob })
+                  ]);
+                  showToast('Image copied to clipboard!');
+                } catch (e) {
+                  await navigator.clipboard.writeText(svgText);
+                  showToast('SVG vector code copied to clipboard!');
+                }
+              }
+            }, 'image/png');
+          };
+          img.onerror = async () => {
+            await navigator.clipboard.writeText(svgText);
+            showToast('SVG vector code copied to clipboard!');
+          };
+          img.src = blobUrl;
+        } else {
+          const resp = await fetch(fullUrl);
+          const blob = await resp.blob();
+          if (blob.type === 'image/png') {
+            await navigator.clipboard.write([
+              new ClipboardItem({ 'image/png': blob })
+            ]);
+            showToast('Image copied to clipboard!');
+          } else {
+            const img = new Image();
+            const blobUrl = URL.createObjectURL(blob);
+            img.onload = async () => {
+              const canvas = document.createElement('canvas');
+              canvas.width = img.naturalWidth;
+              canvas.height = img.naturalHeight;
+              const ctx = canvas.getContext('2d');
+              ctx.drawImage(img, 0, 0);
+              URL.revokeObjectURL(blobUrl);
+              canvas.toBlob(async (pngBlob) => {
+                if (pngBlob) {
+                  await navigator.clipboard.write([
+                    new ClipboardItem({ 'image/png': pngBlob })
+                  ]);
+                  showToast('Image copied to clipboard!');
+                }
+              }, 'image/png');
+            };
+            img.src = blobUrl;
+          }
+        }
+      } catch (err) {
+        console.error(err);
+        copyImageUrl(url);
+      }
+    }
+  </script>
 
 </body>
 </html>
