@@ -214,9 +214,9 @@
   }
 
   .nav-link:hover, .nav-link.active {
-    background: var(--color-bg);
-    border-color: var(--color-border);
-    color: var(--color-text);
+    background: var(--color-brand-purple-tint);
+    border-color: var(--color-brand-purple-border);
+    color: var(--color-brand-purple);
   }
 
   .nav-drawer-footer {

@@ -1,40 +1,55 @@
 :root {
-  /* Minimal Monochrome Cream Palette */
+  /* Warm Cream Minimal Base */
   --color-bg: #FAF8F5;          /* Warm Cream Background */
-  --color-bg-alt: #F3EFE6;      /* Alt Soft Cream/Gray */
+  --color-bg-alt: #F3EFE6;      /* Alt Soft Cream/Sand */
   --color-surface: #FFFFFF;     /* Crisp Pure White */
-  --color-surface-hover: #F6F3EC;
+  --color-surface-hover: #F8F5EE;
   --color-surface-elevated: #FFFFFF;
   
-  --color-border: #E2DDD3;      /* Soft Muted Gray Border */
-  --color-border-hover: #1C1B18; /* Dark Charcoal Border Hover */
+  --color-border: #E5E0D6;      /* Soft Muted Sand/Gray Border */
+  --color-border-hover: #5A4077; /* Studio Purple Border Hover */
   
   --color-text: #1C1B18;        /* Pure Deep Charcoal/Black */
   --color-text-secondary: #4E4B43; /* Medium Warm Gray */
   --color-text-muted: #847F75;  /* Soft Muted Gray */
 
+  /* Studio Brand Colors (Extracted from Renderphoenix Colored Logo) */
+  --color-brand-purple: #5A4077;       /* Deep Studio Amethyst / Violet */
+  --color-brand-purple-dark: #45305C;  /* Deeper Shade for Hover */
+  --color-brand-purple-light: #725293; /* Lighter Purple Accent */
+  --color-brand-purple-tint: rgba(90, 64, 119, 0.08); /* Soft Tint for Badges/Tags */
+  --color-brand-purple-border: rgba(90, 64, 119, 0.22);
+  
+  --color-brand-pink: #FF79AC;         /* Vibrant Flame Pink / Rose */
+  --color-brand-pink-dark: #E65C92;    /* Deep Rose */
+  --color-brand-pink-tint: rgba(255, 121, 172, 0.12); /* Soft Tint for Badges/Highlights */
+  --color-brand-pink-glow: rgba(255, 121, 172, 0.35);
+  --color-brand-pink-border: rgba(255, 121, 172, 0.30);
+
   --color-brand-black: #1C1B18;
   --color-brand-gray: #58544B;
-  --color-brand-light-gray: #E2DDD3;
+  --color-brand-light-gray: #E5E0D6;
   --color-brand-cream: #FAF8F5;
   
-  /* Brand Accents - Clean Minimal Monochrome */
-  --color-ember: #1C1B18;
-  --color-ember-glow: rgba(28, 27, 24, 0.1);
-  --color-gold: #1C1B18;
-  --color-cyan: #1C1B18;
-  --color-cyan-glow: rgba(28, 27, 24, 0.08);
+  /* Brand Accents */
+  --color-ember: #5A4077;
+  --color-ember-glow: rgba(255, 121, 172, 0.25);
+  --color-gold: #5A4077;
+  --color-cyan: #FF79AC;
+  --color-cyan-glow: rgba(255, 121, 172, 0.20);
 
-  --c-1-electric-violet: #1C1B18;
-  --c-2-pale-lavender: #FAF8F5;
-  --c-3-soft-lavender: #847F75;
-  --c-4-vivid-magenta: #1C1B18;
-  --c-5-light-lilac: #E2DDD3;
-  --c-6-iris-purple: #1C1B18;
+  --c-1-electric-violet: #5A4077;
+  --c-2-pale-lavender: rgba(90, 64, 119, 0.07);
+  --c-3-soft-lavender: rgba(90, 64, 119, 0.28);
+  --c-4-vivid-magenta: #FF79AC;
+  --c-5-light-lilac: #E5E0D6;
+  --c-6-iris-purple: #725293;
   --c-7-pastel-orchid: #F3EFE6;
-  --c-8-purple-orchid: #1C1B18;
+  --c-8-purple-orchid: #5A4077;
 
-  --grad-primary: #1C1B18;
+  --grad-primary: linear-gradient(135deg, #5A4077 0%, #725293 100%);
+  --grad-accent: linear-gradient(135deg, #5A4077 0%, #FF79AC 100%);
+  --grad-pink-soft: linear-gradient(135deg, rgba(255, 121, 172, 0.12) 0%, rgba(90, 64, 119, 0.08) 100%);
   --grad-surface: #FFFFFF;
   --grad-subtle: #FAF8F5;
 
@@ -65,8 +80,9 @@
   --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Minimal Shadows */
+  /* Shadows & Glows */
   --shadow-sm: 0 2px 8px rgba(28, 27, 24, 0.04);
   --shadow-md: 0 8px 24px rgba(28, 27, 24, 0.06);
-  --shadow-glow: 0 4px 12px rgba(28, 27, 24, 0.08);
+  --shadow-purple: 0 4px 16px rgba(90, 64, 119, 0.20);
+  --shadow-glow: 0 4px 14px rgba(255, 121, 172, 0.22);
 }

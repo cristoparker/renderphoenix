@@ -198,13 +198,13 @@ img.brand-mark,
   font-weight: 500;
   color: var(--color-text-secondary);
   padding: 0.4rem 0.9rem;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--color-text);
-  background: var(--color-border);
+  color: var(--color-brand-purple);
+  background: var(--color-brand-purple-tint);
 }
 
 .nav-toggle {
@@ -372,7 +372,7 @@ img.brand-mark,
   font-size: 0.9rem;
   margin: 0 0 var(--space-md) 0;
   padding-left: var(--space-md);
-  border-left: 3px solid var(--color-text);
+  border-left: 3px solid var(--color-brand-purple);
   color: var(--color-text-secondary);
 }
 
@@ -388,8 +388,8 @@ img.brand-mark,
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-text);
-  box-shadow: 0 0 6px rgba(28, 27, 24, 0.2);
+  background: var(--color-brand-pink);
+  box-shadow: 0 0 8px rgba(255, 121, 172, 0.6);
 }
 
 .footer-bottom {

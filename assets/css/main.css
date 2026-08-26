@@ -26,10 +26,10 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--c-1-electric-violet);
-  background: var(--c-2-pale-lavender);
-  border: 1px solid var(--c-5-light-lilac);
-  padding: 0.25rem 0.8rem;
+  color: var(--color-brand-purple);
+  background: var(--color-brand-purple-tint);
+  border: 1px solid var(--color-brand-purple-border);
+  padding: 0.25rem 0.85rem;
   border-radius: 20px;
   margin-bottom: var(--space-sm);
 }
@@ -347,9 +347,9 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-md);
-  background: var(--c-2-pale-lavender);
-  color: var(--c-1-electric-violet);
-  border: 1px solid var(--c-5-light-lilac);
+  background: var(--color-brand-purple-tint);
+  color: var(--color-brand-purple);
+  border: 1px solid var(--color-brand-purple-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -380,7 +380,8 @@
 
 .service-caps li::before {
   content: "▹";
-  color: var(--c-4-vivid-magenta);
+  color: var(--color-brand-pink);
+  font-weight: bold;
 }
 
 /* Team Grid */
@@ -392,18 +393,25 @@
 
 .team-card {
   background: #FFFFFF;
-  border: 1px solid var(--c-5-light-lilac);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   text-align: center;
   box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.team-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-brand-purple-border);
+  box-shadow: var(--shadow-md);
 }
 
 .team-avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--color-text);
+  background: var(--color-brand-purple);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -412,9 +420,9 @@
   font-weight: 700;
   color: #FFFFFF;
   margin: 0 auto var(--space-md);
-  box-shadow: 0 4px 14px rgba(28, 27, 24, 0.1);
+  box-shadow: 0 4px 14px rgba(90, 64, 119, 0.20);
   overflow: hidden;
-  border: 2px solid var(--c-5-light-lilac);
+  border: 2px solid var(--color-border);
 }
 
 .team-avatar img,
@@ -433,7 +441,7 @@
 
 .team-role {
   font-size: 0.85rem;
-  color: var(--c-1-electric-violet);
+  color: var(--color-brand-purple);
   font-weight: 600;
   margin-bottom: var(--space-sm);
 }
@@ -454,7 +462,7 @@
 
 .sidebar-box {
   background: #FFFFFF;
-  border: 1px solid var(--c-5-light-lilac);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   position: sticky;
@@ -464,7 +472,7 @@
 
 .sidebar-title {
   font-size: 1.1rem;
-  border-bottom: 1px solid var(--c-5-light-lilac);
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: var(--space-sm);
   margin-bottom: var(--space-md);
 }
@@ -472,7 +480,7 @@
 /* Form Styles */
 .contact-form {
   background: #FFFFFF;
-  border: 1px solid var(--c-5-light-lilac);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-2xl);
   max-width: 650px;
@@ -494,8 +502,8 @@
 
 .form-input, .form-textarea, .form-select {
   width: 100%;
-  background: var(--c-2-pale-lavender);
-  border: 1px solid var(--c-5-light-lilac);
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 0.75rem 1rem;
   color: var(--color-text);
@@ -507,8 +515,8 @@
 .form-input:focus, .form-textarea:focus, .form-select:focus {
   outline: none;
   background: #FFFFFF;
-  border-color: var(--color-text);
-  box-shadow: 0 0 0 3px rgba(28, 27, 24, 0.1);
+  border-color: var(--color-brand-purple);
+  box-shadow: 0 0 0 3px rgba(90, 64, 119, 0.15);
 }
 
 .form-textarea {
