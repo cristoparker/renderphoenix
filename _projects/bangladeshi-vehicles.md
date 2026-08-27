@@ -1,28 +1,29 @@
 ---
-title: "Bangladeshi Vehicles Addon"
-slug: "bangladeshi-vehicles"
-description: "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics."
-category: "Add-On"
-developer: "Cristo"
-date: 2021-04-14
-downloads: "35.3K+"
-status: "completed"
-version: "1.0.0"
-platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png"
-technologies:
-  - "Blockbench"
-  - "3D Modeling"
-  - "Entity Animations"
+category: Add-On
+cover_image: /assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png
+date: Wed, 14 Apr 2021 00:00:00 GMT
+description: Custom vehicle add-on bringing authentic Bangladeshi street transport
+  models and physics.
+developer: Cristo
 download_links:
-  - label: "Download on MCPEDL"
-    url: "https://mcpedl.com/bangladeshi-vehicles-addon/"
+- label: Download on MCPEDL
+  url: https://mcpedl.com/bangladeshi-vehicles-addon/
+downloads: 35.3K+
 featured: false
+platform: Minecraft Bedrock
+slug: bangladeshi-vehicles
+status: completed
 tags:
-  - "addon"
-  - "vehicles"
-  - "3d-models"
-  - "bangladesh"
+- addon
+- vehicles
+- 3d-models
+- bangladesh
+technologies:
+- Blockbench
+- 3D Modeling
+- Entity Animations
+title: Bangladeshi Vehicles Addon
+version: 1.0.0
 ---
 
 The **Bangladeshi Vehicles Add-on** brings authentic regional transport from Bangladesh and South Asia into Minecraft Bedrock. Featuring iconic everyday vehicles designed with custom 3D boxy geometry, passenger seating, and driving physics.
@@ -30,31 +31,37 @@ The **Bangladeshi Vehicles Add-on** brings authentic regional transport from Ban
 ### Included Vehicles
 
 **1. Leguna (Human Hauler)**
+
 The iconic suburban transit minibus commonly found navigating city routes and rural highways.
 
 ![Leguna Human Hauler](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_2.jpeg)
 
 **2. Traditional Cycle Rickshaw**
+
 The cultural heartbeat of Dhaka streets, modeled with a custom passenger hood and spoked wheels.
 
 ![Cycle Rickshaw 3D Model](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon--pre-release-100_3.jpeg)
 
 **3. Cargo Van (Flatbed Tricycle)**
+
 A versatile wooden flatbed tricycle used across Bangladesh for hauling goods and local transport.
 
 ![Bangladeshi Flatbed Cargo Van](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_4.jpeg)
 
 **4. Electric Rickshaw (Easy Bike / Auto)**
+
 Modern eco-friendly green auto-rickshaw with covered cabin and passenger seating.
 
 ![Electric Rickshaw Easy Bike](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_6.jpeg)
 
 **5. Traditional Sailboat (Nouka)**
+
 Classic wooden riverboat with an upright red sail designed for navigating rivers and waterways.
 
 ![Traditional River Sailboat](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_8.jpeg)
 
 **6. Sports Car**
+
 A bonus custom red sports car vehicle model.
 
 ![Red Sports Car](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_10.jpeg)
@@ -63,17 +70,18 @@ A bonus custom red sports car vehicle model.
 
 You can obtain all vehicles directly in the **Creative Inventory** under the Nature/Spawn Eggs category, or spawn them via commands:
 
-- `/give @s bdv:leguna_spawn_egg`
-- `/give @s bdv:van_spawn_egg`
-- `/give @s bdv:easy_bike_spawn_egg`
-- `/give @s bdv:boat_spawn_egg`
-- `/give @s bdv:car_spawn_egg`
+- `/give @s bdv:leguna*spawn*egg`
+- `/give @s bdv:van*spawn*egg`
+- `/give @s bdv:easy*bike*spawn_egg`
+- `/give @s bdv:boat*spawn*egg`
+- `/give @s bdv:car*spawn*egg`
 
 ![Creative Inventory Vehicle Spawn Eggs](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_13.jpeg)
 
 ![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.jpeg)
 
 ### Credits & Tools
+
 - **3D Modeling & Design:** Cristo
 - **Behaviors & Code:** Faizul
 - **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++, Pixly
