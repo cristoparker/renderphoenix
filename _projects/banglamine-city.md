@@ -3,7 +3,7 @@ title: "Banglamine City"
 slug: "banglamine-city"
 description: "A large-scale urban city environment project inspired by Bangladeshi architecture and metropolitan infrastructure."
 category: "Environment"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-03-29
 downloads: "198.2K+"
 status: "completed"

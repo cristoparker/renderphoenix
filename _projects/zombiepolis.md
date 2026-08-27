@@ -3,7 +3,7 @@ title: "Zombiepolis - A Post Apocalyptic City"
 slug: "zombiepolis"
 description: "A post-apocalyptic urban city environment designed for survival, exploration, and atmospheric gameplay."
 category: "Environment"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-03-16
 downloads: "285.1K+"
 status: "completed"
@@ -77,8 +77,8 @@ To get the most intense survival horror atmosphere out of Zombiepolis, we recomm
 
 ### Credits & Attribution
 
-- **Map Creator & Lead Architecture:** Tasrif Ibn Mizan (RenderPhoenix Creatives)
-- **Collaborators & Special Thanks:** Fardin, Uthowai (Uthowaipru Chowdhury), Kamrul, Serfentile, and Mainul
+- **Map Creator & Lead Architecture:** Tasrif (RenderPhoenix Creatives)
+- **Collaborators & Special Thanks:** Fardin, Uthowaipru, Kamrul, Serfentile, and Mainul
 - **Origin:** Made in Bangladesh 🇧🇩
 - **Compatibility:** Minecraft Bedrock Edition (iOS, Android, Windows 10/11, Consoles, Realms, and Dedicated BDS)
 

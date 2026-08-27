@@ -3,7 +3,7 @@ title: "DHK Rickshaw V2"
 slug: "dhk-rickshaw"
 description: "Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics."
 category: "Add-On"
-developer: "Cristo Parker"
+developer: "Cristo"
 date: 2021-11-12
 downloads: "12.2K+"
 status: "completed"
@@ -54,5 +54,5 @@ The DHK Rickshaw project originated during the early Banglamine City and Minehut
 ![Early Rickshaw V1 Development in Banglamine](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v1%202020%20.png)
 
 ### Credits & Tools
-- **3D Modeling & Design:** Cristo Parker
+- **3D Modeling & Design:** Cristo
 - **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++

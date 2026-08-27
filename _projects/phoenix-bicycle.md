@@ -3,7 +3,7 @@ title: "Phoenix Bicycle Addon"
 slug: "phoenix-bicycle"
 description: "A rideable bicycle vehicle add-on for Minecraft Bedrock featuring 6 vibrant color variants, passenger mob riding, and usable inventory storage."
 category: "Add-On"
-developer: "Uthowaipru Chowdhury"
+developer: "Uthowaipru"
 date: 2021-03-21
 downloads: "13.3K+"
 status: "completed"
@@ -70,7 +70,7 @@ You can obtain all bicycle variants directly from the **Creative Inventory** und
 ### Technical Specifications
 
 - **Add-on Name:** Phoenix Bicycle Addon
-- **Creator:** Uthowaipru Chowdhury
+- **Creator:** Uthowaipru
 - **Publisher:** RenderPhoenix Creatives
 - **Version:** 2.0.0
 - **File Size:** ~1.04 MB

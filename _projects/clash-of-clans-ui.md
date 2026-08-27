@@ -3,7 +3,7 @@ title: "Clash of Clans Theme UI"
 slug: "clash-of-clans-ui"
 description: "Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements."
 category: "UI"
-developer: "Uthowaipru Chowdhury"
+developer: "Uthowaipru"
 date: 2023-01-18
 downloads: "4.5K+"
 status: "completed"
@@ -52,6 +52,6 @@ A customized skin selector and character dressing room set against the iconic su
 - **Optimized Textures**: Clean, stylized interface graphics designed for crisp rendering on mobile, console, and PC.
 
 ### Credits & Tools
-- **UI & Texture Creator:** Uthowaipru Chowdhury
+- **UI & Texture Creator:** Uthowaipru
 - **Typography:** Supercell Magic Webfont
 - **Tools Used:** Paint 3D, JSON Interface Schemas

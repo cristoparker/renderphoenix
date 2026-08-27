@@ -3,7 +3,7 @@ title: "Bangladeshi Vehicles Addon"
 slug: "bangladeshi-vehicles"
 description: "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics."
 category: "Add-On"
-developer: "Cristo Parker"
+developer: "Cristo"
 date: 2021-04-14
 downloads: "35.3K+"
 status: "completed"
@@ -74,6 +74,6 @@ You can obtain all vehicles directly in the **Creative Inventory** under the Nat
 ![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.jpeg)
 
 ### Credits & Tools
-- **3D Modeling & Design:** Cristo Parker
-- **Behaviors & Code:** Faizul726
+- **3D Modeling & Design:** Cristo
+- **Behaviors & Code:** Faizul
 - **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++, Pixly

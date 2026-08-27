@@ -3,7 +3,7 @@ title: "FunMOBA PVP (Moba Style Team PvP)"
 slug: "funmoba-pvp"
 description: "A lane-based MOBA PvP battleground featuring class roles, jungle control, and team nexus defense."
 category: "Interactive"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-03-13
 downloads: "33.2K+"
 status: "completed"
@@ -63,5 +63,5 @@ Built with lightweight command block logic, FunMOBA was widely hosted for commun
 ![Classic FunMOBA V1 Arena Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20Old%20funmoba-pvp-moba-style-pvp_2.png)
 
 ### Credits & Details
-- **Map Creator & Command Engineering:** Tasrif Ibn Mizan (RenderPhoenix)
+- **Map Creator & Command Engineering:** Tasrif (RenderPhoenix)
 - **Compatibility:** Minecraft Bedrock Edition (Local, LAN, Realms, and Dedicated Servers)

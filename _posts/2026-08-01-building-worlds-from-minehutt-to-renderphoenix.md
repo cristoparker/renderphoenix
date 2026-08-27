@@ -11,7 +11,7 @@ tags:
   - minehutt
   - renderphoenix
   - story
-author: "Tasrif Ibn Mizan"
+author: "Tasrif"
 image: "/assets/images/blog/studio-history.svg"
 featured: false
 ---
@@ -20,7 +20,7 @@ Every creative studio has an origin story driven by curiosity, technical experim
 
 ## The Minehutt Years (2019 – 2021)
 
-Our journey started under the name **Minehutt**, founded by **Tasrif Ibn Mizan**. Operating with a bold purple voxel aesthetic, Minehutt was all about community connection: hosting Minecraft realms, playing together with friends and community members, and having fun building custom adventure maps.
+Our journey started under the name **Minehutt**, founded by **Tasrif**. Operating with a bold purple voxel aesthetic, Minehutt was all about community connection: hosting Minecraft realms, playing together with friends and community members, and having fun building custom adventure maps.
 
 ![Minehutt Original Studio Logo 2019–2021](/assets/images/brand/Minehutt%20Logo%202019%20-%202021.jpeg)
 

@@ -3,7 +3,7 @@ title: "Frostcraft (Frostpunk Inspired Survival Map)"
 slug: "frostcraft"
 description: "A frozen wasteland steampunk survival colony map inspired by Frostpunk, featuring central generator settlement infrastructure."
 category: "Environment"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-07-26
 downloads: "33.6K+"
 status: "completed"
@@ -57,6 +57,6 @@ The centerpiece of Frostcraft is the meticulously detailed generator tower featu
 - **Minecraft Java Edition**: Compatible world format available for Java players.
 
 ### Credits & Attribution
-- **Map Creator & Architecture:** Tasrif Ibn Mizan (RenderPhoenix)
+- **Map Creator & Architecture:** Tasrif (RenderPhoenix)
 - **Special Thanks:** Necrozort
 - **Inspiration:** *Frostpunk* by 11 bit studios

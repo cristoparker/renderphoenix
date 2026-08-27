@@ -3,7 +3,7 @@ title: "Discord Theme UI"
 slug: "discord-theme-ui"
 description: "A dark-mode interface overhaul for Minecraft inspired by Discord's visual style and navigation layout."
 category: "UI"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-04-16
 downloads: "34.8K+"
 status: "completed"
@@ -55,6 +55,6 @@ Dark slate storage and crafting menus with high-contrast item slots, purple tool
 - **Purple Slider Controls**: Replaced vanilla green sliders with signature Discord purple toggles.
 
 ### Credits & Attribution
-- **Creator & Design:** Tasrif Ibn Mizan (RenderPhoenix)
+- **Creator & Design:** Tasrif (RenderPhoenix)
 - **Concept Inspiration:** nekochanfood (Java UI Concept) & Better Menu Pack
 - **Tools Used:** GIMP, JSON Interface Schemas

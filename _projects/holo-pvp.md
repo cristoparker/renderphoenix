@@ -3,7 +3,7 @@ title: "HOLO PvP - Solo Competitive Battle"
 slug: "holo-pvp"
 description: "A solo competitive PvP battle royale and hide-and-seek arena for 5-10 players featuring custom sectors, ability effects, and teleportation conduits."
 category: "Interactive"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-02-26
 downloads: "13.2K+"
 status: "completed"
@@ -64,7 +64,7 @@ The map's command block structure is left accessible so server administrators an
 
 ### Credits & Specifications
 
-- **Map Design & Command Engineering:** Tasrif Ibn Mizan (RenderPhoenix Creatives)
+- **Map Design & Command Engineering:** Tasrif (RenderPhoenix Creatives)
 - **Supported Players:** 5 – 10 Players (Solo Free-for-All)
 - **Compatibility:** Minecraft Bedrock Edition (Local LAN, Realms, and Dedicated BDS Servers)
 - **Requirements:** Pure Vanilla Bedrock (No Resource Packs Required)

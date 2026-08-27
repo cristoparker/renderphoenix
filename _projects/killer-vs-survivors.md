@@ -3,7 +3,7 @@ title: "Killer vs Survivors Minigame"
 slug: "killer-vs-survivors"
 description: "A 4v1 asymmetrical horror survival minigame where survivors collect coins and evade a psychopath killer in a dark mansion."
 category: "Interactive"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-05-21
 downloads: "16.7K+"
 status: "completed"
@@ -76,7 +76,7 @@ The dedicated staging lobby provides an intuitive control room with both operato
 
 ### Credits & Details
 
-- **Map Creator & Command Engineering:** Tasrif Ibn Mizan (RenderPhoenix Creatives)
+- **Map Creator & Command Engineering:** Tasrif (RenderPhoenix Creatives)
 - **Compatibility:** Minecraft Bedrock Edition (Windows 10/11, iOS, Android, Consoles)
 - **Pack Requirements:** None (100% Vanilla Bedrock Commands)
 

@@ -3,7 +3,7 @@ title: "Fantasy Woods & Dark Underland"
 slug: "fantasy-woods"
 description: "A fantasy realm featuring custom biomes, bioluminescent flora, and subterranean cavern exploration."
 category: "Environment"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-02-18
 downloads: "15.7K+"
 status: "completed"

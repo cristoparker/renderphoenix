@@ -50,9 +50,9 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [Fantasy Woods & Dark Underland](https://renderphoenix.com/work/fantasy-woods.md) (2021) [Environment]: A fantasy realm featuring custom biomes, bioluminescent flora, and subterranean cavern exploration.
 
 ## 6. Editorial & Studio Devlogs (Raw Markdown)
-- [Welcome to the New RenderPhoenix: Expanding Beyond Boundaries](https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix.md) (22 Aug 2026): On 22 August 2026, RenderPhoenix begins its official revival. We are rebuilding our digital presence and expanding into original game development, Unreal Engine, Unity, Blender 3D, and interactive experiences. (Author: Cristo Parker)
+- [Welcome to the New RenderPhoenix: Expanding Beyond Boundaries](https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix.md) (22 Aug 2026): On 22 August 2026, RenderPhoenix begins its official revival. We are rebuilding our digital presence and expanding into original game development, Unreal Engine, Unity, Blender 3D, and interactive experiences. (Author: Cristo)
 - [NASA Space Apps Challenge 2025: Engineering a Lunar Settlement](https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective.md) (15 Aug 2026): A retrospective on how RenderPhoenix earned Regional Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation. (Author: RenderPhoenix)
-- [Building Worlds: From Minehutt to RenderPhoenix](https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix.md) (01 Aug 2026): Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future. (Author: Tasrif Ibn Mizan)
+- [Building Worlds: From Minehutt to RenderPhoenix](https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix.md) (01 Aug 2026): Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future. (Author: Tasrif)
 
 ## 7. Legal, Privacy & Compliance (Raw Markdown)
 - [Privacy Policy](https://renderphoenix.com/privacy-policy.md): Official Privacy Policy detailing our strict no-tracking architecture, zero-account database model, and third-party service interactions.
@@ -311,7 +311,7 @@ title: "Clash of Clans Theme UI"
 slug: "clash-of-clans-ui"
 description: "Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements."
 category: "UI"
-developer: "Uthowaipru Chowdhury"
+developer: "Uthowaipru"
 date: 2023-01-18
 downloads: "4.5K+"
 status: "completed"
@@ -360,7 +360,7 @@ A customized skin selector and character dressing room set against the iconic su
 - **Optimized Textures**: Clean, stylized interface graphics designed for crisp rendering on mobile, console, and PC.
 
 ### Credits & Tools
-- **UI & Texture Creator:** Uthowaipru Chowdhury
+- **UI & Texture Creator:** Uthowaipru
 - **Typography:** Supercell Magic Webfont
 - **Tools Used:** Paint 3D, JSON Interface Schemas
 
@@ -374,7 +374,7 @@ title: "DHK Rickshaw V2"
 slug: "dhk-rickshaw"
 description: "Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics."
 category: "Add-On"
-developer: "Cristo Parker"
+developer: "Cristo"
 date: 2021-11-12
 downloads: "12.2K+"
 status: "completed"
@@ -425,7 +425,7 @@ The DHK Rickshaw project originated during the early Banglamine City and Minehut
 ![Early Rickshaw V1 Development in Banglamine](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v1%202020%20.png)
 
 ### Credits & Tools
-- **3D Modeling & Design:** Cristo Parker
+- **3D Modeling & Design:** Cristo
 - **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++
 
 
@@ -438,7 +438,7 @@ title: "Frostcraft (Frostpunk Inspired Survival Map)"
 slug: "frostcraft"
 description: "A frozen wasteland steampunk survival colony map inspired by Frostpunk, featuring central generator settlement infrastructure."
 category: "Environment"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-07-26
 downloads: "33.6K+"
 status: "completed"
@@ -492,7 +492,7 @@ The centerpiece of Frostcraft is the meticulously detailed generator tower featu
 - **Minecraft Java Edition**: Compatible world format available for Java players.
 
 ### Credits & Attribution
-- **Map Creator & Architecture:** Tasrif Ibn Mizan (RenderPhoenix)
+- **Map Creator & Architecture:** Tasrif (RenderPhoenix)
 - **Special Thanks:** Necrozort
 - **Inspiration:** *Frostpunk* by 11 bit studios
 
@@ -506,7 +506,7 @@ title: "A Horror Map If You Need"
 slug: "a-horror-map-if-you-need"
 description: "An atmospheric psychological horror adventure map featuring custom puzzles, eerie audio, and dark labyrinth exploration."
 category: "Interactive"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-07-19
 downloads: "42.2K+"
 status: "completed"
@@ -559,7 +559,7 @@ title: "Killer vs Survivors Minigame"
 slug: "killer-vs-survivors"
 description: "A 4v1 asymmetrical horror survival minigame where survivors collect coins and evade a psychopath killer in a dark mansion."
 category: "Interactive"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-05-21
 downloads: "16.7K+"
 status: "completed"
@@ -632,7 +632,7 @@ The dedicated staging lobby provides an intuitive control room with both operato
 
 ### Credits & Details
 
-- **Map Creator & Command Engineering:** Tasrif Ibn Mizan (RenderPhoenix Creatives)
+- **Map Creator & Command Engineering:** Tasrif (RenderPhoenix Creatives)
 - **Compatibility:** Minecraft Bedrock Edition (Windows 10/11, iOS, Android, Consoles)
 - **Pack Requirements:** None (100% Vanilla Bedrock Commands)
 
@@ -647,7 +647,7 @@ title: "Discord Theme UI"
 slug: "discord-theme-ui"
 description: "A dark-mode interface overhaul for Minecraft inspired by Discord's visual style and navigation layout."
 category: "UI"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-04-16
 downloads: "34.8K+"
 status: "completed"
@@ -699,7 +699,7 @@ Dark slate storage and crafting menus with high-contrast item slots, purple tool
 - **Purple Slider Controls**: Replaced vanilla green sliders with signature Discord purple toggles.
 
 ### Credits & Attribution
-- **Creator & Design:** Tasrif Ibn Mizan (RenderPhoenix)
+- **Creator & Design:** Tasrif (RenderPhoenix)
 - **Concept Inspiration:** nekochanfood (Java UI Concept) & Better Menu Pack
 - **Tools Used:** GIMP, JSON Interface Schemas
 
@@ -713,7 +713,7 @@ title: "Bangladeshi Vehicles Addon"
 slug: "bangladeshi-vehicles"
 description: "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics."
 category: "Add-On"
-developer: "Cristo Parker"
+developer: "Cristo"
 date: 2021-04-14
 downloads: "35.3K+"
 status: "completed"
@@ -784,8 +784,8 @@ You can obtain all vehicles directly in the **Creative Inventory** under the Nat
 ![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.jpeg)
 
 ### Credits & Tools
-- **3D Modeling & Design:** Cristo Parker
-- **Behaviors & Code:** Faizul726
+- **3D Modeling & Design:** Cristo
+- **Behaviors & Code:** Faizul
 - **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++, Pixly
 
 
@@ -798,7 +798,7 @@ title: "Banglamine City"
 slug: "banglamine-city"
 description: "A large-scale urban city environment project inspired by Bangladeshi architecture and metropolitan infrastructure."
 category: "Environment"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-03-29
 downloads: "198.2K+"
 status: "completed"
@@ -840,7 +840,7 @@ title: "Phoenix Bicycle Addon"
 slug: "phoenix-bicycle"
 description: "A rideable bicycle vehicle add-on for Minecraft Bedrock featuring 6 vibrant color variants, passenger mob riding, and usable inventory storage."
 category: "Add-On"
-developer: "Uthowaipru Chowdhury"
+developer: "Uthowaipru"
 date: 2021-03-21
 downloads: "13.3K+"
 status: "completed"
@@ -907,7 +907,7 @@ You can obtain all bicycle variants directly from the **Creative Inventory** und
 ### Technical Specifications
 
 - **Add-on Name:** Phoenix Bicycle Addon
-- **Creator:** Uthowaipru Chowdhury
+- **Creator:** Uthowaipru
 - **Publisher:** RenderPhoenix Creatives
 - **Version:** 2.0.0
 - **File Size:** ~1.04 MB
@@ -926,7 +926,7 @@ title: "Zombiepolis - A Post Apocalyptic City"
 slug: "zombiepolis"
 description: "A post-apocalyptic urban city environment designed for survival, exploration, and atmospheric gameplay."
 category: "Environment"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-03-16
 downloads: "285.1K+"
 status: "completed"
@@ -1000,8 +1000,8 @@ To get the most intense survival horror atmosphere out of Zombiepolis, we recomm
 
 ### Credits & Attribution
 
-- **Map Creator & Lead Architecture:** Tasrif Ibn Mizan (RenderPhoenix Creatives)
-- **Collaborators & Special Thanks:** Fardin, Uthowai (Uthowaipru Chowdhury), Kamrul, Serfentile, and Mainul
+- **Map Creator & Lead Architecture:** Tasrif (RenderPhoenix Creatives)
+- **Collaborators & Special Thanks:** Fardin, Uthowaipru, Kamrul, Serfentile, and Mainul
 - **Origin:** Made in Bangladesh 🇧🇩
 - **Compatibility:** Minecraft Bedrock Edition (iOS, Android, Windows 10/11, Consoles, Realms, and Dedicated BDS)
 
@@ -1016,7 +1016,7 @@ title: "FunMOBA PVP (Moba Style Team PvP)"
 slug: "funmoba-pvp"
 description: "A lane-based MOBA PvP battleground featuring class roles, jungle control, and team nexus defense."
 category: "Interactive"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-03-13
 downloads: "33.2K+"
 status: "completed"
@@ -1076,7 +1076,7 @@ Built with lightweight command block logic, FunMOBA was widely hosted for commun
 ![Classic FunMOBA V1 Arena Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20Old%20funmoba-pvp-moba-style-pvp_2.png)
 
 ### Credits & Details
-- **Map Creator & Command Engineering:** Tasrif Ibn Mizan (RenderPhoenix)
+- **Map Creator & Command Engineering:** Tasrif (RenderPhoenix)
 - **Compatibility:** Minecraft Bedrock Edition (Local, LAN, Realms, and Dedicated Servers)
 
 
@@ -1089,7 +1089,7 @@ title: "HOLO PvP - Solo Competitive Battle"
 slug: "holo-pvp"
 description: "A solo competitive PvP battle royale and hide-and-seek arena for 5-10 players featuring custom sectors, ability effects, and teleportation conduits."
 category: "Interactive"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-02-26
 downloads: "13.2K+"
 status: "completed"
@@ -1150,7 +1150,7 @@ The map's command block structure is left accessible so server administrators an
 
 ### Credits & Specifications
 
-- **Map Design & Command Engineering:** Tasrif Ibn Mizan (RenderPhoenix Creatives)
+- **Map Design & Command Engineering:** Tasrif (RenderPhoenix Creatives)
 - **Supported Players:** 5 – 10 Players (Solo Free-for-All)
 - **Compatibility:** Minecraft Bedrock Edition (Local LAN, Realms, and Dedicated BDS Servers)
 - **Requirements:** Pure Vanilla Bedrock (No Resource Packs Required)
@@ -1166,7 +1166,7 @@ title: "Fantasy Woods & Dark Underland"
 slug: "fantasy-woods"
 description: "A fantasy realm featuring custom biomes, bioluminescent flora, and subterranean cavern exploration."
 category: "Environment"
-developer: "Tasrif Ibn Mizan"
+developer: "Tasrif"
 date: 2021-02-18
 downloads: "15.7K+"
 status: "completed"
@@ -1238,7 +1238,7 @@ tags:
   - unreal-engine
   - unity
   - blender
-author: "Cristo Parker"
+author: "Cristo"
 image: "/assets/images/blog/welcome-revival.svg"
 featured: true
 ---
@@ -1249,7 +1249,7 @@ On **22 August 2026**, we officially initiated the rebuilding of RenderPhoenix. 
 
 ## Where We Came From
 
-Founded in 2019 under the name *Minehutt* by **Tasrif Ibn Mizan**, our studio grew by crafting expansive virtual worlds, city maps like *Banglamine City* and *Zombiepolis*, vehicle add-ons, and customized UI packs. On January 30, 2021, we evolved into **RenderPhoenix**, adopting the phoenix symbol to reflect continuous transformation and creation.
+Founded in 2019 under the name *Minehutt* by **Tasrif**, our studio grew by crafting expansive virtual worlds, city maps like *Banglamine City* and *Zombiepolis*, vehicle add-ons, and customized UI packs. On January 30, 2021, we evolved into **RenderPhoenix**, adopting the phoenix symbol to reflect continuous transformation and creation.
 
 Despite a severe security incident in August 2022 that compromised core digital accounts, our team persevered for years. Though the team gradually dispersed by 2024, the identity, craft, and vision of RenderPhoenix remained intact.
 
@@ -1346,7 +1346,7 @@ tags:
   - minehutt
   - renderphoenix
   - story
-author: "Tasrif Ibn Mizan"
+author: "Tasrif"
 image: "/assets/images/blog/studio-history.svg"
 featured: false
 ---
@@ -1355,7 +1355,7 @@ Every creative studio has an origin story driven by curiosity, technical experim
 
 ## The Minehutt Years (2019 – 2021)
 
-Our journey started under the name **Minehutt**, founded by **Tasrif Ibn Mizan**. Operating with a bold purple voxel aesthetic, Minehutt was all about community connection: hosting Minecraft realms, playing together with friends and community members, and having fun building custom adventure maps.
+Our journey started under the name **Minehutt**, founded by **Tasrif**. Operating with a bold purple voxel aesthetic, Minehutt was all about community connection: hosting Minecraft realms, playing together with friends and community members, and having fun building custom adventure maps.
 
 ![Minehutt Original Studio Logo 2019–2021](/assets/images/brand/Minehutt%20Logo%202019%20-%202021.jpeg)
 
