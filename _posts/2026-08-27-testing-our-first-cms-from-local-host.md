@@ -17,8 +17,11 @@ title: Testing our first cms from local host
 ---
 
 # Heading 1
+this is a test
+the **quick** 
 
-### Heading 3
+`code`
+### *Heading* 3
 ~~strikethrough text~~
 
 
@@ -32,11 +35,20 @@ title: Testing our first cms from local host
 1. First item
 
 
-`code``<html></html>`
+
+| Column 1 | Column 2 | Column 3 |
+| :--- | :--- | :--- |
+| Data 1 | Data 2 | Data 3 |
+| Data 4 | Data 5 | Data 6 |
+
+
+---
+
+
+
 
 > Quote text
-`code`
-
+''''
 
 ![Minecraft Renderphoenix  fantasy-woods--dark-underland_8](/assets/images/projects/fantasyWood/Minecraft Renderphoenix  fantasy-woods--dark-underland_8.png)
 ]
@@ -44,3 +56,7 @@ title: Testing our first cms from local host
 
 
 [Portfolio](https://renderphoenix.com/work)
+
+
+
+` const number = 45; `
