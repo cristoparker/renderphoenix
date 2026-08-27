@@ -95,6 +95,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://renderphoenix.com/blog/testing-our-first-cms-from-local-host/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/Minecraft Banglamine Land Field RenderPhoenix 2020-10-03 .png</image:loc>
+      <image:title>Testing our first cms from local host</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

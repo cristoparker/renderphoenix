@@ -1562,4 +1562,190 @@ pre > button {
   line-height: 1.35;
 }
 
+/* ==========================================================================
+   Interactive Content Tables (Glassmorphism Data Grid)
+   ========================================================================== */
+
+.table-responsive {
+  width: 100%;
+  margin: var(--space-xl) 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.table-responsive:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
+}
+
+.content-table,
+.article-body table,
+.project-body table,
+.page-body table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+  text-align: left;
+}
+
+.content-table thead,
+.article-body table thead,
+.project-body table thead,
+.page-body table thead {
+  background: rgba(90, 64, 119, 0.07);
+}
+
+.content-table th,
+.article-body table th,
+.project-body table th,
+.page-body table th {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-brand-purple);
+  padding: 1rem 1.25rem;
+  border-bottom: 1.5px solid var(--color-brand-purple-border);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.content-table th:first-child,
+.article-body table th:first-child,
+.project-body table th:first-child,
+.page-body table th:first-child {
+  border-top-left-radius: calc(var(--radius-lg) - 2px);
+}
+
+.content-table th:last-child,
+.article-body table th:last-child,
+.project-body table th:last-child,
+.page-body table th:last-child {
+  border-top-right-radius: calc(var(--radius-lg) - 2px);
+}
+
+.content-table tbody tr,
+.article-body table tbody tr,
+.project-body table tbody tr,
+.page-body table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.content-table tbody tr:nth-child(even),
+.article-body table tbody tr:nth-child(even),
+.project-body table tbody tr:nth-child(even),
+.page-body table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.content-table tbody tr:hover,
+.article-body table tbody tr:hover,
+.project-body table tbody tr:hover,
+.page-body table tbody tr:hover {
+  background: rgba(90, 64, 119, 0.04);
+}
+
+.content-table td,
+.article-body table td,
+.project-body table td,
+.page-body table td {
+  padding: 0.95rem 1.25rem;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid rgba(90, 64, 119, 0.08);
+  vertical-align: middle;
+}
+
+.content-table tbody tr:last-child td,
+.article-body table tbody tr:last-child td,
+.project-body table tbody tr:last-child td,
+.page-body table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.content-table td strong,
+.content-table th strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.content-table td code,
+.article-body table td code,
+.project-body table td code,
+.page-body table td code {
+  background: rgba(90, 64, 119, 0.08);
+  border: 1px solid rgba(90, 64, 119, 0.18);
+  color: var(--color-brand-purple);
+  padding: 0.15em 0.45em;
+  font-size: 0.85em;
+  border-radius: var(--radius-sm);
+}
+
+.content-table td a,
+.article-body table td a,
+.project-body table td a,
+.page-body table td a {
+  color: var(--color-brand-purple);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.content-table td a:hover,
+.article-body table td a:hover,
+.project-body table td a:hover,
+.page-body table td a:hover {
+  color: var(--color-brand-pink-dark);
+}
+
+/* Custom Scrollbar for Responsive Tables */
+.table-responsive::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: rgba(90, 64, 119, 0.05);
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: rgba(90, 64, 119, 0.22);
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-purple);
+}
+
+/* GFM Task List Items */
+.task-list-item {
+  list-style-type: none !important;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: -1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.task-list-item input[type="checkbox"] {
+  accent-color: var(--color-brand-purple);
+  width: 1.05rem;
+  height: 1.05rem;
+  cursor: default;
+  margin: 0;
+}
+
+
 

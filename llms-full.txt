@@ -50,6 +50,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [Fantasy Woods & Dark Underland](https://renderphoenix.com/work/fantasy-woods.md) (2021) [Environment]: A fantasy realm featuring custom biomes, bioluminescent flora, and subterranean cavern exploration.
 
 ## 6. Editorial & Studio Devlogs (Raw Markdown)
+- [Testing our first cms from local host](https://renderphoenix.com/blog/testing-our-first-cms-from-local-host.md) (27 Aug 2026): Testing our first cms from local host (Author: Cristo Parker)
 - [Welcome to the New RenderPhoenix: Expanding Beyond Boundaries](https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix.md) (22 Aug 2026): On 22 August 2026, RenderPhoenix begins its official revival. We are rebuilding our digital presence and expanding into original game development, Unreal Engine, Unity, Blender 3D, and interactive experiences. (Author: Cristo)
 - [NASA Space Apps Challenge 2025: Engineering a Lunar Settlement](https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective.md) (15 Aug 2026): A retrospective on how RenderPhoenix earned Regional Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation. (Author: RenderPhoenix)
 - [Building Worlds: From Minehutt to RenderPhoenix](https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix.md) (01 Aug 2026): Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future. (Author: Tasrif)
@@ -1219,6 +1220,74 @@ Here are some vanilla screenshots of the map. I hope you enjoy it!
 ----------------------------------------
 
 # --- SECTION: DEVLOGS & ARTICLES ---
+
+## Article: Testing our first cms from local host (/blog/testing-our-first-cms-from-local-host.md)
+
+---
+author: Cristo Parker
+categories:
+- Studio
+- Devlog
+- Test
+date: '2026-08-27'
+description: Testing our first cms from local host
+featured: false
+image: /assets/images/projects/Minecraft Banglamine Land Field RenderPhoenix 2020-10-03
+  .png
+layout: post
+tags:
+- Post
+- Tag
+title: Testing our first cms from local host
+---
+
+# Heading 1
+this is a test
+the **quick** 
+
+`code`
+### *Heading* 3
+~~strikethrough text~~
+
+
+
+1. First item
+
+1. First item
+
+1. First item
+
+1. First item
+
+
+
+| Column 1 | Column 2 | Column 3 |
+| :--- | :--- | :--- |
+| Data 1 | Data 2 | Data 3 |
+| Data 4 | Data 5 | Data 6 |
+
+
+---
+
+
+
+
+> Quote text
+''''
+
+![Minecraft Renderphoenix  fantasy-woods--dark-underland_8](/assets/images/projects/fantasyWood/Minecraft Renderphoenix  fantasy-woods--dark-underland_8.png)
+]
+![youtube:Song by coldplay](https://www.youtube.com/watch?v=m7Bc3pLyij0)
+
+
+[Portfolio](https://renderphoenix.com/work)
+
+
+
+` const number = 45; `
+
+
+----------------------------------------
 
 ## Article: Welcome to the New RenderPhoenix: Expanding Beyond Boundaries (/blog/welcome-to-the-new-renderphoenix.md)
 
