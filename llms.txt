@@ -34,14 +34,14 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [Get in Touch](https://renderphoenix.com/contact.md): Studio contact information, inquiry categories, and collaboration details.
 
 ## 5. Notable Works & Project Index (Raw Markdown)
+- [Bangladeshi Vehicles Addon](https://renderphoenix.com/work/bangladeshi-vehicles.md) (Wed,) [Add-On]: Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.
+- [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (Fri,) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
 - [Lunar Habitat Simulator — NASA Space Apps 2025](https://renderphoenix.com/work/nasa-space-apps-2025.md) (2025) [Interactive]: Regional Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.
 - [Clash of Clans Theme UI](https://renderphoenix.com/work/clash-of-clans-ui.md) (2023) [UI]: Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements.
-- [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (2021) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
 - [Frostcraft (Frostpunk Inspired Survival Map)](https://renderphoenix.com/work/frostcraft.md) (2021) [Environment]: A frozen wasteland steampunk survival colony map inspired by Frostpunk, featuring central generator settlement infrastructure.
 - [A Horror Map If You Need](https://renderphoenix.com/work/a-horror-map-if-you-need.md) (2021) [Interactive]: An atmospheric psychological horror adventure map featuring custom puzzles, eerie audio, and dark labyrinth exploration.
 - [Killer vs Survivors Minigame](https://renderphoenix.com/work/killer-vs-survivors.md) (2021) [Interactive]: A 4v1 asymmetrical horror survival minigame where survivors collect coins and evade a psychopath killer in a dark mansion.
 - [Discord Theme UI](https://renderphoenix.com/work/discord-theme-ui.md) (2021) [UI]: A dark-mode interface overhaul for Minecraft inspired by Discord's visual style and navigation layout.
-- [Bangladeshi Vehicles Addon](https://renderphoenix.com/work/bangladeshi-vehicles.md) (2021) [Add-On]: Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.
 - [Banglamine City](https://renderphoenix.com/work/banglamine-city.md) (2021) [Environment]: A large-scale urban city environment project inspired by Bangladeshi architecture and metropolitan infrastructure.
 - [Phoenix Bicycle Addon](https://renderphoenix.com/work/phoenix-bicycle.md) (2021) [Add-On]: A rideable bicycle vehicle add-on for Minecraft Bedrock featuring 6 vibrant color variants, passenger mob riding, and usable inventory storage.
 - [Zombiepolis - A Post Apocalyptic City](https://renderphoenix.com/work/zombiepolis.md) (2021) [Environment]: A post-apocalyptic urban city environment designed for survival, exploration, and atmospheric gameplay.
@@ -56,7 +56,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [Building Worlds: From Minehutt to RenderPhoenix](https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix.md) (01 Aug 2026): Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future. (Author: Tasrif)
 
 ## 7. Legal, Privacy & Compliance (Raw Markdown)
-- [Privacy Policy](https://renderphoenix.com/privacy-policy.md): Official Privacy Policy detailing our strict no-tracking architecture, zero-account database model, and third-party service interactions.
+- [Privacy Policy](https://renderphoenix.com/privacy-policy.md): Official Privacy Policy detailing our privacy architecture, Cloudflare Web Analytics, administrative CMS dashboard (dash.renderphoenix.com), and third-party service interactions.
 - [DMCA & Copyright Policy](https://renderphoenix.com/dmca.md): Official Digital Millennium Copyright Act compliance notice, designated copyright agent contact, takedown request checklist, and counter-notification procedures.
 
 ## 8. Official Brand Identity & Logos

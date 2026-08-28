@@ -72,7 +72,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 
         llm_content += f"""
 ## 7. Legal, Privacy & Compliance (Raw Markdown)
-- [Privacy Policy]({site_url}/privacy-policy.md): Official Privacy Policy detailing our strict no-tracking architecture, zero-account database model, and third-party service interactions.
+- [Privacy Policy]({site_url}/privacy-policy.md): Official Privacy Policy detailing our privacy architecture, Cloudflare Web Analytics, administrative CMS dashboard (dash.renderphoenix.com), and third-party service interactions.
 - [DMCA & Copyright Policy]({site_url}/dmca.md): Official Digital Millennium Copyright Act compliance notice, designated copyright agent contact, takedown request checklist, and counter-notification procedures.
 
 ## 8. Official Brand Identity & Logos

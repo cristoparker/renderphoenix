@@ -6,17 +6,17 @@ description: "Official Privacy Policy for RenderPhoenix — independent interact
 
 **Effective Date: August 25, 2026**
 
-**Last Updated: August 25, 2026**
+**Last Updated: August 27, 2026**
 
 RenderPhoenix Creatives, commonly known as **RenderPhoenix** (“RenderPhoenix,” “we,” “us,” or “our”), operates an independent interactive creative studio based in Tejgaon, Dhaka, Bangladesh.
 
-This Privacy Policy explains how RenderPhoenix handles information in connection with the RenderPhoenix website, its pages, projects, games, downloadable content, editorial content, external links, contact services, and other related online services (collectively, the “Website”).
+This Privacy Policy explains how RenderPhoenix handles information in connection with the RenderPhoenix website, its administrative dashboard ([dash.renderphoenix.com](https://dash.renderphoenix.com)), pages, projects, games, downloadable content, editorial content, external links, contact services, and other related online services (collectively, the “Website”).
 
 We believe privacy should be simple: **we do not want personal information that we do not need.**
 
-The current RenderPhoenix Website is intentionally designed without user accounts, user profiles, a user database, comments, reviews, personalized user dashboards, or a general-purpose tracking system. We do not intentionally collect or maintain personal information merely because someone visits the Website, reads an article, views a project, or downloads one of our creations.
+The public RenderPhoenix Website is intentionally designed without mandatory public user accounts, public user profiles, a public visitor tracking database, public comments, or cross-site tracking systems. We do not collect or maintain personal information merely because someone visits the public Website, reads an article, views a project, or downloads one of our creations. For studio content authoring, RenderPhoenix operates a dedicated administrative Content Management System (CMS) at `dash.renderphoenix.com` strictly for authorized studio administrators to manage and publish posts and projects.
 
-Some third-party services may, however, independently process technical information when they are used on or through the Website. These services may include hosting providers, Google services, YouTube, external publishing platforms, download platforms, advertising providers, and other services that we may use now or in the future.
+Some third-party services may, however, independently process technical information when they are used on or through the Website. These services may include Cloudflare (for DNS and cookie-less web analytics), hosting providers, Google services, YouTube, external publishing platforms, download platforms, advertising providers, and other services that we may use now or in the future.
 
 This Privacy Policy explains those situations as clearly as reasonably possible.
 
@@ -50,7 +50,8 @@ Throughout this Privacy Policy, “RenderPhoenix,” “we,” “us,” and “
 
 This Privacy Policy applies to information associated with:
 
-- The RenderPhoenix website
+- The RenderPhoenix website (`renderphoenix.com`)
+- The RenderPhoenix Content Management System (CMS) administrative dashboard (`dash.renderphoenix.com`)
 - RenderPhoenix project pages
 - RenderPhoenix blog and editorial pages
 - RenderPhoenix development articles and devlogs
@@ -109,34 +110,39 @@ We do not intend to use personal contact information as a source of behavioral a
 
 # 4. Information We Currently Collect
 
-At the time this Privacy Policy becomes effective, RenderPhoenix does not operate a backend database or user-account system for the Website.
+RenderPhoenix follows strict data minimization principles.
 
-We do not intentionally collect personal information simply because you visit the Website.
+### A. Public Website Visitors
+For visitors browsing the public Website, RenderPhoenix does not operate a public user-account system, registration portal, or visitor profiling database. We do not intentionally collect personal information simply because you visit the public Website.
 
-In particular, RenderPhoenix does not currently operate a system designed to collect and maintain:
+In particular, RenderPhoenix does not operate a public system designed to collect and maintain:
 
-- User accounts
-- Passwords
-- User profiles
-- Personal dashboards
+- Public user accounts
+- Visitor passwords
+- Public user profiles
+- Public visitor dashboards
 - User-submitted reviews
-- Public comments
-- User forums
-- User-generated posts
-- Payment profiles
-- Credit card information
-- Bank account information
+- Public comments or forums
+- Public user-generated posts
+- Payment profiles or financial information
 - Government identification information
-- Health information
-- Biometric information
+- Health or biometric information
 - Precise location information
 - Sensitive personal information
-- Advertising profiles
-- Individual user browsing histories
+- Cross-site advertising or browsing profiles
 
-The Website is primarily a static website.
+The public Website is primarily a static-first website.
 
-However, certain third-party services used by or connected to the Website may independently process technical information. This is explained later in this Privacy Policy.
+### B. Administrative CMS Dashboard (`dash.renderphoenix.com`)
+For authorized studio administrators, editors, and team members who access the private CMS dashboard at `dash.renderphoenix.com`:
+
+- **Authentication Credentials:** Admin usernames and securely hashed passwords used strictly to authenticate authorized studio personnel.
+- **Session & Security Information:** Temporary authentication session tokens, login timestamps, and security access logs required to maintain authenticated sessions and protect content management workflows.
+- **Content Management Data:** Project showcases, devlog articles, media asset metadata, and editorial drafts created or edited by administrators for publication.
+
+Administrative login access is strictly restricted to authorized RenderPhoenix studio team members and is not open to public registration.
+
+However, certain third-party services used by or connected to the Website (such as Cloudflare DNS and Cloudflare Web Analytics) may independently process technical information. This is explained later in this Privacy Policy.
 
 ---
 
@@ -293,66 +299,79 @@ If the information creates a legal, security, or safety concern, additional rete
 
 ---
 
-# 11. No User Accounts
+# 11. User Accounts and Administrative CMS Login
 
-RenderPhoenix does not operate user registration or login functionality on the Website.
+### A. Public Visitors (No Public User Accounts)
+RenderPhoenix does not operate public user registration or public login functionality on the Website.
 
 You do not need to create an account to browse the Website.
 
-The Website does not currently provide:
+The public Website does not provide:
 
-- User registration
-- User login
-- Password authentication
-- User profiles
-- Account dashboards
-- Account settings
-- Personal libraries
-- Saved user content
+- Public user registration
+- Public user login
+- Public password authentication
+- Public user profiles
+- Public user dashboards
+- Personal libraries or saved user content
 
 RenderPhoenix has no intention of requiring user accounts merely to access normal project, blog, or portfolio content.
 
+### B. Administrative CMS Dashboard (`dash.renderphoenix.com`)
+RenderPhoenix operates an administrative Content Management System (CMS) portal hosted at `dash.renderphoenix.com` strictly for internal studio administration.
+
+- Authorized studio administrators and content creators log into this dashboard with designated administrator usernames and passwords to create, draft, edit, and publish devlog articles, project showcases, and website content.
+- This CMS dashboard is private and intended solely for authorized studio staff. It does not provide public user registration, public reader accounts, or public visitor dashboards.
+- Authentication credentials and session tokens used on `dash.renderphoenix.com` are processed and stored securely for the sole purpose of authenticating administrative staff and maintaining site content integrity.
+
 ---
 
-# 12. No User Database
+# 12. Databases and Content Management
 
-RenderPhoenix does not operate a general-purpose user database for Website visitors.
+RenderPhoenix does not operate a general-purpose user tracking database for public Website visitors.
 
 The Website is designed without a system that continuously builds profiles containing visitor information.
 
 We do not intentionally create a database containing:
 
-- Visitor names
-- Visitor emails
-- Visitor browsing history
-- Visitor interests
-- Visitor profiles
-- Visitor behavioral records
-- Visitor download histories
+- Public visitor names or emails
+- Public visitor browsing histories or behavioral records
+- Public visitor interests or preferences
+- Individual visitor download histories
+- Public visitor tracking profiles
 
-Contact communications may exist in the email systems used to communicate with RenderPhoenix, but this is different from operating a Website user database.
+For internal studio operations, RenderPhoenix maintains administrative databases and content repositories used exclusively by the CMS (`dash.renderphoenix.com`) to store:
+
+- Published and drafted blog posts and devlogs
+- Project portfolio information and specifications
+- Studio media asset references
+- Authorized administrator account credentials and authentication session records
+
+Contact communications may exist in the email systems used to communicate with RenderPhoenix, but this is kept completely separate from public Website browsing.
 
 ---
 
-# 13. Cookies
+# 13. Cookies and Local Storage
 
-At the effective date of this Privacy Policy, RenderPhoenix does not intentionally operate its own cookie-based user tracking system.
+### A. Public Website Browsing
+RenderPhoenix does not operate a cookie-based user tracking system for public visitors.
 
-The Website does not currently use cookies for:
+The public Website does not use cookies or local storage for:
 
-- User accounts
-- Personalization
-- User profiling
-- Login sessions
-- Behavioral tracking
-- Download tracking
-- Advertising audiences operated directly by RenderPhoenix
+- Public visitor profiling
+- Cross-site behavioral tracking
+- Tracking individual project downloads
+- Building advertising audiences directly by RenderPhoenix
 
-However, third-party services embedded in or connected to the Website may use cookies, local storage, pixels, identifiers, or similar technologies according to their own systems.
+### B. Administrative Dashboard (`dash.renderphoenix.com`)
+The administrative CMS dashboard at `dash.renderphoenix.com` may use essential session cookies, local storage tokens, or security cookies strictly necessary to maintain authenticated administrator sessions, remember login states, and protect against cross-site request forgery. These essential technical cookies are restricted to the administrative portal and are never used for marketing, advertising, or tracking public visitors.
+
+### C. Third-Party Services
+Third-party services embedded in or connected to the Website (such as YouTube or future advertising providers) may use cookies, local storage, pixels, identifiers, or similar technologies according to their own systems.
 
 This may become particularly relevant if RenderPhoenix activates advertising services such as Google AdSense.
 
-If advertising or another third-party service requires cookies or similar technologies, RenderPhoenix may implement the appropriate consent mechanism and configuration required by applicable laws and the relevant service provider.
+If advertising or another third-party service requires cookies or similar technologies, RenderPhoenix will implement the appropriate consent mechanism and configuration required by applicable laws and the relevant service provider.
 
 ---
 
@@ -431,19 +450,25 @@ Contact information provided for communication or newsletter purposes is intende
 
 ---
 
-# 17. Google Analytics
+# 17. Web Analytics and Traffic Monitoring
 
-RenderPhoenix does not currently plan to use Google Analytics as a primary Website analytics system.
+### A. Cloudflare Web Analytics
+RenderPhoenix uses **Cloudflare Web Analytics** across the Website to monitor aggregate traffic, page views, and technical performance (including Core Web Vitals and page load speed).
 
-RenderPhoenix's current SEO monitoring approach uses Google Search Console.
+Cloudflare Web Analytics is deployed via a lightweight, client-side JavaScript beacon snippet (`beacon.min.js`, token: `e70dd5ade19f4847b5cdfb088dafc1db`).
 
-Google Search Console provides website owners with information related to search visibility and search performance.
+Cloudflare Web Analytics is built with a privacy-first approach:
 
-Search Console is not intended by RenderPhoenix to function as a personal user database.
+- **No Cookies or Local Storage:** It does not use client-side cookies or local storage to track visitors.
+- **No Cross-Site Tracking:** It does not follow or track individual visitors across different websites.
+- **No Personal Profiling:** It does not collect personally identifiable information (PII), visitor names, or create personal browsing profiles.
+- **Aggregated Performance Metrics:** It provides RenderPhoenix with high-level, privacy-preserving aggregate metrics (such as total page impressions, top referrer domains, visitor country of origin, browser types, and web performance timings).
 
-RenderPhoenix may reconsider analytics tools in the future if its technical or business requirements change.
+### B. Google Analytics
+RenderPhoenix does not currently use Google Analytics as a Website analytics system.
 
-If a future analytics service materially changes the way visitor information is processed, this Privacy Policy may be updated.
+### C. Google Search Console
+RenderPhoenix uses Google Search Console to monitor search indexing and search engine visibility. Search Console provides aggregate search performance metrics and does not provide personally identifiable visitor records.
 
 ---
 
@@ -562,15 +587,14 @@ If the hosting infrastructure changes from GitHub Pages to Vercel, this Privacy 
 
 ---
 
-# 24. Cloudflare DNS
+# 24. Cloudflare DNS and Proxy Infrastructure
 
-RenderPhoenix may use Cloudflare for DNS services.
+RenderPhoenix uses **Cloudflare** for authoritative DNS routing, reverse proxy (CDN), edge security, and network infrastructure across its domains and subdomains (including `renderphoenix.com` and `dash.renderphoenix.com`).
 
-At the effective date of this Privacy Policy, Cloudflare is used for DNS-related infrastructure rather than as the Website's primary content delivery network or proxy.
-
-DNS and network infrastructure may necessarily involve technical information required to resolve and connect to the Website.
-
-RenderPhoenix does not intentionally use Cloudflare DNS to build visitor profiles.
+- **Cloudflare DNS & Proxy Active:** Cloudflare DNS and proxying are enabled to route web traffic through Cloudflare's global edge network, providing fast Anycast domain resolution, CDN edge caching, DDoS mitigation, web application firewall (WAF) protections, and end-to-end SSL/TLS security encryption.
+- **Technical Request Processing:** When web requests pass through Cloudflare's proxy servers to reach our origin hosting, Cloudflare necessarily processes technical request metadata (such as IP addresses, HTTP request headers, and connection telemetry) strictly for traffic routing, security filtering, and threat detection.
+- **No Visitor Profiling:** RenderPhoenix does not use Cloudflare DNS or proxy infrastructure to build personal visitor profiles, track individuals across third-party websites, or sell user data.
+- Cloudflare processes network and security telemetry in accordance with Cloudflare's Privacy Policy and standard data protection terms.
 
 ---
 
@@ -901,35 +925,27 @@ If a user voluntarily provides sensitive information in a message, RenderPhoenix
 
 # 41. Data Security
 
-RenderPhoenix does not operate a conventional user-account database or large-scale personal-information system.
+RenderPhoenix does not operate a public user-account database or large-scale personal-information system for public visitors.
 
-Because of this architecture, the Website does not maintain typical account information such as:
+Because of this architecture, the public Website does not maintain public user password databases, user profile databases, payment databases, or visitor tracking databases.
 
-- Password databases
-- User profile databases
-- Payment databases
-- Authentication databases
-- User session databases
-- Personal dashboards
+For the administrative CMS dashboard (`dash.renderphoenix.com`), administrative access is protected through:
 
-Nevertheless, information that is voluntarily sent to RenderPhoenix through email or future contact functionality is still treated as information that deserves reasonable protection.
+- Secure password hashing and authentication controls
+- Role-based administrative access restricted to authorized studio personnel
+- HTTPS/TLS encryption for all administrative sessions and data transmission
+- Session timeout and secure cookie/token handling
 
-RenderPhoenix intends to use reasonable technical and organizational safeguards appropriate to the limited information it processes.
+For communications received via email or contact channels, RenderPhoenix applies reasonable technical and organizational safeguards:
 
-These may include:
-
-- Access controls
-- Appropriate account security
-- Strong authentication where available
-- Limited internal access
+- Access controls and strong authentication for official studio accounts
+- Limited internal access to authorized team members only
 - Avoiding unnecessary data collection
 - Deleting information when no longer needed
-- Using reputable service providers
+- Using reputable infrastructure providers (e.g., GitHub, Cloudflare, Google)
 - Keeping Website infrastructure reasonably maintained
 
-No online service can guarantee absolute security.
-
-RenderPhoenix therefore cannot promise that information transmitted over the Internet will always remain completely secure.
+No online service can guarantee absolute security. RenderPhoenix therefore cannot promise that information transmitted over the Internet will always remain completely secure, but we take diligent measures to protect our systems.
 
 ---
 
@@ -1975,50 +1991,36 @@ For convenience, the most important points are summarized below.
 
 ### Currently, RenderPhoenix does not:
 
-- Require user accounts
-- Require login
-- Operate a user database
-- Operate user profiles
-- Operate comments
-- Operate reviews
-- Intentionally track individual visitors
-- Intentionally store visitor IP addresses
-- Use a first-party cookie tracking system
-- Use local storage for visitor tracking
+- Require public visitors to create accounts
+- Require public visitor login
+- Operate a public user tracking database
+- Operate public user profiles
+- Operate public comments or reviews
+- Intentionally track individual visitors across the web
+- Intentionally store visitor IP addresses for profiling
+- Use first-party cookies for visitor tracking or profiling
 - Use Google Analytics
 - Sell personal information
 - Rent personal information
 - Sell newsletter information
 - Upload contact information to advertising audiences
 - Use affiliate links
-- Process payments through the Website
-- Request passwords
-- Request government IDs
-- Request financial information
-- Request health information
-- Request sensitive personal information
+- Process public payments through the Website
+- Request passwords, government IDs, or financial data from visitors
 
-### RenderPhoenix may:
+### RenderPhoenix operates:
 
-- Receive Name, Email, and Message when contact functionality is implemented
-- Process email through Google's email ecosystem
-- Use Google Apps Script or related Google technologies
-- Use Google Search Console
-- Use Google Fonts
-- Embed YouTube videos
-- Use privacy-enhanced YouTube embeds
-- Use GitHub Pages
-- Potentially use Vercel in the future
-- Use Cloudflare for DNS
-- Redirect visitors to external download platforms
-- Review aggregate statistics provided by external publishing platforms
-- Introduce a newsletter
-- Introduce Google reCAPTCHA for spam prevention
-- Introduce Google AdSense
-- Use advertising cookies or similar technologies when required for advertising
-- Implement a consent mechanism where required
-- Publish voluntarily submitted contributor content with permission
-- Retain communications when reasonably necessary for legitimate purposes
+- A public static-first creative studio website with no public registration required
+- An administrative CMS dashboard (`dash.renderphoenix.com`) where authorized studio administrators log in with username and password credentials to create, draft, edit, and publish posts and projects
+- **Cloudflare Web Analytics** via a client-side JavaScript beacon snippet (`beacon.min.js`) for privacy-first, cookie-less aggregate traffic and performance monitoring
+- **Cloudflare DNS & Proxy** for authoritative domain resolution, reverse proxy CDN caching, DDoS protection, and TLS security encryption
+- Google Search Console for search performance and indexing
+- Google Fonts for typography
+- YouTube privacy-enhanced video embeds
+- GitHub Pages hosting for public static distribution
+- Direct email communication via Google's email ecosystem
+- External download redirects to official distribution platforms (GitHub, MCPEDL, Steam, Google Play, itch.io)
+- Reasonable communication retention when necessary for legitimate support or legal purposes
 
 ---
 
@@ -2043,15 +2045,19 @@ RenderPhoenix should review the applicable Google publisher and privacy requirem
 
 ---
 
-# 106. Effective Date
+# 106. Effective Date and Revision History
 
 This Privacy Policy is effective as of:
 
 **August 25, 2026**
 
-RenderPhoenix may update this Privacy Policy from time to time.
+**Last Updated: August 27, 2026**
 
-The latest version will be published on the RenderPhoenix Website.
+### Revision History:
+- **August 25, 2026:** Initial publication of the comprehensive RenderPhoenix Privacy Policy, establishing data minimization principles, no-tracking architecture, and third-party service disclosures.
+- **August 27, 2026:** Updated to reflect the activation of Cloudflare DNS and proxy infrastructure, implementation of the privacy-first Cloudflare Web Analytics JavaScript beacon snippet, and deployment of the administrative Content Management System (CMS) dashboard at `dash.renderphoenix.com` for authorized studio staff post and project authoring.
+
+RenderPhoenix may update this Privacy Policy from time to time. The latest version will always be published on the RenderPhoenix Website.
 
 ---
 
@@ -2059,15 +2065,13 @@ The latest version will be published on the RenderPhoenix Website.
 
 RenderPhoenix is built around games, interactive experiences, world-building, creative technology, and community projects.
 
-Our Website is not designed around collecting personal information.
+Our Website is not designed around collecting personal information from visitors.
 
 We believe that a person should be able to discover our projects, read our articles, explore our work, watch our videos, and access our creations without having to create an account or surrender unnecessary personal information.
 
-Where information is genuinely needed—for example, when someone voluntarily contacts us—we intend to use it only for legitimate purposes such as communication, collaboration, support, copyright handling, legal matters, or other purposes reasonably connected to the request.
+Where information is genuinely needed—for example, when someone voluntarily contacts us, or when authorized studio administrators log in to the CMS dashboard (`dash.renderphoenix.com`) to manage and publish creative content—we use it only for legitimate, secure, and specified purposes.
 
-Where third-party services are necessary, those services may independently process technical or other information according to their own policies.
-
-Where advertising is introduced, RenderPhoenix intends to monetize the Website while respecting applicable privacy requirements and giving users the choices required by applicable law.
+Where third-party services are necessary (such as Cloudflare DNS for secure domain routing, or Cloudflare Web Analytics for aggregate, cookie-less traffic measurement), those services operate in alignment with privacy-respecting standards.
 
 We do not intend to sell or rent personal information.
 
@@ -2086,3 +2090,5 @@ Tejgaon, Dhaka, Bangladesh
 **[contact@renderphoenix.com](mailto:contact@renderphoenix.com)**
 
 **Effective: August 25, 2026**
+
+**Last Updated: August 27, 2026**

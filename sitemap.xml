@@ -131,6 +131,24 @@
     </image:image>
   </url>
   <url>
+    <loc>https://renderphoenix.com/work/bangladeshi-vehicles/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png</image:loc>
+      <image:title>Bangladeshi Vehicles Addon</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/dhk-rickshaw/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.png</image:loc>
+      <image:title>DHK Rickshaw V2</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://renderphoenix.com/work/nasa-space-apps-2025/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -146,15 +164,6 @@
     <image:image>
       <image:loc>https://renderphoenix.com/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.png</image:loc>
       <image:title>Clash of Clans Theme UI</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://renderphoenix.com/work/dhk-rickshaw/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://renderphoenix.com/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.png</image:loc>
-      <image:title>DHK Rickshaw V2</image:title>
     </image:image>
   </url>
   <url>
@@ -191,15 +200,6 @@
     <image:image>
       <image:loc>https://renderphoenix.com/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-ui-beta%20thumbnail.png</image:loc>
       <image:title>Discord Theme UI</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://renderphoenix.com/work/bangladeshi-vehicles/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://renderphoenix.com/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png</image:loc>
-      <image:title>Bangladeshi Vehicles Addon</image:title>
     </image:image>
   </url>
   <url>
