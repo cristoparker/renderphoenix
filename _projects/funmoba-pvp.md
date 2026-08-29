@@ -9,7 +9,7 @@ downloads: "33.2K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_1%20thumbnail.png"
+cover_image: "/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_1%20thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "PvP Mechanics"
@@ -32,7 +32,7 @@ tags:
 
 The arena features two symmetrical mirrored bases (Red vs. Cyan) connected by outer lanes and a dense center jungle divided by a river with strategic bridge crossings.
 
-![FunMOBA Arena Map Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20%20funmoba-pvp-moba-style-team-pvp_2.png)
+![FunMOBA Arena Map Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20%20funmoba-pvp-moba-style-team-pvp_2.webp)
 
 ### Class Roles & Kits
 
@@ -50,17 +50,17 @@ Players can select from 4 specialized combat roles before heading into battle:
 3. **Nexus Assault**: Each team has a central Nexus core with 100 HP. Strike the core button to deal 3 damage per hit.
 4. **Victory Condition**: The live sidebar scoreboard tracks both Nexus health pools in real time. The first team to reduce the opponent's Nexus to 0 claims victory.
 
-![Red Team Base and Nexus Crystal](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_3.png)
+![Red Team Base and Nexus Crystal](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_3.webp)
 
-![Battlefield View Across Jungle](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_4.png)
+![Battlefield View Across Jungle](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_4.webp)
 
 ### Multiplayer & Match History
 
 Built with lightweight command block logic, FunMOBA was widely hosted for community tournaments and Realm sessions with real-time health scoreboards.
 
-![In-Game Match with Live Nexus Scoreboard](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-pvp_5.png)
+![In-Game Match with Live Nexus Scoreboard](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-pvp_5.webp)
 
-![Classic FunMOBA V1 Arena Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20Old%20funmoba-pvp-moba-style-pvp_2.png)
+![Classic FunMOBA V1 Arena Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20Old%20funmoba-pvp-moba-style-pvp_2.webp)
 
 ### Credits & Details
 - **Map Creator & Command Engineering:** Tasrif (RenderPhoenix)

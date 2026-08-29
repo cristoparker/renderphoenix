@@ -9,7 +9,7 @@ downloads: "16.7K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame.png"
+cover_image: "/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Command Blocks"
@@ -37,7 +37,7 @@ The map is engineered purely with lightweight vanilla Bedrock command blocks and
 
 The match takes place within the claustrophobic grounds of a foreboding mansion estate. Dim torchlight and glowing lanterns barely pierce the darkness, casting long shadows across winding cobblestone pathways and overgrown foliage where danger lurks around every corner.
 
-![Dark Mansion Courtyard and Overgrown Pathways](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame_2.png)
+![Dark Mansion Courtyard and Overgrown Pathways](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame_2.webp)
 
 ### Roles & Asymmetrical Balance
 
@@ -59,13 +59,13 @@ The game requires at least 4 survivors (5+ players recommended) and 1 killer:
 2. **The Killer's Cage & Teammate Rescues**: When a survivor is struck down, they are banished to the Killer's Cage. Any active survivor can rescue their fallen teammate at the cost of 50 coins.
 3. **The Escape Door & Safe Zone**: The ultimate objective for survivors is to gather 50 coins and reach the designated safe zone—a protected sanctuary paved with emerald ore located at the spawn chamber. Unlocking the escape door seals victory for the survivors.
 
-![The Killer's Cage Respawn Area and Rescue Station](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20%20killer-vs-survivors-minigame_3.png)
+![The Killer's Cage Respawn Area and Rescue Station](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20%20killer-vs-survivors-minigame_3.webp)
 
 ### Game Lobby & Host Controls
 
 The dedicated staging lobby provides an intuitive control room with both operator host permissions and player self-control features. Hosts can seamlessly reset the game state, clear scoreboards, teleport players, and initiate matches with single-button triggers.
 
-![Game Staging Lobby and Host Controls](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame_5.png)
+![Game Staging Lobby and Host Controls](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame_5.webp)
 
 ### How to Play & Match Rules
 

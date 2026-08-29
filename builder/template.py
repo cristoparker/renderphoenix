@@ -94,6 +94,12 @@ class TemplateEngine:
         else:
             text = text.replace('{{ markdown_alternate_link }}', '')
 
+        preload_img = meta.get('preload_image', '')
+        if preload_img:
+            text = text.replace('{{ preload_lcp_image }}', f'<link rel="preload" as="image" href="{preload_img}" fetchpriority="high">')
+        else:
+            text = text.replace('{{ preload_lcp_image }}', '')
+
         text = re.sub(r"\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}", r"\1", text)
         text = re.sub(r'\{\{\s*"([^"]+)"\s*\|\s*relative_url\s*\}\}', r"\1", text)
 

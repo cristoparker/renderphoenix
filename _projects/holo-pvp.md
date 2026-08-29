@@ -9,7 +9,7 @@ downloads: "13.2K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp-solo-competitive-battle%20thumbnail.png"
+cover_image: "/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp-solo-competitive-battle%20thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "PvP Mechanics"
@@ -36,19 +36,19 @@ The map features custom ability and potion effect systems, internal teleportatio
 
 The combat arena is divided into distinct lettered sectors (A, B, C, D) connected through a network of covered stone walkways, open grassy plazas, foliage canopies, and subterranean tunnels designed to prevent camping.
 
-![Aerial Overview of HOLO PvP Arena Layout](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp--solo-competitive-battle_2.png)
+![Aerial Overview of HOLO PvP Arena Layout](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp--solo-competitive-battle_2.webp)
 
 ### Combat Corridors & Sightlines
 
 Dense stone corridors and fortified window parapets offer versatile combat opportunities, enabling players to engage in close-quarters melee skirmishes or set up ranged sniping ambushes overlooking the main central grounds.
 
-![Stone Corridors and Sightlines into Courtyard](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20%20holo-pvp--solo-competitive-battle_3.png)
+![Stone Corridors and Sightlines into Courtyard](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20%20holo-pvp--solo-competitive-battle_3.webp)
 
 ### Sector Courtyards & Abilities
 
 The open courtyards feature international flag displays, elevated perimeter battlements for spectators, and hidden teleportation conduits that allow skilled players to escape danger and flank enemy positions in an instant.
 
-![Sector B Battleground and Outer Flags](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp--solo-competitive-battle_4.png)
+![Sector B Battleground and Outer Flags](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp--solo-competitive-battle_4.webp)
 
 ### Match Flow & How to Play
 

@@ -9,7 +9,7 @@ status: "completed"
 version: "Prototype"
 platform: "Web & 3D Simulation"
 github_url: "https://github.com/renderphoenix"
-cover_image: "/assets/images/projects/moon-forces/Renderphoenix%20Nasa%20Space%20App%20Moon%20Forces%202025.png"
+cover_image: "/assets/images/projects/moon-forces/Renderphoenix%20Nasa%20Space%20App%20Moon%20Forces%202025.webp"
 technologies:
   - "Three.js / WebGL"
   - "Simulation Physics"

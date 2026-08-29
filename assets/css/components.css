@@ -201,10 +201,26 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   flex-shrink: 0;
 }
 
+@keyframes shimmerPlaceholder {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .media-aspect {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background: var(--c-2-pale-lavender);
+  aspect-ratio: 520 / 245;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 25%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.02) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerPlaceholder 2.5s infinite ease-in-out;
   overflow: hidden;
   position: relative;
 }
@@ -215,7 +231,12 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform var(--transition-smooth);
+  transition: transform var(--transition-smooth), opacity 0.3s ease;
+}
+
+.project-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px;
 }
 
 .project-card:hover .media-aspect img {
@@ -446,20 +467,20 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 .post-card-media {
   position: relative;
   overflow: hidden;
-  margin: 0.65rem 0.65rem 0;
-  width: auto;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 520 / 245;
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-border);
   background: var(--c-2-pale-lavender);
   flex-shrink: 0;
 }
 
 .post-card-featured .post-card-media {
-  margin: 0.75rem 0.75rem 0;
-  border-radius: var(--radius-lg);
-  aspect-ratio: 16 / 9;
-  width: auto;
+  margin: 0;
+  border-radius: 0;
+  aspect-ratio: 520 / 245;
+  width: 100%;
 }
 
 .post-card-media img {
@@ -994,17 +1015,73 @@ img {
   display: block;
 }
 
+/* Progressive image load transition */
+img[loading="lazy"] {
+  opacity: 0.92;
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"].is-loaded {
+  opacity: 1;
+}
+
+.post-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 420px;
+}
+
+.post-card-media {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 520 / 245;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 25%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.02) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerPlaceholder 2.5s infinite ease-in-out;
+}
+
 .magazine-sidebar-thumb {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-md);
+  aspect-ratio: 1 / 1;
 }
 
 .project-cover {
   position: relative;
   overflow: hidden;
   width: 100%;
+  aspect-ratio: 520 / 245;
   border-radius: var(--radius-xl);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 25%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.02) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerPlaceholder 2.5s infinite ease-in-out;
+}
+
+.article-hero-media {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 520 / 245;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 25%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.02) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerPlaceholder 2.5s infinite ease-in-out;
 }
 
 .card-media img,

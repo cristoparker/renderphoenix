@@ -9,7 +9,7 @@ downloads: "13.3K+"
 status: "completed"
 version: "2.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%20addon%20thumbnail2021063018550.png"
+cover_image: "/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%20addon%20thumbnail2021063018550.webp"
 technologies:
   - "Minecraft Bedrock"
   - "3D Modeling"
@@ -40,21 +40,21 @@ The V2.0 update introduces six distinct vibrant frame colorways and interactive 
 - **Usable Inventory Space**: Built-in container storage allowing you to stash gear and transport items on your journeys.
 - **Custom 3D Geometry**: Meticulously modeled frame, spoked wheels, handlebars, pedals, and rear luggage rack.
 
-![Phoenix Bicycle 3D Model and Frame Details](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%202.png)
+![Phoenix Bicycle 3D Model and Frame Details](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%202.webp)
 
 ### Mob Riding & Passenger Capacity
 
 In addition to player travel, the bicycle supports mob interactions. Other mobs, including friendly Villagers, can hop onto the rear carrier rack and ride along with you across your world.
 
-![Villager Riding Passenger on the Rear Carrier Rack](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%203.png)
+![Villager Riding Passenger on the Rear Carrier Rack](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%203.webp)
 
 ### Countryside Cruising & Exploration
 
 Whether navigating modern city roads, suburban neighborhoods, or rural dirt trails across farmland, the Phoenix Bicycle provides an agile alternative to horses and minecarts.
 
-![Phoenix Bicycle in Farmland with Players](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle.png)
+![Phoenix Bicycle in Farmland with Players](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle.webp)
 
-![Parked Red Phoenix Bicycle Along Farm Fence](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%204.png)
+![Parked Red Phoenix Bicycle Along Farm Fence](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%204.webp)
 
 ### How to Obtain & Spawn Commands
 

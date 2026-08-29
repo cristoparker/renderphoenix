@@ -13,6 +13,16 @@ document.addEventListener('error', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Progressive Image Load Handler
+  const handleImgLoad = (img) => {
+    if (img.complete) {
+      img.classList.add('is-loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
+    }
+  };
+  document.querySelectorAll('img').forEach(handleImgLoad);
+
   // Mobile Navigation Toggle
   const navToggle = document.getElementById('nav-toggle');
   const primaryNav = document.getElementById('primary-nav');
@@ -107,41 +117,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Scroll Header Effect
+  // Scroll Header Effect with rAF Throttling for 0 INP impact
   const header = document.getElementById('site-header');
   if (header) {
+    let scrollTicking = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 40) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+          scrollTicking = false;
+        });
+        scrollTicking = true;
       }
-    });
+    }, { passive: true });
   }
 
-  // Clickable Cards Navigation (Project cards, Post cards, Sidebar highlights)
+  // Lightweight Clickable Cards Navigation
   document.addEventListener('click', (e) => {
-    // If clicked on an interactive element, allow default behavior
-    if (e.target.closest('a, button, input, textarea, select, label')) {
-      return;
-    }
-    // If user is selecting text, do not navigate
-    const selection = window.getSelection();
-    if (selection && selection.toString().length > 0) {
-      return;
-    }
     const card = e.target.closest('.project-card, .post-card, .magazine-sidebar-item');
-    if (card) {
-      const targetLink = card.querySelector('a.card-link, a.read-more-link, .card-title a, .post-card-title a, .magazine-sidebar-title a, h3 a, h4 a');
-      if (targetLink && targetLink.href) {
-        if (e.metaKey || e.ctrlKey) {
-          window.open(targetLink.href, '_blank');
-        } else {
-          window.location.href = targetLink.href;
-        }
+    if (!card) return;
+    if (e.target.closest('a, button, input, textarea, select, label, .tag-chip, .btn')) return;
+    
+    const selection = window.getSelection();
+    if (selection && selection.toString().length > 0) return;
+    
+    const targetLink = card.querySelector('.card-title a, .post-card-title a, .magazine-sidebar-title a, .card-link, .read-more-link');
+    if (targetLink && targetLink.href) {
+      if (e.metaKey || e.ctrlKey) {
+        window.open(targetLink.href, '_blank');
+      } else {
+        window.location.href = targetLink.href;
       }
     }
-  });
+  }, { passive: true });
 
   // Smooth Count-Up Animation for Stats
   const countUpElements = document.querySelectorAll('.stat-count-up, [data-target]');

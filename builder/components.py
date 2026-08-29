@@ -1,6 +1,7 @@
 from typing import Union, Dict, Any, List
 from .models import Project, Post, Service, TeamMember
 from .utils import format_full_date
+from .images import get_webp_url, get_image_dimensions
 
 class ComponentRenderer:
     """Renders reusable HTML UI components including project cards, blog post cards, specs, and action buttons."""
@@ -18,8 +19,9 @@ class ComponentRenderer:
             '</svg><span>Award Winner</span></div>'
         ) if proj.get('award') else ''
         
-        img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
-        img_html = f'<img src="{img}" alt="{proj.get("title")} preview" loading="lazy" width="520" height="245" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';">'
+        raw_img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
+        img = get_webp_url(raw_img)
+        img_html = f'<img src="{img}" alt="{proj.get("title")} preview" loading="lazy" decoding="async" width="520" height="245" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';">'
         slug = proj.get('slug', '')
         url = f'/work/{slug}/'
         date_formatted = format_full_date(proj.get('date'))
@@ -71,8 +73,9 @@ class ComponentRenderer:
     def render_post_card(post: Union[Post, Dict[str, Any]], featured: bool = False, card_class: str = "") -> str:
         """Renders blog post / devlog card (grid or featured magazine layout)."""
         feat_class = 'post-card-featured' if featured else card_class
-        img = post.get('image') or '/assets/images/image-not-found.svg'
-        img_html = f'<div class="post-card-media"><img src="{img}" alt="{post.get("title")}" loading="lazy" width="600" height="340" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
+        raw_img = post.get('image') or '/assets/images/image-not-found.svg'
+        img = get_webp_url(raw_img)
+        img_html = f'<div class="post-card-media"><img src="{img}" alt="{post.get("title")}" loading="lazy" decoding="async" width="520" height="245" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
         slug = post.get('slug', '')
         url = f'/blog/{slug}/'
         author = post.get('author', 'RenderPhoenix')
@@ -115,8 +118,10 @@ class ComponentRenderer:
         if cat in ['Interactive', 'Environment']:
             cat = 'Project'
         url = f"/work/{proj.get('slug')}/"
-        img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
-        img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);"><img src="{img}" alt="{proj.get("title")}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
+        raw_img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
+        img = get_webp_url(raw_img)
+        dims = get_image_dimensions(img) or (70, 70)
+        img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);"><img src="{img}" alt="{proj.get("title")}" loading="lazy" decoding="async" width="{dims[0]}" height="{dims[1]}" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
         date_formatted = format_full_date(proj.get('date'))
 
         return f"""
@@ -153,10 +158,12 @@ class ComponentRenderer:
     @staticmethod
     def render_team_card(mem: Union[TeamMember, Dict[str, Any]]) -> str:
         """Renders studio team member roster card."""
-        avatar_url = mem.get('avatar', '')
+        raw_avatar = mem.get('avatar', '')
+        avatar_url = get_webp_url(raw_avatar) if raw_avatar else ''
         name = mem.get('name', '')
         if avatar_url:
-            avatar_html = f'<img src="{avatar_url}" alt="{name}" class="team-avatar-img" width="80" height="80" loading="lazy" />'
+            dims = get_image_dimensions(avatar_url) or (80, 80)
+            avatar_html = f'<img src="{avatar_url}" alt="{name}" class="team-avatar-img" width="{dims[0]}" height="{dims[1]}" loading="lazy" decoding="async" />'
         else:
             initial = name[0] if name else 'R'
             avatar_html = initial

@@ -1,6 +1,6 @@
 ---
 category: Add-On
-cover_image: /assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png
+cover_image: /assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.webp
 date: Wed, 14 Apr 2021 00:00:00 GMT
 description: Custom vehicle add-on bringing authentic Bangladeshi street transport
   models and physics.
@@ -34,37 +34,37 @@ The **Bangladeshi Vehicles Add-on** brings authentic regional transport from Ban
 
 The iconic suburban transit minibus commonly found navigating city routes and rural highways.
 
-![Leguna Human Hauler](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_2.jpeg)
+![Leguna Human Hauler](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_2.webp)
 
 **2. Traditional Cycle Rickshaw**
 
 The cultural heartbeat of Dhaka streets, modeled with a custom passenger hood and spoked wheels.
 
-![Cycle Rickshaw 3D Model](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon--pre-release-100_3.jpeg)
+![Cycle Rickshaw 3D Model](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon--pre-release-100_3.webp)
 
 **3. Cargo Van (Flatbed Tricycle)**
 
 A versatile wooden flatbed tricycle used across Bangladesh for hauling goods and local transport.
 
-![Bangladeshi Flatbed Cargo Van](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_4.jpeg)
+![Bangladeshi Flatbed Cargo Van](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_4.webp)
 
 **4. Electric Rickshaw (Easy Bike / Auto)**
 
 Modern eco-friendly green auto-rickshaw with covered cabin and passenger seating.
 
-![Electric Rickshaw Easy Bike](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_6.jpeg)
+![Electric Rickshaw Easy Bike](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_6.webp)
 
 **5. Traditional Sailboat (Nouka)**
 
 Classic wooden riverboat with an upright red sail designed for navigating rivers and waterways.
 
-![Traditional River Sailboat](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_8.jpeg)
+![Traditional River Sailboat](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_8.webp)
 
 **6. Sports Car**
 
 A bonus custom red sports car vehicle model.
 
-![Red Sports Car](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_10.jpeg)
+![Red Sports Car](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_10.webp)
 
 ### How to Get Vehicles
 
@@ -76,9 +76,9 @@ You can obtain all vehicles directly in the **Creative Inventory** under the Nat
 - `/give @s bdv:boat*spawn*egg`
 - `/give @s bdv:car*spawn*egg`
 
-![Creative Inventory Vehicle Spawn Eggs](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_13.jpeg)
+![Creative Inventory Vehicle Spawn Eggs](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_13.webp)
 
-![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.jpeg)
+![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.webp)
 
 ### Credits & Tools
 

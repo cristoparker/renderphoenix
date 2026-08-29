@@ -9,7 +9,7 @@ downloads: "285.1K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis-a-post-apocalyptic-city%20thumbnail.png"
+cover_image: "/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis-a-post-apocalyptic-city%20thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Environment Art"
@@ -42,9 +42,9 @@ Set on a self-contained custom island bordered by rocky mountains, open plains, 
 - **High-Rise Airliner Collision**: A commercial passenger jetliner lodged directly into the upper floors of an apartment complex.
 - **Overgrown Boulevards**: Wide multi-lane roadways covered in cracked asphalt, derelict vehicles, traffic blockades, and creeping ivy.
 
-![Aerial View of the Coastal Island and Cargo Shipyard](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_5.png)
+![Aerial View of the Coastal Island and Cargo Shipyard](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_5.webp)
 
-![Street Level View of the High-Rise Plane Crash](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_4.png)
+![Street Level View of the High-Rise Plane Crash](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_4.webp)
 
 ### The Medical Center & City Hospital
 
@@ -54,7 +54,7 @@ At the heart of the city stands a massive multi-story medical complex serving as
 - **Communications Infrastructure**: Tall red-and-white broadcast towers providing vantage points across the skyline.
 - **Urban Decay**: Abandoned multi-story residential blocks with shattered windows and overgrown foliage.
 
-![City Hospital Complex and Transit Station](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_2.png)
+![City Hospital Complex and Transit Station](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_2.webp)
 
 ### Survival Rules & Urban Scavenging
 
@@ -64,7 +64,7 @@ Zombiepolis is balanced to deliver a genuine scavenger survival experience:
 2. **Urban Scavenging Focus**: Traditional underground mining is disabled; players must explore apartment rooms, warehouses, and vehicle trunks across the island to find food, weapons, and medical supplies.
 3. **Island Boundary**: The playable area is confined to the island perimeter, ensuring fast-paced encounters and tight multiplayer pacing.
 
-![Rooftop Perspective Overlooking Overgrown Highway](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_3.png)
+![Rooftop Perspective Overlooking Overgrown Highway](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_3.webp)
 
 ### Recommended Add-ons & Mod Setup
 

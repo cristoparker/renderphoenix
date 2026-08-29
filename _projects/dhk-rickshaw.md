@@ -1,6 +1,6 @@
 ---
 category: Add-On
-cover_image: /assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.png
+cover_image: /assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.webp
 date: Fri, 12 Nov 2021 00:00:00 GMT
 description: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork
   and pedaling mechanics.
@@ -35,13 +35,13 @@ The **DHK Rickshaw V2 Add-on** brings the iconic cycle rickshaws of Dhaka into M
 - **Mobile Inventory Storage**: Built-in container storage allowing you to transport items across your worlds.
 - **Classic Vehicle Dynamics**: Smooth riding and turning mechanics tailored for city roads and rural pathways.
 
-![Dhaka Rickshaw V2 Color Variants](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v2.png)
+![Dhaka Rickshaw V2 Color Variants](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v2.webp)
 
 ### Additional Transport Models
 
 Alongside the cycle rickshaws, this pack series features complementary regional transport vehicles including the green Auto Rickshaw (Easy Bike).
 
-![Auto Rickshaw Variant](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Auto%20Rickshaw.png)
+![Auto Rickshaw Variant](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Auto%20Rickshaw.webp)
 
 ### How to Use & Controls
 
@@ -55,7 +55,7 @@ Alongside the cycle rickshaws, this pack series features complementary regional 
 
 The DHK Rickshaw project originated during the early Banglamine City and Minehutt builds in 2020, evolving into the refined V2 release with updated textures and physics.
 
-![Early Rickshaw V1 Development in Banglamine](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v1%202020%20.png)
+![Early Rickshaw V1 Development in Banglamine](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v1%202020%20.webp)
 
 ### Credits & Tools
 

@@ -12,6 +12,7 @@ from .seo import SitemapBuilder
 from .search import SearchIndexer
 from .llm import LLMGenerator
 from .utils import format_full_date, get_youtube_embed_url, clean_conditional
+from .images import get_webp_url
 
 class SiteBuilder:
     """Orchestrates the static site generation lifecycle for RenderPhoenix."""
@@ -89,7 +90,9 @@ class SiteBuilder:
             p_content = clean_conditional(p_content, 'page.youtube_author', bool(yt_author))
             p_content = clean_conditional(p_content, 'page.youtube_url', bool(yt_url))
 
-            cover_img = proj.cover_image or '/assets/images/image-not-found.svg'
+            raw_cover_img = proj.cover_image or '/assets/images/image-not-found.svg'
+            cover_img = get_webp_url(raw_cover_img)
+            proj.meta['preload_image'] = cover_img
             p_content = re.sub(r'\{%\s*assign\s+cover_img\s*=[\s\S]*?%\}', '', p_content)
             p_content = p_content.replace('{{ cover_img | relative_url }}', cover_img)
             p_content = p_content.replace('{{ page.cover_image | relative_url }}', cover_img)
@@ -154,7 +157,9 @@ class SiteBuilder:
             p_content = re.sub(r'\{%\s*if\s+page\.categories\s*%\}.*?\{%\s*endif\s*%\}', 'Devlog', p_content)
 
             if post.image:
-                p_content = p_content.replace('{% if page.image %}', '').replace('{% endif %}', '').replace('{{ page.image | relative_url }}', post.image)
+                hero_img = get_webp_url(post.image)
+                post.meta['preload_image'] = hero_img
+                p_content = p_content.replace('{% if page.image %}', '').replace('{% endif %}', '').replace('{{ page.image | relative_url }}', hero_img)
 
             full_html = def_layout.replace('{{ content }}', p_content)
             full_html = self.template_engine.clean_liquid_tags(full_html, post.meta, page_type='post', slug=slug)
@@ -288,10 +293,12 @@ class SiteBuilder:
                 content_html = body_html
 
             page_title_meta = f"{p_title} — {Config.SITE_NAME}" if p_title and slug != '' else (p_title or f"{Config.SITE_NAME} — {Config.SITE_TAGLINE}")
+            preload_hero = '/assets/images/projects/banglamine%202%202020-10-05_19.29.51.webp' if slug == '' else ''
             page_meta = {
                 'title': page_title_meta,
                 'description': p_desc or Config.DEFAULT_DESCRIPTION,
                 'header_image': header_img,
+                'preload_image': preload_hero,
                 'markdown_url': f"/{slug}.md" if slug and slug != '404' else '',
                 'canonical_url': f"{Config.SITE_URL}/{slug}/" if slug and slug != '404' else f"{Config.SITE_URL}/"
             }

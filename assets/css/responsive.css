@@ -139,17 +139,19 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.3s;
+    contain: layout paint style;
     box-shadow: -8px 0 32px rgba(28, 27, 24, 0.15);
     z-index: 1060;
     overflow-y: auto;
   }
 
+  body.nav-open .primary-nav,
   .primary-nav.is-open {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease, visibility 0.28s;
   }
 
   /* Drawer Header */

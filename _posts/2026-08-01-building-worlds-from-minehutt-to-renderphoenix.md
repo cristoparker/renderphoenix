@@ -22,7 +22,7 @@ Every creative studio has an origin story driven by curiosity, technical experim
 
 Our journey started under the name **Minehutt**, founded by **Tasrif**. Operating with a bold purple voxel aesthetic, Minehutt was all about community connection: hosting Minecraft realms, playing together with friends and community members, and having fun building custom adventure maps.
 
-![Minehutt Original Studio Logo 2019–2021](/assets/images/brand/Minehutt%20Logo%202019%20-%202021.jpeg)
+![Minehutt Original Studio Logo 2019–2021](/assets/images/brand/Minehutt%20Logo%202019%20-%202021.webp)
 
 These early years fostered our creative collaboration and laid the groundwork for the technical and artistic ambitions that would follow.
 
@@ -32,7 +32,7 @@ By early 2021, our ambitions expanded from hosting realms into building standalo
 
 On **January 30, 2021**, we officially rebranded as **RenderPhoenix**, introducing our soaring phoenix emblem with layered violet and rose wings.
 
-![RenderPhoenix First Generation Logo 2021–2024](/assets/images/brand/Renderphoenix%202021-2026.png)
+![RenderPhoenix First Generation Logo 2021–2024](/assets/images/brand/Renderphoenix%202021-2026.webp)
 
 Under the RenderPhoenix banner, we launched our most iconic community creations on MCPEDL:
 - **Banglamine City**: An ambitious open-world project exploring authentic Bangladeshi architectural motifs.
@@ -40,7 +40,7 @@ Under the RenderPhoenix banner, we launched our most iconic community creations 
 - **Authentic Bangladeshi Vehicles**: High-detail modular add-ons including the *DHK Rickshaw* and *Phoenix Bicycle*.
 - **Custom Add-ons & UI**: Tailored user interface packs and game mechanics.
 
-![Banglamine City Early World Design](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.png)
+![Banglamine City Early World Design](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.webp)
 
 ## Overcoming Setbacks with Resilience
 

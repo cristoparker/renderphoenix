@@ -3,7 +3,7 @@
 <article class="post-card {% if include.featured %}post-card-featured{% endif %}">
   {% assign post_img = post.image | default: '/assets/images/image-not-found.svg' %}
   <div class="post-card-media">
-    <img src="{{ post_img | relative_url }}" alt="{{ post.title }}" loading="lazy" width="600" height="340" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
+    <img src="{{ post_img | relative_url }}" alt="{{ post.title }}" loading="lazy" decoding="async" width="520" height="245" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
   </div>
 
   <div class="post-card-content">

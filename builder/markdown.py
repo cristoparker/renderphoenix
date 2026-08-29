@@ -1,6 +1,7 @@
 import re
 from typing import List, Tuple, Optional
 from .utils import render_youtube_player
+from .images import get_webp_url, get_image_dimensions
 
 class MarkdownParser:
     """Parses lightweight GitHub Flavored Markdown, media embeds, and tables into clean HTML."""
@@ -309,7 +310,11 @@ class MarkdownParser:
         def _save_img(match: re.Match) -> str:
             alt = match.group(1)
             src = match.group(2)
-            img_tokens.append(f'<img src="{src}" alt="{alt}" class="content-img" loading="lazy" />')
+            webp_src = get_webp_url(src)
+            dims = get_image_dimensions(webp_src)
+            dim_attrs = f' width="{dims[0]}" height="{dims[1]}"' if dims else ''
+            fallback_url = src if webp_src != src else '/assets/images/image-not-found.svg'
+            img_tokens.append(f'<img src="{webp_src}" alt="{alt}" class="content-img" loading="lazy" decoding="async"{dim_attrs} onerror="this.onerror=null; this.src=\'{fallback_url}\';" />')
             return f'\x00IMG_{len(img_tokens) - 1}\x00'
         text = re.sub(r'!\[(.*?)\]\((.*?)\)', _save_img, text)
 

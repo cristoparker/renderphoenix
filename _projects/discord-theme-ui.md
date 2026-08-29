@@ -9,7 +9,7 @@ downloads: "34.8K+"
 status: "completed"
 version: "Beta"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-ui-beta%20thumbnail.png"
+cover_image: "/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-ui-beta%20thumbnail.webp"
 technologies:
   - "UI Design"
   - "JSON Interface Schemas"
@@ -36,17 +36,17 @@ The **Discord Theme UI** is a sleek, dark-mode interface overhaul designed to br
 **Title Screen & Main Menu**
 Features the iconic scenic mountain Discord background, bold title styling, and Discord blurple action buttons.
 
-![Discord Styled Start Menu](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_2.png)
+![Discord Styled Start Menu](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_2.webp)
 
 **Create World & Game Settings**
 Themed configuration screens featuring Wumpus character art, dark slate option panels, and custom Discord purple slider toggle controls.
 
-![World Settings and Wumpus Interface](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_3.png)
+![World Settings and Wumpus Interface](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_3.webp)
 
 **Minimal Inventory & Container GUI**
 Dark slate storage and crafting menus with high-contrast item slots, purple tooltip borders, and streamlined layout.
 
-![Dark Minimal Inventory and Crafting](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_4.png)
+![Dark Minimal Inventory and Crafting](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_4.webp)
 
 ### Key Features
 - **Discord Aesthetics**: Dark slate backgrounds, blurple accents, and custom minimal D-pad controls for mobile players.

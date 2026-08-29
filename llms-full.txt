@@ -265,7 +265,7 @@ RenderPhoenix works with indie creators, international studios, space applicatio
 
 ---
 category: Add-On
-cover_image: /assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.png
+cover_image: /assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.webp
 date: Wed, 14 Apr 2021 00:00:00 GMT
 description: Custom vehicle add-on bringing authentic Bangladeshi street transport
   models and physics.
@@ -299,37 +299,37 @@ The **Bangladeshi Vehicles Add-on** brings authentic regional transport from Ban
 
 The iconic suburban transit minibus commonly found navigating city routes and rural highways.
 
-![Leguna Human Hauler](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_2.jpeg)
+![Leguna Human Hauler](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_2.webp)
 
 **2. Traditional Cycle Rickshaw**
 
 The cultural heartbeat of Dhaka streets, modeled with a custom passenger hood and spoked wheels.
 
-![Cycle Rickshaw 3D Model](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon--pre-release-100_3.jpeg)
+![Cycle Rickshaw 3D Model](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon--pre-release-100_3.webp)
 
 **3. Cargo Van (Flatbed Tricycle)**
 
 A versatile wooden flatbed tricycle used across Bangladesh for hauling goods and local transport.
 
-![Bangladeshi Flatbed Cargo Van](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_4.jpeg)
+![Bangladeshi Flatbed Cargo Van](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_4.webp)
 
 **4. Electric Rickshaw (Easy Bike / Auto)**
 
 Modern eco-friendly green auto-rickshaw with covered cabin and passenger seating.
 
-![Electric Rickshaw Easy Bike](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_6.jpeg)
+![Electric Rickshaw Easy Bike](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_6.webp)
 
 **5. Traditional Sailboat (Nouka)**
 
 Classic wooden riverboat with an upright red sail designed for navigating rivers and waterways.
 
-![Traditional River Sailboat](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_8.jpeg)
+![Traditional River Sailboat](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_8.webp)
 
 **6. Sports Car**
 
 A bonus custom red sports car vehicle model.
 
-![Red Sports Car](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_10.jpeg)
+![Red Sports Car](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_10.webp)
 
 ### How to Get Vehicles
 
@@ -341,9 +341,9 @@ You can obtain all vehicles directly in the **Creative Inventory** under the Nat
 - `/give @s bdv:boat*spawn*egg`
 - `/give @s bdv:car*spawn*egg`
 
-![Creative Inventory Vehicle Spawn Eggs](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_13.jpeg)
+![Creative Inventory Vehicle Spawn Eggs](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_13.webp)
 
-![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.jpeg)
+![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.webp)
 
 ### Credits & Tools
 
@@ -358,7 +358,7 @@ You can obtain all vehicles directly in the **Creative Inventory** under the Nat
 
 ---
 category: Add-On
-cover_image: /assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.png
+cover_image: /assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.webp
 date: Fri, 12 Nov 2021 00:00:00 GMT
 description: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork
   and pedaling mechanics.
@@ -393,13 +393,13 @@ The **DHK Rickshaw V2 Add-on** brings the iconic cycle rickshaws of Dhaka into M
 - **Mobile Inventory Storage**: Built-in container storage allowing you to transport items across your worlds.
 - **Classic Vehicle Dynamics**: Smooth riding and turning mechanics tailored for city roads and rural pathways.
 
-![Dhaka Rickshaw V2 Color Variants](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v2.png)
+![Dhaka Rickshaw V2 Color Variants](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v2.webp)
 
 ### Additional Transport Models
 
 Alongside the cycle rickshaws, this pack series features complementary regional transport vehicles including the green Auto Rickshaw (Easy Bike).
 
-![Auto Rickshaw Variant](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Auto%20Rickshaw.png)
+![Auto Rickshaw Variant](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Auto%20Rickshaw.webp)
 
 ### How to Use & Controls
 
@@ -413,7 +413,7 @@ Alongside the cycle rickshaws, this pack series features complementary regional 
 
 The DHK Rickshaw project originated during the early Banglamine City and Minehutt builds in 2020, evolving into the refined V2 release with updated textures and physics.
 
-![Early Rickshaw V1 Development in Banglamine](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v1%202020%20.png)
+![Early Rickshaw V1 Development in Banglamine](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v1%202020%20.webp)
 
 ### Credits & Tools
 
@@ -436,7 +436,7 @@ status: "completed"
 version: "Prototype"
 platform: "Web & 3D Simulation"
 github_url: "https://github.com/renderphoenix"
-cover_image: "/assets/images/projects/moon-forces/Renderphoenix%20Nasa%20Space%20App%20Moon%20Forces%202025.png"
+cover_image: "/assets/images/projects/moon-forces/Renderphoenix%20Nasa%20Space%20App%20Moon%20Forces%202025.webp"
 technologies:
   - "Three.js / WebGL"
   - "Simulation Physics"
@@ -480,7 +480,7 @@ downloads: "4.5K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.png"
+cover_image: "/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.webp"
 technologies:
   - "UI Design"
   - "Texture Art"
@@ -505,17 +505,17 @@ The **Clash of Clans Theme UI** is a full interface visual overhaul designed to 
 **Custom Title & Start Screen**
 A stylized start menu complete with dynamic battle artwork backgrounds, custom Minecraft logo badges, and emerald-green action buttons.
 
-![Clash of Clans Styled Start Menu](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_2.png)
+![Clash of Clans Styled Start Menu](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_2.webp)
 
 **Inventory & Crafting GUI**
 Redesigned container and crafting interfaces featuring stone-textured frames, blue-tinted item grid slots, and themed tab navigation icons.
 
-![Custom Inventory and Crafting UI](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_3.png)
+![Custom Inventory and Crafting UI](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_3.webp)
 
 **Themed Dressing Room**
 A customized skin selector and character dressing room set against the iconic sunset village landscape.
 
-![Themed Dressing Room and Skin Selection](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_4.png)
+![Themed Dressing Room and Skin Selection](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_4.webp)
 
 ### Features & Audio
 - **Supercell Typography**: Custom UNICODE font glyphs created with the "Supercell Magic" typeface for clear, bold labels.
@@ -541,7 +541,7 @@ developer: "Tasrif"
 date: 2021-07-26
 downloads: "33.6K+"
 status: "completed"
-cover_image: "/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20Frostcraft%20Frostpunk%20Thumbnail.png"
+cover_image: "/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20Frostcraft%20Frostpunk%20Thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Minecraft Java"
@@ -574,17 +574,17 @@ The settlement is arranged in concentric circular rings designed to maximize the
 - **Steampunk Automatons & Scouts**: Massive mechanical walkers striding across the snow-covered perimeter alongside tethered reconnaissance balloons.
 - **Mountain Ridge Outpost**: A cliffside staging camp situated along the crater ridge overlooking the frosty basin.
 
-![Automaton and Scout Beacon on the Frozen Perimeter](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_1.png)
+![Automaton and Scout Beacon on the Frozen Perimeter](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_1.webp)
 
-![Aerial View of the Circular Generator Colony](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_2.png)
+![Aerial View of the Circular Generator Colony](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_2.webp)
 
 ### The Thermal Generator Core
 
 The centerpiece of Frostcraft is the meticulously detailed generator tower featuring industrial piping, glowing furnaces, and overhead smoke plumes that illuminate the bleak white landscape.
 
-![Central Thermal Generator Core](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_3.png)
+![Central Thermal Generator Core](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_3.webp)
 
-![Heated Generator Rings during Night Blizzard](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_4.png)
+![Heated Generator Rings during Night Blizzard](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_4.webp)
 
 ### Platform & Edition Support
 - **Minecraft Bedrock Edition**: Optimized for mobile, console, and Windows 10/11.
@@ -610,7 +610,7 @@ date: 2021-07-19
 downloads: "42.2K+"
 status: "completed"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20a-horror-map-if-you-need.png"
+cover_image: "/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20a-horror-map-if-you-need.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Horror Mechanics"
@@ -632,11 +632,11 @@ This is a compact horror project I was working on, but I eventually lost interes
 
 The map is small and focuses heavily on atmospheric tension. A solitary road cuts through a dense, gloomy pine forest, leading directly to a large mansion looming at the roadside. 
 
-![Mansion Courtyard and Grounds in Storm](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_2.png)
+![Mansion Courtyard and Grounds in Storm](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_2.webp)
 
 The structure is a modified take on the vanilla Woodland Mansion, customized with dim, eerie interior lighting to create a suspenseful mood inside every hallway. For the best visual experience, we recommend playing with vanilla stormy weather set to late afternoon, or running it at night if you are using custom shaders.
 
-![Eerie Woodland Mansion Hallway](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_3.png)
+![Eerie Woodland Mansion Hallway](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_3.webp)
 
 ### Gameplay & Layout
 
@@ -644,7 +644,7 @@ The structure is a modified take on the vanilla Woodland Mansion, customized wit
 * **Intended Gamemodes:** The layout is specifically tuned for horror hide-and-seek, tag, or custom monster survival battles rather than open-world exploration.
 * **Open to Editing:** The command block system was left unfinished, so feel free to rework the commands, redesign the rooms, or add your own mechanics.
 
-![Contained Boundary Road at Night](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_4.png)
+![Contained Boundary Road at Night](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_4.webp)
 
 I hope you find a fun use for it in your worlds and events!
 
@@ -664,7 +664,7 @@ downloads: "16.7K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame.png"
+cover_image: "/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Command Blocks"
@@ -692,7 +692,7 @@ The map is engineered purely with lightweight vanilla Bedrock command blocks and
 
 The match takes place within the claustrophobic grounds of a foreboding mansion estate. Dim torchlight and glowing lanterns barely pierce the darkness, casting long shadows across winding cobblestone pathways and overgrown foliage where danger lurks around every corner.
 
-![Dark Mansion Courtyard and Overgrown Pathways](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame_2.png)
+![Dark Mansion Courtyard and Overgrown Pathways](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame_2.webp)
 
 ### Roles & Asymmetrical Balance
 
@@ -714,13 +714,13 @@ The game requires at least 4 survivors (5+ players recommended) and 1 killer:
 2. **The Killer's Cage & Teammate Rescues**: When a survivor is struck down, they are banished to the Killer's Cage. Any active survivor can rescue their fallen teammate at the cost of 50 coins.
 3. **The Escape Door & Safe Zone**: The ultimate objective for survivors is to gather 50 coins and reach the designated safe zone—a protected sanctuary paved with emerald ore located at the spawn chamber. Unlocking the escape door seals victory for the survivors.
 
-![The Killer's Cage Respawn Area and Rescue Station](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20%20killer-vs-survivors-minigame_3.png)
+![The Killer's Cage Respawn Area and Rescue Station](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20%20killer-vs-survivors-minigame_3.webp)
 
 ### Game Lobby & Host Controls
 
 The dedicated staging lobby provides an intuitive control room with both operator host permissions and player self-control features. Hosts can seamlessly reset the game state, clear scoreboards, teleport players, and initiate matches with single-button triggers.
 
-![Game Staging Lobby and Host Controls](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame_5.png)
+![Game Staging Lobby and Host Controls](/assets/images/projects/killer-vs-survivor/Renderphoenix%20Minecraft%20killer-vs-survivors-minigame_5.webp)
 
 ### How to Play & Match Rules
 
@@ -752,7 +752,7 @@ downloads: "34.8K+"
 status: "completed"
 version: "Beta"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-ui-beta%20thumbnail.png"
+cover_image: "/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-ui-beta%20thumbnail.webp"
 technologies:
   - "UI Design"
   - "JSON Interface Schemas"
@@ -779,17 +779,17 @@ The **Discord Theme UI** is a sleek, dark-mode interface overhaul designed to br
 **Title Screen & Main Menu**
 Features the iconic scenic mountain Discord background, bold title styling, and Discord blurple action buttons.
 
-![Discord Styled Start Menu](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_2.png)
+![Discord Styled Start Menu](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_2.webp)
 
 **Create World & Game Settings**
 Themed configuration screens featuring Wumpus character art, dark slate option panels, and custom Discord purple slider toggle controls.
 
-![World Settings and Wumpus Interface](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_3.png)
+![World Settings and Wumpus Interface](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_3.webp)
 
 **Minimal Inventory & Container GUI**
 Dark slate storage and crafting menus with high-contrast item slots, purple tooltip borders, and streamlined layout.
 
-![Dark Minimal Inventory and Crafting](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_4.png)
+![Dark Minimal Inventory and Crafting](/assets/images/projects/discord-theme-ui/Renderphoenix%20Minecraft%20discord-theme-beta_4.webp)
 
 ### Key Features
 - **Discord Aesthetics**: Dark slate backgrounds, blurple accents, and custom minimal D-pad controls for mobile players.
@@ -817,7 +817,7 @@ date: 2021-03-29
 downloads: "198.2K+"
 status: "completed"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.png"
+cover_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.webp"
 technologies:
   - "Minecraft Bedrock"
   - "World Design"
@@ -835,14 +835,14 @@ tags:
 
 Banglamine City is one of RenderPhoenix's flagship early urban creation maps, combining metropolitan city layouts, Bangladeshi architectural elements, high-density residential blocks, and detailed road infrastructure.
 
-![Banglamine City Atmospheric Streets](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.png)
+![Banglamine City Atmospheric Streets](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.webp)
 
 ### Project Highlights
 - **Urban Scale**: Sprawling metropolis with commercial districts, flyovers, residential zones, and public transit nodes.
 - **Cultural Detailing**: Custom building designs drawing inspiration from Bangladeshi cityscapes, landmarks, and streetscapes.
 - **Exploration**: Built with intricate interiors and hidden spots designed for multiplayer exploration and roleplay.
 
-![Banglamine Land Field & Development](/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.png)
+![Banglamine Land Field & Development](/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.webp)
 
 
 ----------------------------------------
@@ -860,7 +860,7 @@ downloads: "13.3K+"
 status: "completed"
 version: "2.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%20addon%20thumbnail2021063018550.png"
+cover_image: "/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%20addon%20thumbnail2021063018550.webp"
 technologies:
   - "Minecraft Bedrock"
   - "3D Modeling"
@@ -891,21 +891,21 @@ The V2.0 update introduces six distinct vibrant frame colorways and interactive 
 - **Usable Inventory Space**: Built-in container storage allowing you to stash gear and transport items on your journeys.
 - **Custom 3D Geometry**: Meticulously modeled frame, spoked wheels, handlebars, pedals, and rear luggage rack.
 
-![Phoenix Bicycle 3D Model and Frame Details](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%202.png)
+![Phoenix Bicycle 3D Model and Frame Details](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%202.webp)
 
 ### Mob Riding & Passenger Capacity
 
 In addition to player travel, the bicycle supports mob interactions. Other mobs, including friendly Villagers, can hop onto the rear carrier rack and ride along with you across your world.
 
-![Villager Riding Passenger on the Rear Carrier Rack](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%203.png)
+![Villager Riding Passenger on the Rear Carrier Rack](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%203.webp)
 
 ### Countryside Cruising & Exploration
 
 Whether navigating modern city roads, suburban neighborhoods, or rural dirt trails across farmland, the Phoenix Bicycle provides an agile alternative to horses and minecarts.
 
-![Phoenix Bicycle in Farmland with Players](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle.png)
+![Phoenix Bicycle in Farmland with Players](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle.webp)
 
-![Parked Red Phoenix Bicycle Along Farm Fence](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%204.png)
+![Parked Red Phoenix Bicycle Along Farm Fence](/assets/images/projects/phoenix-cycle/Renderphoenix%20Minecraft%20Phoenix%20Cycle%204.webp)
 
 ### How to Obtain & Spawn Commands
 
@@ -946,7 +946,7 @@ downloads: "285.1K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis-a-post-apocalyptic-city%20thumbnail.png"
+cover_image: "/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis-a-post-apocalyptic-city%20thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Environment Art"
@@ -979,9 +979,9 @@ Set on a self-contained custom island bordered by rocky mountains, open plains, 
 - **High-Rise Airliner Collision**: A commercial passenger jetliner lodged directly into the upper floors of an apartment complex.
 - **Overgrown Boulevards**: Wide multi-lane roadways covered in cracked asphalt, derelict vehicles, traffic blockades, and creeping ivy.
 
-![Aerial View of the Coastal Island and Cargo Shipyard](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_5.png)
+![Aerial View of the Coastal Island and Cargo Shipyard](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_5.webp)
 
-![Street Level View of the High-Rise Plane Crash](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_4.png)
+![Street Level View of the High-Rise Plane Crash](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_4.webp)
 
 ### The Medical Center & City Hospital
 
@@ -991,7 +991,7 @@ At the heart of the city stands a massive multi-story medical complex serving as
 - **Communications Infrastructure**: Tall red-and-white broadcast towers providing vantage points across the skyline.
 - **Urban Decay**: Abandoned multi-story residential blocks with shattered windows and overgrown foliage.
 
-![City Hospital Complex and Transit Station](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_2.png)
+![City Hospital Complex and Transit Station](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_2.webp)
 
 ### Survival Rules & Urban Scavenging
 
@@ -1001,7 +1001,7 @@ Zombiepolis is balanced to deliver a genuine scavenger survival experience:
 2. **Urban Scavenging Focus**: Traditional underground mining is disabled; players must explore apartment rooms, warehouses, and vehicle trunks across the island to find food, weapons, and medical supplies.
 3. **Island Boundary**: The playable area is confined to the island perimeter, ensuring fast-paced encounters and tight multiplayer pacing.
 
-![Rooftop Perspective Overlooking Overgrown Highway](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_3.png)
+![Rooftop Perspective Overlooking Overgrown Highway](/assets/images/projects/zombiepolis/Renderphoenix%20Minecraft%20zombiepolis--a-post-apocalyptic-city_3.webp)
 
 ### Recommended Add-ons & Mod Setup
 
@@ -1036,7 +1036,7 @@ downloads: "33.2K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_1%20thumbnail.png"
+cover_image: "/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_1%20thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "PvP Mechanics"
@@ -1059,7 +1059,7 @@ tags:
 
 The arena features two symmetrical mirrored bases (Red vs. Cyan) connected by outer lanes and a dense center jungle divided by a river with strategic bridge crossings.
 
-![FunMOBA Arena Map Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20%20funmoba-pvp-moba-style-team-pvp_2.png)
+![FunMOBA Arena Map Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20%20funmoba-pvp-moba-style-team-pvp_2.webp)
 
 ### Class Roles & Kits
 
@@ -1077,17 +1077,17 @@ Players can select from 4 specialized combat roles before heading into battle:
 3. **Nexus Assault**: Each team has a central Nexus core with 100 HP. Strike the core button to deal 3 damage per hit.
 4. **Victory Condition**: The live sidebar scoreboard tracks both Nexus health pools in real time. The first team to reduce the opponent's Nexus to 0 claims victory.
 
-![Red Team Base and Nexus Crystal](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_3.png)
+![Red Team Base and Nexus Crystal](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_3.webp)
 
-![Battlefield View Across Jungle](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_4.png)
+![Battlefield View Across Jungle](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-team-pvp_4.webp)
 
 ### Multiplayer & Match History
 
 Built with lightweight command block logic, FunMOBA was widely hosted for community tournaments and Realm sessions with real-time health scoreboards.
 
-![In-Game Match with Live Nexus Scoreboard](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-pvp_5.png)
+![In-Game Match with Live Nexus Scoreboard](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20funmoba-pvp-moba-style-pvp_5.webp)
 
-![Classic FunMOBA V1 Arena Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20Old%20funmoba-pvp-moba-style-pvp_2.png)
+![Classic FunMOBA V1 Arena Layout](/assets/images/projects/funmoba-pvp/Renderphoenix%20Minecraft%20Old%20funmoba-pvp-moba-style-pvp_2.webp)
 
 ### Credits & Details
 - **Map Creator & Command Engineering:** Tasrif (RenderPhoenix)
@@ -1109,7 +1109,7 @@ downloads: "13.2K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp-solo-competitive-battle%20thumbnail.png"
+cover_image: "/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp-solo-competitive-battle%20thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "PvP Mechanics"
@@ -1136,19 +1136,19 @@ The map features custom ability and potion effect systems, internal teleportatio
 
 The combat arena is divided into distinct lettered sectors (A, B, C, D) connected through a network of covered stone walkways, open grassy plazas, foliage canopies, and subterranean tunnels designed to prevent camping.
 
-![Aerial Overview of HOLO PvP Arena Layout](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp--solo-competitive-battle_2.png)
+![Aerial Overview of HOLO PvP Arena Layout](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp--solo-competitive-battle_2.webp)
 
 ### Combat Corridors & Sightlines
 
 Dense stone corridors and fortified window parapets offer versatile combat opportunities, enabling players to engage in close-quarters melee skirmishes or set up ranged sniping ambushes overlooking the main central grounds.
 
-![Stone Corridors and Sightlines into Courtyard](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20%20holo-pvp--solo-competitive-battle_3.png)
+![Stone Corridors and Sightlines into Courtyard](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20%20holo-pvp--solo-competitive-battle_3.webp)
 
 ### Sector Courtyards & Abilities
 
 The open courtyards feature international flag displays, elevated perimeter battlements for spectators, and hidden teleportation conduits that allow skilled players to escape danger and flank enemy positions in an instant.
 
-![Sector B Battleground and Outer Flags](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp--solo-competitive-battle_4.png)
+![Sector B Battleground and Outer Flags](/assets/images/projects/holo-pvp/Renderphoenix%20Minecraft%20holo-pvp--solo-competitive-battle_4.webp)
 
 ### Match Flow & How to Play
 
@@ -1185,7 +1185,7 @@ date: 2021-02-18
 downloads: "15.7K+"
 status: "completed"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods-dark-underland%20thumbnail.png"
+cover_image: "/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods-dark-underland%20thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Custom Biomes"
@@ -1205,27 +1205,27 @@ A new custom terrain and prebuilt map to explore. Massive dark caves lie beneath
 
 Presenting our first submission on MCPEDL.
 
-![Fantasy Woods Landscape and Mountains](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20fantasy-woods--dark-underland_2.png)
+![Fantasy Woods Landscape and Mountains](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20fantasy-woods--dark-underland_2.webp)
 
 A beautiful fantasy custom terrain island map: an island full of woods, flowers, and magic. On this map, you will find a huge island with snowy mountains and foliage-covered cliffs. This island includes several structures, such as wooden huts, farmhouses, and a windmill. 
 
-![Fantasy Woods Medieval House and Foliage](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_6.png)
+![Fantasy Woods Medieval House and Foliage](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_6.webp)
 
 Besides the main island, there are two smaller islands: one is a cold biome covered in snow, and the other is a jungle biome filled with tall trees and dense jungle bushes. The larger main island features a diverse mix of biomes and tree variants, with unique trees tailored for beaches, mountains, cliffs, and valleys.
 
-![Fantasy Woods Island Biomes and Snow Coasts](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_3.png)
+![Fantasy Woods Island Biomes and Snow Coasts](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_3.webp)
 
 Vast, dark caves stretch underground, filled with dynamic water and lava flows. If you enjoy challenging mining expeditions, you can explore the subterranean network in hard mode. Surviving and mining in these depths offers a thrilling challenge, especially without coordinates enabled to help you navigate and bring your diamonds safely back to the surface. 😉
 
-![Fantasy Woods Subterranean Dark Caverns](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_5.png)
+![Fantasy Woods Subterranean Dark Caverns](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_5.webp)
 
 You are free to play on this map and modify it however you like. You are also welcome to use it on Minecraft Realms. Please do not re-upload or publish it using new links elsewhere; if you want to share the map, please use the official MCPEDL page link.
 
 Here are some vanilla screenshots of the map. I hope you enjoy it!
 
-![Fantasy Woods Bioluminescent Flora and Magic Biome](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_7.png)
+![Fantasy Woods Bioluminescent Flora and Magic Biome](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_7.webp)
 
-![Fantasy Woods Ancient Monument and Nether Portal](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_8.png)
+![Fantasy Woods Ancient Monument and Nether Portal](/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods--dark-underland_8.webp)
 
 **Map created by RenderPhoenix Creatives (Bangladesh).**
 
@@ -1245,8 +1245,7 @@ categories:
 date: '2026-08-27'
 description: Testing our first cms from local host
 featured: false
-image: /assets/images/projects/Minecraft Banglamine Land Field RenderPhoenix 2020-10-03
-  .png
+image: "/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.webp"
 layout: post
 tags:
 - Post
@@ -1433,7 +1432,7 @@ Every creative studio has an origin story driven by curiosity, technical experim
 
 Our journey started under the name **Minehutt**, founded by **Tasrif**. Operating with a bold purple voxel aesthetic, Minehutt was all about community connection: hosting Minecraft realms, playing together with friends and community members, and having fun building custom adventure maps.
 
-![Minehutt Original Studio Logo 2019–2021](/assets/images/brand/Minehutt%20Logo%202019%20-%202021.jpeg)
+![Minehutt Original Studio Logo 2019–2021](/assets/images/brand/Minehutt%20Logo%202019%20-%202021.webp)
 
 These early years fostered our creative collaboration and laid the groundwork for the technical and artistic ambitions that would follow.
 
@@ -1443,7 +1442,7 @@ By early 2021, our ambitions expanded from hosting realms into building standalo
 
 On **January 30, 2021**, we officially rebranded as **RenderPhoenix**, introducing our soaring phoenix emblem with layered violet and rose wings.
 
-![RenderPhoenix First Generation Logo 2021–2024](/assets/images/brand/Renderphoenix%202021-2026.png)
+![RenderPhoenix First Generation Logo 2021–2024](/assets/images/brand/Renderphoenix%202021-2026.webp)
 
 Under the RenderPhoenix banner, we launched our most iconic community creations on MCPEDL:
 - **Banglamine City**: An ambitious open-world project exploring authentic Bangladeshi architectural motifs.
@@ -1451,7 +1450,7 @@ Under the RenderPhoenix banner, we launched our most iconic community creations 
 - **Authentic Bangladeshi Vehicles**: High-detail modular add-ons including the *DHK Rickshaw* and *Phoenix Bicycle*.
 - **Custom Add-ons & UI**: Tailored user interface packs and game mechanics.
 
-![Banglamine City Early World Design](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.png)
+![Banglamine City Early World Design](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.webp)
 
 ## Overcoming Setbacks with Resilience
 

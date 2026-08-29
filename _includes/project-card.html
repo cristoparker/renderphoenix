@@ -3,7 +3,7 @@
   <div class="card-media">
     <div class="media-aspect">
       {% assign proj_img = proj.cover_image | default: '/assets/images/image-not-found.svg' %}
-      <img src="{{ proj_img | relative_url }}" alt="{{ proj.title }} preview" loading="lazy" width="520" height="245" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
+      <img src="{{ proj_img | relative_url }}" alt="{{ proj.title }} preview" loading="lazy" decoding="async" width="520" height="245" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
       <div class="media-placeholder" {% if proj.cover_image %}style="display:none;"{% endif %}>
         <div class="ph-pattern"></div>
         <span class="ph-category">{{ proj.category }}</span>

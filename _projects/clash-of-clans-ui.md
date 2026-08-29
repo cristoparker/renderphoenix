@@ -9,7 +9,7 @@ downloads: "4.5K+"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.png"
+cover_image: "/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20Clash%20Of%20Clan%20UI%20thumbnail.webp"
 technologies:
   - "UI Design"
   - "Texture Art"
@@ -34,17 +34,17 @@ The **Clash of Clans Theme UI** is a full interface visual overhaul designed to 
 **Custom Title & Start Screen**
 A stylized start menu complete with dynamic battle artwork backgrounds, custom Minecraft logo badges, and emerald-green action buttons.
 
-![Clash of Clans Styled Start Menu](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_2.png)
+![Clash of Clans Styled Start Menu](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_2.webp)
 
 **Inventory & Crafting GUI**
 Redesigned container and crafting interfaces featuring stone-textured frames, blue-tinted item grid slots, and themed tab navigation icons.
 
-![Custom Inventory and Crafting UI](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_3.png)
+![Custom Inventory and Crafting UI](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_3.webp)
 
 **Themed Dressing Room**
 A customized skin selector and character dressing room set against the iconic sunset village landscape.
 
-![Themed Dressing Room and Skin Selection](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_4.png)
+![Themed Dressing Room and Skin Selection](/assets/images/projects/clash-of-clans-ui/Renderphoenix%20Minecraft%20clash-of-clans-theme-ui-v10_4.webp)
 
 ### Features & Audio
 - **Supercell Typography**: Custom UNICODE font glyphs created with the "Supercell Magic" typeface for clear, bold labels.

@@ -8,7 +8,7 @@ date: 2021-07-19
 downloads: "42.2K+"
 status: "completed"
 platform: "Minecraft Bedrock"
-cover_image: "/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20a-horror-map-if-you-need.png"
+cover_image: "/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20a-horror-map-if-you-need.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Horror Mechanics"
@@ -30,11 +30,11 @@ This is a compact horror project I was working on, but I eventually lost interes
 
 The map is small and focuses heavily on atmospheric tension. A solitary road cuts through a dense, gloomy pine forest, leading directly to a large mansion looming at the roadside. 
 
-![Mansion Courtyard and Grounds in Storm](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_2.png)
+![Mansion Courtyard and Grounds in Storm](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_2.webp)
 
 The structure is a modified take on the vanilla Woodland Mansion, customized with dim, eerie interior lighting to create a suspenseful mood inside every hallway. For the best visual experience, we recommend playing with vanilla stormy weather set to late afternoon, or running it at night if you are using custom shaders.
 
-![Eerie Woodland Mansion Hallway](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_3.png)
+![Eerie Woodland Mansion Hallway](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_3.webp)
 
 ### Gameplay & Layout
 
@@ -42,6 +42,6 @@ The structure is a modified take on the vanilla Woodland Mansion, customized wit
 * **Intended Gamemodes:** The layout is specifically tuned for horror hide-and-seek, tag, or custom monster survival battles rather than open-world exploration.
 * **Open to Editing:** The command block system was left unfinished, so feel free to rework the commands, redesign the rooms, or add your own mechanics.
 
-![Contained Boundary Road at Night](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_4.png)
+![Contained Boundary Road at Night](/assets/images/projects/a-horror-map/Minecraft%20Renderphoenix%20%20a-horror-map-if-you-need_4.webp)
 
 I hope you find a fun use for it in your worlds and events!

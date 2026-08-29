@@ -7,7 +7,7 @@ developer: "Tasrif"
 date: 2021-07-26
 downloads: "33.6K+"
 status: "completed"
-cover_image: "/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20Frostcraft%20Frostpunk%20Thumbnail.png"
+cover_image: "/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20Frostcraft%20Frostpunk%20Thumbnail.webp"
 technologies:
   - "Minecraft Bedrock"
   - "Minecraft Java"
@@ -40,17 +40,17 @@ The settlement is arranged in concentric circular rings designed to maximize the
 - **Steampunk Automatons & Scouts**: Massive mechanical walkers striding across the snow-covered perimeter alongside tethered reconnaissance balloons.
 - **Mountain Ridge Outpost**: A cliffside staging camp situated along the crater ridge overlooking the frosty basin.
 
-![Automaton and Scout Beacon on the Frozen Perimeter](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_1.png)
+![Automaton and Scout Beacon on the Frozen Perimeter](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_1.webp)
 
-![Aerial View of the Circular Generator Colony](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_2.png)
+![Aerial View of the Circular Generator Colony](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_2.webp)
 
 ### The Thermal Generator Core
 
 The centerpiece of Frostcraft is the meticulously detailed generator tower featuring industrial piping, glowing furnaces, and overhead smoke plumes that illuminate the bleak white landscape.
 
-![Central Thermal Generator Core](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_3.png)
+![Central Thermal Generator Core](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_3.webp)
 
-![Heated Generator Rings during Night Blizzard](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_4.png)
+![Heated Generator Rings during Night Blizzard](/assets/images/projects/frostcraft/Renderphoenix%20Minecraft%20frostcraft_4.webp)
 
 ### Platform & Edition Support
 - **Minecraft Bedrock Edition**: Optimized for mobile, console, and Windows 10/11.
