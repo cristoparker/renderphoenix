@@ -18,6 +18,8 @@ image: "/assets/images/blog/nasa-retrospective.png"
 featured: false
 ---
 
+![youtube:Moon Forces Cinematic Showcase (NASA Space Apps 2025)](https://youtu.be/GMz0_QiFvX4)
+
 A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.
 
 When NASA Space Apps Challenge 2025 arrived, Team Space Kitty did not begin with a huge game design document or a long development schedule.
@@ -63,6 +65,8 @@ The name came even later.
 “Moon Forces” was suggested by ChatGPT, the team liked how it sounded, and the name stayed. Even the logo was generated with the help of ChatGPT.
 
 So, yes - the AI got a tiny credit in the origin story of a NASA Global Nominee project.
+
+![Moon Forces Logo & Title Banner](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20logo%20banner.png)
 
 ## Four People, Four Different Jobs
 
@@ -116,6 +120,8 @@ When Tasrif pushed the finished models to GitHub, Sabit replaced the placeholder
 The project slowly started turning into something that looked like a real lunar settlement.
 
 The GitHub repository documents the project as a Unity-based city-building and resource-management game, with C# and ShaderLab/HLSL used for development and effects.
+
+![Moon Forces Top-Down Colony Layout](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20top%20view.png)
 
 ## Building a Colony Means Managing Everything
 
@@ -197,6 +203,8 @@ Start -> build -> resources change -> day passes -> colony continues -> next day
 The loop keeps going.
 
 And that feeling of a living system was more important than simply having lots of features.
+
+![Moon Forces Gameplay & Settlement Overview](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20banner%20screenshot.png)
 
 ## The Moon's Long Days Were Part of the Challenge
 
@@ -458,9 +466,9 @@ And maybe this time, the chicken and duck are bringing a little more firepower -
 
 ## Project links
 
-- [NASA Space Apps 2025 - Your Home in Space: The Habitat Layout Creator](https://www.spaceappschallenge.org/2025/challenges/your-home-in-space-the-habitat-layout-creator/?utm_source=chatgpt.com)
+- [NASA Space Apps 2025 - Your Home in Space: The Habitat Layout Creator](https://www.spaceappschallenge.org/2025/challenges/your-home-in-space-the-habitat-layout-creator/)
 - Team Space Kitty - NASA Space Apps 2025
-- [Moon Forces - GitHub Repository](https://github.com/cristoparker/Space-Kitty-Project?utm_source=chatgpt.com)
-- Moon Forces - Project Video
+- [Moon Forces - GitHub Repository](https://github.com/cristoparker/Space-Kitty-Project)
+- [Moon Forces - Cinematic Shots Video](https://youtu.be/GMz0_QiFvX4)
 
 One thing I especially like about this version: it doesn't oversell Moon Forces as some massive finished game. It tells the actual story - four people, 4-5 days, a NASA challenge, a bunch of systems, an unexpected team problem, one developer finishing the build, and then somehow ending up as a Global Nominee. That's much more interesting than pretending everything went perfectly.

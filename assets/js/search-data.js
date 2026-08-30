@@ -117,7 +117,7 @@ window.SEARCH_INDEX = [
     "title": "NASA Space Apps Challenge 2025: The Story of Moon Forces",
     "url": "/blog/nasa-space-apps-2025-retrospective/",
     "description": "A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.",
-    "content": "\n\nA story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.\n\nWhen NASA Space Apps Challenge 2025 arrived, Team Space Kitty did not begin with a huge game design document or a long development schedule.\n\nThey had participated in NASA Space Apps before, and th",
+    "content": "\n\n![youtube:Moon Forces Cinematic Showcase (NASA Space Apps 2025)](https://youtu.be/GMz0_QiFvX4)\n\nA story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.\n\nWhen NASA Space Apps Challenge 2025 arrived, Team Space Kitty did not begin with a huge game design d",
     "type": "Article",
     "category": "Blog",
     "date": "15 Aug 2026",
@@ -176,10 +176,10 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "Lunar Habitat Simulator \u2014 NASA Space Apps 2025",
+    "title": "Moon Forces \u2014 NASA Space Apps 2025",
     "url": "/work/nasa-space-apps-2025/",
-    "description": "Global Nominee project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.",
-    "content": "\n\nRenderPhoenix participated in the **NASA Space Apps Challenge 2025**, developing an interactive Moon settlement and lunar city-building project designed around real lunar environmental conditions and resource allocation.\n\n### Achievement\n**Global Nominee \u2014 NASA Space Apps Challenge 2025**\n\n### Pro",
+    "description": "Global Nominee project at NASA Space Apps Challenge 2025: A real-time lunar colony building and resource management simulation.",
+    "content": "\n\n![youtube:Moon Forces Cinematic Showcase (NASA Space Apps 2025)](https://youtu.be/GMz0_QiFvX4)\n\n**Moon Forces** is an interactive Moon colony building and resource management simulation created for the **NASA Space Apps Challenge 2025** under the prompt *\u201cYour Home in Space: The Habitat Layout Cre",
     "type": "Project",
     "category": "Interactive",
     "date": "05 Oct 2025",
@@ -188,6 +188,7 @@ window.SEARCH_INDEX = [
       "space-apps",
       "simulation",
       "moon",
+      "gamedev",
       "award"
     ]
   },
