@@ -40,7 +40,7 @@ Developed in roughly four to five days by **Team Space Kitty** (connecting membe
 **Global Nominee — NASA Space Apps Challenge 2025**  
 *Dhaka Division 2nd Runner-Up (BASIS)*
 
-![Moon Forces Logo & Title Banner](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20logo%20banner.png)
+![Moon Forces Logo & Title Banner](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20logo%20banner.webp)
 
 ### Core Gameplay & Systems
 
@@ -52,9 +52,9 @@ Moon Forces challenges players to establish, power, and sustain a modular human 
 - **Autonomous Rovers**: NavMesh-powered ground rovers traverse pathways between domes, collecting samples and bringing the settlement to life.
 - **Dynamic Space Flights**: Scheduled supply rockets arrive from Earth and launch back into orbit.
 
-![Moon Forces Gameplay & Settlement Overview](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20banner%20screenshot.png)
+![Moon Forces Gameplay & Settlement Overview](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20banner%20screenshot.webp)
 
-![Moon Forces Top-Down Base Layout](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20top%20view.png)
+![Moon Forces Top-Down Base Layout](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20top%20view.webp)
 
 ### Technical Specifications
 

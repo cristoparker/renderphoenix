@@ -66,7 +66,7 @@ The name came even later.
 
 So, yes - the AI got a tiny credit in the origin story of a NASA Global Nominee project.
 
-![Moon Forces Logo & Title Banner](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20logo%20banner.png)
+![Moon Forces Logo & Title Banner](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20logo%20banner.webp)
 
 ## Four People, Four Different Jobs
 
@@ -121,7 +121,7 @@ The project slowly started turning into something that looked like a real lunar 
 
 The GitHub repository documents the project as a Unity-based city-building and resource-management game, with C# and ShaderLab/HLSL used for development and effects.
 
-![Moon Forces Top-Down Colony Layout](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20top%20view.png)
+![Moon Forces Top-Down Colony Layout](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20top%20view.webp)
 
 ## Building a Colony Means Managing Everything
 
@@ -204,7 +204,7 @@ The loop keeps going.
 
 And that feeling of a living system was more important than simply having lots of features.
 
-![Moon Forces Gameplay & Settlement Overview](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20banner%20screenshot.png)
+![Moon Forces Gameplay & Settlement Overview](/assets/images/projects/moon-forces/Moon%20Forces%20Nasa%20Space%20App%20Challenge%202025%20banner%20screenshot.webp)
 
 ## The Moon's Long Days Were Part of the Challenge
 
