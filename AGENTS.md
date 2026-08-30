@@ -175,7 +175,7 @@ tags:                                       # List: Tag chips displayed at botto
   - gamedev
   - unreal-engine
 author: "Cristo Parker"                     # String: Author name
-image: "/assets/images/blog/cover.svg"      # String: Path to hero header graphic
+image: "/assets/images/blog/cover.png"      # String: Path to hero header graphic
 featured: true                              # Boolean: If true, renders as main featured story on /blog/
 ---
 ```

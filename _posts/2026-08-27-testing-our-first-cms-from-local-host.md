@@ -7,7 +7,7 @@ categories:
 date: '2026-08-27'
 description: Testing our first cms from local host
 featured: false
-image: "/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.webp"
+image: "/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.png"
 layout: post
 tags:
 - Post

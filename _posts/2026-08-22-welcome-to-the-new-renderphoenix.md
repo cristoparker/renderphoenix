@@ -15,7 +15,7 @@ tags:
   - unity
   - blender
 author: "Cristo"
-image: "/assets/images/blog/welcome-revival.svg"
+image: "/assets/images/blog/welcome-revival.png"
 featured: true
 ---
 

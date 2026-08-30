@@ -1245,7 +1245,7 @@ categories:
 date: '2026-08-27'
 description: Testing our first cms from local host
 featured: false
-image: "/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.webp"
+image: "/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.png"
 layout: post
 tags:
 - Post
@@ -1314,7 +1314,7 @@ tags:
   - unity
   - blender
 author: "Cristo"
-image: "/assets/images/blog/welcome-revival.svg"
+image: "/assets/images/blog/welcome-revival.png"
 featured: true
 ---
 
@@ -1374,7 +1374,7 @@ tags:
   - 3d
   - moon
 author: "RenderPhoenix"
-image: "/assets/images/blog/nasa-retrospective.svg"
+image: "/assets/images/blog/nasa-retrospective.png"
 featured: false
 ---
 
@@ -1422,7 +1422,7 @@ tags:
   - renderphoenix
   - story
 author: "Tasrif"
-image: "/assets/images/blog/studio-history.svg"
+image: "/assets/images/blog/studio-history.png"
 featured: false
 ---
 

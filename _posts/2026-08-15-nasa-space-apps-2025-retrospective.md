@@ -13,7 +13,7 @@ tags:
   - 3d
   - moon
 author: "RenderPhoenix"
-image: "/assets/images/blog/nasa-retrospective.svg"
+image: "/assets/images/blog/nasa-retrospective.png"
 featured: false
 ---
 

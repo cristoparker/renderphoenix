@@ -361,13 +361,15 @@
     border-radius: var(--radius-md);
     padding: 0 !important;
     background: transparent !important;
+    aspect-ratio: 520 / 245;
+    width: 100%;
   }
 
   .article-hero-media img {
     border-radius: var(--radius-md);
-    max-height: 300px;
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 
   .blog-article .article-body img,
@@ -395,11 +397,17 @@
   }
 
   .project-detail .project-cover {
-    min-height: 200px;
-    max-height: 320px;
+    aspect-ratio: 520 / 245;
+    width: 100%;
     margin-bottom: var(--space-xl);
     border-radius: var(--radius-md);
     padding: 0 !important;
+  }
+
+  .project-detail .project-cover img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 }
 

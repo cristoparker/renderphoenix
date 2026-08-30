@@ -99,7 +99,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://renderphoenix.com/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.webp</image:loc>
+      <image:loc>https://renderphoenix.com/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.png</image:loc>
       <image:title>Testing our first cms from local host</image:title>
     </image:image>
   </url>
@@ -108,7 +108,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://renderphoenix.com/assets/images/blog/welcome-revival.svg</image:loc>
+      <image:loc>https://renderphoenix.com/assets/images/blog/welcome-revival.png</image:loc>
       <image:title>Welcome to the New RenderPhoenix: Expanding Beyond Boundaries</image:title>
     </image:image>
   </url>
@@ -117,7 +117,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://renderphoenix.com/assets/images/blog/nasa-retrospective.svg</image:loc>
+      <image:loc>https://renderphoenix.com/assets/images/blog/nasa-retrospective.png</image:loc>
       <image:title>NASA Space Apps Challenge 2025: Engineering a Lunar Settlement</image:title>
     </image:image>
   </url>
@@ -126,7 +126,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://renderphoenix.com/assets/images/blog/studio-history.svg</image:loc>
+      <image:loc>https://renderphoenix.com/assets/images/blog/studio-history.png</image:loc>
       <image:title>Building Worlds: From Minehutt to RenderPhoenix</image:title>
     </image:image>
   </url>

@@ -12,7 +12,7 @@ tags:
   - renderphoenix
   - story
 author: "Tasrif"
-image: "/assets/images/blog/studio-history.svg"
+image: "/assets/images/blog/studio-history.png"
 featured: false
 ---
 
