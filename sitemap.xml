@@ -95,15 +95,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://renderphoenix.com/blog/testing-our-first-cms-from-local-host/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://renderphoenix.com/assets/images/projects/Minecraft%20Banglamine%20Land%20Field%20RenderPhoenix%202020-10-03%20.png</image:loc>
-      <image:title>Testing our first cms from local host</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -118,7 +109,7 @@
     <priority>0.7</priority>
     <image:image>
       <image:loc>https://renderphoenix.com/assets/images/blog/nasa-retrospective.png</image:loc>
-      <image:title>NASA Space Apps Challenge 2025: Engineering a Lunar Settlement</image:title>
+      <image:title>NASA Space Apps Challenge 2025: The Story of Moon Forces</image:title>
     </image:image>
   </url>
   <url>

@@ -96,19 +96,6 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "Testing our first cms from local host",
-    "url": "/blog/testing-our-first-cms-from-local-host/",
-    "description": "Testing our first cms from local host",
-    "content": "\n\n## asdfasdfasdf\n\nsfdasdfasdf\n\n\n![youtube:Song](https://www.youtube.com/watch?v=m7Bc3pLyij0)\n\n\n| Column 1 | Column 2 | Column 3 | Column 4 |\n| :--- | :--- | :--- |  :--- |\n| Data 1 | Data 2 | Data 3 | dsdf |\n| Data 4 | Data 5 | Data 6 | dfsdfsdf |\n\n\n*sdafasdf*\n\n1. adfasdf\n2. sdf\n3. asdf\n\n```csharp\n",
-    "type": "Article",
-    "category": "Blog",
-    "date": "27 Aug 2026",
-    "tags": [
-      "Post",
-      "Tag"
-    ]
-  },
-  {
     "title": "Welcome to the New RenderPhoenix: Expanding Beyond Boundaries",
     "url": "/blog/welcome-to-the-new-renderphoenix/",
     "description": "On 22 August 2026, RenderPhoenix begins its official revival. We are rebuilding our digital presence and expanding into original game development, Unreal Engine, Unity, Blender 3D, and interactive experiences.",
@@ -127,19 +114,20 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "NASA Space Apps Challenge 2025: Engineering a Lunar Settlement",
+    "title": "NASA Space Apps Challenge 2025: The Story of Moon Forces",
     "url": "/blog/nasa-space-apps-2025-retrospective/",
-    "description": "A retrospective on how RenderPhoenix was named Global Nominee at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation.",
-    "content": "\n\nIn 2025, members of RenderPhoenix participated in the **NASA Space Apps Challenge 2025**, tackling the challenge of designing functional, sustainable lunar habitats. Our submission achieved **Global Nominee**.\n\n## The Challenge: Lunar Settlement Simulation\n\nHumanity's return to the Moon requires s",
+    "description": "A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure in four to five days.",
+    "content": "\n\n*A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.*\n\nWhen the **NASA Space Apps Challenge 2025** arrived, Team Space Kitty did not begin with a huge game design document or a long development schedule.\n\nThey had participated in NASA Space Apps befo",
     "type": "Article",
     "category": "Blog",
     "date": "15 Aug 2026",
     "tags": [
       "nasa",
       "space-apps",
-      "simulation",
-      "3d",
-      "moon"
+      "moon-forces",
+      "unity",
+      "gamedev",
+      "global-nominee"
     ]
   },
   {
