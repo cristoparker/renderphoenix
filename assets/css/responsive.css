@@ -327,6 +327,11 @@
     text-align: center;
   }
 
+  .nasa-thumbnail-link {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
   /* Footer on Mobile */
   .site-footer {
     padding: 2.5rem 0 1.5rem;
