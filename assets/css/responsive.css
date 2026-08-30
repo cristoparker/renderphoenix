@@ -322,13 +322,14 @@
 
   .nasa-banner {
     grid-template-columns: 1fr !important;
-    padding: 1.25rem;
-    gap: 1rem;
+    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
     text-align: center;
   }
 
   .nasa-thumbnail-link {
-    max-width: 200px;
+    width: 140px;
+    height: 140px;
     margin: 0 auto;
   }
 
