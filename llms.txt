@@ -17,7 +17,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - January 30, 2021: Official re-branding to RenderPhoenix to establish a broader visual identity in real-time art and 3D modeling, launching landmark MCPEDL releases including Banglamine City, Zombiepolis, and vehicle add-ons.
 - 1 August 2022: Experienced a severe security incident where core social accounts and communication channels were compromised. Despite this, the studio demonstrated resilience by continuing operations and publishing content through 2024.
 - 2024: Operations paused as the original team members dispersed into university studies and software careers.
-- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Regional Runner-Up.
+- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Global Nominee.
 - 22 August 2026: Official studio revival initiated to rebuild digital infrastructure, reassemble team capabilities, and expand into original games and 3D asset production.
 
 ## 3. Team Roster
@@ -36,7 +36,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 ## 5. Notable Works & Project Index (Raw Markdown)
 - [Bangladeshi Vehicles Addon](https://renderphoenix.com/work/bangladeshi-vehicles.md) (Wed,) [Add-On]: Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.
 - [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (Fri,) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
-- [Lunar Habitat Simulator — NASA Space Apps 2025](https://renderphoenix.com/work/nasa-space-apps-2025.md) (2025) [Interactive]: Regional Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.
+- [Lunar Habitat Simulator — NASA Space Apps 2025](https://renderphoenix.com/work/nasa-space-apps-2025.md) (2025) [Interactive]: Global Nominee project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.
 - [Clash of Clans Theme UI](https://renderphoenix.com/work/clash-of-clans-ui.md) (2023) [UI]: Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements.
 - [Frostcraft (Frostpunk Inspired Survival Map)](https://renderphoenix.com/work/frostcraft.md) (2021) [Environment]: A frozen wasteland steampunk survival colony map inspired by Frostpunk, featuring central generator settlement infrastructure.
 - [A Horror Map If You Need](https://renderphoenix.com/work/a-horror-map-if-you-need.md) (2021) [Interactive]: An atmospheric psychological horror adventure map featuring custom puzzles, eerie audio, and dark labyrinth exploration.
@@ -52,7 +52,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 ## 6. Editorial & Studio Devlogs (Raw Markdown)
 - [Testing our first cms from local host](https://renderphoenix.com/blog/testing-our-first-cms-from-local-host.md) (27 Aug 2026): Testing our first cms from local host (Author: Cristo Parker)
 - [Welcome to the New RenderPhoenix: Expanding Beyond Boundaries](https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix.md) (22 Aug 2026): On 22 August 2026, RenderPhoenix begins its official revival. We are rebuilding our digital presence and expanding into original game development, Unreal Engine, Unity, Blender 3D, and interactive experiences. (Author: Cristo)
-- [NASA Space Apps Challenge 2025: Engineering a Lunar Settlement](https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective.md) (15 Aug 2026): A retrospective on how RenderPhoenix earned Regional Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation. (Author: RenderPhoenix)
+- [NASA Space Apps Challenge 2025: Engineering a Lunar Settlement](https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective.md) (15 Aug 2026): A retrospective on how RenderPhoenix was named Global Nominee at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation. (Author: RenderPhoenix)
 - [Building Worlds: From Minehutt to RenderPhoenix](https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix.md) (01 Aug 2026): Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future. (Author: Tasrif)
 
 ## 7. Legal, Privacy & Compliance (Raw Markdown)

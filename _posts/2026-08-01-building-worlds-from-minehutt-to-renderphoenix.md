@@ -46,7 +46,7 @@ Under the RenderPhoenix banner, we launched our most iconic community creations 
 
 On **1 August 2022**, RenderPhoenix encountered a major obstacle when several of our primary communication channels and social platforms were compromised. Despite losing access to key community portals, the team refused to let the work disappear. We continued shipping projects and building creative assets through 2024, until university studies and professional careers temporarily shifted our focus.
 
-Even during this quiet phase, our creative spark never faded—exemplified in 2025 when team members reunited to create an interactive lunar settlement simulator for the **NASA Space Apps Challenge 2025**, earning **Regional Runner-Up** honors.
+Even during this quiet phase, our creative spark never faded—exemplified in 2025 when team members reunited to create an interactive lunar settlement simulator for the **NASA Space Apps Challenge 2025**, earning **Global Nominee** honors.
 
 ## The 2026 Revival & Beyond
 

@@ -10,7 +10,7 @@ Welcome to the **RenderPhoenix** codebase. This document is the primary referenc
 - Standalone indie video games (Unreal Engine 5, Unity)
 - 3D environments and level architecture (Blender)
 - Real-time game assets, vehicles, and modular add-ons
-- Interactive web tools, technical art, and simulation prototypes (e.g., NASA Space Apps 2025 regional award-winning lunar habitat simulator)
+- Interactive web tools, technical art, and simulation prototypes (e.g., NASA Space Apps 2025 Global Nominee lunar habitat simulator)
 
 **Primary Website**: [renderphoenix.com](https://renderphoenix.com)  
 **Host & Deployment**: GitHub Pages with custom domain via `CNAME`  
@@ -117,7 +117,7 @@ platform: "Minecraft Bedrock"               # String (Optional): e.g. "Unreal En
 downloads: "285.1K+"                        # String (Optional): Community download metric if applicable
 cover_image: "/assets/images/projects/..."  # String: Path to cover banner image
 featured: true                              # Boolean: If true, highlighted on homepage/top of /work/
-award: "Regional Runner-Up"                 # String (Optional): Award or milestone badge
+award: "Global Nominee"                    # String (Optional): Award or milestone badge
 
 # Modular Action Buttons (One or more can be configured):
 download_links:                             # Array of custom download buttons

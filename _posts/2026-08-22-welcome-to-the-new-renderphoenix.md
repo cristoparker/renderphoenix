@@ -34,7 +34,7 @@ Despite a severe security incident in August 2022 that compromised core digital 
 2021: Renamed to RenderPhoenix
 2022: Security compromise & resilience
 2024: Period of inactivity
-2025: NASA Space Apps Regional Runner-Up
+2025: NASA Space Apps Global Nominee
 2026: Official Studio Revival
 ```
 

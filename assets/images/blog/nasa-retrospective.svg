@@ -66,5 +66,5 @@
   <!-- Title Bottom Overlay -->
   <rect x="0" y="360" width="800" height="90" fill="linear-gradient(180deg, transparent 0%, rgba(10, 12, 20, 0.95) 100%)"/>
   <text x="400" y="395" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">Engineering a Lunar Settlement</text>
-  <text x="400" y="420" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#94A3B8" text-anchor="middle" letter-spacing="0.5">Regional Runner-Up Retrospective • Physics &amp; Life Support</text>
+  <text x="400" y="420" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#94A3B8" text-anchor="middle" letter-spacing="0.5">Global Nominee Retrospective • Physics &amp; Life Support</text>
 </svg>

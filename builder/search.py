@@ -64,10 +64,15 @@ class SearchIndexer:
             json.dump(search_data, f, indent=2)
         print("Built search.json -> _site/search.json")
 
-        # Write _site/assets/js/search-data.js
+        # Write _site/assets/js/search-data.js and workspace root assets/js/search-data.js
+        js_content = "window.SEARCH_INDEX = " + json.dumps(search_data, indent=2) + ";\n"
         search_js_dir = os.path.join(Config.SITE_DIR, 'assets', 'js')
         os.makedirs(search_js_dir, exist_ok=True)
-        search_data_js_path = os.path.join(search_js_dir, 'search-data.js')
-        with open(search_data_js_path, 'w', encoding='utf-8') as f:
-            f.write("window.SEARCH_INDEX = " + json.dumps(search_data, indent=2) + ";\n")
-        print("Built search-data.js -> _site/assets/js/search-data.js")
+        with open(os.path.join(search_js_dir, 'search-data.js'), 'w', encoding='utf-8') as f:
+            f.write(js_content)
+        
+        root_search_js = os.path.join(Config.ROOT_DIR, 'assets', 'js', 'search-data.js')
+        if os.path.exists(os.path.dirname(root_search_js)):
+            with open(root_search_js, 'w', encoding='utf-8') as f:
+                f.write(js_content)
+        print("Built search-data.js -> _site/assets/js/search-data.js & workspace root")

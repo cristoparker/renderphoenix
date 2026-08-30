@@ -1,5 +1,114 @@
 window.SEARCH_INDEX = [
   {
+    "title": "RenderPhoenix \u2014 Independent Interactive Creative Studio",
+    "url": "/",
+    "description": "RenderPhoenix is an independent interactive creative studio building games, 3D worlds, game assets, and digital experiences.",
+    "content": "\n\n\n\n  \n    \n      \n        WE BUILD WORLDS.\n        \n          Interactive games, 3D environments, real-time assets, and digital experiences. Engineered from imagination,\n          built with precision.\n        \n        \n          \n            Explore Our Work\n            \n              \n           ",
+    "type": "Page",
+    "category": "Overview",
+    "date": "25 Aug 2026",
+    "tags": [
+      "home"
+    ]
+  },
+  {
+    "title": "About RenderPhoenix",
+    "url": "/about/",
+    "description": "Discover the history, philosophy, team, and future direction of RenderPhoenix.",
+    "content": "\n\n\n\n  \n    \n      Our Story\n      \n        RenderPhoenix was originally established in 2019 under the name Minehutt by Tasrif Ibn Mizan. In the early Minehutt days, the team hosted Minecraft realms, played together with community members, and had fun making custom adventure maps.\n      \n\n      \n    ",
+    "type": "Page",
+    "category": "Overview",
+    "date": "25 Aug 2026",
+    "tags": [
+      "about"
+    ]
+  },
+  {
+    "title": "Services & Capabilities",
+    "url": "/services/",
+    "description": "Explore RenderPhoenix's technical capabilities across game development, 3D world creation, asset production, and creative tech.",
+    "content": "\n\n\n  \n    \n      \n        \n          \n            \n          \n          Game Development\n          Designing and engineering original gameplay experiences across indie titles and interactive simulations.\n          Key Capabilities:\n          Gameplay Systems ProgrammingLevel Architecture & Mechanics",
+    "type": "Page",
+    "category": "Overview",
+    "date": "25 Aug 2026",
+    "tags": [
+      "services"
+    ]
+  },
+  {
+    "title": "Work & Portfolio",
+    "url": "/work/",
+    "description": "A showcase of historical, current, and experimental projects by RenderPhoenix.",
+    "content": "\n\n\n  \n    \n    \n      All Projects\n      Environments\n      Interactive\n      Add-Ons\n      UI Packs\n    \n\n    \n    \n      \n    \n      \n        \n          \n        \n        \n      \n\n      \n        \n          Bangladeshi Vehicles Addon\n        \n\n        \n          Add-On\n          Wed, 14 Apr 2021 00",
+    "type": "Page",
+    "category": "Overview",
+    "date": "25 Aug 2026",
+    "tags": [
+      "work"
+    ]
+  },
+  {
+    "title": "Publications & Projects",
+    "url": "/blog/",
+    "description": "Explore technical deep dives, major studio milestones, development devlogs, and interactive project releases by RenderPhoenix.",
+    "content": "\n\n\n  \n    \n    \n      Editorial &amp; Devlogs\n      Publications &amp; Studio Devlogs\n      Explore technical deep dives, major studio milestones, development devlogs, and interactive project releases.\n    \n\n    \n    \n      \n        \n        \n      \n      \n    \n\n    \n    \n      \n      \n        Featu",
+    "type": "Page",
+    "category": "Overview",
+    "date": "25 Aug 2026",
+    "tags": [
+      "blog"
+    ]
+  },
+  {
+    "title": "Get in Touch",
+    "url": "/contact/",
+    "description": "Reach out to RenderPhoenix for game development inquiries, asset creation, custom 3D projects, or collaboration.",
+    "content": "\n\n\n  \n    \n      \n      \n      \n        Let's Build Together\n        \n          RenderPhoenix works with indie creators, international studios, space application challenges, and digital partners. Send us a message to discuss project opportunities, technical art, or studio collaborations.\n        \n\n ",
+    "type": "Page",
+    "category": "Overview",
+    "date": "25 Aug 2026",
+    "tags": [
+      "contact"
+    ]
+  },
+  {
+    "title": "Privacy Policy",
+    "url": "/privacy-policy/",
+    "description": "Official Privacy Policy for RenderPhoenix \u2014 independent interactive creative studio based in Dhaka, Bangladesh.",
+    "content": "Effective Date: August 25, 2026\nLast Updated: August 27, 2026\nRenderPhoenix Creatives, commonly known as RenderPhoenix (\u201cRenderPhoenix,\u201d \u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d), operates an independent interactive creative studio based in Tejgaon, Dhaka, Bangladesh.\nThis Privacy Policy explains how RenderPhoenix hand",
+    "type": "Legal",
+    "category": "Legal & Policies",
+    "date": "25 Aug 2026",
+    "tags": [
+      "privacy-policy"
+    ]
+  },
+  {
+    "title": "DMCA & Copyright Policy",
+    "url": "/dmca/",
+    "description": "Official DMCA and copyright policy for RenderPhoenix Creatives \u2014 independent interactive creative studio based in Dhaka, Bangladesh.",
+    "content": "DMCA & Copyright Policy\nEffective Date: August 25, 2026\nLast Updated: August 25, 2026\nRenderPhoenix Creatives (\"RenderPhoenix\", \"we\", \"us\", or \"our\") respects the intellectual property and copyright rights of creators, developers, artists, publishers, and other rights holders.\nRenderPhoenix is an in",
+    "type": "Legal",
+    "category": "Legal & Policies",
+    "date": "25 Aug 2026",
+    "tags": [
+      "dmca"
+    ]
+  },
+  {
+    "title": "Testing our first cms from local host",
+    "url": "/blog/testing-our-first-cms-from-local-host/",
+    "description": "Testing our first cms from local host",
+    "content": "\n\n## asdfasdfasdf\n\nsfdasdfasdf\n\n\n![youtube:Song](https://www.youtube.com/watch?v=m7Bc3pLyij0)\n\n\n| Column 1 | Column 2 | Column 3 | Column 4 |\n| :--- | :--- | :--- |  :--- |\n| Data 1 | Data 2 | Data 3 | dsdf |\n| Data 4 | Data 5 | Data 6 | dfsdfsdf |\n\n\n*sdafasdf*\n\n1. adfasdf\n2. sdf\n3. asdf\n\n```csharp\n",
+    "type": "Article",
+    "category": "Blog",
+    "date": "27 Aug 2026",
+    "tags": [
+      "Post",
+      "Tag"
+    ]
+  },
+  {
     "title": "Welcome to the New RenderPhoenix: Expanding Beyond Boundaries",
     "url": "/blog/welcome-to-the-new-renderphoenix/",
     "description": "On 22 August 2026, RenderPhoenix begins its official revival. We are rebuilding our digital presence and expanding into original game development, Unreal Engine, Unity, Blender 3D, and interactive experiences.",
@@ -20,8 +129,8 @@ window.SEARCH_INDEX = [
   {
     "title": "NASA Space Apps Challenge 2025: Engineering a Lunar Settlement",
     "url": "/blog/nasa-space-apps-2025-retrospective/",
-    "description": "A retrospective on how RenderPhoenix earned Regional Runner-Up at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation.",
-    "content": "\n\nIn 2025, members of RenderPhoenix participated in the **NASA Space Apps Challenge 2025**, tackling the challenge of designing functional, sustainable lunar habitats. Our submission achieved **Regional Runner-Up**.\n\n## The Challenge: Lunar Settlement Simulation\n\nHumanity's return to the Moon requir",
+    "description": "A retrospective on how RenderPhoenix was named Global Nominee at the NASA Space Apps Challenge 2025 with an interactive lunar city and habitat simulation.",
+    "content": "\n\nIn 2025, members of RenderPhoenix participated in the **NASA Space Apps Challenge 2025**, tackling the challenge of designing functional, sustainable lunar habitats. Our submission achieved **Global Nominee**.\n\n## The Challenge: Lunar Settlement Simulation\n\nHumanity's return to the Moon requires s",
     "type": "Article",
     "category": "Blog",
     "date": "15 Aug 2026",
@@ -37,7 +146,7 @@ window.SEARCH_INDEX = [
     "title": "Building Worlds: From Minehutt to RenderPhoenix",
     "url": "/blog/building-worlds-from-minehutt-to-renderphoenix/",
     "description": "Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future.",
-    "content": "\n\nEvery creative studio has an origin story driven by curiosity and experimentation. Ours began in 2019 with a simple vision: crafting interactive worlds that inspire players.\n\n## The Minehutt Years (2019 - 2022)\n\nOperating under the name *Minehutt*, we published our earliest maps and add-ons on MCP",
+    "content": "\n\nEvery creative studio has an origin story driven by curiosity, technical experimentation, and a passion for interactive worlds. For us, that journey began in 2019.\n\n## The Minehutt Years (2019 \u2013 2021)\n\nOur journey started under the name **Minehutt**, founded by **Tasrif**. Operating with a bold pu",
     "type": "Article",
     "category": "Blog",
     "date": "01 Aug 2026",
@@ -49,10 +158,40 @@ window.SEARCH_INDEX = [
     ]
   },
   {
+    "title": "Bangladeshi Vehicles Addon",
+    "url": "/work/bangladeshi-vehicles/",
+    "description": "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.",
+    "content": "\n\nThe **Bangladeshi Vehicles Add-on** brings authentic regional transport from Bangladesh and South Asia into Minecraft Bedrock. Featuring iconic everyday vehicles designed with custom 3D boxy geometry, passenger seating, and driving physics.\n\n### Included Vehicles\n\n**1. Leguna (Human Hauler)**\n\nThe",
+    "type": "Project",
+    "category": "Add-On",
+    "date": "Wed, 14 Apr 2021 00:00:00 GMT",
+    "tags": [
+      "addon",
+      "vehicles",
+      "3d-models",
+      "bangladesh"
+    ]
+  },
+  {
+    "title": "DHK Rickshaw V2",
+    "url": "/work/dhk-rickshaw/",
+    "description": "Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.",
+    "content": "\n\nThe **DHK Rickshaw V2 Add-on** brings the iconic cycle rickshaws of Dhaka into Minecraft Bedrock. Designed with authentic 3D geometry, traditional hood art, multi-passenger capacity, and built-in mobile storage.\n\n### Features & Variants\n\n- **3 Traditional Colorways**: Available in classic Red, Gre",
+    "type": "Project",
+    "category": "Add-On",
+    "date": "Fri, 12 Nov 2021 00:00:00 GMT",
+    "tags": [
+      "rickshaw",
+      "dhaka",
+      "addon",
+      "culture"
+    ]
+  },
+  {
     "title": "Lunar Habitat Simulator \u2014 NASA Space Apps 2025",
     "url": "/work/nasa-space-apps-2025/",
-    "description": "Regional Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.",
-    "content": "\n\nRenderPhoenix participated in the **NASA Space Apps Challenge 2025**, developing an interactive Moon settlement and lunar city-building project designed around real lunar environmental conditions and resource allocation.\n\n### Achievement\n**Regional Runner-Up \u2014 NASA Space Apps Challenge 2025**\n\n###",
+    "description": "Global Nominee project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation.",
+    "content": "\n\nRenderPhoenix participated in the **NASA Space Apps Challenge 2025**, developing an interactive Moon settlement and lunar city-building project designed around real lunar environmental conditions and resource allocation.\n\n### Achievement\n**Global Nominee \u2014 NASA Space Apps Challenge 2025**\n\n### Pro",
     "type": "Project",
     "category": "Interactive",
     "date": "05 Oct 2025",
@@ -77,21 +216,6 @@ window.SEARCH_INDEX = [
       "theme",
       "fantasy",
       "clash-of-clans"
-    ]
-  },
-  {
-    "title": "DHK Rickshaw V2",
-    "url": "/work/dhk-rickshaw/",
-    "description": "Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.",
-    "content": "\n\nThe **DHK Rickshaw V2 Add-on** brings the iconic cycle rickshaws of Dhaka into Minecraft Bedrock. Designed with authentic 3D geometry, traditional hood art, multi-passenger capacity, and built-in mobile storage.\n\n### Features & Variants\n\n- **3 Traditional Colorways**: Available in classic Red, Gre",
-    "type": "Project",
-    "category": "Add-On",
-    "date": "12 Nov 2021",
-    "tags": [
-      "rickshaw",
-      "dhaka",
-      "addon",
-      "culture"
     ]
   },
   {
@@ -156,21 +280,6 @@ window.SEARCH_INDEX = [
       "theme",
       "interface",
       "dark-mode"
-    ]
-  },
-  {
-    "title": "Bangladeshi Vehicles Addon",
-    "url": "/work/bangladeshi-vehicles/",
-    "description": "Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.",
-    "content": "\n\nThe **Bangladeshi Vehicles Add-on** brings authentic regional transport from Bangladesh and South Asia into Minecraft Bedrock. Featuring iconic everyday vehicles designed with custom 3D boxy geometry, passenger seating, and driving physics.\n\n### Included Vehicles\n\n**1. Leguna (Human Hauler)**\nThe ",
-    "type": "Project",
-    "category": "Add-On",
-    "date": "14 Apr 2021",
-    "tags": [
-      "addon",
-      "vehicles",
-      "3d-models",
-      "bangladesh"
     ]
   },
   {

@@ -48,7 +48,7 @@ On **22 August 2026**, RenderPhoenix officially initiated its studio revival. Re
 - **2021 — Renamed to RenderPhoenix:** Adopts the RenderPhoenix identity, launching iconic projects including *Banglamine City*, *Zombiepolis*, and vehicle add-ons on MCPEDL.
 - **1 August 2022 — Account Compromise & Resilience:** Overcomes major security breaches across core social channels, continuing project releases through 2024.
 - **2024 — Period of Inactivity:** The original team gradually disperses; studio operations pause while members pursue higher education.
-- **2025 — NASA Space Apps Challenge 2025:** RenderPhoenix achieves Regional Runner-Up with a Moon settlement interactive simulator.
+- **2025 — NASA Space Apps Challenge 2025:** RenderPhoenix achieves Global Nominee recognition with a Moon settlement interactive simulator.
 - **22 August 2026 — Official Revival Initiated:** RenderPhoenix marks its official revival, transitioning into full-scale games, 3D worlds, and Unreal/Unity production.
 
 ---

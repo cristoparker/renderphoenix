@@ -31,7 +31,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - January 30, 2021: Official re-branding to RenderPhoenix to establish a broader visual identity in real-time art and 3D modeling, launching landmark MCPEDL releases including Banglamine City, Zombiepolis, and vehicle add-ons.
 - 1 August 2022: Experienced a severe security incident where core social accounts and communication channels were compromised. Despite this, the studio demonstrated resilience by continuing operations and publishing content through 2024.
 - 2024: Operations paused as the original team members dispersed into university studies and software careers.
-- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Regional Runner-Up.
+- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Global Nominee.
 - 22 August 2026: Official studio revival initiated to rebuild digital infrastructure, reassemble team capabilities, and expand into original games and 3D asset production.
 
 ## 3. Team Roster

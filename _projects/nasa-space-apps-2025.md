@@ -1,7 +1,7 @@
 ---
 title: "Lunar Habitat Simulator — NASA Space Apps 2025"
 slug: "nasa-space-apps-2025"
-description: "Regional Runner-Up project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation."
+description: "Global Nominee project at NASA Space Apps Challenge 2025: A lunar city-building and life-support simulation."
 category: "Interactive"
 developer: "RenderPhoenix Team"
 date: 2025-10-05
@@ -16,7 +16,7 @@ technologies:
   - "Interactive 3D"
   - "UI Design"
 featured: true
-award: "Regional Runner-Up — NASA Space Apps Challenge 2025"
+award: "Global Nominee — NASA Space Apps Challenge 2025"
 tags:
   - "nasa"
   - "space-apps"
@@ -28,7 +28,7 @@ tags:
 RenderPhoenix participated in the **NASA Space Apps Challenge 2025**, developing an interactive Moon settlement and lunar city-building project designed around real lunar environmental conditions and resource allocation.
 
 ### Achievement
-**Regional Runner-Up — NASA Space Apps Challenge 2025**
+**Global Nominee — NASA Space Apps Challenge 2025**
 
 ### Project Overview
 The team engineered a 3D interactive lunar settlement prototype balancing radiation shielding, thermal distribution, power generation, and habitat expansion on the lunar surface.
