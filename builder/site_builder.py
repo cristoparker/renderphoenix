@@ -56,6 +56,7 @@ class SiteBuilder:
         for proj in projects:
             slug = proj.slug
             proj.markdown_url = f"/work/{slug}.md"
+            proj.meta['markdown_url'] = f"/work/{slug}.md"
             p_html_body = MarkdownParser.to_html(proj.body)
 
             # Assemble layout
@@ -124,6 +125,7 @@ class SiteBuilder:
         for i, post in enumerate(posts):
             slug = post.slug
             post.markdown_url = f"/blog/{slug}.md"
+            post.meta['markdown_url'] = f"/blog/{slug}.md"
             p_html_body = MarkdownParser.to_html(post.body)
 
             # Build article tags
