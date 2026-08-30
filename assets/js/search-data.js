@@ -114,23 +114,6 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "NASA Space Apps Challenge 2025: The Story of Moon Forces",
-    "url": "/blog/nasa-space-apps-2025-retrospective/",
-    "description": "A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.",
-    "content": "\n\n![youtube:Moon Forces Cinematic Showcase (NASA Space Apps 2025)](https://youtu.be/GMz0_QiFvX4)\n\nA story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.\n\nWhen NASA Space Apps Challenge 2025 arrived, Team Space Kitty did not begin with a huge game design d",
-    "type": "Article",
-    "category": "Blog",
-    "date": "15 Aug 2026",
-    "tags": [
-      "nasa",
-      "space-apps",
-      "moon-forces",
-      "unity",
-      "gamedev",
-      "global-nominee"
-    ]
-  },
-  {
     "title": "Building Worlds: From Minehutt to RenderPhoenix",
     "url": "/blog/building-worlds-from-minehutt-to-renderphoenix/",
     "description": "Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future.",
@@ -179,7 +162,7 @@ window.SEARCH_INDEX = [
     "title": "Moon Forces \u2014 NASA Space Apps 2025",
     "url": "/work/nasa-space-apps-2025/",
     "description": "Global Nominee project at NASA Space Apps Challenge 2025: A real-time lunar colony building and resource management simulation.",
-    "content": "\n\n![youtube:Moon Forces Cinematic Showcase (NASA Space Apps 2025)](https://youtu.be/GMz0_QiFvX4)\n\n**Moon Forces** is an interactive Moon colony building and resource management simulation created for the **NASA Space Apps Challenge 2025** under the prompt *\u201cYour Home in Space: The Habitat Layout Cre",
+    "content": "\n\n![youtube:Moon Forces Cinematic Showcase (NASA Space Apps 2025)](https://youtu.be/GMz0_QiFvX4)\n\nA story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.\n\nWhen NASA Space Apps Challenge 2025 arrived, Team Space Kitty did not begin with a huge game design d",
     "type": "Project",
     "category": "Interactive",
     "date": "05 Oct 2025",
