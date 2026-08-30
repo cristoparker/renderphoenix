@@ -51,7 +51,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 
 ## 6. Editorial & Studio Devlogs (Raw Markdown)
 - [Welcome to the New RenderPhoenix: Expanding Beyond Boundaries](https://renderphoenix.com/blog/welcome-to-the-new-renderphoenix.md) (22 Aug 2026): On 22 August 2026, RenderPhoenix begins its official revival. We are rebuilding our digital presence and expanding into original game development, Unreal Engine, Unity, Blender 3D, and interactive experiences. (Author: Cristo)
-- [NASA Space Apps Challenge 2025: The Story of Moon Forces](https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective.md) (15 Aug 2026): A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure in four to five days. (Author: Sabit Hasan Turzo)
+- [NASA Space Apps Challenge 2025: The Story of Moon Forces](https://renderphoenix.com/blog/nasa-space-apps-2025-retrospective.md) (15 Aug 2026): A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure. (Author: Sabit Hasan Turzo)
 - [Building Worlds: From Minehutt to RenderPhoenix](https://renderphoenix.com/blog/building-worlds-from-minehutt-to-renderphoenix.md) (01 Aug 2026): Tracing the history of our studio from 2019 to the present: early community maps, visual packs, overcoming setbacks, and rebuilding for the future. (Author: Tasrif)
 
 ## 7. Legal, Privacy & Compliance (Raw Markdown)

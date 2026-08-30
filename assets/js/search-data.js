@@ -116,8 +116,8 @@ window.SEARCH_INDEX = [
   {
     "title": "NASA Space Apps Challenge 2025: The Story of Moon Forces",
     "url": "/blog/nasa-space-apps-2025-retrospective/",
-    "description": "A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure in four to five days.",
-    "content": "\n\n*A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.*\n\nWhen the **NASA Space Apps Challenge 2025** arrived, Team Space Kitty did not begin with a huge game design document or a long development schedule.\n\nThey had participated in NASA Space Apps befo",
+    "description": "A story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.",
+    "content": "\n\nA story of NASA Space Apps 2025, a Moon colony, a chicken, a duck, and a game built under pressure.\n\nWhen NASA Space Apps Challenge 2025 arrived, Team Space Kitty did not begin with a huge game design document or a long development schedule.\n\nThey had participated in NASA Space Apps before, and th",
     "type": "Article",
     "category": "Blog",
     "date": "15 Aug 2026",
