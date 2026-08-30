@@ -1,12 +1,13 @@
 """
 RenderPhoenix Image Pipeline Utilities
 Handles image path resolution (WebP/SVG/PNG), intrinsic dimensions caching, and optimization hooks.
+Dependency-free: Uses only Python standard library.
 """
 
 import os
+import struct
 import urllib.parse
 from typing import Optional, Tuple
-from PIL import Image
 
 _DIMENSION_CACHE = {}
 
@@ -37,6 +38,69 @@ def get_webp_url(img_url: str) -> str:
     encoded_base = urllib.parse.quote(unquoted_base, safe='/:?#&=%')
     return f"{encoded_base}{query_str}"
 
+def _parse_image_dimensions_raw(fpath: str) -> Optional[Tuple[int, int]]:
+    """
+    Parses image dimensions from file headers using standard library struct.
+    Supports PNG, WebP, GIF, and JPEG with zero external dependencies.
+    """
+    try:
+        with open(fpath, 'rb') as f:
+            data = f.read(512)
+            if len(data) < 24:
+                return None
+                
+            # 1. PNG
+            if data.startswith(b'\x89PNG\r\n\x1a\n'):
+                w, h = struct.unpack('>II', data[16:24])
+                return (w, h)
+                
+            # 2. GIF
+            if data.startswith(b'GIF87a') or data.startswith(b'GIF89a'):
+                w, h = struct.unpack('<HH', data[6:10])
+                return (w, h)
+                
+            # 3. WebP
+            if data.startswith(b'RIFF') and data[8:12] == b'WEBP':
+                vp8 = data[12:16]
+                if vp8 == b'VP8X':
+                    w = 1 + int.from_bytes(data[24:27], 'little')
+                    h = 1 + int.from_bytes(data[27:30], 'little')
+                    return (w, h)
+                elif vp8 == b'VP8 ':
+                    w, h = struct.unpack('<HH', data[26:30])
+                    return (w & 0x3FFF, h & 0x3FFF)
+                elif vp8 == b'VP8L':
+                    b1, b2, b3, b4 = data[21:25]
+                    w = 1 + (((b2 & 0x3F) << 8) | b1)
+                    h = 1 + (((b4 & 0x0F) << 10) | (b3 << 2) | ((b2 & 0xC0) >> 6))
+                    return (w, h)
+                    
+            # 4. JPEG
+            if data.startswith(b'\xff\xd8'):
+                f.seek(2)
+                while True:
+                    marker_bytes = f.read(2)
+                    if len(marker_bytes) < 2 or marker_bytes[0] != 0xFF:
+                        break
+                    marker = marker_bytes[1]
+                    if marker in [0xD9, 0xDA]: # EOI or SOS
+                        break
+                    length_bytes = f.read(2)
+                    if len(length_bytes) < 2:
+                        break
+                    length = struct.unpack('>H', length_bytes)[0]
+                    if marker in [0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF]:
+                        sof_data = f.read(5)
+                        if len(sof_data) == 5:
+                            h, w = struct.unpack('>HH', sof_data[1:5])
+                            return (w, h)
+                        break
+                    else:
+                        f.seek(length - 2, 1)
+    except Exception:
+        return None
+    return None
+
 def get_image_dimensions(img_path: str) -> Optional[Tuple[int, int]]:
     """
     Retrieves intrinsic (width, height) of an image with caching to avoid repeated I/O.
@@ -58,12 +122,9 @@ def get_image_dimensions(img_path: str) -> Optional[Tuple[int, int]]:
     
     for cand in candidates:
         if os.path.exists(cand) and os.path.isfile(cand):
-            try:
-                with Image.open(cand) as img:
-                    w, h = img.size
-                    _DIMENSION_CACHE[clean_path] = (w, h)
-                    return (w, h)
-            except Exception:
-                pass
+            dims = _parse_image_dimensions_raw(cand)
+            if dims:
+                _DIMENSION_CACHE[clean_path] = dims
+                return dims
                 
     return None
