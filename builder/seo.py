@@ -90,7 +90,16 @@ class SEOGenerator:
                 "@id": f"{site_url}/#organization",
                 "name": site_name,
                 "url": f"{site_url}/",
-                "logo": f"{site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.png",
+                "logo": {
+                    "@type": "ImageObject",
+                    "@id": f"{site_url}/#logo",
+                    "url": f"{site_url}/assets/images/brand/Renderphoenix-Logo-512x512.png",
+                    "contentUrl": f"{site_url}/assets/images/brand/Renderphoenix-Logo-512x512.png",
+                    "width": 512,
+                    "height": 512,
+                    "caption": f"{site_name} Official Logo"
+                },
+                "image": f"{site_url}/assets/images/brand/Renderphoenix-Logo-512x512.png",
                 "sameAs": [
                     "https://mcpedl.com/user/renderphoenix/"
                 ],
@@ -221,6 +230,14 @@ class SitemapBuilder:
         site_url = Config.SITE_URL
 
         brand_images_xml = f"""    <image:image>
+      <image:loc>{site_url}/assets/images/brand/Renderphoenix-Logo-512x512.png</image:loc>
+      <image:title>RenderPhoenix Official Square Studio Logo Mark (PNG 512x512)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>{site_url}/assets/images/favicon-512x512.png</image:loc>
+      <image:title>RenderPhoenix Official Square Favicon Mark (PNG 512x512)</image:title>
+    </image:image>
+    <image:image>
       <image:loc>{site_url}/assets/images/brand/Renderphoenix%20Colored%20Logo.svg</image:loc>
       <image:title>RenderPhoenix Official Colored Logo Mark (SVG)</image:title>
     </image:image>
@@ -252,7 +269,7 @@ class SitemapBuilder:
 
         for pinfo in pages:
             slug = pinfo.slug
-            if slug == '404':
+            if slug == '404' or slug == '':
                 continue
             img_xml = ""
             if slug == 'about':

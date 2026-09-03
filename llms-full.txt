@@ -59,6 +59,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 
 ## 8. Official Brand Identity & Logos
 - [Media Kit & Brand Assets Web Directory](https://renderphoenix.com/images/brand/): Interactive web portal with live previews, direct image URLs, and 1-click downloads for all official SVG and PNG assets.
+- [Official Square Master Logo (PNG 512x512)](https://renderphoenix.com/assets/images/brand/Renderphoenix-Logo-512x512.png): Standard 1:1 master studio logo mark.
 - [Official Colored Logo (SVG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.svg): Primary studio vector mark in phoenix violet & flame pink.
 - [Official Colored Logo (PNG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.png): High-resolution raster mark.
 - [Official Text Colored Horizontal (SVG)](https://renderphoenix.com/assets/images/brand/Renderphoenix%20Text%20Colored%20Horizontal.svg): Full horizontal colored brand wordmark.

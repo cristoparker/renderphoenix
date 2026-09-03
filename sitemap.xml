@@ -5,6 +5,14 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix-Logo-512x512.png</image:loc>
+      <image:title>RenderPhoenix Official Square Studio Logo Mark (PNG 512x512)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/favicon-512x512.png</image:loc>
+      <image:title>RenderPhoenix Official Square Favicon Mark (PNG 512x512)</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.svg</image:loc>
       <image:title>RenderPhoenix Official Colored Logo Mark (SVG)</image:title>
     </image:image>
@@ -24,11 +32,6 @@
       <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20White%20Logo.png</image:loc>
       <image:title>RenderPhoenix Official White Logo PNG</image:title>
     </image:image>
-  </url>
-  <url>
-    <loc>https://renderphoenix.com//</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://renderphoenix.com/about/</loc>
@@ -73,6 +76,14 @@
     <loc>https://renderphoenix.com/images/brand/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix-Logo-512x512.png</image:loc>
+      <image:title>RenderPhoenix Official Square Studio Logo Mark (PNG 512x512)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/favicon-512x512.png</image:loc>
+      <image:title>RenderPhoenix Official Square Favicon Mark (PNG 512x512)</image:title>
+    </image:image>
     <image:image>
       <image:loc>https://renderphoenix.com/assets/images/brand/Renderphoenix%20Colored%20Logo.svg</image:loc>
       <image:title>RenderPhoenix Official Colored Logo Mark (SVG)</image:title>

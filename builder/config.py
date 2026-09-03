@@ -38,5 +38,8 @@ class Config:
     STATIC_ROOT_FILES: List[str] = [
         'robots.txt',
         'CNAME',
-        'site.webmanifest'
+        'site.webmanifest',
+        'favicon.ico',
+        'favicon.png',
+        'apple-touch-icon.png'
     ]
