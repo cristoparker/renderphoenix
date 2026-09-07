@@ -108,11 +108,9 @@ class SiteBuilder:
             with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
                 f.write(full_html)
 
-            # 2. Output raw Markdown in directory and at /work/<slug>.md
+            # 2. Output raw Markdown
             raw_md = proj.raw_content
             with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
-                f.write(raw_md)
-            with open(os.path.join(self.site_dir, 'work', f"{slug}.md"), 'w', encoding='utf-8') as f:
                 f.write(raw_md)
 
             print(f"Built project page -> _site/work/{slug}/ (index.html, index.md, {slug}.md)")
@@ -173,11 +171,9 @@ class SiteBuilder:
             with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
                 f.write(full_html)
 
-            # 2. Output raw Markdown in directory and at /blog/<slug>.md
+            # 2. Output raw Markdown
             raw_md = post.raw_content
             with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
-                f.write(raw_md)
-            with open(os.path.join(self.site_dir, 'blog', f"{slug}.md"), 'w', encoding='utf-8') as f:
                 f.write(raw_md)
 
             print(f"Built post page -> _site/blog/{slug}/ (index.html, index.md, {slug}.md)")
@@ -324,9 +320,7 @@ class SiteBuilder:
                 os.makedirs(out_dir, exist_ok=True)
                 with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
                     f.write(final_html)
-                with open(os.path.join(self.site_dir, f"{slug}.html"), 'w', encoding='utf-8') as f:
-                    f.write(final_html)
-                print(f"Built page -> _site/{slug}/index.html & _site/{slug}.html")
+                print(f"Built page -> _site/{slug}/index.html")
 
             # Write Raw Markdown Endpoints
             if slug and slug != '404':
@@ -344,8 +338,6 @@ class SiteBuilder:
                 out_dir = os.path.join(self.site_dir, slug)
                 os.makedirs(out_dir, exist_ok=True)
                 with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
-                    f.write(raw_md)
-                with open(os.path.join(self.site_dir, f"{slug}.md"), 'w', encoding='utf-8') as f:
                     f.write(raw_md)
 
             compiled_pages_info.append({
