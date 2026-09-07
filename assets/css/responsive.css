@@ -122,6 +122,10 @@
     pointer-events: none;
   }
 
+  .nav-backdrop {
+    touch-action: none;
+  }
+
   .primary-nav {
     position: fixed;
     top: 0;
@@ -132,14 +136,13 @@
     height: 100dvh;
     background: #FFFFFF;
     border-left: 1px solid var(--color-border);
-    padding: 1.25rem 1.25rem 2rem;
+    padding: calc(1.25rem + env(safe-area-inset-top, 0px)) 1.25rem calc(2rem + env(safe-area-inset-bottom, 0px)) 1.25rem;
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    contain: layout paint style;
     box-shadow: -8px 0 32px rgba(28, 27, 24, 0.15);
     z-index: 1060;
     overflow-y: auto;
@@ -159,6 +162,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.75rem;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--c-5-light-lilac);
@@ -189,6 +193,9 @@
     color: var(--color-text);
     cursor: pointer;
     flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    touch-action: manipulation;
     transition: all var(--transition-fast);
   }
 
@@ -367,15 +374,17 @@
     border-radius: var(--radius-md);
     padding: 0 !important;
     background: transparent !important;
-    aspect-ratio: 520 / 245;
     width: 100%;
   }
 
   .article-hero-media img {
     border-radius: var(--radius-md);
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
   }
 
   .blog-article .article-body img,
@@ -390,6 +399,10 @@
     border-radius: var(--radius-md);
     padding: 0 !important;
     background: transparent !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .article-body p:has(> img),
@@ -403,7 +416,6 @@
   }
 
   .project-detail .project-cover {
-    aspect-ratio: 520 / 245;
     width: 100%;
     margin-bottom: var(--space-xl);
     border-radius: var(--radius-md);
@@ -412,8 +424,11 @@
 
   .project-detail .project-cover img {
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
   }
 }
 
