@@ -17,7 +17,6 @@ technologies:
 download_links:
   - label: "Download for Java Edition"
     url: "https://www.curseforge.com/minecraft/worlds/banglamine-city-2-java"
-    primary: true
   - label: "Download for Bedrock/MCPE/Window Edition"
     url: "https://www.curseforge.com/minecraft-bedrock/maps/banglamine-city-map/"
 featured: true
@@ -233,7 +232,7 @@ The map can be used for personal Minecraft gameplay, exploration, creative proje
 For the latest official version, always use the download provided by **RenderPhoenix Creatives**:
 
 - **[Download for Minecraft Java Edition (CurseForge)](https://www.curseforge.com/minecraft/worlds/banglamine-city-2-java)**
-- **[Download for Minecraft Bedrock Edition (CurseForge)](https://www.curseforge.com/minecraft-bedrock/maps/banglamine-city-map/)**
+- **[Download for Bedrock/MCPE/Window Edition (CurseForge)](https://www.curseforge.com/minecraft-bedrock/maps/banglamine-city-map/)**
 
 ---
 

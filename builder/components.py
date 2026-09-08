@@ -242,11 +242,12 @@ class ComponentRenderer:
                 if isinstance(dl, dict):
                     url = dl.get('url', '')
                     label = dl.get('label') or f'Download #{idx+1}'
-                    is_primary = dl.get('primary', idx == 0 and not demo_url)
+                    # Keep all project download buttons uniformly styled (defaults to primary)
+                    is_primary = dl.get('primary') if dl.get('primary') is not None else True
                 else:
                     url = str(dl)
                     label = f'Download #{idx+1}'
-                    is_primary = idx == 0 and not demo_url
+                    is_primary = True
 
                 btn_class = 'btn btn-primary btn-block' if is_primary else 'btn btn-secondary btn-block'
                 buttons.append(f'''<a href="{url}" target="_blank" rel="noopener noreferrer" class="{btn_class}">
