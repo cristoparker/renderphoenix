@@ -271,20 +271,24 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "Zombiepolis - A Post Apocalyptic City",
+    "title": "Zombiepolis - A Post-Apocalyptic City",
     "url": "/work/zombiepolis/",
-    "description": "A post-apocalyptic urban city environment designed for survival, exploration, and atmospheric gameplay.",
-    "content": "\n\n**Zombiepolis** is a detailed post-apocalyptic coastal city map created for Minecraft Bedrock Edition. Designed specifically as an optimized, lag-free survival environment for mobile (PE), console, and PC players, it pushes the boundaries of atmospheric environmental storytelling in Bedrock.\n\nThe ",
+    "description": "A detailed post-apocalyptic Minecraft city map built for survival, exploration, and atmospheric gameplay. Available for Minecraft Java and Bedrock Edition.",
+    "content": "\n\n## Zombiepolis \u2013 A Post-Apocalyptic Minecraft City Map\n\n**Zombiepolis** is a detailed post-apocalyptic city map built for survival, exploration, and atmospheric gameplay in Minecraft. Set upon a vast coastal island where civilization has crumbled following an unknown global catastrophe, Zombiepoli",
     "type": "Project",
     "category": "Environment",
     "date": "16 Mar 2021",
     "tags": [
+      "minecraft",
+      "zombie",
       "post-apocalyptic",
       "survival",
-      "environment",
-      "zombie",
       "city",
-      "pvp"
+      "environment",
+      "pvp",
+      "java",
+      "bedrock",
+      "bangladesh"
     ]
   },
   {
