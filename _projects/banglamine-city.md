@@ -9,6 +9,7 @@ downloads: "198.2K+"
 status: "completed"
 platform: "Minecraft Java & Bedrock"
 cover_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.webp"
+youtube_url: "https://youtu.be/J55G9qTNgvA"
 technologies:
   - "Minecraft Java & Bedrock"
   - "World Design"
@@ -27,13 +28,15 @@ tags:
   - "bangladesh"
 ---
 
-# Banglamine City 2 – Bangladesh Minecraft City Map
+## Banglamine City 2 – Bangladesh Minecraft City Map
 
 **Banglamine City 2** is a large-scale fictional Minecraft city map inspired by the architecture, streets, infrastructure, landmarks, and everyday urban environments of Bangladesh.
 
 Originally developed around 2020, Banglamine City 2 brings a distinctly Bangladeshi atmosphere into Minecraft through detailed buildings, busy streets, local markets, railway infrastructure, public spaces, residential neighborhoods, and surrounding rural environments.
 
 The map is available for **Minecraft Java Edition and Minecraft Bedrock Edition** and is designed for exploration, creative gameplay, roleplay, multiplayer experiences, Minecraft videos, and storytelling.
+
+![youtube:Banglamine City 2 Teaser](https://youtu.be/J55G9qTNgvA)
 
 ![Banglamine City Atmospheric Streets](/assets/images/projects/banglamine%202%202020-10-05_19.29.51.webp)
 
