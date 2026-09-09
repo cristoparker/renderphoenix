@@ -24,6 +24,7 @@ Welcome to the **RenderPhoenix** codebase. This document is the primary referenc
 renderphoenix/
 ├── _data/                 # Static data sources
 │   ├── navigation.yml     # Header & footer link hierarchies
+│   ├── redirects.yml      # URL redirects & short links map
 │   ├── services.yml       # Studio capabilities & services
 │   └── team.yml           # Core studio team members & roles
 ├── _includes/             # Reusable HTML snippets & card components

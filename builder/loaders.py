@@ -155,3 +155,34 @@ class ContentLoader:
                 meta=m
             ))
         return team
+
+    @classmethod
+    def load_redirects(cls) -> List[Dict[str, str]]:
+        """
+        Loads URL redirect rules from _data/redirects.yml.
+        Supports both dictionary format:
+            /banglamine: /work/banglamine-city/
+        and list format:
+            - from: /banglamine
+              to: /work/banglamine-city/
+        """
+        redirects_file = os.path.join(Config.DATA_DIR, 'redirects.yml')
+        if not os.path.exists(redirects_file):
+            return []
+
+        with open(redirects_file, 'r', encoding='utf-8') as f:
+            raw = yaml.safe_load(f) or {}
+
+        redirects: List[Dict[str, str]] = []
+        if isinstance(raw, dict):
+            for k, v in raw.items():
+                if k and v:
+                    redirects.append({'from': str(k).strip(), 'to': str(v).strip()})
+        elif isinstance(raw, list):
+            for item in raw:
+                if isinstance(item, dict):
+                    frm = item.get('from') or item.get('src') or item.get('source')
+                    to = item.get('to') or item.get('dest') or item.get('target')
+                    if frm and to:
+                        redirects.append({'from': str(frm).strip(), 'to': str(to).strip()})
+        return redirects

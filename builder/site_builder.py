@@ -1,6 +1,7 @@
 import os
 import shutil
 import re
+import json
 from typing import List, Dict, Any
 from .config import Config
 from .models import Project, Post, Service, TeamMember, PageInfo
@@ -360,6 +361,61 @@ class SiteBuilder:
                 shutil.copy2(s_src, os.path.join(self.site_dir, s_file))
                 print(f"Copied {s_file} -> _site/{s_file}")
 
+    def build_redirects(self, redirects: List[Dict[str, str]]) -> None:
+        """Generates instant HTML redirect pages and _redirects rules for configured short URLs."""
+        if not redirects:
+            return
+
+        cloudflare_rules = []
+        for r in redirects:
+            src = r.get('from', '').strip()
+            dest = r.get('to', '').strip()
+            if not src or not dest:
+                continue
+
+            slug = src.strip('/')
+            if not slug:
+                continue
+
+            target_url = dest
+            if dest.startswith('/'):
+                canonical_url = f"{Config.SITE_URL}{dest}"
+            else:
+                canonical_url = dest
+
+            redirect_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <meta http-equiv="refresh" content="0; url={target_url}">
+  <link rel="canonical" href="{canonical_url}">
+  <meta name="robots" content="noindex, follow">
+  <script>location.replace({json.dumps(target_url)});</script>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #F4F1FA; color: #1E1B29;">
+  <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+    <p style="margin: 0 0 1rem; font-size: 1.1rem; font-weight: 500;">Redirecting...</p>
+    <p style="margin: 0; font-size: 0.9rem; color: #565069;">
+      If you are not redirected automatically, <a href="{target_url}" style="color: #5A4077; font-weight: 600; text-decoration: underline;">click here</a>.
+    </p>
+  </div>
+</body>
+</html>
+"""
+            out_dir = os.path.join(self.site_dir, slug)
+            os.makedirs(out_dir, exist_ok=True)
+            with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
+                f.write(redirect_html)
+
+            cloudflare_rules.append(f"/{slug} {target_url} 302")
+            print(f"Built redirect -> /{slug}/ -> {target_url}")
+
+        if cloudflare_rules:
+            cf_content = "\n".join(cloudflare_rules) + "\n"
+            with open(os.path.join(self.site_dir, '_redirects'), 'w', encoding='utf-8') as f:
+                f.write(cf_content)
+
     def build(self) -> None:
         """Runs the complete static site build pipeline."""
         # 1. Clean & Assets
@@ -407,3 +463,8 @@ class SiteBuilder:
 
         # 9. Static Root Files
         self.copy_static_root_files()
+
+        # 10. URL Redirects & Shortlinks
+        redirects = ContentLoader.load_redirects()
+        self.build_redirects(redirects)
+

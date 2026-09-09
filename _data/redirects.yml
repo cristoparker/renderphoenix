@@ -1,0 +1,21 @@
+# ==============================================================================
+# RenderPhoenix URL Redirects & Short Links Configuration
+# ==============================================================================
+# এই ফাইলে যেকোনো শর্ট লিংক ও তার রিডাইরেক্ট গন্তব্য (Destination URL) বসাতে পারবেন।
+# সাইট বিল্ড করার সময় (python3 build_site.py) এগুলো স্বয়ংক্রিয়ভাবে তৈরি হবে।
+#
+# ফরম্যাট (Format):
+#   /শর্ট-লিংক: "গন্তব্য-লিংক"
+#
+# উদাহরণ (Examples):
+#   /banglamine: "/work/banglamine-city/"
+#   /discord: "/work/discord-theme-ui/"
+#   /youtube: "https://www.youtube.com/@RenderPhoenix"
+#   /github: "https://github.com/renderphoenix"
+# ==============================================================================
+
+/banglamine: "/work/banglamine-city/"
+/banglamine-city: "/work/banglamine-city/"
+/youtube: "https://www.youtube.com/@RenderPhoenix"
+/github: "https://github.com/renderphoenix"
+/curseforge: "https://www.curseforge.com/members/renderpc/projects"
