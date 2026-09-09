@@ -255,21 +255,6 @@ window.SEARCH_INDEX = [
     ]
   },
   {
-    "title": "Banglamine City 2",
-    "url": "/work/banglamine-city/",
-    "description": "A large-scale fictional Minecraft city map inspired by the architecture, streets, infrastructure, landmarks, and everyday urban environments of Bangladesh.",
-    "content": "\n\n## Banglamine City 2 \u2013 Bangladesh Minecraft City Map\n\n**Banglamine City 2** is a large-scale fictional Minecraft city map inspired by the architecture, streets, infrastructure, landmarks, and everyday urban environments of Bangladesh.\n\nOriginally developed around 2020, Banglamine City 2 brings a d",
-    "type": "Project",
-    "category": "Environment",
-    "date": "29 Mar 2021",
-    "tags": [
-      "city",
-      "environment",
-      "architecture",
-      "bangladesh"
-    ]
-  },
-  {
     "title": "Phoenix Bicycle Addon",
     "url": "/work/phoenix-bicycle/",
     "description": "A rideable bicycle vehicle add-on for Minecraft Bedrock featuring 6 vibrant color variants, passenger mob riding, and usable inventory storage.",
@@ -347,6 +332,21 @@ window.SEARCH_INDEX = [
       "biomes",
       "magic",
       "caves"
+    ]
+  },
+  {
+    "title": "Banglamine City 2",
+    "url": "/work/banglamine-city/",
+    "description": "A large-scale fictional Minecraft city map inspired by the architecture, streets, infrastructure, landmarks, and everyday urban environments of Bangladesh.",
+    "content": "\n\n## Banglamine City 2 \u2013 Bangladesh Minecraft City Map\n\n**Banglamine City 2** is a large-scale fictional Minecraft city map inspired by the architecture, streets, infrastructure, landmarks, and everyday urban environments of Bangladesh.\n\nOriginally developed around 2020, Banglamine City 2 brings a d",
+    "type": "Project",
+    "category": "Environment",
+    "date": "04 Jul 2020",
+    "tags": [
+      "city",
+      "environment",
+      "architecture",
+      "bangladesh"
     ]
   }
 ];

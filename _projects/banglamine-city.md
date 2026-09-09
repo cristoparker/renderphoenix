@@ -4,12 +4,11 @@ slug: "banglamine-city"
 description: "A large-scale fictional Minecraft city map inspired by the architecture, streets, infrastructure, landmarks, and everyday urban environments of Bangladesh."
 category: "Environment"
 developer: "Tasrif"
-date: 2021-03-29
+date: 2020-07-04
 downloads: "198.2K+"
 status: "completed"
 platform: "Minecraft Java & Bedrock"
 cover_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.webp"
-youtube_url: "https://youtu.be/J55G9qTNgvA"
 technologies:
   - "Minecraft Java & Bedrock"
   - "World Design"

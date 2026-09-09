@@ -12,7 +12,7 @@ from .template import TemplateEngine
 from .seo import SitemapBuilder
 from .search import SearchIndexer
 from .llm import LLMGenerator
-from .utils import format_full_date, get_youtube_embed_url, clean_conditional
+from .utils import format_full_date, clean_conditional
 from .images import get_webp_url
 
 class SiteBuilder:
@@ -80,17 +80,6 @@ class SiteBuilder:
             actions_html = ComponentRenderer.render_project_sidebar_actions(proj)
             p_content = p_content.replace('{{ project_specs }}', specs_html)
             p_content = p_content.replace('{{ project_sidebar_actions }}', actions_html)
-
-            yt_url = proj.youtube_url
-            yt_embed = get_youtube_embed_url(yt_url)
-            yt_author = proj.youtube_author
-
-            p_content = p_content.replace('{{ page.youtube_url }}', yt_url)
-            p_content = p_content.replace('{{ page.youtube_embed_url }}', yt_embed)
-            p_content = p_content.replace('{{ page.youtube_author }}', yt_author)
-
-            p_content = clean_conditional(p_content, 'page.youtube_author', bool(yt_author))
-            p_content = clean_conditional(p_content, 'page.youtube_url', bool(yt_url))
 
             raw_cover_img = proj.cover_image or '/assets/images/image-not-found.svg'
             cover_img = get_webp_url(raw_cover_img)

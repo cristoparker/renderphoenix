@@ -9,8 +9,6 @@ status: "completed"
 version: "Prototype"
 platform: "Unity & 3D Simulation"
 github_url: "https://github.com/cristoparker/Space-Kitty-Project"
-youtube_url: "https://youtu.be/GMz0_QiFvX4"
-youtube_author: "RenderPhoenix"
 cover_image: "/assets/images/projects/moon-forces/Renderphoenix%20Nasa%20Space%20App%20Moon%20Forces%202025.webp"
 technologies:
   - "Unity"

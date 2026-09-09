@@ -196,15 +196,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://renderphoenix.com/work/banglamine-city/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://renderphoenix.com/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.webp</image:loc>
-      <image:title>Banglamine City 2</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://renderphoenix.com/work/phoenix-bicycle/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -247,6 +238,15 @@
     <image:image>
       <image:loc>https://renderphoenix.com/assets/images/projects/fantasyWood/Minecraft%20Renderphoenix%20%20fantasy-woods-dark-underland%20thumbnail.webp</image:loc>
       <image:title>Fantasy Woods &amp; Dark Underland</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/banglamine-city/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoenix%202020-10-03_10.40.48.webp</image:loc>
+      <image:title>Banglamine City 2</image:title>
     </image:image>
   </url>
 </urlset>

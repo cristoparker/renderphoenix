@@ -16,8 +16,6 @@ class Project:
     downloads: str = ""
     award: str = ""
     cover_image: str = ""
-    youtube_url: str = ""
-    youtube_author: str = ""
     demo_url: str = ""
     demo_label: str = "Launch Live Demo"
     download_links: List[Dict[str, Any]] = field(default_factory=list)

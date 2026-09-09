@@ -49,8 +49,6 @@ class ContentLoader:
                     downloads=str(meta.get('downloads', '')) if meta.get('downloads') else '',
                     award=meta.get('award', ''),
                     cover_image=meta.get('cover_image', ''),
-                    youtube_url=meta.get('youtube_url', ''),
-                    youtube_author=meta.get('youtube_author', ''),
                     demo_url=meta.get('demo_url') or meta.get('live_demo_url') or '',
                     demo_label=meta.get('demo_label', 'Launch Live Demo'),
                     download_links=meta.get('download_links', []) if isinstance(meta.get('download_links'), list) else [],
