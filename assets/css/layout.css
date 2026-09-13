@@ -50,7 +50,7 @@ body {
     radial-gradient(circle at 12% 15%, rgba(124, 58, 237, 0.025) 0%, transparent 60%),
     radial-gradient(circle at 88% 20%, rgba(255, 121, 172, 0.025) 0%, transparent 60%),
     radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.015) 0%, transparent 70%);
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 body::before,
@@ -303,7 +303,7 @@ img.brand-mark,
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(var(--space-3xl) * 1.2) 0;
+  padding: calc(var(--space-3xl) * 1.5) 0;
   margin-bottom: var(--space-2xl);
   background-color: #0D0F17;
   background-size: cover;
@@ -373,75 +373,6 @@ img.brand-mark,
   font-size: 0.9rem;
   margin-top: var(--space-md);
   margin-bottom: 0.5rem;
-}
-
-.footer-socials {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  margin-top: 1.6rem;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.social-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.55rem 1.05rem;
-  border-radius: var(--radius-pill);
-  background: #FFFFFF;
-  border: 1.5px solid rgba(90, 64, 119, 0.16);
-  color: var(--color-text);
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  text-decoration: none !important;
-  box-shadow: 0 2px 8px rgba(90, 64, 119, 0.06);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.social-icon {
-  width: 20px !important;
-  height: 20px !important;
-  display: inline-block;
-  vertical-align: middle;
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
-}
-
-.social-name {
-  line-height: 1;
-}
-
-.social-btn:hover {
-  transform: translateY(-3px);
-  text-decoration: none !important;
-}
-
-.social-btn:hover .social-icon {
-  transform: scale(1.15);
-}
-
-.social-curseforge:hover {
-  color: #F16436 !important;
-  border-color: rgba(241, 100, 54, 0.45) !important;
-  background: #FFFFFF !important;
-  box-shadow: 0 6px 18px rgba(241, 100, 54, 0.22) !important;
-}
-
-.social-github:hover {
-  color: #1E1B29 !important;
-  border-color: rgba(90, 64, 119, 0.45) !important;
-  background: #FFFFFF !important;
-  box-shadow: 0 6px 18px rgba(90, 64, 119, 0.18) !important;
-}
-
-.social-youtube:hover {
-  color: #FF0000 !important;
-  border-color: rgba(255, 0, 0, 0.45) !important;
-  background: #FFFFFF !important;
-  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.22) !important;
 }
 
 .footer-meta-note {
@@ -611,5 +542,14 @@ hr {
 
 .page-body a:hover {
   opacity: 0.75;
+}
+
+/* Keep the fixed ambient background only on devices with a fine pointer
+   (desktop). Fixed backgrounds force repaints on every scroll frame on
+   touch devices and are a common source of mobile jank. */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    background-attachment: fixed;
+  }
 }
 

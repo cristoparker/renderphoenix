@@ -39,6 +39,9 @@ class SiteBuilder:
             shutil.copytree(Config.ASSETS_DIR, dest_assets)
             print("Copied assets to _site/assets")
 
+            # Bundle modular CSS into a single request to eliminate the @import waterfall
+            self._bundle_css(dest_assets)
+
             # Mirror brand directory to _site/images/brand for direct URL access (/images/brand/)
             brand_src = os.path.join(Config.ASSETS_DIR, 'images', 'brand')
             if os.path.exists(brand_src):
@@ -48,6 +51,44 @@ class SiteBuilder:
                     shutil.rmtree(images_brand_dest)
                 shutil.copytree(brand_src, images_brand_dest)
                 print("Mirrored brand assets -> _site/images/brand/")
+
+    def _bundle_css(self, dest_assets: str) -> None:
+        """Concatenates the modular CSS sources into one cached stylesheet.
+
+        The @import chain in main.css forces the browser to fetch the stylesheets
+        serially (a 5-round-trip waterfall on high-latency mobile networks). Bundling
+        them into a single bundle.css collapses this to one request and lets us
+        strip comments and trailing whitespace for a smaller payload.
+        """
+        css_src = os.path.join(self.root_dir, 'assets', 'css')
+        css_order = [
+            'variables.css', 'typography.css', 'layout.css',
+            'components.css', 'responsive.css', 'main.css'
+        ]
+
+        parts = []
+        for name in css_order:
+            path = os.path.join(css_src, name)
+            if not os.path.exists(path):
+                print(f"  Warning: missing CSS source {name} for bundling")
+                continue
+            with open(path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    if line.lstrip().startswith('@import'):
+                        continue
+                    parts.append(line)
+
+        content = ''.join(parts)
+        content = re.sub(r'/\*.*?\*/', '', content, flags=re.S)
+        content = re.sub(r'[ \t]+\n', '\n', content)
+
+        bundle_dir = os.path.join(dest_assets, 'css')
+        os.makedirs(bundle_dir, exist_ok=True)
+        bundle_path = os.path.join(bundle_dir, 'bundle.css')
+        with open(bundle_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        size_kb = len(content.encode('utf-8')) / 1024.0
+        print(f"Bundled CSS -> _site/assets/css/bundle.css ({size_kb:.1f} KB)")
 
     def build_projects(self, projects: List[Project]) -> None:
         """Compiles project portfolio detail pages and raw markdown endpoints."""

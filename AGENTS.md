@@ -94,7 +94,7 @@ The website utilizes a standalone, dependency-free, modular Python static site g
 6. **`builder.seo.SEOGenerator` & `SitemapBuilder`**: Produces dynamic JSON-LD multi-entity schema graphs (`Organization`, `WebSite`, `BlogPosting`, `CreativeWork`), Open Graph/Twitter meta tags, and verified `sitemap.xml` with Google Image extensions.
 7. **`builder.search.SearchIndexer`**: Indexes all content into `_site/search.json` and `_site/assets/js/search-data.js`.
 8. **`builder.llm.LLMGenerator`**: Automatically generates `llms.txt` and `llms-full.txt` for AI crawlers and assistants.
-9. **`builder.site_builder.SiteBuilder`**: Orchestrates the build lifecycle (clean, asset copy, project/post/page build, search index, sitemap, LLM indices).
+9. **`builder.site_builder.SiteBuilder`**: Orchestrates the build lifecycle (clean, asset copy, project/post/page build, search index, sitemap, LLM indices). It also bundles the modular stylesheets (`variables`, `typography`, `layout`, `components`, `responsive`, `main`) into a single minified `_site/assets/css/bundle.css` to eliminate the `@import` request waterfall; `_includes/head.html` references `bundle.css?v=6.0`.
 
 ---
 

@@ -1,3 +1,40 @@
+/* ==========================================================================
+   Mobile Performance
+   backdrop-filter blur is one of the most GPU-expensive effects on phones:
+   it forces the compositor to re-blur the pixels behind an element on every
+   scrolled frame. On small screens we swap the translucent gradients for
+   near-opaque ones and disable the blur entirely (same glass look, no jank).
+   Shimmer placeholders are frozen as well to save battery/GPU.
+   ========================================================================== */
+@media (max-width: 768px) {
+  :root {
+    --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.86) 100%);
+    --glass-bg-elevated: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 100%);
+    --glass-bg-subtle: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.84) 100%);
+    --glass-bg-dock: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.88) 100%);
+    --glass-bg-accent: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.90) 100%);
+    --glass-bg-card: linear-gradient(135deg, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.87) 100%);
+
+    --glass-blur: none;
+    --glass-blur-sm: none;
+    --glass-blur-lg: none;
+
+    --glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.65);
+    --glass-dock-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.65);
+
+    --glass-shadow: 0 4px 16px -8px rgba(90, 64, 119, 0.16);
+    --glass-shadow-hover: 0 6px 20px -8px rgba(90, 64, 119, 0.22);
+  }
+
+  /* Freeze shimmer placeholders on mobile */
+  .media-aspect,
+  .post-card-media,
+  .project-cover,
+  .article-hero-media {
+    animation: none !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -67,8 +104,6 @@
     z-index: 1050;
     height: 64px;
     background: rgba(250, 248, 245, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--color-border);
   }
 
