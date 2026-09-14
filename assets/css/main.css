@@ -75,6 +75,13 @@
   box-shadow: 0 6px 18px rgba(255, 0, 0, 0.22) !important;
 }
 
+.social-instagram:hover {
+  color: #E4405F !important;
+  border-color: rgba(228, 64, 95, 0.45) !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(228, 64, 95, 0.22) !important;
+}
+
 /* Section Utility */
 .section {
   padding: var(--space-3xl) 0;
