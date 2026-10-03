@@ -158,12 +158,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Smooth Count-Up Animation for Stats
   const countUpElements = document.querySelectorAll('.stat-count-up, [data-target]');
   if (countUpElements.length > 0) {
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const animateCountUp = (el) => {
       const target = parseFloat(el.getAttribute('data-target'));
       if (isNaN(target)) return;
 
       const suffix = el.getAttribute('data-suffix') || '';
       const prefix = el.getAttribute('data-prefix') || '';
+
+      if (prefersReducedMotion) {
+        el.textContent = `${prefix}${target}${suffix}`;
+        return;
+      }
+
       const duration = 1800; // 1.8 seconds animation
       let startTime = null;
 
@@ -199,10 +207,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { threshold: 0.2 });
 
       countUpElements.forEach((el) => {
-        // Initialize to 0 with suffix before animation triggers
-        const suffix = el.getAttribute('data-suffix') || '';
-        const prefix = el.getAttribute('data-prefix') || '';
-        el.textContent = `${prefix}0${suffix}`;
+        if (!prefersReducedMotion) {
+          const suffix = el.getAttribute('data-suffix') || '';
+          const prefix = el.getAttribute('data-prefix') || '';
+          el.textContent = `${prefix}0${suffix}`;
+        }
         countObserver.observe(el);
       });
     } else {

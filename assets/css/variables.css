@@ -53,10 +53,10 @@
   --grad-surface: rgba(255, 255, 255, 0.65);
   --grad-subtle: #F4F1FA;
 
-  /* Typography Fonts */
-  --font-display: 'Inter', 'Google Sans', 'Google Sans Text', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', 'Google Sans', 'Google Sans Text', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Typography Fonts with native system fallbacks for zero FOUT/FOIT */
+  --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Google Sans', 'Noto Sans Bengali', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Google Sans', 'Noto Sans Bengali', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Spacing */
   --space-xs: 0.25rem;

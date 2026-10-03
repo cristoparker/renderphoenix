@@ -80,7 +80,13 @@ class SiteBuilder:
 
         content = ''.join(parts)
         content = re.sub(r'/\*.*?\*/', '', content, flags=re.S)
-        content = re.sub(r'[ \t]+\n', '\n', content)
+        content = re.sub(r'\s+', ' ', content)
+        content = re.sub(r'\s*([\{\};:,>])\s*', r'\1', content)
+        content = re.sub(r'\band\(', 'and (', content)
+        content = re.sub(r'\bor\(', 'or (', content)
+        content = re.sub(r'\bnot\(', 'not (', content)
+        content = re.sub(r';\}', '}', content)
+        content = content.strip()
 
         bundle_dir = os.path.join(dest_assets, 'css')
         os.makedirs(bundle_dir, exist_ok=True)
@@ -330,7 +336,7 @@ class SiteBuilder:
                 content_html = body_html
 
             page_title_meta = f"{p_title} — {Config.SITE_NAME}" if p_title and slug != '' else (p_title or f"{Config.SITE_NAME} — {Config.SITE_TAGLINE}")
-            preload_hero = '/assets/images/projects/banglamine%202%202020-10-05_19.29.51.webp' if slug == '' else ''
+            preload_hero = '/assets/images/brand/Renderphoenix%20Colored%20Logo.svg' if slug == '' else ''
             page_meta = {
                 'title': page_title_meta,
                 'description': p_desc or Config.DEFAULT_DESCRIPTION,

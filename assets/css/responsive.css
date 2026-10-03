@@ -475,3 +475,32 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Low-End Device & CPU Optimization
+   ========================================================================== */
+/* Eliminate 300ms tap delay on mobile touchscreens */
+a, button, input, select, textarea, .btn, .card, .filter-tab, .social-btn {
+  touch-action: manipulation;
+}
+
+/* Off-screen rendering containment: skips layout/paint until scrolled near */
+.cards-grid,
+.magazine-feed,
+.studio-stats-grid,
+.services-grid,
+.team-grid,
+.site-footer,
+.project-specs,
+.project-content {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+
+/* Data-saver / low-power mode */
+@media (prefers-reduced-data: reduce) {
+  .studio-logo-glow,
+  .brand-glow {
+    display: none !important;
+  }
+}
