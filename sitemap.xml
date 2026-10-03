@@ -142,6 +142,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://renderphoenix.com/work/smart-villager-addon/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/smart-villager-addon/smart-villager-addon-thumbnail.webp</image:loc>
+      <image:title>Smart Villager Addon</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://renderphoenix.com/work/nasa-space-apps-2025/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

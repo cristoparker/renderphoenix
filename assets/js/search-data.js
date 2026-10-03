@@ -159,6 +159,24 @@ window.SEARCH_INDEX = [
     ]
   },
   {
+    "title": "Smart Villager Addon",
+    "url": "/work/smart-villager-addon/",
+    "description": "An advanced Minecraft Bedrock addon that transforms villagers into a living, autonomous civilization \u2014 each profession gains unique behaviors, tools, workstation interactions, daily routines, and combat abilities.",
+    "content": "\n\n## Smart Villager Addon\n\n**Smart Villager Addon** transforms Minecraft Bedrock villagers into a more active and autonomous civilization. Every villager gains layered daily behaviors, profession-specific tools and workstation interactions, storage automation, village expansion logic, and defensive ",
+    "type": "Project",
+    "category": "Add-On",
+    "date": "22 Sep 2026",
+    "tags": [
+      "minecraft",
+      "bedrock",
+      "addon",
+      "villagers",
+      "village",
+      "ai",
+      "scripting-api"
+    ]
+  },
+  {
     "title": "Moon Forces \u2014 NASA Space Apps 2025",
     "url": "/work/nasa-space-apps-2025/",
     "description": "Global Nominee project at NASA Space Apps Challenge 2025: A real-time lunar colony building and resource management simulation.",

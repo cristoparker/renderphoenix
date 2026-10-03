@@ -89,6 +89,13 @@
   box-shadow: 0 6px 18px rgba(88, 101, 242, 0.22) !important;
 }
 
+.social-patreon:hover {
+  color: #FF424D !important;
+  border-color: rgba(255, 66, 77, 0.45) !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(255, 66, 77, 0.22) !important;
+}
+
 /* Section Utility */
 .section {
   padding: var(--space-3xl) 0;
