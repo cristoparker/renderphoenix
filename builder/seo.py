@@ -101,6 +101,12 @@ class SEOGenerator:
                 },
                 "image": f"{site_url}/assets/images/brand/Renderphoenix-Logo-512x512.png",
                 "sameAs": [
+                    "https://github.com/renderphoenix",
+                    "https://www.youtube.com/@RenderPhoenix",
+                    "https://www.curseforge.com/members/renderphonix",
+                    "https://www.instagram.com/renderphoenix",
+                    "https://discord.gg/H5SwpEM4Ar",
+                    "https://patreon.com/renderphoenix",
                     "https://mcpedl.com/user/renderphoenix/"
                 ],
                 "founder": {

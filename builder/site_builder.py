@@ -143,6 +143,10 @@ class SiteBuilder:
             raw_md = proj.raw_content
             with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
                 f.write(raw_md)
+            with open(os.path.join(out_dir, f'{slug}.md'), 'w', encoding='utf-8') as f:
+                f.write(raw_md)
+            with open(os.path.join(self.site_dir, 'work', f'{slug}.md'), 'w', encoding='utf-8') as f:
+                f.write(raw_md)
 
             print(f"Built project page -> _site/work/{slug}/ (index.html, index.md, {slug}.md)")
 
@@ -205,6 +209,10 @@ class SiteBuilder:
             # 2. Output raw Markdown
             raw_md = post.raw_content
             with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
+                f.write(raw_md)
+            with open(os.path.join(out_dir, f'{slug}.md'), 'w', encoding='utf-8') as f:
+                f.write(raw_md)
+            with open(os.path.join(self.site_dir, 'blog', f'{slug}.md'), 'w', encoding='utf-8') as f:
                 f.write(raw_md)
 
             print(f"Built post page -> _site/blog/{slug}/ (index.html, index.md, {slug}.md)")
@@ -369,6 +377,8 @@ class SiteBuilder:
                 out_dir = os.path.join(self.site_dir, slug)
                 os.makedirs(out_dir, exist_ok=True)
                 with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
+                    f.write(raw_md)
+                with open(os.path.join(self.site_dir, f'{slug}.md'), 'w', encoding='utf-8') as f:
                     f.write(raw_md)
 
             compiled_pages_info.append({
