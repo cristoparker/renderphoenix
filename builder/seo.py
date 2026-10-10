@@ -103,7 +103,7 @@ class SEOGenerator:
                 "sameAs": [
                     "https://github.com/renderphoenix",
                     "https://www.youtube.com/@RenderPhoenix",
-                    "https://www.curseforge.com/members/renderphonix",
+                    "https://www.curseforge.com/members/renderphoenix",
                     "https://www.instagram.com/renderphoenix",
                     "https://discord.gg/H5SwpEM4Ar",
                     "https://patreon.com/renderphoenix",
