@@ -12,7 +12,7 @@ tags:
   - addon
   - mob-physics
   - gamedev
-author: "Tasrif"
+author: "Cristo Parker"
 image: "/assets/images/blog/better-physics-cover.jpg"
 featured: true
 ---
