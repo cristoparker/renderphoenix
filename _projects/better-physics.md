@@ -5,7 +5,7 @@ description: "A Minecraft Bedrock Edition addon that overhauls mob physics so cr
 category: "Add-On"
 developer: "Cristo Parker"
 date: 2026-10-15
-downloads: "2,000+"
+downloads: "3,292"
 status: "completed"
 version: "1.0.0"
 platform: "Minecraft Bedrock Edition"

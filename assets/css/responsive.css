@@ -452,14 +452,16 @@
 
   .project-detail .project-cover {
     width: 100%;
+    aspect-ratio: 16 / 9;
     margin-bottom: var(--space-xl);
     border-radius: var(--radius-md);
     padding: 0 !important;
   }
 
-  .project-detail .project-cover img {
+  .project-detail .project-cover img.media-fg-img,
+  .project-detail .project-cover img:not(.media-bg-blur) {
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
     max-height: none !important;
     object-fit: contain !important;
     display: block !important;

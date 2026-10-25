@@ -21,7 +21,10 @@ class ComponentRenderer:
         
         raw_img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
         img = get_webp_url(raw_img)
-        img_html = f'<img src="{img}" alt="{proj.get("title")} preview" loading="lazy" decoding="async" width="520" height="245" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';">'
+        img_html = (
+            f'<img src="{img}" alt="" class="media-bg-blur" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display=\'none\';">'
+            f'<img src="{img}" alt="{proj.get("title")} preview" class="media-fg-img" loading="lazy" decoding="async" width="1920" height="1080" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';">'
+        )
         slug = proj.get('slug', '')
         url = f'/work/{slug}/'
         date_formatted = format_full_date(proj.get('date'))

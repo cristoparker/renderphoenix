@@ -33,7 +33,8 @@ layout: default
       <div class="project-content">
         {% assign cover_img = page.cover_image | default: '/assets/images/image-not-found.svg' %}
         <div class="project-cover">
-          <img src="{{ cover_img | relative_url }}" alt="{{ page.title }} cover" loading="eager" fetchpriority="high" decoding="async" width="520" height="245" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
+          <img src="{{ cover_img | relative_url }}" alt="" class="media-bg-blur" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" onerror="this.style.display='none';">
+          <img src="{{ cover_img | relative_url }}" alt="{{ page.title }} cover" class="media-fg-img" loading="eager" fetchpriority="high" decoding="async" width="1920" height="1080" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
         </div>
 
         <div class="project-body">

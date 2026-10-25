@@ -142,12 +142,30 @@
     </image:image>
   </url>
   <url>
+    <loc>https://renderphoenix.com/work/horse-carts/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/horse-carts/horse-carts-thumbnail.webp</image:loc>
+      <image:title>Horse Carts</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://renderphoenix.com/work/better-physics/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://renderphoenix.com/assets/images/projects/better-physics/better-physics-cover.jpg</image:loc>
       <image:title>Better Physics</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://renderphoenix.com/work/villager-news-vehicle-addon/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/villager-news-vehicle-addon/villager-news-vehicle-addon-thumbnail.webp</image:loc>
+      <image:title>Villager News Vehicle Addon</image:title>
     </image:image>
   </url>
   <url>

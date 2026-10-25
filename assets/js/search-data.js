@@ -159,6 +159,24 @@ window.SEARCH_INDEX = [
     ]
   },
   {
+    "title": "Horse Carts",
+    "url": "/work/horse-carts/",
+    "description": "Explore your Minecraft Bedrock world with functional horse carts, each with unique designs and mechanics \u2014 from storage and farming to brewing and battle carts.",
+    "content": "\n\n**Horse Carts Addon** makes your Minecraft adventures more fun! Explore the world with different horse carts, each featuring its own unique look and purpose. From carrying items to farming and battle-themed carts, there is a whole new layer of mobile utility to discover.\n\nMore carts may be added i",
+    "type": "Project",
+    "category": "Add-On",
+    "date": "18 Oct 2026",
+    "tags": [
+      "minecraft",
+      "bedrock",
+      "addon",
+      "horse-carts",
+      "carts",
+      "vehicles",
+      "transport"
+    ]
+  },
+  {
     "title": "Better Physics",
     "url": "/work/better-physics/",
     "description": "A Minecraft Bedrock Edition addon that overhauls mob physics so creatures move, fall, and react more naturally for a more realistic and immersive world.",
@@ -173,6 +191,24 @@ window.SEARCH_INDEX = [
       "mob-physics",
       "physics",
       "realism"
+    ]
+  },
+  {
+    "title": "Villager News Vehicle Addon",
+    "url": "/work/villager-news-vehicle-addon/",
+    "description": "Bring the hilarious and chaotic machines from the Villager News series into Minecraft Bedrock, featuring drivable Daladas fighter planes, tanks, helicopters, and firefighter cars.",
+    "content": "\n\n**Villager News Vehicle Addon** brings the funny and crazy vehicles from the legendary *Villager News* series into Minecraft Bedrock! Villagers have built their own vehicles, and they are ready to cause some chaos. Drive, fly, and explore your world with a full fleet of villager-made machines \u2014 in",
+    "type": "Project",
+    "category": "Add-On",
+    "date": "08 Oct 2026",
+    "tags": [
+      "minecraft",
+      "bedrock",
+      "addon",
+      "villager-news",
+      "vehicles",
+      "daladas",
+      "humor"
     ]
   },
   {
