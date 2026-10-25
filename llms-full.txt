@@ -36,6 +36,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 ## 5. Notable Works & Project Index (Raw Markdown)
 - [Bangladeshi Vehicles Addon](https://renderphoenix.com/work/bangladeshi-vehicles.md) (Wed,) [Add-On]: Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.
 - [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (Fri,) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
+- [Better Physics](https://renderphoenix.com/work/better-physics.md) (2026) [Add-On]: A Minecraft Bedrock Edition addon that overhauls mob physics so creatures move, fall, and react more naturally for a more realistic and immersive world.
 - [Smart Villager Addon](https://renderphoenix.com/work/smart-villager-addon.md) (2026) [Add-On]: An advanced Minecraft Bedrock addon that transforms villagers into a living, autonomous civilization — each profession gains unique behaviors, tools, workstation interactions, daily routines, and combat abilities.
 - [Moon Forces — NASA Space Apps 2025](https://renderphoenix.com/work/nasa-space-apps-2025.md) (2025) [Interactive]: Global Nominee project at NASA Space Apps Challenge 2025: A real-time lunar colony building and resource management simulation.
 - [Clash of Clans Theme UI](https://renderphoenix.com/work/clash-of-clans-ui.md) (2023) [UI]: Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements.
@@ -423,6 +424,81 @@ The DHK Rickshaw project originated during the early Banglamine City and Minehut
 
 ----------------------------------------
 
+## Project: Better Physics (/work/better-physics.md)
+
+---
+title: "Better Physics"
+slug: "better-physics"
+description: "A Minecraft Bedrock Edition addon that overhauls mob physics so creatures move, fall, and react more naturally for a more realistic and immersive world."
+category: "Add-On"
+developer: "Cristo Parker"
+date: 2026-10-15
+downloads: "2,000+"
+status: "completed"
+version: "1.0.0"
+platform: "Minecraft Bedrock Edition"
+cover_image: "/assets/images/projects/better-physics/better-physics-cover.jpg"
+download_links:
+  - label: "Download for Bedrock"
+    url: "https://www.curseforge.com/minecraft-bedrock/addons/better-physics"
+    primary: true
+technologies:
+  - "Minecraft Bedrock"
+  - "Behavior Packs & Add-Ons"
+tags:
+  - "minecraft"
+  - "bedrock"
+  - "addon"
+  - "mob-physics"
+  - "physics"
+  - "realism"
+---
+
+**Better Physics** improves mob physics in Minecraft Bedrock Edition, making mobs move, fall, and react more naturally.
+
+Better Physics is a Minecraft Bedrock Edition addon that improves mob physics to make the game feel more realistic and immersive. Experience mobs with improved physical behavior and enjoy a fresh way to explore your Minecraft world.
+
+Whether you're exploring, building, or surviving, Better Physics adds a new touch to your gameplay.
+
+![youtube:Better Physics Addon Showcase](https://youtu.be/IRTQO6iAPAw)
+
+---
+
+## Features
+
+- **Improved mob physics** — mobs move, fall, and react more naturally.
+- **More immersive gameplay** — a fresh, realistic feel to every encounter.
+- **Designed for Minecraft Bedrock Edition** — built for Bedrock, no external tooling required.
+
+---
+
+## A More Natural World
+
+Mob movement is one of the most constant parts of a Minecraft session, so even small improvements to how creatures walk, fall, and react change the feel of the entire game. Better Physics leans into that by smoothing out the physical behavior you see every time you explore, build, or survive.
+
+![Mobs reacting with improved physics](/assets/images/projects/better-physics/better-physics-1.png)
+
+![In-game physics demonstration](/assets/images/projects/better-physics/better-physics-2.png)
+
+![Overworld exploration with Better Physics](/assets/images/projects/better-physics/better-physics-3.png)
+
+![Mob behavior in action](/assets/images/projects/better-physics/better-physics-4.png)
+
+---
+
+## Platform
+
+Better Physics is built for **Minecraft Bedrock Edition**.
+
+---
+
+## Download
+
+- **Download**: [CurseForge — Better Physics](https://www.curseforge.com/minecraft-bedrock/addons/better-physics)
+
+
+----------------------------------------
+
 ## Project: Smart Villager Addon (/work/smart-villager-addon.md)
 
 ---
@@ -432,7 +508,7 @@ description: "An advanced Minecraft Bedrock addon that transforms villagers into
 category: "Add-On"
 developer: "RenderPhoenix Creatives"
 date: 2026-09-22
-downloads: "7,884"
+downloads: "29,983"
 status: "completed"
 version: "1.0"
 platform: "Minecraft Bedrock Edition 1.21.0+"

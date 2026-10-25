@@ -5,7 +5,7 @@ description: "An advanced Minecraft Bedrock addon that transforms villagers into
 category: "Add-On"
 developer: "RenderPhoenix Creatives"
 date: 2026-09-22
-downloads: "7,884"
+downloads: "29,983"
 status: "completed"
 version: "1.0"
 platform: "Minecraft Bedrock Edition 1.21.0+"

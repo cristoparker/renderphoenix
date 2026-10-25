@@ -159,6 +159,23 @@ window.SEARCH_INDEX = [
     ]
   },
   {
+    "title": "Better Physics",
+    "url": "/work/better-physics/",
+    "description": "A Minecraft Bedrock Edition addon that overhauls mob physics so creatures move, fall, and react more naturally for a more realistic and immersive world.",
+    "content": "\n\n**Better Physics** improves mob physics in Minecraft Bedrock Edition, making mobs move, fall, and react more naturally.\n\nBetter Physics is a Minecraft Bedrock Edition addon that improves mob physics to make the game feel more realistic and immersive. Experience mobs with improved physical behavior",
+    "type": "Project",
+    "category": "Add-On",
+    "date": "15 Oct 2026",
+    "tags": [
+      "minecraft",
+      "bedrock",
+      "addon",
+      "mob-physics",
+      "physics",
+      "realism"
+    ]
+  },
+  {
     "title": "Smart Villager Addon",
     "url": "/work/smart-villager-addon/",
     "description": "An advanced Minecraft Bedrock addon that transforms villagers into a living, autonomous civilization \u2014 each profession gains unique behaviors, tools, workstation interactions, daily routines, and combat abilities.",

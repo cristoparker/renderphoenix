@@ -142,6 +142,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://renderphoenix.com/work/better-physics/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://renderphoenix.com/assets/images/projects/better-physics/better-physics-cover.jpg</image:loc>
+      <image:title>Better Physics</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://renderphoenix.com/work/smart-villager-addon/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
