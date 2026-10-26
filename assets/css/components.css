@@ -183,6 +183,9 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   cursor: pointer;
   text-decoration: none !important;
   position: relative;
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  backface-visibility: hidden;
 }
 
 .project-card a {
@@ -200,11 +203,14 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   overflow: hidden;
   margin: 0;
   width: 100%;
-  border-radius: 0;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
   border: none;
   border-bottom: 1px solid var(--color-border);
-  background: var(--c-2-pale-lavender);
+  background: var(--color-surface, #10121A);
   flex-shrink: 0;
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 @keyframes shimmerPlaceholder {
@@ -213,6 +219,17 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   }
   100% {
     background-position: 200% 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -238,6 +255,9 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   animation: shimmerPlaceholder 2.5s infinite ease-in-out;
   overflow: hidden;
   position: relative;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  isolation: isolate;
 }
 
 /* Ambient blurred background layer: covers container, provides top/bottom blur for lower height images */
@@ -348,7 +368,8 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
   gap: 0.4rem;
   border: 1px solid rgba(255, 121, 172, 0.60);
   box-shadow: 0 4px 14px rgba(90, 64, 119, 0.35);
-  z-index: 2;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .award-badge svg {
