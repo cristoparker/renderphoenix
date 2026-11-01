@@ -1,7 +1,7 @@
 ---
 category: Add-On
 cover_image: /assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.webp
-date: Fri, 12 Nov 2021 00:00:00 GMT
+date: 2021-11-12
 description: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork
   and pedaling mechanics.
 developer: Cristo

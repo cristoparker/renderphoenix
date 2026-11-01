@@ -9,7 +9,7 @@ header_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoeni
 
 RenderPhoenix was originally established in **2019** under the name **Minehutt** by **Tasrif Ibn Mizan**. In the early Minehutt days, the team hosted Minecraft realms, played together with community members, and had fun making custom adventure maps.
 
-On **January 30, 2021**, the studio officially adopted the name **RenderPhoenix** to reflect its evolving visual identity, technical ambition, and focus on high-quality 3D asset creation. Under the RenderPhoenix banner, the studio created and published iconic community projects on MCPEDL, including *Banglamine City*, *Zombiepolis*, custom vehicle add-ons (such as the *DHK Rickshaw* and *Phoenix Bicycle*), and customized UI packs.
+On **January 27, 2021**, the studio officially adopted the name **RenderPhoenix** to reflect its evolving visual identity, technical ambition, and focus on high-quality 3D asset creation. Under the RenderPhoenix banner, the studio created and published iconic community projects on MCPEDL, including *Banglamine City*, *Zombiepolis*, custom vehicle add-ons (such as the *DHK Rickshaw* and *Phoenix Bicycle*), and customized UI packs.
 
 ### Resilience Through Challenges
 

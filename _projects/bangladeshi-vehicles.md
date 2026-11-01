@@ -1,7 +1,7 @@
 ---
 category: Add-On
 cover_image: /assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.webp
-date: Wed, 14 Apr 2021 00:00:00 GMT
+date: 2021-04-14
 description: Custom vehicle add-on bringing authentic Bangladeshi street transport
   models and physics.
 developer: Cristo

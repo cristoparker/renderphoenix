@@ -3,6 +3,10 @@ import yaml
 from typing import Tuple, Dict, Any, List
 from .config import Config
 from .models import Project, Post, Service, TeamMember
+from .utils import parse_date
+from datetime import datetime
+
+_EPOCH = datetime(1970, 1, 1)
 
 class ContentLoader:
     """Loads and parses markdown collections, frontmatter, and YAML data files."""
@@ -68,7 +72,7 @@ class ContentLoader:
                 )
                 projects.append(proj)
 
-        projects.sort(key=lambda x: str(x.date or ''), reverse=True)
+        projects.sort(key=lambda x: parse_date(x.date) or _EPOCH, reverse=True)
         return projects
 
     @classmethod
@@ -107,8 +111,17 @@ class ContentLoader:
                 )
                 posts.append(post)
 
-        posts.sort(key=lambda x: str(x.date or ''), reverse=True)
+        posts.sort(key=lambda x: parse_date(x.date) or _EPOCH, reverse=True)
         return posts
+
+    @staticmethod
+    def load_yaml(name: str, default: Any = None) -> Any:
+        """Loads _data/<name>.yml, returning `default` when the file is missing or empty."""
+        path = os.path.join(Config.DATA_DIR, f'{name}.yml')
+        if not os.path.exists(path):
+            return default
+        with open(path, 'r', encoding='utf-8') as f:
+            return yaml.safe_load(f) or default
 
     @classmethod
     def load_services(cls) -> List[Service]:

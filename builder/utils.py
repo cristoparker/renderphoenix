@@ -1,9 +1,11 @@
 import os
 import re
+import html
+import email.utils
 import xml.sax.saxutils
 import urllib.parse
 from datetime import datetime
-from typing import Optional, Any, Dict
+from typing import Optional, Any
 from .config import Config
 
 def xml_escape(val: Any) -> str:
@@ -12,22 +14,37 @@ def xml_escape(val: Any) -> str:
         return ''
     return xml.sax.saxutils.escape(str(val), entities={'"': '&quot;', "'": '&apos;'})
 
+def parse_date(date_val: Any) -> Optional[datetime]:
+    """Parses frontmatter dates (date objects, ISO strings, or RFC 2822 strings)."""
+    if not date_val:
+        return None
+    if isinstance(date_val, datetime):
+        return date_val
+    if hasattr(date_val, 'year') and hasattr(date_val, 'month'):
+        return datetime(date_val.year, date_val.month, date_val.day)
+    date_str = str(date_val).strip()
+    try:
+        return datetime.strptime(date_str[:10], '%Y-%m-%d')
+    except ValueError:
+        pass
+    try:
+        return email.utils.parsedate_to_datetime(date_str).replace(tzinfo=None)
+    except (TypeError, ValueError):
+        return None
+
 def format_full_date(date_val: Any) -> str:
     """Formats dates consistently as 'DD Mon YYYY' (e.g., '25 Aug 2026')."""
-    if not date_val:
-        return ''
-    if isinstance(date_val, datetime):
-        return date_val.strftime('%d %b %Y')
-    if hasattr(date_val, 'strftime'):
-        return date_val.strftime('%d %b %Y')
-    date_str = str(date_val).strip()
-    for fmt in ['%Y-%m-%d', '%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M:%S %z']:
-        try:
-            dt = datetime.strptime(date_str[:10], '%Y-%m-%d')
-            return dt.strftime('%d %b %Y')
-        except Exception:
-            pass
-    return date_str
+    dt = parse_date(date_val)
+    return dt.strftime('%d %b %Y') if dt else (str(date_val) if date_val else '')
+
+def iso_date(date_val: Any) -> str:
+    """Formats a date as YYYY-MM-DD for <time datetime>, sitemaps and schema."""
+    dt = parse_date(date_val)
+    return dt.strftime('%Y-%m-%d') if dt else ''
+
+def html_escape(val: Any) -> str:
+    """Escapes text for safe use in HTML content and attributes."""
+    return html.escape(str(val or ''), quote=True)
 
 def extract_youtube_id(url_or_id: str) -> str:
     """Extracts the 11-character YouTube video ID from various URL formats or raw ID."""
@@ -42,16 +59,19 @@ def extract_youtube_id(url_or_id: str) -> str:
     return ''
 
 def render_youtube_player(url_or_id: str, caption: str = "") -> str:
-    """Renders a responsive 16:9 privacy-enhanced YouTube iframe player inside a <figure>."""
+    """Renders a lightweight YouTube facade: a thumbnail button that main.js swaps for a
+    privacy-enhanced iframe on click, so the ~500 KB player only loads when wanted."""
     yt_id = extract_youtube_id(url_or_id)
     if not yt_id:
         return ''
-    embed_url = f"https://www.youtube-nocookie.com/embed/{yt_id}"
-    caption_html = f'<figcaption class="video-caption">{caption}</figcaption>' if caption else ''
-    title_attr = caption if caption else 'YouTube video player'
+    title = html.escape(caption or 'YouTube video', quote=True)
+    caption_html = f'<figcaption class="video-caption">{html.escape(caption)}</figcaption>' if caption else ''
     return f"""<figure class="video-figure">
   <div class="video-responsive-wrapper">
-    <iframe src="{embed_url}" title="{title_attr}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    <button type="button" class="yt-facade" data-yt="{yt_id}" aria-label="Play video: {title}">
+      <img src="https://i.ytimg.com/vi/{yt_id}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+      <span class="yt-play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span>
+    </button>
   </div>
   {caption_html}
 </figure>"""
@@ -78,17 +98,3 @@ def resolve_meta_image(img_candidate: Optional[str]) -> str:
             return '/' + '/'.join(parts)
 
     return "/assets/images/og-default.png"
-
-def clean_conditional(text: str, condition_name: str, is_truthy: bool, replace_dict: Optional[Dict[str, Any]] = None) -> str:
-    """Processes simple {% if condition_name %}...{% endif %} template blocks."""
-    pattern = re.compile(rf'\{{%\s*if\s+{re.escape(condition_name)}\s*%\}}([\s\S]*?)\{{%\s*endif\s*%\}}')
-    if is_truthy:
-        def keep_content(m):
-            content = m.group(1)
-            if replace_dict:
-                for k, v in replace_dict.items():
-                    content = content.replace(k, str(v))
-            return content
-        return pattern.sub(keep_content, text)
-    else:
-        return pattern.sub('', text)

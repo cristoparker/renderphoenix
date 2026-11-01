@@ -1,0 +1,33 @@
+# Studio-wide facts shown on the homepage and reused across the site.
+# Edit numbers here — no template changes needed.
+
+location: "Bangladesh"
+founded: 2019
+
+stats:
+  - value: "888K+"
+    label: "Total downloads"
+  - value: "{project_count}"          # filled in at build time from _projects/
+    label: "Released projects"
+  - value: "NASA ’25"
+    label: "Space Apps Global Nominee"
+
+timeline:
+  - year: "2019"
+    title: "Minehutt founded"
+    text: "Tasrif Ibn Mizan starts Minehutt — Minecraft realms, community maps and add-ons."
+  - year: "2021"
+    title: "Renamed to RenderPhoenix"
+    text: "On 27 January the studio takes the RenderPhoenix name and ships its best-known releases: Banglamine City, Zombiepolis and vehicle add-ons."
+  - year: "2022"
+    title: "Setback and resilience"
+    text: "Core accounts were compromised on 1 August; the team kept shipping through 2024."
+  - year: "2024"
+    title: "A quiet period"
+    text: "The original team moves on to university and software careers; studio work pauses."
+  - year: "2025"
+    title: "NASA Space Apps Global Nominee"
+    text: "Moon Forces, a real-time lunar colony simulator, is named a Global Nominee."
+  - year: "2026"
+    title: "Studio revival"
+    text: "On 22 August the studio restarts, expanding into Unreal Engine 5, Unity and original games."

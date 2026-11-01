@@ -6,73 +6,58 @@ from .config import Config
 from .models import Project, Post
 from .utils import format_full_date
 
+_TAG_RE = re.compile(r'<[^>]+>')
+_MD_RE = re.compile(r'[#*_`>\[\]()!|-]+')
+
+
+def _snippet(text: str, limit: int = 300) -> str:
+    """Plain-text excerpt with HTML tags and Markdown punctuation removed."""
+    text = _MD_RE.sub(' ', _TAG_RE.sub(' ', text or ''))
+    return re.sub(r'\s+', ' ', text).strip()[:limit]
+
+
 class SearchIndexer:
-    """Generates static JSON and JavaScript search indices for client-side search."""
+    """Writes _site/search.json, fetched on demand by the search dialog in main.js."""
 
     @staticmethod
     def build_indexes(projects: List[Project], posts: List[Post], pages_info: List[Dict[str, Any]]) -> None:
-        search_data: List[Dict[str, Any]] = []
+        entries: List[Dict[str, Any]] = []
 
-        # 1. Pages & Legal documents
         for p in pages_info:
             slug = p.get('slug', '')
-            title = p.get('title', '')
-            desc = p.get('desc', '')
-            p_type = p.get('type', 'page')
+            if not p.get('title') or slug == '404':
+                continue
+            entries.append({
+                "title": p['title'],
+                "url": f"/{slug}/" if slug else "/",
+                "description": p.get('desc', ''),
+                "content": _snippet(p.get('content_snippet', '')),
+                "type": "Legal" if p.get('type') == 'legal' else "Page",
+                "tags": [slug] if slug else ["home"],
+            })
 
-            if title and slug != '404':
-                search_data.append({
-                    "title": title,
-                    "url": f"/{slug}/" if slug else "/",
-                    "description": desc,
-                    "content": p.get('content_snippet', desc)[:300],
-                    "type": "Legal" if p_type == 'legal' else "Page",
-                    "category": "Legal & Policies" if p_type == 'legal' else "Overview",
-                    "date": "25 Aug 2026",
-                    "tags": [slug] if slug else ["home"]
-                })
-
-        # 2. Blog articles
         for post in posts:
-            search_data.append({
+            entries.append({
                 "title": post.title,
                 "url": f"/blog/{post.slug}/",
                 "description": post.description,
-                "content": re.sub(r'<[^>]+>', '', post.body)[:300],
+                "content": _snippet(post.body),
                 "type": "Article",
-                "category": "Blog",
                 "date": format_full_date(post.date),
-                "tags": post.tags
+                "tags": post.tags,
             })
 
-        # 3. Portfolio projects
         for proj in projects:
-            search_data.append({
+            entries.append({
                 "title": proj.title,
                 "url": f"/work/{proj.slug}/",
                 "description": proj.description,
-                "content": re.sub(r'<[^>]+>', '', proj.body)[:300],
-                "type": "Project",
-                "category": proj.category,
+                "content": _snippet(proj.body),
+                "type": proj.category or "Project",
                 "date": format_full_date(proj.date),
-                "tags": proj.tags
+                "tags": proj.tags + proj.technologies,
             })
 
-        # Write _site/search.json
-        search_json_path = os.path.join(Config.SITE_DIR, 'search.json')
-        with open(search_json_path, 'w', encoding='utf-8') as f:
-            json.dump(search_data, f, indent=2)
-        print("Built search.json -> _site/search.json")
-
-        # Write _site/assets/js/search-data.js and workspace root assets/js/search-data.js
-        js_content = "window.SEARCH_INDEX = " + json.dumps(search_data, indent=2) + ";\n"
-        search_js_dir = os.path.join(Config.SITE_DIR, 'assets', 'js')
-        os.makedirs(search_js_dir, exist_ok=True)
-        with open(os.path.join(search_js_dir, 'search-data.js'), 'w', encoding='utf-8') as f:
-            f.write(js_content)
-        
-        root_search_js = os.path.join(Config.ROOT_DIR, 'assets', 'js', 'search-data.js')
-        if os.path.exists(os.path.dirname(root_search_js)):
-            with open(root_search_js, 'w', encoding='utf-8') as f:
-                f.write(js_content)
-        print("Built search-data.js -> _site/assets/js/search-data.js & workspace root")
+        with open(os.path.join(Config.SITE_DIR, 'search.json'), 'w', encoding='utf-8') as f:
+            json.dump(entries, f, ensure_ascii=False, separators=(',', ':'))
+        print(f"Built search.json -> _site/search.json ({len(entries)} entries)")
