@@ -13,19 +13,17 @@ RenderPhoenix is an independent interactive creative studio based in Bangladesh.
 Studio Tagline: "We are not just a company that makes digital things. We build worlds."
 
 ## 2. Detailed History & Milestones
-- 2019: Founded by Tasrif Ibn Mizan under the initial studio name Minehutt. Hosted Minecraft realms, played together with community members, and made fun adventure maps.
-- January 30, 2021: Official re-branding to RenderPhoenix to establish a broader visual identity in real-time art and 3D modeling, launching landmark MCPEDL releases including Banglamine City, Zombiepolis, and vehicle add-ons.
-- 1 August 2022: Experienced a severe security incident where core social accounts and communication channels were compromised. Despite this, the studio demonstrated resilience by continuing operations and publishing content through 2024.
-- 2024: Operations paused as the original team members dispersed into university studies and software careers.
-- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Global Nominee.
-- 22 August 2026: Official studio revival initiated to rebuild digital infrastructure, reassemble team capabilities, and expand into original games and 3D asset production.
-
+- 2019: Minehutt founded. Tasrif Ibn Mizan starts Minehutt — Minecraft realms, community maps and add-ons.
+- 2021: Renamed to RenderPhoenix. On 27 January the studio takes the RenderPhoenix name and ships its best-known releases: Banglamine City, Zombiepolis and vehicle add-ons.
+- 2022: Setback and resilience. Core accounts were compromised on 1 August; the team kept shipping through 2024.
+- 2024: A quiet period. The original team moves on to university and software careers; studio work pauses.
+- 2025: NASA Space Apps Global Nominee. Moon Forces, a real-time lunar colony simulator, is named a Global Nominee.
+- 2026: Studio revival. On 22 August the studio restarts, expanding into Unreal Engine 5, Unity and original games.
 ## 3. Team Roster
-- Tasrif Ibn Mizan: Founder. Established Minehutt in 2019 and RenderPhoenix in 2021.
-- Cristo Parker: Manager.
-- Uthowaipru Chowdhury: Indie Game Developer. Specializes in gameplay systems and mechanics.
-- Faizul726: App Developer. Specializes in application software and client tooling.
-
+- Tasrif Ibn Mizan: Founder. Founded Minehutt in 2019 and established RenderPhoenix in 2021. Paved the early creative vision of the studio across community maps, add-ons, and visual packs.
+- Cristo Parker: Manager. Oversees studio operations, digital infrastructure rebuild, and direction into broader game development and asset production.
+- Uthowaipru Chowdhury: Indie Game Developer. Focuses on game mechanics, system architecture, and gameplay logic across indie titles and real-time interactive projects.
+- Faizul726: App Developer. Specializes in software application development, client interfaces, and creative technology tooling for RenderPhoenix projects.
 ## 4. Main Pages & Canonical Markdown Endpoints
 - [About RenderPhoenix](https://renderphoenix.com/about.md): Comprehensive studio history, founders, timeline, resilience milestones, and 2026 revival details.
 - [Services & Capabilities](https://renderphoenix.com/services.md): Technical overview of studio capabilities (Unreal Engine 5, Unity, Blender, C#, C++, shaders, asset production, and simulation prototypes).
@@ -34,18 +32,18 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [Get in Touch](https://renderphoenix.com/contact.md): Studio contact information, inquiry categories, and collaboration details.
 
 ## 5. Notable Works & Project Index (Raw Markdown)
-- [Bangladeshi Vehicles Addon](https://renderphoenix.com/work/bangladeshi-vehicles.md) (Wed,) [Add-On]: Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.
-- [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (Fri,) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
 - [Horse Carts](https://renderphoenix.com/work/horse-carts.md) (2026) [Add-On]: Explore your Minecraft Bedrock world with functional horse carts, each with unique designs and mechanics — from storage and farming to brewing and battle carts.
 - [Better Physics](https://renderphoenix.com/work/better-physics.md) (2026) [Add-On]: A Minecraft Bedrock Edition addon that overhauls mob physics so creatures move, fall, and react more naturally for a more realistic and immersive world.
 - [Villager News Vehicle Addon](https://renderphoenix.com/work/villager-news-vehicle-addon.md) (2026) [Add-On]: Bring the hilarious and chaotic machines from the Villager News series into Minecraft Bedrock, featuring drivable Daladas fighter planes, tanks, helicopters, and firefighter cars.
 - [Smart Villager Addon](https://renderphoenix.com/work/smart-villager-addon.md) (2026) [Add-On]: An advanced Minecraft Bedrock addon that transforms villagers into a living, autonomous civilization — each profession gains unique behaviors, tools, workstation interactions, daily routines, and combat abilities.
 - [Moon Forces — NASA Space Apps 2025](https://renderphoenix.com/work/nasa-space-apps-2025.md) (2025) [Interactive]: Global Nominee project at NASA Space Apps Challenge 2025: A real-time lunar colony building and resource management simulation.
 - [Clash of Clans Theme UI](https://renderphoenix.com/work/clash-of-clans-ui.md) (2023) [UI]: Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements.
+- [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (2021) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
 - [Frostcraft (Frostpunk Inspired Survival Map)](https://renderphoenix.com/work/frostcraft.md) (2021) [Environment]: A frozen wasteland steampunk survival colony map inspired by Frostpunk, featuring central generator settlement infrastructure.
 - [A Horror Map If You Need](https://renderphoenix.com/work/a-horror-map-if-you-need.md) (2021) [Interactive]: An atmospheric psychological horror adventure map featuring custom puzzles, eerie audio, and dark labyrinth exploration.
 - [Killer vs Survivors Minigame](https://renderphoenix.com/work/killer-vs-survivors.md) (2021) [Interactive]: A 4v1 asymmetrical horror survival minigame where survivors collect coins and evade a psychopath killer in a dark mansion.
 - [Discord Theme UI](https://renderphoenix.com/work/discord-theme-ui.md) (2021) [UI]: A dark-mode interface overhaul for Minecraft inspired by Discord's visual style and navigation layout.
+- [Bangladeshi Vehicles Addon](https://renderphoenix.com/work/bangladeshi-vehicles.md) (2021) [Add-On]: Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.
 - [Phoenix Bicycle Addon](https://renderphoenix.com/work/phoenix-bicycle.md) (2021) [Add-On]: A rideable bicycle vehicle add-on for Minecraft Bedrock featuring 6 vibrant color variants, passenger mob riding, and usable inventory storage.
 - [Zombiepolis - A Post-Apocalyptic City](https://renderphoenix.com/work/zombiepolis.md) (2021) [Environment]: A detailed post-apocalyptic Minecraft city map built for survival, exploration, and atmospheric gameplay. Available for Minecraft Java and Bedrock Edition.
 - [FunMOBA PVP (Moba Style Team PvP)](https://renderphoenix.com/work/funmoba-pvp.md) (2021) [Interactive]: A lane-based MOBA PvP battleground featuring class roles, jungle control, and team nexus defense.
@@ -74,7 +72,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 ## 9. Technical Architecture of Official Website
 - Static-First Engine: Statically generated site hosted on GitHub Pages with custom domain renderphoenix.com.
 - Modular Markdown Endpoints: Every project, blog post, and legal policy is directly available as clean raw Markdown at `/work/<slug>.md`, `/blog/<slug>.md`, `/about.md`, `/services.md`, `/contact.md`, `/privacy-policy.md`, and `/dmca.md`.
-- Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
-- Client-side Static Search: Powers search through search.json and search-data.js index.
+- Design System: Warm neutral CSS tokens, self-hosted Inter typography, CSS inlined per page, zero external frameworks.
+- Client-side Static Search: A Ctrl+K search dialog on every page, lazily loading search.json.
 - Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llms.txt, and llms-full.txt.
 - Full LLM Corpus: Available at `https://renderphoenix.com/llms-full.txt`.

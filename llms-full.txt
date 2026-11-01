@@ -13,19 +13,17 @@ RenderPhoenix is an independent interactive creative studio based in Bangladesh.
 Studio Tagline: "We are not just a company that makes digital things. We build worlds."
 
 ## 2. Detailed History & Milestones
-- 2019: Founded by Tasrif Ibn Mizan under the initial studio name Minehutt. Hosted Minecraft realms, played together with community members, and made fun adventure maps.
-- January 30, 2021: Official re-branding to RenderPhoenix to establish a broader visual identity in real-time art and 3D modeling, launching landmark MCPEDL releases including Banglamine City, Zombiepolis, and vehicle add-ons.
-- 1 August 2022: Experienced a severe security incident where core social accounts and communication channels were compromised. Despite this, the studio demonstrated resilience by continuing operations and publishing content through 2024.
-- 2024: Operations paused as the original team members dispersed into university studies and software careers.
-- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Global Nominee.
-- 22 August 2026: Official studio revival initiated to rebuild digital infrastructure, reassemble team capabilities, and expand into original games and 3D asset production.
-
+- 2019: Minehutt founded. Tasrif Ibn Mizan starts Minehutt — Minecraft realms, community maps and add-ons.
+- 2021: Renamed to RenderPhoenix. On 27 January the studio takes the RenderPhoenix name and ships its best-known releases: Banglamine City, Zombiepolis and vehicle add-ons.
+- 2022: Setback and resilience. Core accounts were compromised on 1 August; the team kept shipping through 2024.
+- 2024: A quiet period. The original team moves on to university and software careers; studio work pauses.
+- 2025: NASA Space Apps Global Nominee. Moon Forces, a real-time lunar colony simulator, is named a Global Nominee.
+- 2026: Studio revival. On 22 August the studio restarts, expanding into Unreal Engine 5, Unity and original games.
 ## 3. Team Roster
-- Tasrif Ibn Mizan: Founder. Established Minehutt in 2019 and RenderPhoenix in 2021.
-- Cristo Parker: Manager.
-- Uthowaipru Chowdhury: Indie Game Developer. Specializes in gameplay systems and mechanics.
-- Faizul726: App Developer. Specializes in application software and client tooling.
-
+- Tasrif Ibn Mizan: Founder. Founded Minehutt in 2019 and established RenderPhoenix in 2021. Paved the early creative vision of the studio across community maps, add-ons, and visual packs.
+- Cristo Parker: Manager. Oversees studio operations, digital infrastructure rebuild, and direction into broader game development and asset production.
+- Uthowaipru Chowdhury: Indie Game Developer. Focuses on game mechanics, system architecture, and gameplay logic across indie titles and real-time interactive projects.
+- Faizul726: App Developer. Specializes in software application development, client interfaces, and creative technology tooling for RenderPhoenix projects.
 ## 4. Main Pages & Canonical Markdown Endpoints
 - [About RenderPhoenix](https://renderphoenix.com/about.md): Comprehensive studio history, founders, timeline, resilience milestones, and 2026 revival details.
 - [Services & Capabilities](https://renderphoenix.com/services.md): Technical overview of studio capabilities (Unreal Engine 5, Unity, Blender, C#, C++, shaders, asset production, and simulation prototypes).
@@ -34,18 +32,18 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 - [Get in Touch](https://renderphoenix.com/contact.md): Studio contact information, inquiry categories, and collaboration details.
 
 ## 5. Notable Works & Project Index (Raw Markdown)
-- [Bangladeshi Vehicles Addon](https://renderphoenix.com/work/bangladeshi-vehicles.md) (Wed,) [Add-On]: Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.
-- [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (Fri,) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
 - [Horse Carts](https://renderphoenix.com/work/horse-carts.md) (2026) [Add-On]: Explore your Minecraft Bedrock world with functional horse carts, each with unique designs and mechanics — from storage and farming to brewing and battle carts.
 - [Better Physics](https://renderphoenix.com/work/better-physics.md) (2026) [Add-On]: A Minecraft Bedrock Edition addon that overhauls mob physics so creatures move, fall, and react more naturally for a more realistic and immersive world.
 - [Villager News Vehicle Addon](https://renderphoenix.com/work/villager-news-vehicle-addon.md) (2026) [Add-On]: Bring the hilarious and chaotic machines from the Villager News series into Minecraft Bedrock, featuring drivable Daladas fighter planes, tanks, helicopters, and firefighter cars.
 - [Smart Villager Addon](https://renderphoenix.com/work/smart-villager-addon.md) (2026) [Add-On]: An advanced Minecraft Bedrock addon that transforms villagers into a living, autonomous civilization — each profession gains unique behaviors, tools, workstation interactions, daily routines, and combat abilities.
 - [Moon Forces — NASA Space Apps 2025](https://renderphoenix.com/work/nasa-space-apps-2025.md) (2025) [Interactive]: Global Nominee project at NASA Space Apps Challenge 2025: A real-time lunar colony building and resource management simulation.
 - [Clash of Clans Theme UI](https://renderphoenix.com/work/clash-of-clans-ui.md) (2023) [UI]: Custom user interface texture pack bringing fantasy tactical game menus and styled HUD elements.
+- [DHK Rickshaw V2](https://renderphoenix.com/work/dhk-rickshaw.md) (2021) [Add-On]: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork and pedaling mechanics.
 - [Frostcraft (Frostpunk Inspired Survival Map)](https://renderphoenix.com/work/frostcraft.md) (2021) [Environment]: A frozen wasteland steampunk survival colony map inspired by Frostpunk, featuring central generator settlement infrastructure.
 - [A Horror Map If You Need](https://renderphoenix.com/work/a-horror-map-if-you-need.md) (2021) [Interactive]: An atmospheric psychological horror adventure map featuring custom puzzles, eerie audio, and dark labyrinth exploration.
 - [Killer vs Survivors Minigame](https://renderphoenix.com/work/killer-vs-survivors.md) (2021) [Interactive]: A 4v1 asymmetrical horror survival minigame where survivors collect coins and evade a psychopath killer in a dark mansion.
 - [Discord Theme UI](https://renderphoenix.com/work/discord-theme-ui.md) (2021) [UI]: A dark-mode interface overhaul for Minecraft inspired by Discord's visual style and navigation layout.
+- [Bangladeshi Vehicles Addon](https://renderphoenix.com/work/bangladeshi-vehicles.md) (2021) [Add-On]: Custom vehicle add-on bringing authentic Bangladeshi street transport models and physics.
 - [Phoenix Bicycle Addon](https://renderphoenix.com/work/phoenix-bicycle.md) (2021) [Add-On]: A rideable bicycle vehicle add-on for Minecraft Bedrock featuring 6 vibrant color variants, passenger mob riding, and usable inventory storage.
 - [Zombiepolis - A Post-Apocalyptic City](https://renderphoenix.com/work/zombiepolis.md) (2021) [Environment]: A detailed post-apocalyptic Minecraft city map built for survival, exploration, and atmospheric gameplay. Available for Minecraft Java and Bedrock Edition.
 - [FunMOBA PVP (Moba Style Team PvP)](https://renderphoenix.com/work/funmoba-pvp.md) (2021) [Interactive]: A lane-based MOBA PvP battleground featuring class roles, jungle control, and team nexus defense.
@@ -74,8 +72,8 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 ## 9. Technical Architecture of Official Website
 - Static-First Engine: Statically generated site hosted on GitHub Pages with custom domain renderphoenix.com.
 - Modular Markdown Endpoints: Every project, blog post, and legal policy is directly available as clean raw Markdown at `/work/<slug>.md`, `/blog/<slug>.md`, `/about.md`, `/services.md`, `/contact.md`, `/privacy-policy.md`, and `/dmca.md`.
-- Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
-- Client-side Static Search: Powers search through search.json and search-data.js index.
+- Design System: Warm neutral CSS tokens, self-hosted Inter typography, CSS inlined per page, zero external frameworks.
+- Client-side Static Search: A Ctrl+K search dialog on every page, lazily loading search.json.
 - Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llms.txt, and llms-full.txt.
 - Full LLM Corpus: Available at `https://renderphoenix.com/llms-full.txt`.
 
@@ -99,7 +97,7 @@ header_image: "/assets/images/projects/Shahid%20Minar%20Minecraft%20RenderPhoeni
 
 RenderPhoenix was originally established in **2019** under the name **Minehutt** by **Tasrif Ibn Mizan**. In the early Minehutt days, the team hosted Minecraft realms, played together with community members, and had fun making custom adventure maps.
 
-On **January 30, 2021**, the studio officially adopted the name **RenderPhoenix** to reflect its evolving visual identity, technical ambition, and focus on high-quality 3D asset creation. Under the RenderPhoenix banner, the studio created and published iconic community projects on MCPEDL, including *Banglamine City*, *Zombiepolis*, custom vehicle add-ons (such as the *DHK Rickshaw* and *Phoenix Bicycle*), and customized UI packs.
+On **January 27, 2021**, the studio officially adopted the name **RenderPhoenix** to reflect its evolving visual identity, technical ambition, and focus on high-quality 3D asset creation. Under the RenderPhoenix banner, the studio created and published iconic community projects on MCPEDL, including *Banglamine City*, *Zombiepolis*, custom vehicle add-ons (such as the *DHK Rickshaw* and *Phoenix Bicycle*), and customized UI packs.
 
 ### Resilience Through Challenges
 
@@ -153,7 +151,7 @@ On **22 August 2026**, RenderPhoenix officially initiated its studio revival. Re
 
 ----------------------------------------
 
-## Page: Services & Capabilities (/services.md)
+## Page: Services (/services.md)
 
 ---
 layout: page
@@ -263,168 +261,6 @@ RenderPhoenix works with indie creators, international studios, space applicatio
 ----------------------------------------
 
 # --- SECTION: PROJECTS ---
-
-## Project: Bangladeshi Vehicles Addon (/work/bangladeshi-vehicles.md)
-
----
-category: Add-On
-cover_image: /assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.webp
-date: Wed, 14 Apr 2021 00:00:00 GMT
-description: Custom vehicle add-on bringing authentic Bangladeshi street transport
-  models and physics.
-developer: Cristo
-download_links:
-- label: Download on MCPEDL
-  url: https://mcpedl.com/bangladeshi-vehicles-addon/
-downloads: 35.3K+
-featured: false
-platform: Minecraft Bedrock
-slug: bangladeshi-vehicles
-status: completed
-tags:
-- addon
-- vehicles
-- 3d-models
-- bangladesh
-technologies:
-- Blockbench
-- 3D Modeling
-- Entity Animations
-title: Bangladeshi Vehicles Addon
-version: 1.0.0
----
-
-The **Bangladeshi Vehicles Add-on** brings authentic regional transport from Bangladesh and South Asia into Minecraft Bedrock. Featuring iconic everyday vehicles designed with custom 3D boxy geometry, passenger seating, and driving physics.
-
-### Included Vehicles
-
-**1. Leguna (Human Hauler)**
-
-The iconic suburban transit minibus commonly found navigating city routes and rural highways.
-
-![Leguna Human Hauler](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_2.webp)
-
-**2. Traditional Cycle Rickshaw**
-
-The cultural heartbeat of Dhaka streets, modeled with a custom passenger hood and spoked wheels.
-
-![Cycle Rickshaw 3D Model](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon--pre-release-100_3.webp)
-
-**3. Cargo Van (Flatbed Tricycle)**
-
-A versatile wooden flatbed tricycle used across Bangladesh for hauling goods and local transport.
-
-![Bangladeshi Flatbed Cargo Van](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_4.webp)
-
-**4. Electric Rickshaw (Easy Bike / Auto)**
-
-Modern eco-friendly green auto-rickshaw with covered cabin and passenger seating.
-
-![Electric Rickshaw Easy Bike](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_6.webp)
-
-**5. Traditional Sailboat (Nouka)**
-
-Classic wooden riverboat with an upright red sail designed for navigating rivers and waterways.
-
-![Traditional River Sailboat](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_8.webp)
-
-**6. Sports Car**
-
-A bonus custom red sports car vehicle model.
-
-![Red Sports Car](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_10.webp)
-
-### How to Get Vehicles
-
-You can obtain all vehicles directly in the **Creative Inventory** under the Nature/Spawn Eggs category, or spawn them via commands:
-
-- `/give @s bdv:leguna*spawn*egg`
-- `/give @s bdv:van*spawn*egg`
-- `/give @s bdv:easy*bike*spawn_egg`
-- `/give @s bdv:boat*spawn*egg`
-- `/give @s bdv:car*spawn*egg`
-
-![Creative Inventory Vehicle Spawn Eggs](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_13.webp)
-
-![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.webp)
-
-### Credits & Tools
-
-- **3D Modeling & Design:** Cristo
-- **Behaviors & Code:** Faizul
-- **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++, Pixly
-
-
-----------------------------------------
-
-## Project: DHK Rickshaw V2 (/work/dhk-rickshaw.md)
-
----
-category: Add-On
-cover_image: /assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.webp
-date: Fri, 12 Nov 2021 00:00:00 GMT
-description: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork
-  and pedaling mechanics.
-developer: Cristo
-download_links:
-- label: Download on MCPEDL
-  url: https://mcpedl.com/dhk-rickshaw-addon-1/
-downloads: 12.2K+
-featured: false
-platform: Minecraft Bedrock
-slug: dhk-rickshaw
-status: completed
-tags:
-- rickshaw
-- dhaka
-- addon
-- culture
-technologies:
-- 3D Modeling
-- Custom Textures
-- Entity Physics
-title: DHK Rickshaw V2
-version: 2.0.0
----
-
-The **DHK Rickshaw V2 Add-on** brings the iconic cycle rickshaws of Dhaka into Minecraft Bedrock. Designed with authentic 3D geometry, traditional hood art, multi-passenger capacity, and built-in mobile storage.
-
-### Features & Variants
-
-- **3 Traditional Colorways**: Available in classic Red, Green, and Yellow hood color variants.
-- **Multi-Passenger Seating**: Accommodates 1 driver seat and up to 3 passenger seats so you can travel with friends.
-- **Mobile Inventory Storage**: Built-in container storage allowing you to transport items across your worlds.
-- **Classic Vehicle Dynamics**: Smooth riding and turning mechanics tailored for city roads and rural pathways.
-
-![Dhaka Rickshaw V2 Color Variants](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v2.webp)
-
-### Additional Transport Models
-
-Alongside the cycle rickshaws, this pack series features complementary regional transport vehicles including the green Auto Rickshaw (Easy Bike).
-
-![Auto Rickshaw Variant](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Auto%20Rickshaw.webp)
-
-### How to Use & Controls
-
-1. Search for **"Rickshaw"** in the Creative Inventory under the Spawn Eggs section.
-2. Right-click or tap to place the entity on the ground.
-3. Right-click or interact to mount the vehicle.
-4. Drive using standard movement controls (WASD/Joystick) and steer with your camera.
-5. Press sneak (Shift / Down) to dismount.
-
-### Development History
-
-The DHK Rickshaw project originated during the early Banglamine City and Minehutt builds in 2020, evolving into the refined V2 release with updated textures and physics.
-
-![Early Rickshaw V1 Development in Banglamine](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v1%202020%20.webp)
-
-### Credits & Tools
-
-- **3D Modeling & Design:** Cristo
-- **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++
-
-
-----------------------------------------
 
 ## Project: Horse Carts (/work/horse-carts.md)
 
@@ -1407,6 +1243,75 @@ A customized skin selector and character dressing room set against the iconic su
 
 ----------------------------------------
 
+## Project: DHK Rickshaw V2 (/work/dhk-rickshaw.md)
+
+---
+category: Add-On
+cover_image: /assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%2020210601175718.webp
+date: 2021-11-12
+description: Iconic Dhaka traditional rickshaw 3D model addon with authentic artwork
+  and pedaling mechanics.
+developer: Cristo
+download_links:
+- label: Download on MCPEDL
+  url: https://mcpedl.com/dhk-rickshaw-addon-1/
+downloads: 12.2K+
+featured: false
+platform: Minecraft Bedrock
+slug: dhk-rickshaw
+status: completed
+tags:
+- rickshaw
+- dhaka
+- addon
+- culture
+technologies:
+- 3D Modeling
+- Custom Textures
+- Entity Physics
+title: DHK Rickshaw V2
+version: 2.0.0
+---
+
+The **DHK Rickshaw V2 Add-on** brings the iconic cycle rickshaws of Dhaka into Minecraft Bedrock. Designed with authentic 3D geometry, traditional hood art, multi-passenger capacity, and built-in mobile storage.
+
+### Features & Variants
+
+- **3 Traditional Colorways**: Available in classic Red, Green, and Yellow hood color variants.
+- **Multi-Passenger Seating**: Accommodates 1 driver seat and up to 3 passenger seats so you can travel with friends.
+- **Mobile Inventory Storage**: Built-in container storage allowing you to transport items across your worlds.
+- **Classic Vehicle Dynamics**: Smooth riding and turning mechanics tailored for city roads and rural pathways.
+
+![Dhaka Rickshaw V2 Color Variants](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v2.webp)
+
+### Additional Transport Models
+
+Alongside the cycle rickshaws, this pack series features complementary regional transport vehicles including the green Auto Rickshaw (Easy Bike).
+
+![Auto Rickshaw Variant](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Auto%20Rickshaw.webp)
+
+### How to Use & Controls
+
+1. Search for **"Rickshaw"** in the Creative Inventory under the Spawn Eggs section.
+2. Right-click or tap to place the entity on the ground.
+3. Right-click or interact to mount the vehicle.
+4. Drive using standard movement controls (WASD/Joystick) and steer with your camera.
+5. Press sneak (Shift / Down) to dismount.
+
+### Development History
+
+The DHK Rickshaw project originated during the early Banglamine City and Minehutt builds in 2020, evolving into the refined V2 release with updated textures and physics.
+
+![Early Rickshaw V1 Development in Banglamine](/assets/images/projects/dhk-rickshaw/Renderphoenix%20Minecraft%20Rickshaw%20v1%202020%20.webp)
+
+### Credits & Tools
+
+- **3D Modeling & Design:** Cristo
+- **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++
+
+
+----------------------------------------
+
 ## Project: Frostcraft (Frostpunk Inspired Survival Map) (/work/frostcraft.md)
 
 ---
@@ -1678,6 +1583,99 @@ Dark slate storage and crafting menus with high-contrast item slots, purple tool
 - **Creator & Design:** Tasrif (RenderPhoenix)
 - **Concept Inspiration:** nekochanfood (Java UI Concept) & Better Menu Pack
 - **Tools Used:** GIMP, JSON Interface Schemas
+
+
+----------------------------------------
+
+## Project: Bangladeshi Vehicles Addon (/work/bangladeshi-vehicles.md)
+
+---
+category: Add-On
+cover_image: /assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_1-520x245.webp
+date: 2021-04-14
+description: Custom vehicle add-on bringing authentic Bangladeshi street transport
+  models and physics.
+developer: Cristo
+download_links:
+- label: Download on MCPEDL
+  url: https://mcpedl.com/bangladeshi-vehicles-addon/
+downloads: 35.3K+
+featured: false
+platform: Minecraft Bedrock
+slug: bangladeshi-vehicles
+status: completed
+tags:
+- addon
+- vehicles
+- 3d-models
+- bangladesh
+technologies:
+- Blockbench
+- 3D Modeling
+- Entity Animations
+title: Bangladeshi Vehicles Addon
+version: 1.0.0
+---
+
+The **Bangladeshi Vehicles Add-on** brings authentic regional transport from Bangladesh and South Asia into Minecraft Bedrock. Featuring iconic everyday vehicles designed with custom 3D boxy geometry, passenger seating, and driving physics.
+
+### Included Vehicles
+
+**1. Leguna (Human Hauler)**
+
+The iconic suburban transit minibus commonly found navigating city routes and rural highways.
+
+![Leguna Human Hauler](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_2.webp)
+
+**2. Traditional Cycle Rickshaw**
+
+The cultural heartbeat of Dhaka streets, modeled with a custom passenger hood and spoked wheels.
+
+![Cycle Rickshaw 3D Model](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon--pre-release-100_3.webp)
+
+**3. Cargo Van (Flatbed Tricycle)**
+
+A versatile wooden flatbed tricycle used across Bangladesh for hauling goods and local transport.
+
+![Bangladeshi Flatbed Cargo Van](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_4.webp)
+
+**4. Electric Rickshaw (Easy Bike / Auto)**
+
+Modern eco-friendly green auto-rickshaw with covered cabin and passenger seating.
+
+![Electric Rickshaw Easy Bike](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_6.webp)
+
+**5. Traditional Sailboat (Nouka)**
+
+Classic wooden riverboat with an upright red sail designed for navigating rivers and waterways.
+
+![Traditional River Sailboat](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_8.webp)
+
+**6. Sports Car**
+
+A bonus custom red sports car vehicle model.
+
+![Red Sports Car](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_10.webp)
+
+### How to Get Vehicles
+
+You can obtain all vehicles directly in the **Creative Inventory** under the Nature/Spawn Eggs category, or spawn them via commands:
+
+- `/give @s bdv:leguna*spawn*egg`
+- `/give @s bdv:van*spawn*egg`
+- `/give @s bdv:easy*bike*spawn_egg`
+- `/give @s bdv:boat*spawn*egg`
+- `/give @s bdv:car*spawn*egg`
+
+![Creative Inventory Vehicle Spawn Eggs](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20bangladeshi-vehicles-addon_13.webp)
+
+![In-Game Spawn Commands](/assets/images/projects/bangladeshi-vehicles/Renderphoenix%20Minecraft%20%20bangladeshi-vehicles-addon_12.webp)
+
+### Credits & Tools
+
+- **3D Modeling & Design:** Cristo
+- **Behaviors & Code:** Faizul
+- **Tools Used:** Blockbench, Paint.NET, bridge., Notepad++, Pixly
 
 
 ----------------------------------------
@@ -2550,7 +2548,7 @@ On **22 August 2026**, we officially initiated the rebuilding of RenderPhoenix. 
 
 ## Where We Came From
 
-Founded in 2019 under the name *Minehutt* by **Tasrif**, our studio grew by crafting expansive virtual worlds, city maps like *Banglamine City* and *Zombiepolis*, vehicle add-ons, and customized UI packs. On January 30, 2021, we evolved into **RenderPhoenix**, adopting the phoenix symbol to reflect continuous transformation and creation.
+Founded in 2019 under the name *Minehutt* by **Tasrif**, our studio grew by crafting expansive virtual worlds, city maps like *Banglamine City* and *Zombiepolis*, vehicle add-ons, and customized UI packs. On January 27, 2021, we evolved into **RenderPhoenix**, adopting the phoenix symbol to reflect continuous transformation and creation.
 
 Despite a severe security incident in August 2022 that compromised core digital accounts, our team persevered for years. Though the team gradually dispersed by 2024, the identity, craft, and vision of RenderPhoenix remained intact.
 
@@ -2617,7 +2615,7 @@ These early years fostered our creative collaboration and laid the groundwork fo
 
 By early 2021, our ambitions expanded from hosting realms into building standalone 3D worlds, engineered vehicles, and full interactive environments using dedicated 3D tooling like Blender and real-time graphics pipelines.
 
-On **January 30, 2021**, we officially rebranded as **RenderPhoenix**, introducing our soaring phoenix emblem with layered violet and rose wings.
+On **January 27, 2021**, we officially rebranded as **RenderPhoenix**, introducing our soaring phoenix emblem with layered violet and rose wings.
 
 ![RenderPhoenix First Generation Logo 2021–2024](/assets/images/brand/Renderphoenix%202021-2026.webp)
 

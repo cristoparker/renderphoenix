@@ -1,21 +1,17 @@
 ---
 layout: default
-title: "404 — World Not Rendered"
-description: "The page or world you are looking for has not been rendered yet."
+title: "Page not found"
+description: "The page you are looking for doesn't exist or has moved."
 ---
 
-<section class="section" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center;">
-  <div class="container">
-    <div style="max-width: 550px; margin: 0 auto; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-3xl) var(--space-xl);">
-      <div style="font-family: var(--font-display); font-size: 5rem; font-weight: 700; color: var(--color-ember); line-height: 1; margin-bottom: var(--space-sm);">404</div>
-      <h1 style="font-size: 1.8rem; margin-bottom: var(--space-md);">Looks like this world hasn't been rendered yet.</h1>
-      <p style="color: var(--color-text-secondary); margin-bottom: var(--space-xl);">
-        The coordinates or path you entered does not exist in the RenderPhoenix grid map.
-      </p>
-      <a href="{{ '/' | relative_url }}" class="btn btn-primary">
-        <span>Return to Base</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </a>
+<section class="not-found container">
+  <div>
+    <p class="code" aria-hidden="true">404</p>
+    <h1>This world hasn’t been rendered yet.</h1>
+    <p>The page you’re looking for doesn’t exist or has moved.</p>
+    <div class="btn-row">
+      <a href="/" class="btn btn-primary">Back to home</a>
+      <button type="button" class="btn btn-ghost" data-search-open>Search the site</button>
     </div>
   </div>
 </section>

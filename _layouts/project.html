@@ -1,56 +1,28 @@
 ---
 layout: default
 ---
-<article class="project-detail">
-  <header class="project-header container">
-    <h1 class="project-title">{{ page.title }}</h1>
-
-    <div class="project-header-meta">
-      <span class="badge cat-badge">{{ page.category }}</span>
-      <time class="project-date">{{ page.date | date: "%d %b %Y" }}</time>
-      {% if page.downloads %}
-        <span class="meta-downloads" title="{{ page.downloads }} downloads">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          <span>{{ page.downloads }} Downloads</span>
-        </span>
-      {% endif %}
-    </div>
-    
-    {% if page.description %}
-      <p class="project-lead">{{ page.description }}</p>
-    {% endif %}
-
-    {% if page.award %}
-      <div class="project-award-banner">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-        <span>{{ page.award }}</span>
-      </div>
-    {% endif %}
+<article class="project">
+  <header class="page-head container">
+    <a class="back-link" href="/work/">
+      <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      All work
+    </a>
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.description }}</p>
+    <p class="meta-line">{{ meta_line }}</p>
+    {{ award }}
   </header>
 
-  <div class="project-main container">
-    <div class="project-grid">
-      <div class="project-content">
-        {% assign cover_img = page.cover_image | default: '/assets/images/image-not-found.svg' %}
-        <div class="project-cover">
-          <img src="{{ cover_img | relative_url }}" alt="" class="media-bg-blur" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" onerror="this.style.display='none';">
-          <img src="{{ cover_img | relative_url }}" alt="{{ page.title }} cover" class="media-fg-img" loading="eager" fetchpriority="high" decoding="async" width="1920" height="1080" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
-        </div>
-
-        <div class="project-body">
-          {{ content }}
-        </div>
+  <div class="container">
+    <figure class="project-cover">{{ cover }}</figure>
+    <div class="project-layout">
+      <div class="prose">
+        {{ content }}
       </div>
-
-      <aside class="project-sidebar">
-        <div class="sidebar-box">
-          <h3 class="sidebar-title">Project Details</h3>
-          
-          <dl class="project-specs">
-            {{ project_specs }}
-          </dl>
-
-          {{ project_sidebar_actions }}
+      <aside class="project-aside" aria-label="Project details">
+        <div class="aside-box">
+          {{ actions }}
+          {{ specs }}
         </div>
       </aside>
     </div>

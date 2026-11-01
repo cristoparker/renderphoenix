@@ -1,19 +1,20 @@
 import os
-import shutil
 import re
 import json
-from typing import List, Dict, Any
+import shutil
+from datetime import datetime
+from typing import List, Dict, Any, Optional
 from .config import Config
 from .models import Project, Post, Service, TeamMember, PageInfo
 from .loaders import ContentLoader
 from .markdown import MarkdownParser
-from .components import ComponentRenderer
+from .components import ComponentRenderer as C
 from .template import TemplateEngine
-from .seo import SitemapBuilder
+from .seo import SEOGenerator, SitemapBuilder, FeedBuilder
 from .search import SearchIndexer
 from .llm import LLMGenerator
-from .utils import format_full_date, clean_conditional
-from .images import get_webp_url
+from .utils import format_full_date, iso_date, parse_date, html_escape as esc
+
 
 class SiteBuilder:
     """Orchestrates the static site generation lifecycle for RenderPhoenix."""
@@ -21,496 +22,363 @@ class SiteBuilder:
     def __init__(self, root_dir: str = Config.ROOT_DIR, site_dir: str = Config.SITE_DIR):
         self.root_dir = root_dir
         self.site_dir = site_dir
-        self.template_engine = TemplateEngine()
+        self.engine = TemplateEngine()
+        self.inline_css = ''
+        self.navigation: Dict[str, Any] = {}
 
+    # ------------------------------------------------------------ helpers
+    def _write(self, rel_path: str, content: str) -> None:
+        path = os.path.join(self.site_dir, rel_path)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(content)
+
+    @staticmethod
+    def minify_css(css: str) -> str:
+        css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+        css = re.sub(r'\s+', ' ', css)
+        # Spaces before "(" are kept, so `@media (...) and (...)` and `:not(...)` both survive.
+        css = re.sub(r'\s*([{};,>])\s*', r'\1', css)
+        css = re.sub(r':\s+', ':', css)  # only after ':' — a space before it is a descendant selector
+        return css.replace(';}', '}').strip()
+
+    @staticmethod
+    def minify_js(js: str) -> str:
+        """Conservative minification: drops block comments, whole-line // comments,
+        indentation and blank lines. Code itself is never rewritten."""
+        js = re.sub(r'/\*.*?\*/', '', js, flags=re.S)
+        lines = (line.strip() for line in js.splitlines())
+        return '\n'.join(l for l in lines if l and not l.startswith('//')) + '\n'
+
+    def _base_context(self, meta: Dict[str, Any], page_type: str, slug: str, current_path: str) -> Dict[str, Any]:
+        """Values used by the default layout, header and footer on every page."""
+        footer = self.navigation.get('footer', {})
+        return {
+            'seo': SEOGenerator.generate_meta_tags(meta, page_type=page_type, slug=slug),
+            'css': self.inline_css,
+            'preload': meta.get('preload', ''),
+            'nav': C.nav_links(self.navigation.get('header', []), current_path),
+            'footer_nav': C.link_list(footer.get('navigation', [])),
+            'footer_resources': C.link_list(footer.get('resources', [])),
+            'footer_social': C.social_links(footer.get('social', [])),
+            'year': str(datetime.now().year),
+        }
+
+    def _write_markdown(self, section: str, slug: str, raw_md: str) -> None:
+        """Raw Markdown endpoints for AI/LLM consumers: /<section>/<slug>.md and /<section>/<slug>/index.md."""
+        prefix = f'{section}/' if section else ''
+        self._write(f'{prefix}{slug}.md', raw_md)
+        self._write(f'{prefix}{slug}/index.md', raw_md)
+
+    # ------------------------------------------------------------- assets
     def clean(self) -> None:
-        """Removes the old build directory."""
         if os.path.exists(self.site_dir):
             shutil.rmtree(self.site_dir, ignore_errors=True)
             print("Cleaned old _site directory")
 
     def copy_assets(self) -> None:
-        """Copies static assets and mirrors the brand kit directory."""
+        """Copies static assets, mirrors the brand kit and prepares the inlined stylesheet."""
         os.makedirs(self.site_dir, exist_ok=True)
-        if os.path.exists(Config.ASSETS_DIR):
-            dest_assets = os.path.join(self.site_dir, 'assets')
-            if os.path.exists(dest_assets):
-                shutil.rmtree(dest_assets)
-            shutil.copytree(Config.ASSETS_DIR, dest_assets)
-            print("Copied assets to _site/assets")
+        dest_assets = os.path.join(self.site_dir, 'assets')
+        shutil.copytree(Config.ASSETS_DIR, dest_assets, dirs_exist_ok=True,
+                        ignore=shutil.ignore_patterns('*.css'))
+        for name in os.listdir(os.path.join(dest_assets, 'js')):
+            if name.endswith('.js'):
+                path = os.path.join(dest_assets, 'js', name)
+                with open(path, 'r', encoding='utf-8') as f:
+                    js = f.read()
+                with open(path, 'w', encoding='utf-8') as f:
+                    f.write(self.minify_js(js))
+        print("Copied assets to _site/assets")
 
-            # Bundle modular CSS into a single request to eliminate the @import waterfall
-            self._bundle_css(dest_assets)
-
-            # Mirror brand directory to _site/images/brand for direct URL access (/images/brand/)
-            brand_src = os.path.join(Config.ASSETS_DIR, 'images', 'brand')
-            if os.path.exists(brand_src):
-                images_brand_dest = os.path.join(self.site_dir, 'images', 'brand')
-                os.makedirs(os.path.dirname(images_brand_dest), exist_ok=True)
-                if os.path.exists(images_brand_dest):
-                    shutil.rmtree(images_brand_dest)
-                shutil.copytree(brand_src, images_brand_dest)
-                print("Mirrored brand assets -> _site/images/brand/")
-
-    def _bundle_css(self, dest_assets: str) -> None:
-        """Concatenates the modular CSS sources into one cached stylesheet.
-
-        The @import chain in main.css forces the browser to fetch the stylesheets
-        serially (a 5-round-trip waterfall on high-latency mobile networks). Bundling
-        them into a single bundle.css collapses this to one request and lets us
-        strip comments and trailing whitespace for a smaller payload.
-        """
-        css_src = os.path.join(self.root_dir, 'assets', 'css')
-        css_order = [
-            'variables.css', 'typography.css', 'layout.css',
-            'components.css', 'responsive.css', 'main.css'
-        ]
+        brand_src = os.path.join(Config.ASSETS_DIR, 'images', 'brand')
+        if os.path.exists(brand_src):
+            shutil.copytree(brand_src, os.path.join(self.site_dir, 'images', 'brand'), dirs_exist_ok=True)
+            print("Mirrored brand assets -> _site/images/brand/")
 
         parts = []
-        for name in css_order:
-            path = os.path.join(css_src, name)
+        for name in Config.CSS_FILES:
+            path = os.path.join(Config.ASSETS_DIR, 'css', name)
             if not os.path.exists(path):
-                print(f"  Warning: missing CSS source {name} for bundling")
-                continue
+                raise FileNotFoundError(f'Missing stylesheet: {path}')
             with open(path, 'r', encoding='utf-8') as f:
-                for line in f:
-                    if line.lstrip().startswith('@import'):
-                        continue
-                    parts.append(line)
+                parts.append(f.read())
+        self.inline_css = self.minify_css('\n'.join(parts))
+        print(f"Inlined CSS ({len(self.inline_css.encode('utf-8')) / 1024:.1f} KB)")
 
-        content = ''.join(parts)
-        content = re.sub(r'/\*.*?\*/', '', content, flags=re.S)
-        content = re.sub(r'\s+', ' ', content)
-        content = re.sub(r'\s*([\{\};:,>])\s*', r'\1', content)
-        content = re.sub(r'\band\(', 'and (', content)
-        content = re.sub(r'\bor\(', 'or (', content)
-        content = re.sub(r'\bnot\(', 'not (', content)
-        content = re.sub(r';\}', '}', content)
-        content = content.strip()
-
-        bundle_dir = os.path.join(dest_assets, 'css')
-        os.makedirs(bundle_dir, exist_ok=True)
-        bundle_path = os.path.join(bundle_dir, 'bundle.css')
-        with open(bundle_path, 'w', encoding='utf-8') as f:
-            f.write(content)
-        size_kb = len(content.encode('utf-8')) / 1024.0
-        print(f"Bundled CSS -> _site/assets/css/bundle.css ({size_kb:.1f} KB)")
-
+    # ----------------------------------------------------------- projects
     def build_projects(self, projects: List[Project]) -> None:
-        """Compiles project portfolio detail pages and raw markdown endpoints."""
-        def_layout = self.template_engine.get_layout('default')
-        proj_layout = self.template_engine.get_layout('project')
-
         for proj in projects:
             slug = proj.slug
             proj.markdown_url = f"/work/{slug}.md"
-            proj.meta['markdown_url'] = f"/work/{slug}.md"
-            p_html_body = MarkdownParser.to_html(proj.body)
+            cover = proj.cover_image or Config.FALLBACK_IMAGE
+            meta = {**proj.meta, 'markdown_url': proj.markdown_url,
+                    'preload': C.preload(cover, Config.COVER_WIDTHS, Config.COVER_SIZES)}
 
-            # Assemble layout
-            p_content = proj_layout.replace('{{ content }}', p_html_body)
-            p_content = p_content.replace('{{ page.title }}', proj.title)
-            p_content = p_content.replace('{{ page.description }}', proj.description)
-            p_content = p_content.replace('{{ page.category }}', proj.category)
-            proj_date_formatted = format_full_date(proj.date)
-            p_content = p_content.replace('{{ page.date | date: "%d %b %Y" }}', proj_date_formatted)
-            p_content = p_content.replace('{{ page.date }}', proj_date_formatted)
-            p_content = p_content.replace('{{ page.year }}', proj_date_formatted)
+            meta_bits = [esc(proj.category), f'<time datetime="{iso_date(proj.date)}">{format_full_date(proj.date)}</time>']
+            if proj.downloads:
+                meta_bits.append(f'{esc(proj.downloads)} downloads')
 
-            p_content = clean_conditional(p_content, 'page.downloads', bool(proj.downloads), {'{{ page.downloads }}': str(proj.downloads)})
-            p_content = clean_conditional(p_content, 'page.description', bool(proj.description), {'{{ page.description }}': proj.description})
-            p_content = clean_conditional(p_content, 'page.award', bool(proj.award), {'{{ page.award }}': proj.award})
-            p_content = clean_conditional(p_content, 'page.developer', bool(proj.developer), {'{{ page.developer }}': proj.developer})
+            context = {
+                **self._base_context(meta, 'project', slug, f'/work/{slug}/'),
+                'page': {'title': esc(proj.title), 'description': esc(proj.description)},
+                'meta_line': ' · '.join(meta_bits),
+                'award': C.award_banner(proj),
+                'cover': C.image(cover, f'{proj.title} cover', eager=True,
+                                 widths=Config.COVER_WIDTHS, sizes=Config.COVER_SIZES),
+                'specs': C.project_specs(proj),
+                'actions': C.project_actions(proj),
+            }
+            html = self.engine.render_page('project', MarkdownParser.to_html(proj.body), context)
+            self._write(f'work/{slug}/index.html', html)
+            self._write_markdown('work', slug, proj.raw_content)
+            print(f"Built project -> /work/{slug}/")
 
-            # Render dynamic specs and sidebar action buttons
-            specs_html = ComponentRenderer.render_project_specs(proj)
-            actions_html = ComponentRenderer.render_project_sidebar_actions(proj)
-            p_content = p_content.replace('{{ project_specs }}', specs_html)
-            p_content = p_content.replace('{{ project_sidebar_actions }}', actions_html)
-
-            raw_cover_img = proj.cover_image or '/assets/images/image-not-found.svg'
-            cover_img = get_webp_url(raw_cover_img)
-            proj.meta['preload_image'] = cover_img
-            p_content = re.sub(r'\{%\s*assign\s+cover_img\s*=[\s\S]*?%\}', '', p_content)
-            p_content = p_content.replace('{{ cover_img | relative_url }}', cover_img)
-            p_content = p_content.replace('{{ page.cover_image | relative_url }}', cover_img)
-
-            full_html = def_layout.replace('{{ content }}', p_content)
-            full_html = self.template_engine.clean_liquid_tags(full_html, proj.meta, page_type='project', slug=slug)
-
-            out_dir = os.path.join(self.site_dir, 'work', slug)
-            os.makedirs(out_dir, exist_ok=True)
-
-            # 1. Output HTML
-            with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
-                f.write(full_html)
-
-            # 2. Output raw Markdown
-            raw_md = proj.raw_content
-            with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
-                f.write(raw_md)
-            with open(os.path.join(out_dir, f'{slug}.md'), 'w', encoding='utf-8') as f:
-                f.write(raw_md)
-            with open(os.path.join(self.site_dir, 'work', f'{slug}.md'), 'w', encoding='utf-8') as f:
-                f.write(raw_md)
-
-            print(f"Built project page -> _site/work/{slug}/ (index.html, index.md, {slug}.md)")
-
+    # -------------------------------------------------------------- posts
     def build_posts(self, posts: List[Post]) -> None:
-        """Compiles blog post / devlog detail pages and raw markdown endpoints."""
-        def_layout = self.template_engine.get_layout('default')
-        post_layout = self.template_engine.get_layout('post')
-
         for i, post in enumerate(posts):
             slug = post.slug
             post.markdown_url = f"/blog/{slug}.md"
-            post.meta['markdown_url'] = f"/blog/{slug}.md"
-            p_html_body = MarkdownParser.to_html(post.body)
+            meta = {**post.meta, 'markdown_url': post.markdown_url}
+            cover = ''
+            if post.image:
+                meta['preload'] = C.preload(post.image, Config.COVER_WIDTHS, Config.ARTICLE_COVER_SIZES)
+                img = C.image(post.image, post.title, eager=True,
+                              widths=Config.COVER_WIDTHS, sizes=Config.ARTICLE_COVER_SIZES)
+                cover = f'<figure class="article-cover">{img}</figure>'
 
-            # Build article tags
-            tags = post.meta.get('tags', [])
-            if tags:
-                tag_chips = ''.join([f'<span class="tag-chip">#{t}</span>' for t in tags])
-                tags_html = f'<div class="article-tags"><span class="tags-label">Tags:</span>{tag_chips}</div>'
-            else:
-                tags_html = ''
-
-            # Build prev/next post navigation
             prev_post = posts[i + 1] if i + 1 < len(posts) else None
             next_post = posts[i - 1] if i > 0 else None
-            nav_links = []
-            if prev_post:
-                nav_links.append(f'<a href="/blog/{prev_post.slug}/" class="post-nav-link prev-post"><span class="nav-dir">&larr; Previous</span><span class="nav-title">{prev_post.title}</span></a>')
-            if next_post:
-                nav_links.append(f'<a href="/blog/{next_post.slug}/" class="post-nav-link next-post"><span class="nav-dir">Next &rarr;</span><span class="nav-title">{next_post.title}</span></a>')
-            nav_html = f'<div class="post-navigation">{"".join(nav_links)}</div>' if nav_links else ''
+            context = {
+                **self._base_context(meta, 'post', slug, f'/blog/{slug}/'),
+                'page': {
+                    'title': esc(post.title),
+                    'description': esc(post.description),
+                    'category': esc(C.post_category(post)),
+                    'date': format_full_date(post.date),
+                    'date_iso': iso_date(post.date),
+                    'author': esc(post.author or Config.SITE_NAME),
+                },
+                'cover': cover,
+                'tags': C.tags(post.tags),
+                'pager': C.post_nav(prev_post, next_post),
+            }
+            html = self.engine.render_page('post', MarkdownParser.to_html(post.body), context)
+            self._write(f'blog/{slug}/index.html', html)
+            self._write_markdown('blog', slug, post.raw_content)
+            print(f"Built post -> /blog/{slug}/")
 
-            p_content = post_layout.replace('{{ content }}', p_html_body)
-            p_content = p_content.replace('{{ page.title }}', post.title)
-            p_content = p_content.replace('{{ page.description }}', post.description)
-            p_content = p_content.replace('{{ page.author | default: site.author.name }}', post.author or 'RenderPhoenix')
-            p_content = p_content.replace('{{ article_tags }}', tags_html)
-            p_content = p_content.replace('{{ post_navigation }}', nav_html)
-            post_date_formatted = format_full_date(post.date)
-            p_content = p_content.replace('{{ page.date | date: "%d %b %Y" }}', post_date_formatted)
-            p_content = p_content.replace('{{ page.date | date: "%B %d, %Y" }}', post_date_formatted)
-            p_content = p_content.replace('{{ page.date }}', post_date_formatted)
-            p_content = re.sub(r'\{%\s*if\s+page\.categories\s*%\}.*?\{%\s*endif\s*%\}', 'Devlog', p_content)
+    # -------------------------------------------------------------- pages
+    def _blocks(self, projects: List[Project], posts: List[Post], services: List[Service],
+                team: List[TeamMember]) -> Dict[str, str]:
+        """Pre-rendered blocks that page sources can place with `{{ name }}`."""
+        site = ContentLoader.load_yaml('site', {}) or {}
+        featured = [p for p in projects if p.featured] or projects
+        tokens = {'project_count': len(projects)}
+        return {
+            'showcase': C.showcase(projects),
+            'showcase_preload': C.showcase_preload(projects),
+            'services_bento': C.services_bento(services, projects),
+            'journal': ''.join(C.post_card(p) for p in posts[:Config.HOME_LATEST_POSTS]),
+            'featured_projects': ''.join(C.project_card(p) for p in featured[:Config.HOME_FEATURED_PROJECTS]),
+            'project_grid': ''.join(C.project_card(p, heading='h2') for p in projects),
+            'project_filters': C.filter_chips(projects),
+            'latest_posts': ''.join(C.post_row(p) for p in posts[:Config.HOME_LATEST_POSTS]),
+            'post_grid': ''.join(C.post_card(p, eager=(i == 0)) for i, p in enumerate(posts)),
+            'services_list': ''.join(C.service_item(s, i + 1) for i, s in enumerate(services)),
+            'services_detailed': ''.join(C.service_item(s, i + 1, detailed=True, heading='h2')
+                                         for i, s in enumerate(services)),
+            'team_grid': ''.join(C.team_card(m) for m in team),
+            'stats': C.stats(site.get('stats', []), tokens),
+            'timeline': C.timeline(site.get('timeline', [])),
+            'project_count': str(len(projects)),
+            'post_count': str(len(posts)),
+        }
 
-            if post.image:
-                hero_img = get_webp_url(post.image)
-                post.meta['preload_image'] = hero_img
-                p_content = p_content.replace('{% if page.image %}', '').replace('{% endif %}', '').replace('{{ page.image | relative_url }}', hero_img)
+    @staticmethod
+    def _demote_headings(html: str, title: str) -> str:
+        """The page layout already renders the title as <h1>, so Markdown `#` headings become
+        <h2>, and a leading heading that just repeats the title is dropped."""
+        html = re.sub(r'^\s*<h1[^>]*>\s*' + re.escape(esc(title)) + r'\s*</h1>', '', html, count=1, flags=re.I)
+        return re.sub(r'<(/?)h1(\b[^>]*)>', r'<\1h2\2>', html)
 
-            full_html = def_layout.replace('{{ content }}', p_content)
-            full_html = self.template_engine.clean_liquid_tags(full_html, post.meta, page_type='post', slug=slug)
+    def _resolve_page_source(self, pcfg: Dict[str, Any]) -> Optional[str]:
+        if pcfg.get('file'):
+            cand = os.path.join(self.root_dir, pcfg['file'])
+            return cand if os.path.exists(cand) else None
+        for name in ('index.html', 'index.md'):
+            cand = os.path.join(self.root_dir, pcfg.get('dir', ''), name)
+            if os.path.exists(cand):
+                return cand
+        return None
 
-            out_dir = os.path.join(self.site_dir, 'blog', slug)
-            os.makedirs(out_dir, exist_ok=True)
-
-            # 1. Output HTML
-            with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
-                f.write(full_html)
-
-            # 2. Output raw Markdown
-            raw_md = post.raw_content
-            with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
-                f.write(raw_md)
-            with open(os.path.join(out_dir, f'{slug}.md'), 'w', encoding='utf-8') as f:
-                f.write(raw_md)
-            with open(os.path.join(self.site_dir, 'blog', f'{slug}.md'), 'w', encoding='utf-8') as f:
-                f.write(raw_md)
-
-            print(f"Built post page -> _site/blog/{slug}/ (index.html, index.md, {slug}.md)")
-
-    def build_pages(
-        self,
-        projects: List[Project],
-        posts: List[Post],
-        services: List[Service],
-        team: List[TeamMember]
-    ) -> List[Dict[str, Any]]:
-        """Compiles main static pages, legal documents, error page, and injects dynamic loops."""
-        def_layout = self.template_engine.get_layout('default')
-        page_layout = self.template_engine.get_layout('page')
-
-        featured_projects_cards = ''.join([ComponentRenderer.render_project_card(p) for p in projects[:3]])
-        all_projects_cards = ''.join([ComponentRenderer.render_project_card(p) for p in projects])
-
-        featured_post = posts[0] if posts else None
-        featured_post_card = ComponentRenderer.render_post_card(featured_post, featured=True) if featured_post else ''
-        latest_posts_cards = ''.join([ComponentRenderer.render_post_card(p) for p in posts[:2]])
-        all_posts_cards = ''.join([ComponentRenderer.render_post_card(p) for p in posts])
-
-        sidebar_items_cards = ''.join([ComponentRenderer.render_sidebar_item(p) for p in projects[:4]])
-        merged_publications_cards = (
-            (ComponentRenderer.render_post_card(posts[1], card_class="card-horizontal") if len(posts) > 1 else '') +
-            (ComponentRenderer.render_project_card(projects[0]) if len(projects) > 0 else '') +
-            ''.join([ComponentRenderer.render_post_card(p) for p in posts[2:]]) +
-            ''.join([ComponentRenderer.render_project_card(p) for p in projects[1:]])
-        )
-
-        featured_services_cards = ''.join([ComponentRenderer.render_service_card(s) for s in services[:3]])
-        all_services_cards = ''.join([ComponentRenderer.render_service_card(s) for s in services])
-        all_team_cards = ''.join([ComponentRenderer.render_team_card(m) for m in team])
-
-        compiled_pages_info: List[Dict[str, Any]] = []
+    def build_pages(self, projects: List[Project], posts: List[Post], services: List[Service],
+                    team: List[TeamMember]) -> List[Dict[str, Any]]:
+        blocks = self._blocks(projects, posts, services, team)
+        compiled: List[Dict[str, Any]] = []
 
         for pcfg in Config.PAGES_CONFIG:
             slug = pcfg['slug']
-            src_dir = pcfg.get('dir', '')
-            src_file = pcfg.get('file', '')
-
-            src_path = None
-            is_markdown = False
-
-            if src_file:
-                cand = os.path.join(self.root_dir, src_file)
-                if os.path.exists(cand):
-                    src_path = cand
-                    is_markdown = cand.endswith('.md')
-            elif src_dir:
-                cand_html = os.path.join(self.root_dir, src_dir, 'index.html')
-                cand_md = os.path.join(self.root_dir, src_dir, 'index.md')
-                if os.path.exists(cand_html):
-                    src_path = cand_html
-                    is_markdown = False
-                elif os.path.exists(cand_md):
-                    src_path = cand_md
-                    is_markdown = True
-
-            if not src_path or not os.path.exists(src_path):
+            src_path = self._resolve_page_source(pcfg)
+            if not src_path:
+                print(f"  Warning: no source for page '{slug or '/'}'")
                 continue
 
             meta, raw_body = ContentLoader.load_frontmatter_and_content(src_path)
-            p_title = meta.get('title', pcfg.get('title', ''))
-            p_desc = meta.get('description', '')
-            header_img = meta.get('header_image', '')
-            layout_type = meta.get('layout', 'default')
+            title = meta.get('title', pcfg.get('title', ''))
+            desc = meta.get('description', '')
+            layout = meta.get('layout', 'default')
 
-            # Convert body
-            if is_markdown:
-                body_html = MarkdownParser.to_html(raw_body)
+            if src_path.endswith('.md'):
+                body = f'<div class="container prose">{self._demote_headings(MarkdownParser.to_html(raw_body), title)}</div>'
             else:
-                body_html = raw_body
+                body = self.engine.render(self.engine.render_includes(raw_body), blocks)
 
-            body_html = self.template_engine.render_includes(body_html)
-
-            # Replace dynamic project & post loops
-            body_html = re.sub(r'\{%\s*assign\s+featured_projects\s*=[\s\S]*?\{%\s*endfor\s*%\}', featured_projects_cards, body_html)
-            body_html = re.sub(r'\{%\s*assign\s+sorted_projects\s*=[\s\S]*?\{%\s*endfor\s*%\}', all_projects_cards, body_html)
-            body_html = re.sub(r'\{%\s*assign\s+featured_post\s*=[\s\S]*?\{%\s*include\s+post-card\.html[\s\S]*?\{%\s*endif\s*%\}', featured_post_card, body_html)
-            body_html = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s+limit:2\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', latest_posts_cards, body_html)
-            body_html = re.sub(r'\{%\s*assign\s+top_post\s*=[\s\S]*?\{%\s*endif\s*%\}', featured_post_card, body_html)
-            body_html = re.sub(r'\{%\s*for\s+proj\s+in\s+site\.projects\s+limit:4\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', sidebar_items_cards, body_html)
-            body_html = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s*%\}[\s\S]*?\{%\s*endfor\s*%\}[\s\S]*?\{%\s*for\s+proj\s+in\s+site\.projects\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', merged_publications_cards, body_html)
-            body_html = re.sub(r'\{%\s*for\s+post\s+in\s+site\.posts\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_posts_cards, body_html)
-
-            # Replace dynamic service & team loops
-            body_html = re.sub(r'\{%\s*for\s+service\s+in\s+site\.data\.services\s+limit:3\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', featured_services_cards, body_html)
-            body_html = re.sub(r'\{%\s*for\s+service\s+in\s+site\.data\.services\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_services_cards, body_html)
-            body_html = re.sub(r'\{%\s*for\s+member\s+in\s+site\.data\.team\s*%\}[\s\S]*?\{%\s*endfor\s*%\}', all_team_cards, body_html)
-
-            # Layout Wrapping
-            if layout_type == 'page':
-                content_html = page_layout
-                if header_img:
-                    content_html = content_html.replace('{% if page.header_image %}page-header-hero{% endif %}', 'page-header-hero')
-                    content_html = re.sub(r'\{%\s*if\s+page\.header_image\s*%\}style="background-image:\s*url\(\'\{\{\s*page\.header_image\s*\}\}\'\);"\s*\{%\s*endif\s*%\}', f'style="background-image: url(\'{header_img}\');"', content_html)
-                else:
-                    content_html = content_html.replace('{% if page.header_image %}page-header-hero{% endif %}', '')
-                    content_html = re.sub(r'\{%\s*if\s+page\.header_image\s*%\}[\s\S]*?\{%\s*endif\s*%\}', '', content_html)
-
-                content_html = content_html.replace('{{ page.title }}', p_title)
-                if p_desc:
-                    content_html = content_html.replace('{% if page.description %}', '').replace('{% endif %}', '').replace('{{ page.description }}', p_desc)
-                else:
-                    content_html = re.sub(r'\{% if page\.description %\}[\s\S]*?\{% endif %\}', '', content_html)
-
-                if pcfg.get('type') == 'legal':
-                    body_wrapped = f'<div class="page-body container">\n{body_html}\n</div>'
-                else:
-                    body_wrapped = body_html
-                content_html = content_html.replace('{{ content }}', body_wrapped)
-            else:
-                content_html = body_html
-
-            page_title_meta = f"{p_title} — {Config.SITE_NAME}" if p_title and slug != '' else (p_title or f"{Config.SITE_NAME} — {Config.SITE_TAGLINE}")
-            preload_hero = '/assets/images/brand/Renderphoenix%20Colored%20Logo.svg' if slug == '' else ''
+            is_page = slug not in ('', '404')
             page_meta = {
-                'title': page_title_meta,
-                'description': p_desc or Config.DEFAULT_DESCRIPTION,
-                'header_image': header_img,
-                'preload_image': preload_hero,
-                'markdown_url': f"/{slug}.md" if slug and slug != '404' else '',
-                'canonical_url': f"{Config.SITE_URL}/{slug}/" if slug and slug != '404' else f"{Config.SITE_URL}/"
+                'preload': blocks['showcase_preload'] if slug == '' else '',
+                'title': title,
+                'description': desc or Config.DEFAULT_DESCRIPTION,
+                'image': meta.get('image', ''),
+                'markdown_url': f"/{slug}.md" if is_page else '',
             }
+            context = {
+                **self._base_context(page_meta, 'website', slug, f'/{slug}/' if slug else '/'),
+                **blocks,
+                'page': {'title': esc(title), 'description': esc(desc)},
+            }
+            html = self.engine.render_page(layout, body, context)
 
-            final_html = def_layout.replace('{{ content }}', content_html)
-            final_html = self.template_engine.clean_liquid_tags(final_html, page_meta, page_type='website', slug=slug)
-
-            # Write Output HTML
             if slug == '':
-                out_file = os.path.join(self.site_dir, 'index.html')
-                with open(out_file, 'w', encoding='utf-8') as f:
-                    f.write(final_html)
-                print("Built root page -> _site/index.html")
+                self._write('index.html', html)
             elif slug == '404':
-                out_file = os.path.join(self.site_dir, '404.html')
-                with open(out_file, 'w', encoding='utf-8') as f:
-                    f.write(final_html)
-                print("Built error page -> _site/404.html")
+                self._write('404.html', html)
             else:
-                out_dir = os.path.join(self.site_dir, slug)
-                os.makedirs(out_dir, exist_ok=True)
-                with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
-                    f.write(final_html)
-                print(f"Built page -> _site/{slug}/index.html")
+                self._write(f'{slug}/index.html', html)
+            print(f"Built page -> /{slug + '/' if slug else ''}")
 
-            # Write Raw Markdown Endpoints
-            if slug and slug != '404':
-                md_cand = os.path.join(self.root_dir, src_dir, 'index.md') if src_dir else ''
-                if md_cand and os.path.exists(md_cand):
-                    with open(md_cand, 'r', encoding='utf-8') as mf:
-                        raw_md = mf.read()
-                elif is_markdown:
-                    with open(src_path, 'r', encoding='utf-8') as mf:
-                        raw_md = mf.read()
+            if is_page:
+                md_path = os.path.join(self.root_dir, pcfg.get('dir', ''), 'index.md')
+                if os.path.exists(md_path):
+                    with open(md_path, 'r', encoding='utf-8') as f:
+                        raw_md = f.read()
                 else:
-                    clean_text = re.sub(r'<[^>]+>', '', raw_body).strip()
-                    raw_md = f"---\ntitle: \"{p_title}\"\ndescription: \"{p_desc}\"\n---\n\n# {p_title}\n\n{p_desc}\n\n{clean_text}\n"
+                    text = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', body)).strip()
+                    raw_md = f'---\ntitle: "{title}"\ndescription: "{desc}"\n---\n\n# {title}\n\n{desc}\n\n{text}\n'
+                self._write(f'{slug}.md', raw_md)
+                self._write(f'{slug}/index.md', raw_md)
 
-                out_dir = os.path.join(self.site_dir, slug)
-                os.makedirs(out_dir, exist_ok=True)
-                with open(os.path.join(out_dir, 'index.md'), 'w', encoding='utf-8') as f:
-                    f.write(raw_md)
-                with open(os.path.join(self.site_dir, f'{slug}.md'), 'w', encoding='utf-8') as f:
-                    f.write(raw_md)
-
-            compiled_pages_info.append({
+            compiled.append({
                 'slug': slug,
-                'title': p_title,
-                'desc': p_desc,
-                'content_snippet': re.sub(r'<[^>]+>', '', body_html),
+                'title': title,
+                'desc': desc,
+                'content_snippet': re.sub(r'<[^>]+>', ' ', body),
                 'type': pcfg.get('type', 'page'),
                 'priority': pcfg.get('priority', 0.8),
-                'freq': pcfg.get('freq', 'monthly')
+                'freq': pcfg.get('freq', 'monthly'),
             })
+        return compiled
 
-        return compiled_pages_info
-
+    # --------------------------------------------------------- root files
     def copy_static_root_files(self) -> None:
-        """Copies static root files like robots.txt, CNAME, site.webmanifest to _site/."""
-        for s_file in Config.STATIC_ROOT_FILES:
-            s_src = os.path.join(self.root_dir, s_file)
-            if os.path.exists(s_src):
-                shutil.copy2(s_src, os.path.join(self.site_dir, s_file))
-                print(f"Copied {s_file} -> _site/{s_file}")
+        for name in Config.STATIC_ROOT_FILES:
+            src = os.path.join(self.root_dir, name)
+            if os.path.exists(src):
+                shutil.copy2(src, os.path.join(self.site_dir, name))
+        print("Copied static root files")
 
     def build_redirects(self, redirects: List[Dict[str, str]]) -> None:
-        """Generates instant HTML redirect pages and _redirects rules for configured short URLs."""
-        if not redirects:
-            return
-
-        cloudflare_rules = []
+        """Instant HTML redirect pages plus a _redirects file for configured short URLs."""
+        rules = []
         for r in redirects:
-            src = r.get('from', '').strip()
-            dest = r.get('to', '').strip()
-            if not src or not dest:
+            slug = r.get('from', '').strip().strip('/')
+            target = r.get('to', '').strip()
+            if not slug or not target:
                 continue
-
-            slug = src.strip('/')
-            if not slug:
-                continue
-
-            target_url = dest
-            if dest.startswith('/'):
-                canonical_url = f"{Config.SITE_URL}{dest}"
-            else:
-                canonical_url = dest
-
-            redirect_html = f"""<!DOCTYPE html>
+            canonical = f"{Config.SITE_URL}{target}" if target.startswith('/') else target
+            self._write(f'{slug}/index.html', f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url={target_url}">
-  <link rel="canonical" href="{canonical_url}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting…</title>
+  <meta http-equiv="refresh" content="0; url={esc(target)}">
+  <link rel="canonical" href="{esc(canonical)}">
   <meta name="robots" content="noindex, follow">
-  <script>location.replace({json.dumps(target_url)});</script>
+  <script>location.replace({json.dumps(target)});</script>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #F4F1FA; color: #1E1B29;">
-  <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
-    <p style="margin: 0 0 1rem; font-size: 1.1rem; font-weight: 500;">Redirecting...</p>
-    <p style="margin: 0; font-size: 0.9rem; color: #565069;">
-      If you are not redirected automatically, <a href="{target_url}" style="color: #5A4077; font-weight: 600; text-decoration: underline;">click here</a>.
-    </p>
-  </div>
+<body style="font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0;background:{Config.THEME_COLOR_LIGHT};color:#1F1C18">
+  <p>Redirecting… <a href="{esc(target)}" style="color:inherit">Continue</a></p>
 </body>
 </html>
-"""
-            out_dir = os.path.join(self.site_dir, slug)
-            os.makedirs(out_dir, exist_ok=True)
-            with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
-                f.write(redirect_html)
+""")
+            rules.append(f"/{slug} {target} 302")
+        if rules:
+            self._write('_redirects', '\n'.join(rules) + '\n')
+            print(f"Built {len(rules)} redirects")
 
-            cloudflare_rules.append(f"/{slug} {target_url} 302")
-            print(f"Built redirect -> /{slug}/ -> {target_url}")
+    # --------------------------------------------------------- validation
+    def validate_content(self, projects: List[Project], posts: List[Post]) -> None:
+        """Fails the build on content errors that would ship broken pages; warns on softer issues."""
+        errors: List[str] = []
+        warnings: List[str] = []
 
-        if cloudflare_rules:
-            cf_content = "\n".join(cloudflare_rules) + "\n"
-            with open(os.path.join(self.site_dir, '_redirects'), 'w', encoding='utf-8') as f:
-                f.write(cf_content)
+        def asset_exists(url: str) -> bool:
+            if not url or url.startswith(('http://', 'https://')):
+                return True
+            from urllib.parse import unquote
+            return os.path.isfile(os.path.join(self.root_dir, unquote(url.split('?')[0]).lstrip('/')))
 
+        for kind, items in (('project', projects), ('post', posts)):
+            seen: Dict[str, int] = {}
+            for item in items:
+                seen[item.slug] = seen.get(item.slug, 0) + 1
+                if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', item.slug):
+                    warnings.append(f"{kind} '{item.slug}': slug should be lowercase-hyphenated")
+                if not item.description:
+                    warnings.append(f"{kind} '{item.slug}': missing description (used for SEO)")
+                if not parse_date(item.date):
+                    errors.append(f"{kind} '{item.slug}': missing or unreadable date '{item.date}'")
+                image = item.cover_image if kind == 'project' else item.image
+                if image and not asset_exists(image):
+                    errors.append(f"{kind} '{item.slug}': image not found: {image}")
+            errors += [f"duplicate {kind} slug '{s}'" for s, count in seen.items() if count > 1]
+
+        for w in warnings:
+            print(f"  Warning: {w}")
+        if errors:
+            raise ValueError('Content validation failed:\n  - ' + '\n  - '.join(errors))
+
+    # -------------------------------------------------------------- build
     def build(self) -> None:
-        """Runs the complete static site build pipeline."""
-        # 1. Clean & Assets
         self.clean()
         self.copy_assets()
+        self.navigation = ContentLoader.load_yaml('navigation', {}) or {}
 
-        # 2. Load Content Collections
         projects = ContentLoader.load_projects()
         posts = ContentLoader.load_posts()
         services = ContentLoader.load_services()
         team = ContentLoader.load_team()
+        self.validate_content(projects, posts)
 
-        # 3. Build Project Pages
         self.build_projects(projects)
-
-        # 4. Build Blog Post Pages
         self.build_posts(posts)
+        compiled = self.build_pages(projects, posts, services, team)
 
-        # 5. Build Main Content Pages
-        compiled_pages_info = self.build_pages(projects, posts, services, team)
+        SearchIndexer.build_indexes(projects, posts, compiled)
 
-        # 6. Search Indexing
-        SearchIndexer.build_indexes(projects, posts, compiled_pages_info)
-
-        # 7. Sitemap XML Generation
-        page_models = [
-            PageInfo(
-                slug=p['slug'],
-                title=p['title'],
-                desc=p['desc'],
-                type=p['type'],
-                priority=p['priority'],
-                freq=p['freq']
-            ) for p in compiled_pages_info
-        ]
+        page_models = [PageInfo(slug=p['slug'], title=p['title'], desc=p['desc'], type=p['type'],
+                                priority=p['priority'], freq=p['freq']) for p in compiled]
         sitemap_xml = SitemapBuilder.build_sitemap(page_models, projects, posts)
-        with open(os.path.join(self.site_dir, 'sitemap.xml'), 'w', encoding='utf-8') as f:
-            f.write(sitemap_xml)
+        self._write('sitemap.xml', sitemap_xml)
         with open(os.path.join(self.root_dir, 'sitemap.xml'), 'w', encoding='utf-8') as f:
             f.write(sitemap_xml)
-        print("Built sitemap.xml -> _site/sitemap.xml & workspace root")
+        print("Built sitemap.xml")
 
-        # 8. AI / LLM Context Generation
-        LLMGenerator.build_indexes(projects, posts, compiled_pages_info)
+        self._write('feed.xml', FeedBuilder.build_feed(posts))
+        print("Built feed.xml")
 
-        # 9. Static Root Files
+        LLMGenerator.build_indexes(projects, posts, compiled)
         self.copy_static_root_files()
-
-        # 10. URL Redirects & Shortlinks
-        redirects = ContentLoader.load_redirects()
-        self.build_redirects(redirects)
-
+        self.build_redirects(ContentLoader.load_redirects())
+        print(f"Build complete: {len(projects)} projects, {len(posts)} posts, {len(compiled)} pages")

@@ -1,280 +1,95 @@
 ---
 layout: default
 title: "RenderPhoenix — Independent Interactive Creative Studio"
-description: "RenderPhoenix is an independent interactive creative studio building games, 3D worlds, game assets, and
-digital experiences."
+description: "RenderPhoenix is an independent interactive creative studio building games, 3D worlds, game assets, and digital experiences."
 ---
 
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <h1 class="hero-title">WE BUILD <span class="brand-accent">WORLDS.</span></h1>
-        <p class="hero-desc">
-          Interactive games, 3D environments, real-time assets, and digital experiences. Engineered from imagination,
-          built with precision.
-        </p>
-        <div class="hero-ctas">
-          <a href="{{ '/work/' | relative_url }}" class="btn btn-primary">
-            <span>Explore Our Work</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-          <a href="{{ '/about/' | relative_url }}" class="btn btn-secondary">
-            <span>Read Our Story</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Studio Introduction & Impact Metrics -->
-<section class="section studio-identity-section">
-  <div class="container">
-    <div class="studio-identity-card">
-      <div class="studio-identity-content">
-        <span class="section-tag">Studio Identity</span>
-        <h2 class="studio-identity-title">An Indie Creative Studio</h2>
-        <p class="studio-identity-lead">
-          We started back in 2019 by hosting Minecraft realms, crafting custom worlds, and making fun add-ons for
-          players. Today, RenderPhoenix creates original indie games, 3D models, and interactive digital experiences.
-        </p>
-        <p class="studio-identity-desc">
-          What began as playing together with friends and building maps has grown into an indie game studio. We use
-          tools like Unreal Engine and Blender to bring our ideas to life. Our goal is simple: to make fun, beautiful
-          worlds and games that anyone can jump into and enjoy.
-        </p>
-        <div class="studio-identity-actions">
-          <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">
-            <span>Read Our Story</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-          <a href="{{ '/services/' | relative_url }}" class="btn btn-secondary">
-            <span>Studio Capabilities</span>
-          </a>
-        </div>
-      </div>
-      <div class="studio-identity-visual">
-        <div class="studio-logo-frame">
-          <div class="studio-logo-glow" aria-hidden="true"></div>
-          <img src="{{ '/assets/images/brand/Renderphoenix%20Colored%20Logo.svg' | relative_url }}"
-            alt="RenderPhoenix Studio Logo" class="studio-identity-logo" width="300" height="265" loading="eager" fetchpriority="high" decoding="async">
-        </div>
-      </div>
-    </div>
-
-    <!-- Impact Stats Grid -->
-    <div class="studio-stats-grid">
-      <div class="stat-card">
-        <div class="stat-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-        </div>
-        <div class="stat-number stat-count-up" data-target="838" data-suffix="K+">838K+</div>
-        <div class="stat-label">Total Downloads</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon
-              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-            </polygon>
-          </svg>
-        </div>
-        <div class="stat-number stat-count-up" data-target="15" data-suffix="+">15+</div>
-        <div class="stat-label">Released Projects</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="8" r="7"></circle>
-            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-          </svg>
-        </div>
-        <div class="stat-number">NASA '25</div>
-        <div class="stat-label">Global Nominee</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Selected Work Showcase -->
-<section class="section bg-alt">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Portfolio</span>
-      <h2 class="section-title">Selected Work & Achievements</h2>
-      <p class="section-desc">Highlights from our history of virtual environments, simulations, and real-time add-ons.
-      </p>
-    </div>
-
-    <div class="cards-grid">
-      {% assign featured_projects = site.projects | where: "featured", true | sort: "date" | reverse %}
-      {% for proj in featured_projects limit:3 %}
-      {% include project-card.html project=proj %}
-      {% endfor %}
-    </div>
-
-    <div style="text-align: center; margin-top: var(--space-2xl);">
-      <a href="{{ '/work/' | relative_url }}" class="btn btn-secondary">View Full Work Portfolio &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- NASA Achievement Feature Banner -->
-<section class="section container">
-  <div class="nasa-banner">
-    <div class="nasa-media-wrap">
-      <a href="{{ '/work/nasa-space-apps-2025/' | relative_url }}" class="nasa-thumbnail-link" aria-label="View Moon Forces — NASA Space Apps 2025 project">
-        <img src="/assets/images/projects/moon-forces/Renderphoenix%20Nasa%20Space%20App%20Moon%20Forces%202025.webp" 
-             alt="Moon Forces — NASA Space Apps 2025 Thumbnail" 
-             class="nasa-thumbnail" 
-             loading="lazy" 
-             decoding="async" 
-             width="520" 
-             height="245" 
-             onerror="this.onerror=null; this.src='/assets/images/image-not-found.svg';">
+<section class="home-hero container">
+  <p class="hero-badge">
+    <img src="/assets/images/brand/Renderphoenix%20Colored%20Logo.svg" alt="" width="20" height="18">
+    Indie studio · Bangladesh · Since 2019
+  </p>
+  <h1 class="hero-title"><span>We build</span> <span class="hero-light">worlds.</span></h1>
+  <div class="hero-foot">
+    <p class="lead">Indie games, 3D environments, real-time assets and interactive experiences — made with Unreal Engine, Unity and Blender.</p>
+    <div class="btn-row">
+      <a href="/work/" class="btn btn-primary">
+        Explore our work
+        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-    </div>
-    <div class="nasa-content">
-      <span class="badge cat-badge" style="margin-bottom: 0.5rem;">Major Achievement</span>
-      <h2 class="nasa-title">NASA Space Apps Challenge 2025</h2>
-      <div class="nasa-award">Global Nominee</div>
-      <p class="nasa-desc" style="color: var(--color-text-secondary); margin-bottom: 1.2rem;">
-        RenderPhoenix competed in the NASA Space Apps Challenge 2025, engineering an interactive 3D Moon settlement
-        simulator addressing real lunar physics, solar radiation protection, and life support systems.
-      </p>
-      <a href="{{ '/work/nasa-space-apps-2025/' | relative_url }}" class="btn btn-secondary">Read Project Case Study</a>
+      <a href="/contact/" class="btn btn-ghost">Start a project</a>
     </div>
   </div>
 </section>
 
-<!-- What We Build / Current Capabilities -->
-<section class="section">
+<section class="showcase" aria-labelledby="showcase-title">
+  <div class="container showcase-head">
+    <h2 id="showcase-title">Most played</h2>
+    <div class="rail-nav" data-rail-nav hidden>
+      <button type="button" class="rail-btn" data-rail-prev aria-label="Previous projects">
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </button>
+      <button type="button" class="rail-btn" data-rail-next aria-label="Next projects">
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="rail" data-rail tabindex="0" role="region" aria-label="Most played projects, scrollable">
+    {{ showcase }}
+  </div>
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Capabilities</span>
-      <h2 class="section-title">What We Build</h2>
-      <p class="section-desc">Our current production focus spans real-time game engines, 3D asset modeling, technical
-        art, and digital tools.</p>
-    </div>
-
-    <div class="services-grid">
-      {% for service in site.data.services limit:3 %}
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-            </path>
-          </svg>
-        </div>
-        <h3 class="service-title">{{ service.title }}</h3>
-        <p style="font-size: 0.9rem; color: var(--color-text-secondary);">{{ service.short_description | default:
-          service.description }}</p>
-        <h4
-          style="font-size: 0.9rem; margin-top: var(--space-md); margin-bottom: 0.4rem; color: var(--c-1-electric-violet);">
-          Key Capabilities:</h4>
-        <ul class="service-caps">
-          {% for cap in service.capabilities %}
-          <li>{{ cap }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endfor %}
-    </div>
-
-    <div style="text-align: center; margin-top: var(--space-2xl);">
-      <a href="{{ '/services/' | relative_url }}" class="btn btn-secondary">Explore All Studio Capabilities &rarr;</a>
-    </div>
+    <a href="/work/" class="text-link">
+      See all {{ project_count }} projects
+      <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
   </div>
 </section>
 
-<!-- Studio History Timeline -->
-<section class="section bg-alt">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Timeline</span>
-      <h2 class="section-title">The Evolution of RenderPhoenix</h2>
-      <p class="section-desc">Key milestones from our founding in 2019 to our modern interactive studio revival.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-year">2019</div>
-        <h3 class="timeline-title">Minehutt Founded</h3>
-        <p class="timeline-desc">Tasrif Ibn Mizan establishes Minehutt, crafting community Minecraft maps, city builds,
-          and add-ons.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2021</div>
-        <h3 class="timeline-title">RenderPhoenix Identity</h3>
-        <p class="timeline-desc">Officially re-branded as RenderPhoenix to represent transformation and high-quality 3D
-          assets.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">Aug 2022</div>
-        <h3 class="timeline-title">Security Incident & Resilience</h3>
-        <p class="timeline-desc">Faced a major account compromise; the team persevered and continued releases through
-          2024.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2025</div>
-        <h3 class="timeline-title">NASA Space Apps Recognition</h3>
-        <p class="timeline-desc">Achieved Global Nominee at NASA Space Apps Challenge 2025 with lunar habitat
-          simulator.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">22 Aug 2026</div>
-        <h3 class="timeline-title">Official Studio Revival</h3>
-        <p class="timeline-desc">Studio revival initiated, expanding into Unreal Engine, Unity, Blender, and original IP
-          development.</p>
-      </div>
-    </div>
+<section class="band" aria-label="Studio in numbers">
+  <div class="container band-inner">
+    <p class="band-lead">Played by hundreds of thousands of people on MCPEDL, CurseForge and beyond.</p>
+    {{ stats }}
   </div>
 </section>
 
-<!-- Latest Editorial / Devlogs -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Editorial</span>
-      <h2 class="section-title">Latest From The Studio</h2>
-      <p class="section-desc">Articles, devlogs, behind-the-scenes insights, and technical updates.</p>
-    </div>
-
-    <div class="cards-grid">
-      {% for post in site.posts limit:2 %}
-      {% include post-card.html post=post %}
-      {% endfor %}
-    </div>
+<section class="section container statement" aria-labelledby="story-title">
+  <p class="eyebrow">Our story</p>
+  <h2 id="story-title">From Minecraft realms with friends in 2019 to original games, 3D worlds and a NASA Space Apps nomination.</h2>
+  <div class="statement-foot">
+    <p>Founded as Minehutt, renamed RenderPhoenix in 2021 and revived in 2026 — still building the kind of worlds we wanted to play in.</p>
+    <a href="/about/" class="text-link">
+      Read our story
+      <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
   </div>
 </section>
 
-<!-- Call to Action Section -->
+<section class="section container" aria-labelledby="do-title">
+  <div class="section-head">
+    <h2 id="do-title">What we do</h2>
+  </div>
+  {{ services_bento }}
+</section>
+
+<section class="section container" aria-labelledby="journal-title">
+  <div class="section-head">
+    <h2 id="journal-title">Journal</h2>
+    <a href="/blog/" class="text-link">
+      All posts
+      <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  <div class="card-grid card-grid-2">
+    {{ journal }}
+  </div>
+</section>
+
 <section class="section container">
-  <div
-    style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-3xl) var(--space-xl); text-align: center;">
-    <h2 style="font-size: 2.2rem; margin-bottom: var(--space-md);">Ready to Build Worlds Together?</h2>
-    <p style="max-width: 500px; margin: 0 auto var(--space-xl); color: var(--color-text-secondary);">
-      Whether you are looking for custom game assets, 3D environments, or collaborative interactive development, get in
-      touch with RenderPhoenix.
-    </p>
-    <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary">Start a Project Inquiry</a>
+  <div class="cta">
+    <div>
+      <h2>Have a world in mind? Let’s build it.</h2>
+      <p>Games, 3D environments, custom assets or a collaboration — tell us what you’re planning.</p>
+    </div>
+    <a href="/contact/" class="btn btn-primary">Get in touch</a>
   </div>
 </section>

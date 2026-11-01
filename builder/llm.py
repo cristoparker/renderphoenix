@@ -2,7 +2,8 @@ import os
 from typing import List, Dict, Any
 from .config import Config
 from .models import Project, Post
-from .utils import format_full_date
+from .utils import format_full_date, iso_date
+from .loaders import ContentLoader
 
 class LLMGenerator:
     """Generates machine-readable AI & LLM context files (llms.txt and llms-full.txt)."""
@@ -10,6 +11,10 @@ class LLMGenerator:
     @staticmethod
     def build_indexes(projects: List[Project], posts: List[Post], compiled_pages: List[Dict[str, Any]]) -> None:
         site_url = Config.SITE_URL
+        site_data = ContentLoader.load_yaml('site', {}) or {}
+        history = '\n'.join(f"- {t.get('year', '')}: {t.get('title', '')}. {t.get('text', '')}"
+                            for t in site_data.get('timeline', []))
+        team = '\n'.join(f"- {m.name}: {m.role}. {m.bio}" for m in ContentLoader.load_team())
 
         # 1. Standard llms.txt index
         llm_content = f"""# RenderPhoenix — Comprehensive Studio Context & Documentation
@@ -27,19 +32,9 @@ RenderPhoenix is an independent interactive creative studio based in Bangladesh.
 Studio Tagline: "We are not just a company that makes digital things. We build worlds."
 
 ## 2. Detailed History & Milestones
-- 2019: Founded by Tasrif Ibn Mizan under the initial studio name Minehutt. Hosted Minecraft realms, played together with community members, and made fun adventure maps.
-- January 30, 2021: Official re-branding to RenderPhoenix to establish a broader visual identity in real-time art and 3D modeling, launching landmark MCPEDL releases including Banglamine City, Zombiepolis, and vehicle add-ons.
-- 1 August 2022: Experienced a severe security incident where core social accounts and communication channels were compromised. Despite this, the studio demonstrated resilience by continuing operations and publishing content through 2024.
-- 2024: Operations paused as the original team members dispersed into university studies and software careers.
-- 2025: Team members competed in the NASA Space Apps Challenge 2025, creating a lunar settlement simulator and earning Global Nominee.
-- 22 August 2026: Official studio revival initiated to rebuild digital infrastructure, reassemble team capabilities, and expand into original games and 3D asset production.
-
+{history}
 ## 3. Team Roster
-- Tasrif Ibn Mizan: Founder. Established Minehutt in 2019 and RenderPhoenix in 2021.
-- Cristo Parker: Manager.
-- Uthowaipru Chowdhury: Indie Game Developer. Specializes in gameplay systems and mechanics.
-- Faizul726: App Developer. Specializes in application software and client tooling.
-
+{team}
 ## 4. Main Pages & Canonical Markdown Endpoints
 - [About RenderPhoenix]({site_url}/about.md): Comprehensive studio history, founders, timeline, resilience milestones, and 2026 revival details.
 - [Services & Capabilities]({site_url}/services.md): Technical overview of studio capabilities (Unreal Engine 5, Unity, Blender, C#, C++, shaders, asset production, and simulation prototypes).
@@ -54,7 +49,7 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
             slug = proj.slug
             desc = proj.description
             date = proj.date
-            year = str(date)[:4] if date else ''
+            year = iso_date(date)[:4]
             year_str = f" ({year})" if year else ''
             cat = proj.category
             cat_str = f" [{cat}]" if cat else ''
@@ -88,8 +83,8 @@ Studio Tagline: "We are not just a company that makes digital things. We build w
 ## 9. Technical Architecture of Official Website
 - Static-First Engine: Statically generated site hosted on GitHub Pages with custom domain renderphoenix.com.
 - Modular Markdown Endpoints: Every project, blog post, and legal policy is directly available as clean raw Markdown at `/work/<slug>.md`, `/blog/<slug>.md`, `/about.md`, `/services.md`, `/contact.md`, `/privacy-policy.md`, and `/dmca.md`.
-- Design System: Custom CSS tokens, Inter & JetBrains Mono typography, responsive grid, zero heavy external frameworks.
-- Client-side Static Search: Powers search through search.json and search-data.js index.
+- Design System: Warm neutral CSS tokens, self-hosted Inter typography, CSS inlined per page, zero external frameworks.
+- Client-side Static Search: A Ctrl+K search dialog on every page, lazily loading search.json.
 - Technical SEO & AI Ingestion: Full Open Graph, Twitter Cards, JSON-LD Organization schema, WebSite schema, Article schema, sitemap.xml with image extensions, robots.txt, llms.txt, and llms-full.txt.
 - Full LLM Corpus: Available at `{site_url}/llms-full.txt`.
 """

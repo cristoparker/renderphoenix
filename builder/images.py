@@ -6,8 +6,15 @@ Dependency-free: Uses only Python standard library.
 
 import os
 import struct
+import hashlib
 import urllib.parse
 from typing import Optional, Tuple
+from .config import Config
+
+try:
+    from PIL import Image  # Optional: enables build-time thumbnails
+except ImportError:  # pragma: no cover
+    Image = None
 
 _DIMENSION_CACHE = {}
 
@@ -30,8 +37,7 @@ def get_webp_url(img_url: str) -> str:
     
     if ext.lower() in ['.png', '.jpg', '.jpeg']:
         webp_candidate = f"{base_name}.webp"
-        local_path = webp_candidate.lstrip('/')
-        if os.path.exists(local_path) or os.path.exists(os.path.join('assets', local_path)):
+        if os.path.exists(os.path.join(Config.ROOT_DIR, webp_candidate.lstrip('/'))):
             encoded_path = urllib.parse.quote(webp_candidate, safe='/:?#&=%')
             return f"{encoded_path}{query_str}"
             
@@ -114,11 +120,7 @@ def get_image_dimensions(img_path: str) -> Optional[Tuple[int, int]]:
         return _DIMENSION_CACHE[clean_path]
         
     # Attempt resolving file location
-    candidates = [
-        clean_path,
-        os.path.join(os.getcwd(), clean_path),
-        os.path.join(os.getcwd(), 'assets', clean_path)
-    ]
+    candidates = [os.path.join(Config.ROOT_DIR, clean_path)]
     
     for cand in candidates:
         if os.path.exists(cand) and os.path.isfile(cand):
@@ -128,3 +130,52 @@ def get_image_dimensions(img_path: str) -> Optional[Tuple[int, int]]:
                 return dims
                 
     return None
+
+
+def get_thumbnail_url(img_url: str, width: int = Config.THUMB_WIDTH, ratio: Optional[float] = None) -> str:
+    """
+    Returns a URL to a WebP copy of `img_url` resized to `width` px (or the source width if
+    smaller), generated into _site/assets/thumbs/. The original aspect ratio is kept unless a
+    `ratio` is given, in which case the image is centre-cropped to it.
+    Falls back to the full-size URL when Pillow is missing or the source is not a raster image.
+    """
+    full_url = get_webp_url(img_url)
+    if not img_url or Image is None:
+        return full_url
+
+    src_rel = urllib.parse.unquote(full_url.split('?')[0]).lstrip('/')
+    src_path = os.path.join(Config.ROOT_DIR, src_rel)
+    if not os.path.isfile(src_path) or not src_rel.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
+        return full_url
+
+    dims = get_image_dimensions(full_url)
+    if not dims:
+        return full_url
+    out_w = min(width, dims[0])
+    out_h = round(out_w / ratio) if ratio else round(dims[1] * out_w / dims[0])
+
+    digest = hashlib.sha1(f'{src_rel}:{os.path.getmtime(src_path)}:{out_w}:{ratio or "orig"}'.encode()).hexdigest()[:12]
+    out_name = f'{digest}-{out_w}.webp'
+    out_path = os.path.join(Config.SITE_DIR, 'assets', 'thumbs', out_name)
+    if not os.path.exists(out_path):
+        try:
+            os.makedirs(os.path.dirname(out_path), exist_ok=True)
+            with Image.open(src_path) as im:
+                im = im.convert('RGBA' if im.mode in ('RGBA', 'LA', 'P') else 'RGB')
+                src_ratio = im.width / im.height
+                if not ratio:
+                    pass
+                elif src_ratio > ratio:   # too wide: trim the sides
+                    crop_w = round(im.height * ratio)
+                    left = (im.width - crop_w) // 2
+                    im = im.crop((left, 0, left + crop_w, im.height))
+                elif src_ratio < ratio:  # too tall: trim top and bottom
+                    crop_h = round(im.width / ratio)
+                    top = (im.height - crop_h) // 2
+                    im = im.crop((0, top, im.width, top + crop_h))
+                im.resize((out_w, out_h), Image.LANCZOS).save(out_path, 'WEBP', quality=78, method=6)
+        except Exception as exc:
+            print(f"  Warning: thumbnail failed for {src_rel}: {exc}")
+            return full_url
+    _DIMENSION_CACHE[f'assets/thumbs/{out_name}'] = (out_w, out_h)
+    return f'/assets/thumbs/{out_name}'

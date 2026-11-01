@@ -1,46 +1,25 @@
 ---
 layout: default
 ---
-
-<article class="blog-article">
-  <header class="article-header container">
-    <h1 class="article-title">{{ page.title }}</h1>
-
-    <div class="article-meta">
-      <span class="badge cat-badge">{% if page.categories %}{{ page.categories.first | capitalize }}{% else %}Devlog{% endif %}</span>
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time>
-    </div>
-
-    {% if page.description %}
-      <p class="article-lead">{{ page.description }}</p>
-    {% endif %}
-
-    <div class="article-author-bar">
-      <div class="author-info">
-        <span class="author-label">Written by</span>
-        <span class="author-name">{{ page.author | default: site.author.name }}</span>
-      </div>
-    </div>
+<article class="article">
+  <header class="article-head container-narrow">
+    <a class="back-link" href="/blog/">
+      <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      All posts
+    </a>
+    <p class="eyebrow">{{ page.category }} · <time datetime="{{ page.date_iso }}">{{ page.date }}</time></p>
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.description }}</p>
+    <p class="byline">By {{ page.author }}</p>
   </header>
-
-  {% if page.image %}
-    <div class="article-hero-wrap container">
-      <div class="article-hero-media">
-        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="eager" fetchpriority="high" decoding="async" width="520" height="245" onerror="this.onerror=null; this.src='{{ '/assets/images/image-not-found.svg' | relative_url }}';">
-      </div>
+  <div class="container-wide">{{ cover }}</div>
+  <div class="container-narrow">
+    <div class="prose">
+      {{ content }}
     </div>
-  {% endif %}
-
-  <div class="article-container container">
-    <div class="article-content-wrapper">
-      <div class="article-body">
-        {{ content }}
-      </div>
-
-      <footer class="article-footer">
-        {{ article_tags }}
-        {{ post_navigation }}
-      </footer>
-    </div>
+    <footer class="article-foot">
+      {{ tags }}
+      {{ pager }}
+    </footer>
   </div>
 </article>

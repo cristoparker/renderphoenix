@@ -30,7 +30,7 @@ These early years fostered our creative collaboration and laid the groundwork fo
 
 By early 2021, our ambitions expanded from hosting realms into building standalone 3D worlds, engineered vehicles, and full interactive environments using dedicated 3D tooling like Blender and real-time graphics pipelines.
 
-On **January 30, 2021**, we officially rebranded as **RenderPhoenix**, introducing our soaring phoenix emblem with layered violet and rose wings.
+On **January 27, 2021**, we officially rebranded as **RenderPhoenix**, introducing our soaring phoenix emblem with layered violet and rose wings.
 
 ![RenderPhoenix First Generation Logo 2021–2024](/assets/images/brand/Renderphoenix%202021-2026.webp)
 

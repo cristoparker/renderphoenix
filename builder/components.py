@@ -1,297 +1,330 @@
-from typing import Union, Dict, Any, List
+from typing import Union, Dict, Any, List, Optional
+from .config import Config
 from .models import Project, Post, Service, TeamMember
-from .utils import format_full_date
-from .images import get_webp_url, get_image_dimensions
+from .utils import format_full_date, iso_date, html_escape as esc
+from .images import get_webp_url, get_thumbnail_url, get_image_dimensions
+from .icons import icon, has_icon  # noqa: F401  (has_icon used by social_links)
+
+Item = Union[Project, Post, Dict[str, Any]]
+
+
+def _slugify(text: str) -> str:
+    return '-'.join(''.join(c if c.isalnum() else ' ' for c in str(text).lower()).split())
+
+
+def _is_external(url: str) -> bool:
+    return str(url).startswith(('http://', 'https://'))
+
+
+def _ext_attrs(url: str) -> str:
+    return ' target="_blank" rel="noopener noreferrer"' if _is_external(url) else ''
+
 
 class ComponentRenderer:
-    """Renders reusable HTML UI components including project cards, blog post cards, specs, and action buttons."""
+    """Renders reusable HTML components. All markup lives here so templates stay logic-free."""
 
+    # ------------------------------------------------------------------ media
     @staticmethod
-    def render_project_card(proj: Union[Project, Dict[str, Any]], card_class: str = "") -> str:
-        """Renders standard portfolio project card."""
+    def sources(url: str, widths: Optional[List[int]] = None) -> Dict[str, Any]:
+        """Responsive sources for an image: {'src', 'srcset', 'dims'}. Thumbnails are 16:9 WebP
+        crops at each width (capped at the source width); without Pillow it falls back to the original."""
+        url = url or Config.FALLBACK_IMAGE
+        full = get_webp_url(url)
+        variants: Dict[int, str] = {}
+        for w in widths or Config.THUMB_WIDTHS:
+            t = get_thumbnail_url(url, w)
+            d = get_image_dimensions(t) if t != full else None
+            if d:
+                variants[d[0]] = t
+        if not variants:
+            return {'src': full, 'srcset': '', 'dims': get_image_dimensions(full)}
+        src = variants[max(variants)]
+        return {'src': src, 'srcset': ', '.join(f'{u} {w}w' for w, u in sorted(variants.items())),
+                'dims': get_image_dimensions(src)}
+
+    @classmethod
+    def image(cls, url: str, alt: str, cls_name: str = '', eager: bool = False,
+              widths: Optional[List[int]] = None, sizes: str = Config.CARD_SIZES) -> str:
+        """<img> for a 16:9 media frame, with intrinsic dimensions (no layout shift), a srcset,
+        and lazy loading unless it is the page's main image.
+
+        Images that are not 16:9 are shown whole (object-fit: contain) over a blurred, zoomed copy
+        of themselves that fills the letterbox. The copy uses the same URL, so it costs no extra
+        download."""
+        src = cls.sources(url, widths)
+        srcset = f' srcset="{src["srcset"]}" sizes="{sizes}"' if src['srcset'] else ''
+        dims = src['dims']
+        dim_attrs = f' width="{dims[0]}" height="{dims[1]}"' if dims else ''
+        loading = 'fetchpriority="high"' if eager else 'loading="lazy"'
+        letterboxed = bool(dims) and abs(dims[0] / dims[1] - 16 / 9) > 0.03
+        classes = ' '.join(c for c in (cls_name, 'fit-contain' if letterboxed else '') if c)
+        cls_attr = f' class="{classes}"' if classes else ''
+        img = f'<img src="{src["src"]}"{srcset} alt="{esc(alt)}"{cls_attr}{dim_attrs} {loading} decoding="async">'
+        if not letterboxed:
+            return img
+        lazy = '' if eager else ' loading="lazy"'
+        backdrop = (f'<img src="{src["src"]}"{srcset} alt="" aria-hidden="true" class="frame-blur"'
+                    f'{dim_attrs}{lazy} decoding="async">')
+        return backdrop + img
+
+    @classmethod
+    def preload(cls, url: str, widths: Optional[List[int]] = None, sizes: str = Config.CARD_SIZES) -> str:
+        """<link rel=preload> matching image() exactly, so the browser fetches the same file once."""
+        src = cls.sources(url, widths)
+        if src['srcset']:
+            return (f'<link rel="preload" as="image" href="{src["src"]}" imagesrcset="{src["srcset"]}" '
+                    f'imagesizes="{sizes}" fetchpriority="high">')
+        return f'<link rel="preload" as="image" href="{src["src"]}" fetchpriority="high">'
+
+    # ------------------------------------------------------------- projects
+    @classmethod
+    def project_card(cls, proj: Item, eager: bool = False, heading: str = 'h3') -> str:
+        """Portfolio card: image, meta line, title, short description."""
+        title = proj.get('title', '')
+        url = f"/work/{proj.get('slug', '')}/"
         cat = proj.get('category', '')
-        cat_badge_html = f'<span class="badge cat-badge">{cat}</span>' if cat else ''
-        award_html = (
-            '<div class="card-badge award-badge">'
-            '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
-            '<circle cx="12" cy="8" r="7"></circle>'
-            '<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>'
-            '</svg><span>Award Winner</span></div>'
-        ) if proj.get('award') else ''
-        
-        raw_img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
-        img = get_webp_url(raw_img)
-        img_html = (
-            f'<img src="{img}" alt="" class="media-bg-blur" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display=\'none\';">'
-            f'<img src="{img}" alt="{proj.get("title")} preview" class="media-fg-img" loading="lazy" decoding="async" width="1920" height="1080" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';">'
-        )
-        slug = proj.get('slug', '')
-        url = f'/work/{slug}/'
-        date_formatted = format_full_date(proj.get('date'))
-        downloads_count = proj.get('downloads')
-        downloads_html = (
-            f'<span class="meta-downloads" title="{downloads_count} downloads">'
-            '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
-            '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>'
-            '<polyline points="7 10 12 15 17 10"></polyline>'
-            '<line x1="12" y1="15" x2="12" y2="3"></line>'
-            f'</svg><span>{downloads_count}</span></span>'
-        ) if downloads_count else ''
-        
-        class_attr = f"project-card {card_class}".strip()
-
-        return f"""
-    <article class="{class_attr}" data-category="{str(cat).lower()}">
-      <div class="card-media">
-        <div class="media-aspect">
-          {img_html}
-        </div>
-        {award_html}
-      </div>
-
-      <div class="card-body">
-        <h3 class="card-title">
-          <a href="{url}">{proj.get('title', '')}</a>
-        </h3>
-
-        <div class="card-meta">
-          {cat_badge_html}
-          <time class="meta-date">{date_formatted}</time>
-          {downloads_html}
-        </div>
-
-        <p class="card-desc">{proj.get('description', '')}</p>
-      </div>
-
-      <div class="card-footer">
-        <a href="{url}" class="card-link" aria-label="View {proj.get('title', '')} project details">
-          <span>View Project</span>
-          <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
-      </div>
-    </article>
-    """
+        downloads = proj.get('downloads')
+        meta_left = esc(cat) + (f' · {esc(downloads)} downloads' if downloads else '')
+        award = f'<span class="card-flag">{icon("award", 14)} Award</span>' if proj.get('award') else ''
+        return f"""<article class="card" data-category="{_slugify(cat)}">
+  <a class="card-link" href="{url}">
+    <div class="card-media">{cls.image(proj.get('cover_image', ''), title, eager=eager)}{award}</div>
+    <div class="card-meta"><span>{meta_left}</span><time datetime="{iso_date(proj.get('date'))}">{(iso_date(proj.get('date')) or '')[:4]}</time></div>
+    <{heading} class="card-title">{esc(title)}</{heading}>
+    <p class="card-desc">{esc(proj.get('description', ''))}</p>
+  </a>
+</article>"""
 
     @staticmethod
-    def render_post_card(post: Union[Post, Dict[str, Any]], featured: bool = False, card_class: str = "") -> str:
-        """Renders blog post / devlog card (grid or featured magazine layout)."""
-        feat_class = 'post-card-featured' if featured else card_class
-        raw_img = post.get('image') or '/assets/images/image-not-found.svg'
-        img = get_webp_url(raw_img)
-        img_html = f'<div class="post-card-media"><img src="{img}" alt="{post.get("title")}" loading="lazy" decoding="async" width="520" height="245" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
-        slug = post.get('slug', '')
-        url = f'/blog/{slug}/'
-        author = post.get('author', 'RenderPhoenix')
-        date_formatted = format_full_date(post.get('date'))
-        cats = post.get('categories', [])
-        cat_name = cats[0].capitalize() if (cats and isinstance(cats, list)) else 'Devlog'
+    def download_count(proj: Item) -> float:
+        """Parses download strings like '285.1K+', '29,983' or '1.2M' into a number for sorting."""
+        raw = str(proj.get('downloads') or '').upper().replace(',', '').replace('+', '').strip()
+        mult = 1_000_000 if raw.endswith('M') else 1_000 if raw.endswith('K') else 1
+        try:
+            return float(raw.rstrip('KM')) * mult
+        except ValueError:
+            return 0.0
 
-        return f"""
-    <article class="post-card {feat_class}">
-      {img_html}
-      <div class="post-card-content">
-        <h3 class="post-card-title">
-          <a href="{url}">{post.get('title', '')}</a>
-        </h3>
+    @classmethod
+    def showcase_projects(cls, projects: List[Project], limit: int = 8) -> List[Project]:
+        """Featured projects first, each group ordered by downloads."""
+        by_dl = sorted(projects, key=cls.download_count, reverse=True)
+        return ([p for p in by_dl if p.featured] + [p for p in by_dl if not p.featured])[:limit]
 
-        <div class="post-card-meta">
-          <span class="badge cat-badge">{cat_name}</span>
-          <time class="post-date">{date_formatted}</time>
-        </div>
+    @classmethod
+    def showcase(cls, projects: List[Project]) -> str:
+        """Horizontally scrolling rail of large 16:9 project cards for the homepage."""
+        cards = []
+        for i, p in enumerate(cls.showcase_projects(projects)):
+            stat = f'{esc(p.downloads)} downloads' if p.downloads else ('Award winner' if p.award else '')
+            cards.append(
+                f'<a class="show-card" href="/work/{p.slug}/">'
+                f'<div class="show-media">{cls.image(p.cover_image, "", eager=(i == 0), widths=Config.SHOWCASE_WIDTHS, sizes=Config.SHOWCASE_SIZES)}</div>'
+                f'<div class="show-meta"><span>{esc(p.category)}</span><span>{stat}</span></div>'
+                f'<h3>{esc(p.title)}</h3></a>')
+        return ''.join(cards)
 
-        <p class="post-card-desc">
-          {post.get('description', '')}
-        </p>
+    @classmethod
+    def showcase_preload(cls, projects: List[Project]) -> str:
+        top = cls.showcase_projects(projects, 1)
+        return cls.preload(top[0].cover_image, Config.SHOWCASE_WIDTHS, Config.SHOWCASE_SIZES) if top else ''
 
-        <div class="post-card-footer">
-          <span class="post-author">By {author}</span>
-          <a href="{url}" class="read-more-link" aria-label="Read story {post.get('title', '')}">
-            Read Story
-            <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
-      </div>
-    </article>
-    """
-
-    @staticmethod
-    def render_sidebar_item(proj: Union[Project, Dict[str, Any]]) -> str:
-        """Renders compact sidebar magazine story item."""
-        cat = proj.get('category', 'Project')
-        if cat in ['Interactive', 'Environment']:
-            cat = 'Project'
-        url = f"/work/{proj.get('slug')}/"
-        raw_img = proj.get('cover_image') or '/assets/images/image-not-found.svg'
-        img = get_webp_url(raw_img)
-        dims = get_image_dimensions(img) or (70, 70)
-        img_html = f'<div class="magazine-sidebar-thumb" style="width: 70px; height: 70px; flex-shrink: 0; background: var(--color-bg-alt); overflow: hidden; border-radius: var(--radius-md);"><img src="{img}" alt="{proj.get("title")}" loading="lazy" decoding="async" width="{dims[0]}" height="{dims[1]}" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: var(--radius-md);" onerror="this.onerror=null; this.src=\'/assets/images/image-not-found.svg\';"></div>'
-        date_formatted = format_full_date(proj.get('date'))
-
-        return f"""
-    <article class="magazine-sidebar-item" style="display: flex; gap: 0.85rem; align-items: center;">
-      {img_html}
-      <div style="flex: 1; min-width: 0;">
-        <h4 class="magazine-sidebar-title">
-          <a href="{url}">{proj.get('title', '')}</a>
-        </h4>
-        <div class="magazine-sidebar-meta">
-          <span class="badge cat-badge">{cat}</span>
-          <time class="sidebar-date">{date_formatted}</time>
-        </div>
-      </div>
-    </article>
-    """
+    @classmethod
+    def services_bento(cls, services: List[Service], projects: List[Project]) -> str:
+        """Bento grid: award project as the large tile, featured services, and an 'all' tile."""
+        tiles = []
+        award = next((p for p in projects if p.award), None)
+        if award:
+            tiles.append(
+                f'<a class="bento-tile bento-feature" href="/work/{award.slug}/">'
+                f'<div class="bento-media">{cls.image(award.cover_image, "", sizes=Config.BENTO_SIZES)}</div>'
+                f'<div class="bento-body"><p class="eyebrow">Recognition · {iso_date(award.date)[:4]}</p>'
+                f'<h3>{esc(award.award)}</h3><p>{esc(award.description)}</p></div></a>')
+        featured = [s for s in services if s.get('featured')] or services
+        for serv in featured[:3]:
+            ic = serv.get('icon', '')
+            tiles.append(
+                f'<a class="bento-tile" href="/services/#{esc(serv.get("slug", ""))}">'
+                f'<span class="bento-icon">{icon(ic, 22) if has_icon(ic) else ""}</span>'
+                f'<h3>{esc(serv.get("title", ""))}</h3><p>{esc(serv.get("short_description", ""))}</p></a>')
+        tiles.append(f'<a class="bento-tile bento-dark" href="/services/"><h3>All capabilities</h3>'
+                     f'<p>Technical art, shaders, simulations and more.</p>'
+                     f'<span class="bento-arrow">{icon("arrow-up-right", 22)}</span></a>')
+        return '<div class="bento">' + ''.join(tiles) + '</div>'
 
     @staticmethod
-    def render_service_card(serv: Union[Service, Dict[str, Any]]) -> str:
-        """Renders capabilities / service offering card."""
-        caps = ''.join([f'<li>{c}</li>' for c in serv.get('capabilities', [])])
-        return f"""
-        <div class="service-card" id="{serv.get('slug', '')}">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-          </div>
-          <h3 class="service-title">{serv.get('title', '')}</h3>
-          <p style="font-size: 0.9rem; color: var(--color-text-secondary);">{serv.get('short_description', serv.get('description', ''))}</p>
-          <h4 style="font-size: 0.9rem; margin-top: var(--space-md); margin-bottom: 0.4rem; color: var(--c-1-electric-violet);">Key Capabilities:</h4>
-          <ul class="service-caps">{caps}</ul>
-        </div>
-        """
+    def filter_chips(projects: List[Project]) -> str:
+        """Category filter buttons, generated from the categories actually in use."""
+        cats = sorted({p.category for p in projects if p.category})
+        chips = ['<button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>']
+        chips += [f'<button type="button" class="chip" data-filter="{_slugify(c)}" aria-pressed="false">{esc(c)}</button>'
+                  for c in cats]
+        return '<div class="chips" role="group" aria-label="Filter projects by category">' + ''.join(chips) + '</div>'
 
     @staticmethod
-    def render_team_card(mem: Union[TeamMember, Dict[str, Any]]) -> str:
-        """Renders studio team member roster card."""
-        raw_avatar = mem.get('avatar', '')
-        avatar_url = get_webp_url(raw_avatar) if raw_avatar else ''
-        name = mem.get('name', '')
-        if avatar_url:
-            dims = get_image_dimensions(avatar_url) or (80, 80)
-            avatar_html = f'<img src="{avatar_url}" alt="{name}" class="team-avatar-img" width="{dims[0]}" height="{dims[1]}" loading="lazy" decoding="async" />'
-        else:
-            initial = name[0] if name else 'R'
-            avatar_html = initial
-        return f"""
-        <div class="team-card">
-          <div class="team-avatar">{avatar_html}</div>
-          <h3 class="team-name">{name}</h3>
-          <div class="team-role">{mem.get('role', '')}</div>
-          <p class="team-bio">{mem.get('bio', '')}</p>
-        </div>
-        """
-
-    @staticmethod
-    def render_project_specs(proj: Union[Project, Dict[str, Any]]) -> str:
-        """Renders project specifications list (<dl><dt>...<dd>...) for sidebar."""
-        items = []
-
-        dev = proj.get('developer')
-        if dev:
-            items.append(f'<dt>Developer</dt>\n<dd>{dev}</dd>')
-
-        cat = proj.get('category')
-        if cat:
-            items.append(f'<dt>Category</dt>\n<dd>{cat}</dd>')
-
-        ver = proj.get('version')
-        if ver:
-            items.append(f'<dt>Version</dt>\n<dd>{ver}</dd>')
-
-        platform = proj.get('platform')
+    def project_specs(proj: Item) -> str:
+        """Project facts as <dt>/<dd> pairs."""
         platforms = proj.get('platforms')
-        if platform:
-            items.append(f'<dt>Platform</dt>\n<dd>{platform}</dd>')
-        elif platforms:
-            plat_str = ', '.join(platforms) if isinstance(platforms, list) else str(platforms)
-            items.append(f'<dt>Platform</dt>\n<dd>{plat_str}</dd>')
-
-        date_val = proj.get('date')
-        if date_val:
-            date_formatted = format_full_date(date_val)
-            items.append(f'<dt>Release Date</dt>\n<dd>{date_formatted}</dd>')
-
-        license_val = proj.get('license')
-        if license_val:
-            items.append(f'<dt>License</dt>\n<dd>{license_val}</dd>')
-
-        dl_count = proj.get('downloads')
-        if dl_count:
-            dl_html = f'''<dt>Downloads</dt>
-<dd class="spec-downloads">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-  <span>{dl_count}</span>
-</dd>'''
-            items.append(dl_html)
-
-        return '\n'.join(items)
+        rows = [
+            ('Developer', proj.get('developer')),
+            ('Category', proj.get('category')),
+            ('Version', proj.get('version')),
+            ('Platform', proj.get('platform') or (', '.join(platforms) if isinstance(platforms, list) else platforms)),
+            ('Released', format_full_date(proj.get('date'))),
+            ('License', proj.get('license')),
+            ('Downloads', proj.get('downloads')),
+        ]
+        items = ''.join(f'<div><dt>{k}</dt><dd>{esc(v)}</dd></div>' for k, v in rows if v)
+        techs = proj.get('technologies') or []
+        if techs:
+            items += '<div><dt>Built with</dt><dd>' + ', '.join(esc(t) for t in techs) + '</dd></div>'
+        return f'<dl class="specs">{items}</dl>' if items else ''
 
     @staticmethod
-    def render_project_sidebar_actions(proj: Union[Project, Dict[str, Any]]) -> str:
-        """Renders modular action buttons (Demo, Downloads, GitHub repo, Docs, MCPEDL)."""
-        buttons = []
+    def project_actions(proj: Item) -> str:
+        """Action buttons: demo, downloads, GitHub, docs, MCPEDL (first one is primary)."""
+        actions = []
+        if proj.get('demo_url'):
+            actions.append((proj.get('demo_url'), proj.get('demo_label', 'Launch live demo'), 'play'))
+        for idx, dl in enumerate(proj.get('download_links') or []):
+            if isinstance(dl, dict) and dl.get('url'):
+                actions.append((dl['url'], dl.get('label') or f'Download #{idx + 1}', 'download'))
+            elif isinstance(dl, str):
+                actions.append((dl, f'Download #{idx + 1}', 'download'))
+        if not proj.get('download_links'):
+            if proj.get('download_url'):
+                actions.append((proj.get('download_url'), proj.get('download_label', 'Download'), 'download'))
+            elif proj.get('mcpedl_url'):
+                actions.append((proj.get('mcpedl_url'), 'View on MCPEDL', 'arrow-up-right'))
+        if proj.get('github_url'):
+            actions.append((proj.get('github_url'), proj.get('github_label', 'View on GitHub'), 'github'))
+        if proj.get('docs_url'):
+            actions.append((proj.get('docs_url'), proj.get('docs_label', 'Documentation'), 'book'))
 
-        # 1. Live Demo link
-        demo_url = proj.get('demo_url') or proj.get('live_demo_url')
-        if demo_url:
-            demo_label = proj.get('demo_label', 'Launch Live Demo')
-            buttons.append(f'''<a href="{demo_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-  <span>{demo_label}</span>
-</a>''')
-
-        # 2. Modular Download Links
-        dl_links = proj.get('download_links')
-        if dl_links and isinstance(dl_links, list):
-            for idx, dl in enumerate(dl_links):
-                if isinstance(dl, dict):
-                    url = dl.get('url', '')
-                    label = dl.get('label') or f'Download #{idx+1}'
-                    # Keep all project download buttons uniformly styled (defaults to primary)
-                    is_primary = dl.get('primary') if dl.get('primary') is not None else True
-                else:
-                    url = str(dl)
-                    label = f'Download #{idx+1}'
-                    is_primary = True
-
-                btn_class = 'btn btn-primary btn-block' if is_primary else 'btn btn-secondary btn-block'
-                buttons.append(f'''<a href="{url}" target="_blank" rel="noopener noreferrer" class="{btn_class}">
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-  <span>{label}</span>
-</a>''')
-        elif proj.get('download_url'):
-            dl_url = proj.get('download_url')
-            dl_label = proj.get('download_label', 'Download Project')
-            btn_class = 'btn btn-primary btn-block' if not demo_url else 'btn btn-secondary btn-block'
-            buttons.append(f'''<a href="{dl_url}" target="_blank" rel="noopener noreferrer" class="{btn_class}">
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-  <span>{dl_label}</span>
-</a>''')
-        elif proj.get('mcpedl_url'):
-            mc_url = proj.get('mcpedl_url')
-            btn_class = 'btn btn-primary btn-block' if not demo_url else 'btn btn-secondary btn-block'
-            buttons.append(f'''<a href="{mc_url}" target="_blank" rel="noopener noreferrer" class="{btn_class}">
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-  <span>View on MCPEDL</span>
-</a>''')
-
-        # 3. GitHub repository link
-        gh_url = proj.get('github_url') or proj.get('github') or proj.get('repo_url')
-        if gh_url:
-            gh_label = proj.get('github_label', 'View on GitHub')
-            buttons.append(f'''<a href="{gh_url}" target="_blank" rel="noopener noreferrer" class="btn btn-github btn-block">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-  <span>{gh_label}</span>
-</a>''')
-
-        # 4. Docs link
-        docs_url = proj.get('docs_url')
-        if docs_url:
-            docs_label = proj.get('docs_label', 'Documentation')
-            buttons.append(f'''<a href="{docs_url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block">
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-  <span>{docs_label}</span>
-</a>''')
-
-        if not buttons:
+        if not actions:
             return ''
+        buttons = []
+        for i, (url, label, ic) in enumerate(actions):
+            variant = 'btn-primary' if i == 0 else 'btn-ghost'
+            buttons.append(f'<a class="btn {variant} btn-block" href="{esc(url)}"{_ext_attrs(url)}>'
+                           f'{icon(ic, 16)}<span>{esc(label)}</span></a>')
+        return '<div class="actions">' + ''.join(buttons) + '</div>'
 
-        return '<div class="sidebar-actions">\n' + '\n'.join(buttons) + '\n</div>'
+    @staticmethod
+    def award_banner(proj: Item) -> str:
+        award = proj.get('award')
+        return f'<p class="award">{icon("award", 18)}<span>{esc(award)}</span></p>' if award else ''
+
+    # ---------------------------------------------------------------- posts
+    @classmethod
+    def post_card(cls, post: Item, eager: bool = False) -> str:
+        """Blog card with cover image."""
+        title = post.get('title', '')
+        url = f"/blog/{post.get('slug', '')}/"
+        return f"""<article class="card">
+  <a class="card-link" href="{url}">
+    <div class="card-media">{cls.image(post.get('image', ''), title, eager=eager)}</div>
+    <div class="card-meta"><span>{esc(cls.post_category(post))}</span><time datetime="{iso_date(post.get('date'))}">{format_full_date(post.get('date'))}</time></div>
+    <h3 class="card-title">{esc(title)}</h3>
+    <p class="card-desc">{esc(post.get('description', ''))}</p>
+  </a>
+</article>"""
+
+    @staticmethod
+    def post_row(post: Item) -> str:
+        """Compact text-only post row for lists."""
+        url = f"/blog/{post.get('slug', '')}/"
+        return (f'<li><a class="row-link" href="{url}"><span class="row-title">{esc(post.get("title", ""))}</span>'
+                f'<time class="row-meta" datetime="{iso_date(post.get("date"))}">{format_full_date(post.get("date"))}</time></a></li>')
+
+    @staticmethod
+    def post_category(post: Item) -> str:
+        cats = post.get('categories') or []
+        return str(cats[0]).capitalize() if isinstance(cats, list) and cats else 'Devlog'
+
+    @staticmethod
+    def tags(tags: List[str]) -> str:
+        if not tags:
+            return ''
+        return '<ul class="tags" aria-label="Tags">' + ''.join(f'<li>#{esc(t)}</li>' for t in tags) + '</ul>'
+
+    @staticmethod
+    def post_nav(prev_post: Optional[Post], next_post: Optional[Post]) -> str:
+        links = []
+        if prev_post:
+            links.append(f'<a class="pager-link" href="/blog/{prev_post.slug}/"><span>{icon("arrow-left", 14)} Previous</span>'
+                         f'<strong>{esc(prev_post.title)}</strong></a>')
+        if next_post:
+            links.append(f'<a class="pager-link pager-next" href="/blog/{next_post.slug}/"><span>Next {icon("arrow-right", 14)}</span>'
+                         f'<strong>{esc(next_post.title)}</strong></a>')
+        return f'<nav class="pager" aria-label="More posts">{"".join(links)}</nav>' if links else ''
+
+    # ------------------------------------------------------ studio content
+    @staticmethod
+    def service_item(serv: Union[Service, Dict[str, Any]], index: int, detailed: bool = False,
+                     heading: str = 'h3') -> str:
+        """Numbered capability row: title and one line. `detailed` adds the tools used."""
+        tools = ''
+        techs = serv.get('technologies') or []
+        if detailed and techs:
+            tools = f'<p class="service-tools">{" · ".join(esc(t) for t in techs)}</p>'
+        anchor = f' id="{esc(serv.get("slug"))}"' if serv.get('slug') else ''
+        return (f'<li class="service"{anchor}><span class="service-num">{index:02d}</span>'
+                f'<div><{heading}>{esc(serv.get("title", ""))}</{heading}>'
+                f'<p>{esc(serv.get("short_description") or serv.get("description", ""))}</p>{tools}</div></li>')
+
+    @staticmethod
+    def team_card(mem: Union[TeamMember, Dict[str, Any]]) -> str:
+        """Team member card: avatar with role tag, name and short bio."""
+        name = mem.get('name', '')
+        avatar = mem.get('avatar', '')
+        if avatar:
+            src = avatar if _is_external(avatar) else get_webp_url(avatar)
+            if 'avatars.githubusercontent.com' in src and '?' not in src:
+                src += '?s=144'  # request a right-sized avatar instead of the 460px default
+            media = f'<img src="{src}" alt="" width="72" height="72" loading="lazy" decoding="async">'
+        else:
+            media = f'<span aria-hidden="true">{esc(name[:1] or "R")}</span>'
+        return (f'<li class="person"><div class="avatar">{media}</div>'
+                f'<h3>{esc(name)}</h3><p class="person-role">{esc(mem.get("role", ""))}</p>'
+                f'<p class="person-bio">{esc(mem.get("bio", ""))}</p></li>')
+
+    @staticmethod
+    def stats(items: List[Dict[str, Any]], tokens: Dict[str, Any]) -> str:
+        cells = ''.join(f'<div><dt>{esc(s.get("label", ""))}</dt><dd>{esc(str(s.get("value", "")).format(**tokens))}</dd></div>'
+                        for s in items)
+        return f'<dl class="stats">{cells}</dl>'
+
+    @staticmethod
+    def timeline(items: List[Dict[str, Any]]) -> str:
+        rows = ''.join(f'<li><span class="tl-year">{esc(t.get("year", ""))}</span><div><h3>{esc(t.get("title", ""))}</h3>'
+                       f'<p>{esc(t.get("text", ""))}</p></div></li>' for t in items)
+        return f'<ol class="timeline">{rows}</ol>'
+
+    # ----------------------------------------------------------- navigation
+    @staticmethod
+    def nav_links(items: List[Dict[str, str]], current: str) -> str:
+        """Header nav with `aria-current` on the active section."""
+        out = []
+        for item in items:
+            url = item.get('url', '/')
+            active = current == url or (url != '/' and current.startswith(url))
+            cur = ' aria-current="page"' if active else ''
+            out.append(f'<li><a href="{url}"{cur}>{esc(item.get("title", ""))}</a></li>')
+        return ''.join(out)
+
+    @staticmethod
+    def link_list(items: List[Dict[str, str]]) -> str:
+        return ''.join(f'<li><a href="{esc(i.get("url", ""))}"{_ext_attrs(i.get("url", ""))}>{esc(i.get("title", ""))}</a></li>'
+                       for i in items)
+
+    @staticmethod
+    def social_links(items: List[Dict[str, str]]) -> str:
+        out = []
+        for i in items:
+            title = i.get('title', '')
+            name = title.lower()
+            ic = icon(name, 18) if has_icon(name) else ''
+            out.append(f'<li><a href="{esc(i.get("url", ""))}" target="_blank" rel="noopener noreferrer" '
+                       f'aria-label="{esc(title)}" title="{esc(title)}">{ic}</a></li>')
+        return ''.join(out)

@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Design tokens — warm neutral palette (cream, sand, oat, stone, taupe, espresso)
+   Single light theme.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter-var-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: optional;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces — warm neutrals, light to dark */
+  --bg: #F6F3ED;          /* cream page */
+  --bg-alt: #EDE7DC;      /* sand — alternating sections, hero panel */
+  --surface: #FFFDF9;     /* warm white cards, inputs */
+  --surface-2: #E7E0D3;   /* oat — image placeholders, chips, fills */
+  --stone: #D8D0C1;       /* stone — dividers on sand, avatar rings */
+  --line: #E2DBCE;
+  --line-strong: #CCC3B3;
+
+  /* Text — warm charcoal to taupe */
+  --ink: #1F1C18;
+  --ink-2: #4C463F;       /* secondary — 8.4:1 on --bg */
+  --ink-3: #6B6358;       /* meta/captions — 5.3:1 on --bg, 4.6:1 on --bg-alt */
+  --taupe: #8A7D6B;       /* decorative accents only (rules, dots, numbers ≥24px) */
+
+  /* Deep tones (primary buttons, CTA band) */
+  --deep: #2B2723;        /* espresso */
+  --deep-2: #3A342E;
+  --invert: var(--deep);
+  --on-invert: #F6F3ED;
+
+  --focus: #1F1C18;
+  --logo-filter: none;
+
+  /* Type */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-2xl: clamp(2rem, 1.5rem + 2.2vw, 3rem);
+  --text-3xl: clamp(2.75rem, 1.6rem + 5.5vw, 6.5rem);
+
+  /* Space & shape */
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
+  --section: clamp(4rem, 3rem + 5vw, 8rem);
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 24px;
+  --container: 1200px;
+
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --shadow: 0 1px 2px rgb(43 39 35 / .05), 0 10px 30px rgb(43 39 35 / .08);
+}

@@ -10,7 +10,7 @@ from .loaders import ContentLoader
 from .markdown import MarkdownParser
 from .components import ComponentRenderer
 from .template import TemplateEngine
-from .seo import SEOGenerator, SitemapBuilder
+from .seo import SEOGenerator, SitemapBuilder, FeedBuilder
 from .search import SearchIndexer
 from .llm import LLMGenerator
 from .site_builder import SiteBuilder
@@ -28,6 +28,7 @@ __all__ = [
     'TemplateEngine',
     'SEOGenerator',
     'SitemapBuilder',
+    'FeedBuilder',
     'SearchIndexer',
     'LLMGenerator',
     'SiteBuilder'

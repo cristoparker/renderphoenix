@@ -9,11 +9,11 @@ Official website for **RenderPhoenix**, an independent interactive creative stud
 
 ## Technical Stack
 
-- **Engine**: Jekyll (Static Site Generator)
+- **Engine**: Custom Python static site generator (`build_site.py` + `builder/`)
 - **Hosting**: GitHub Pages with custom domain (`CNAME`)
-- **Styling**: Vanilla CSS with custom design tokens (`variables.css`)
+- **Styling**: Vanilla CSS with design tokens (`assets/css/tokens.css`), inlined at build time
 - **Scripts**: Vanilla JavaScript (Mobile menu, fast static search, category filters)
-- **Typography**: Space Grotesk (Headings), Inter (Body), JetBrains Mono (Code)
+- **Typography**: Inter variable (self-hosted), system monospace for code
 - **SEO & AI**: Full Open Graph, JSON-LD Schema, `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt`
 
 ---
