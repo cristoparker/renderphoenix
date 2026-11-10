@@ -115,7 +115,7 @@ class SEOGenerator:
                     page_entity["award"] = meta['award']
             else:
                 page_entity["@type"] = "WebPage"
-                page_entity.pop("headline")
+                page_entity.pop("headline", None)
             if published:
                 page_entity["datePublished"] = published
                 page_entity["dateModified"] = modified
