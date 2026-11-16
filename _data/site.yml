@@ -5,7 +5,7 @@ location: "Bangladesh"
 founded: 2019
 
 stats:
-  - value: "988K+"
+  - value: "1.03M+"
     label: "Total downloads"
   - value: "{project_count}"          # filled in at build time from _projects/
     label: "Released projects"
