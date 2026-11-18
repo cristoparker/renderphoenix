@@ -1,4 +1,4 @@
-name: Deploy Jekyll site to Pages
+name: Build and deploy site to Pages
 
 on:
   push:
@@ -28,15 +28,19 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.12'
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Build site with Python
+      - name: Build site
         run: python3 build_site.py
+
+      - name: Verify build output
+        run: test -f _site/index.html && test -f _site/sitemap.xml && test -f _site/search.json
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
